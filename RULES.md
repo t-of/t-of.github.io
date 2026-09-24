@@ -233,10 +233,17 @@ gh api -X POST repos/Sora3141/<id>/pages -f 'source[branch]=main' -f 'source[pat
 
 ## 既存アプリの対応状況（2026-09-24 時点）
 
-| アプリ | 気になる点 |
+2026-09-24 に直したもの: 他アプリのキャッシュを消す SW（4 本）、`black-translucent`（5 本）、pentris / coord-maze のオフライン対応、全 7 本への T.OFO リンク。
+
+残っている差分（急ぎではない。触るついでに直す）:
+
+| アプリ | 残っている点 |
 |---|---|
-| gear-align / glyph-shift / hue-hunter / core-image-english | SW の `activate` が**他アプリのキャッシュまで消す**（[4](#4-service-worker)） |
-| coord-maze / gear-align / glyph-shift / hue-hunter / core-image-english | `black-translucent` を使っている（[2](#2-head-と-pwa)） |
-| pentris | Service Worker がなく、オフラインで起動しない |
-| 全アプリ | T.OFO へのリンクがまだない（[7](#7-制作元の表記)） |
+| pentris | `icon.svg`・`maskable-512.png`・`og.png` がない |
+| coord-maze | アイコンが `icons/` ではなくルート、`favicon-32`・maskable・`og.png` がない、インストールボタンがない |
+| gear-align | webapp-kit ではなく独自のインストール・共有 UI（動作は問題なし）、README の見出しが [8](#8-readme) と違う |
+| glyph-shift | OGP・`og.png`・`icon.svg` がない、インストール・共有ボタンがない |
+| hue-hunter | localStorage の読み書きに try/catch がない、不要な `ads.txt` が残っている |
+| core-image-english | 共有ボタンと iPhone 向けのインストール案内がない、OGP・description がない、`html` の背景が `theme-color` と違う（意図的） |
+| Half-Cut | README に T.OFO の表記がまだない |
 | insider / score-othello / cube-othello | PWA 化していない（manifest・アイコンなし）ため一覧に未掲載 |
