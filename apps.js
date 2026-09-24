@@ -13,6 +13,26 @@
 
 window.TOFO_APPS = [
   {
+    id: 'yurazumi',
+    name: 'ゆらづみ',
+    title: '木と石と氷を積むタワー',
+    desc: '木・石・氷のブロックを落として、土台の上に高く積み上げる。材質で重さとすべりやすさが違い、物理でゆれて崩れる。',
+    category: 'game',
+    tags: ['アクション', '物理'],
+    icon: '/yurazumi/icons/icon-192.png',
+    color: '#d9a066',
+  },
+  {
+    id: 'kadotsugi',
+    name: 'カドツギ',
+    title: '角だけでつなぐ陣取り',
+    desc: 'ブロックを角と角だけでつないで広げていく、CPU とのふたり陣取り。相手より多くのマスを盤に置けたら勝ち。',
+    category: 'game',
+    tags: ['ボードゲーム', '陣取り'],
+    icon: '/kadotsugi/icons/icon-192.png',
+    color: '#2cc7b0',
+  },
+  {
     id: 'cube-othello',
     name: 'キューブ・オセロ',
     title: '立方体の6面で遊ぶオセロ',
