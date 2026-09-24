@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'wakuguri',
+    name: 'わくぐり',
+    title: '回る輪のすき間を通す',
+    desc: '回っている輪のすき間を、玉がくぐり抜けるようにタップで撃ち出す。玉は輪を二度横切るので、入るときと出るときの両方ですき間が来る瞬間を読む。全 12 ステージ。',
+    category: 'game',
+    tags: ['タイミング', 'ステージ'],
+    icon: '/wakuguri/icons/icon-192.png',
+    color: '#9c6b36',
+  },
+  {
     id: 'cross-take',
     name: 'CROSS TAKE',
     title: '横と縦で数を取り合う',
