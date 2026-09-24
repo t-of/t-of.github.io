@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'slope-writer',
+    name: 'SLOPE WRITER',
+    title: '式の坂でボールを転がす',
+    desc: '式を入れると、そのグラフが坂になる。ボールを転がして、浮かんだ点を全部拾わせるパズル。直線・放物線・sin の波を使い分けて、全 12 ステージ。',
+    category: 'game',
+    tags: ['パズル', '数学'],
+    icon: '/slope-writer/icons/icon-192.png',
+    color: '#8f7cf5',
+  },
+  {
     id: 'doorwise',
     name: 'DOORWISE',
     title: '扉を開けて泥棒を追いつめる',
