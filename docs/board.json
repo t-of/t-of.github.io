@@ -75,14 +75,14 @@
     {
       "id": "slope-writer",
       "name": "SLOPE WRITER",
-      "stage": "qa",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "手元の試作から 0 から作り直す。元: ~/dev/plotfall。id は仮"
     },
     {
       "id": "doorwise",
       "name": "DOORWISE",
-      "stage": "qa",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "手元の試作から 0 から作り直す。元: ~/dev/door-thief。id は仮"
     },
@@ -124,7 +124,7 @@
     {
       "id": "dawnward",
       "name": "DAWNWARD",
-      "stage": "qa",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "手元の試作から 0 から作り直す。元: ~/dev/lattice。id は仮"
     },
@@ -155,6 +155,13 @@
       "stage": "live",
       "created": "2026-09-25",
       "note": "~/dev/word-wolf を元に 0 から作り直す。きわどいお題の分類は外す。id は仮"
+    },
+    {
+      "id": "hexomino-drop",
+      "name": "ヘキサミノの落ち物（仮）",
+      "stage": "planning",
+      "created": "2026-09-25",
+      "note": "QUINTILE の 6 マス版。AI は機械学習。id は仮"
     }
   ],
   "tasks": [
@@ -3399,30 +3406,66 @@
     },
     {
       "id": "t275",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "doorwise",
       "title": "DOORWISE を確かめる（audit・スマホ幅・12 面）",
       "owner": "qa"
     },
     {
       "id": "t276",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "dawnward",
       "title": "DAWNWARD を確かめる（audit・スマホ幅・1 夜・権利を念入りに）",
       "owner": "qa"
     },
     {
       "id": "t277",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "slope-writer",
       "title": "SLOPE WRITER のアイコンを作り、確かめる（audit・スマホ幅・12 ステージ）",
       "owner": "qa"
+    },
+    {
+      "id": "t278",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "hexomino-drop",
+      "title": "ヘキサミノ（6 マス・35 種）の落ち物パズルの仕様と権利の調べを書く（QUINTILE と同じルール、盤・得点は合わせ直す、AI は機械学習）",
+      "owner": "planner"
+    },
+    {
+      "id": "t279",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "dawnward",
+      "title": "DAWNWARD を公開する（タイトルのボタンを 44px にしてから。全承認の指示で承諾）",
+      "owner": "release"
+    },
+    {
+      "id": "t280",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "doorwise",
+      "title": "DOORWISE を公開する（maskable の余白を直してから。全承認の指示で承諾）",
+      "owner": "release"
+    },
+    {
+      "id": "t281",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "slope-writer",
+      "title": "SLOPE WRITER を公開する（全承認の指示で承諾）",
+      "owner": "release"
     }
   ],
   "ideas": []
