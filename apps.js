@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'pair-carry',
+    name: 'PAIR CARRY',
+    title: '二つずつ運んで白黒に分ける',
+    desc: '黒と白が交互に並んだ碁石を、となり合う 2 個ずつ空いた所へ動かして、黒と白に分けるパズル。組が増えるほど、どこから崩すかが難しくなる。1 列と市松の盤。',
+    category: 'game',
+    tags: ['パズル', 'ステージ'],
+    icon: '/pair-carry/icons/icon-192.png',
+    color: '#a3b8ad',
+  },
+  {
     id: 'cell-garden',
     name: 'CELL GARDEN',
     title: '生まれて消えるマスの模様',
