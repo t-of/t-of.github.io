@@ -141,8 +141,9 @@ T.OF...（https://t-of.github.io/）で公開する Web アプリに共通する
 
 ## 4. Service Worker
 
-- **必須** オフラインで動くように `sw.js` を置き、`navigator.serviceWorker.register('./sw.js')` で登録する。
-  SW はアプリのフォルダ直下に置く（スコープが `/<id>/` になる）。
+- オフラインで動くことは求めない。`sw.js` は置いても置かなくてもよい（ひな形には入っている）。
+  広告など、ネットにつながっていないと動かないものを入れてもよい。
+- 置くときは、アプリのフォルダ直下に置く（スコープが `/<id>/` になる）。同じオリジンに全アプリが並ぶので、下の 2 つは必須。
 - **必須** キャッシュ名は **`<id>-` で始める**（例: `gear-align-v1`）。
 - **必須** `activate` で古いキャッシュを消すときは、**自分の接頭辞のものだけ**消す。
 
@@ -260,7 +261,7 @@ function setAudioSession(soundOn) {
 - [ ] manifest: name, short_name, start_url "./", scope "./", standalone, 192/512 アイコン
 - [ ] icons/: icon.svg, favicon-32, apple-touch-icon(180, 透過なし), icon-192, icon-512, maskable-512, og.png
 - [ ] localStorage のキーが <アプリ名>. で始まる、try/catch で囲んである
-- [ ] sw.js: キャッシュ名が <id>- 始まり、古いキャッシュは自分のものだけ消す
+- [ ] sw.js（置くなら）: キャッシュ名が <id>- 始まり、古いキャッシュは自分のものだけ消す
 - [ ] 機内モードで再読み込みしても動く
 - [ ] iPhone でホーム画面に追加 → 上部が隠れない、下端のボタンが押せる
 - [ ] Android / PC Chrome で「アプリにする」が出る、インストール後は消える
@@ -301,7 +302,7 @@ gh api -X POST repos/t-of/<id>/pages -f 'source[branch]=main' -f 'source[path]=/
 ```sh
 cd ~/GitHub/t-of.github.io
 npm run audit              # ファイルを見るチェック（速い）
-npm run audit:browser      # Chrome で開いて、エラー・SW・オフライン起動・はみ出しも見る
+npm run audit:browser      # Chrome で開いて、エラー・はみ出しも見る
 npm run audit -- <id>      # 1 本だけ
 ```
 
