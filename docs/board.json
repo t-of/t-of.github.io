@@ -1,13 +1,13 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-24T14:00:59.592Z",
+  "updatedAt": "2026-09-24T14:13:12.657Z",
   "projects": [
     {
       "id": "note",
       "name": "note 運用部",
       "stage": "planning",
       "created": "2026-09-24",
-      "note": "アプリ制作とは別。100 円の有料記事を 1 日 1 本以上。テーマは生成 AI（平日 5 本: 実務での使い方、週末 2 本: 海外事例の紹介）。2〜4 週で売上を比べて配分を決める。調べは docs/private/note/"
+      "note": "アプリ制作とは別。100 円の有料記事を 1 日 1 本以上。テーマは生成 AI（平日 5 本: 実務での使い方、週末 2 本: 海外事例の紹介）。2〜4 週で売上を比べて配分を決める。フォルダは ~/GitHub/tof/note/（t-of/note）"
     }
   ],
   "tasks": [
@@ -1813,15 +1813,24 @@
       "project": "note",
       "title": "writer（Sonnet）を足し、記事の書き方の決まりを作り、最初の 7 本の下書きを作る",
       "owner": "writer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-24"
     },
     {
       "id": "t148",
       "project": "note",
       "title": "note のアイコン（1024×1024）とヘッダー（1920×1006）を作る（docs/private/note/brand/）",
       "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t149",
+      "project": null,
+      "title": "T.OF... のものを ~/GitHub/tof/ にまとめる（本部・apps/ 20 本・note/）。道具と文書のパスを直し、note は非公開リポジトリ t-of/note に",
+      "owner": "engineer",
       "status": "done",
       "created": "2026-09-24",
       "doneAt": "2026-09-24"
