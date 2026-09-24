@@ -303,12 +303,16 @@ function tick() {
   if (sig !== lastSig) { lastSig = sig; broadcast('agents', agents); }
 }
 
-// board.json が外（エージェントやエディタ）で書き換えられたら知らせる
+// board.json が書き換えられたら知らせ、フォルダの色（Finder のタグ）を段階に合わせる
 let boardMtime = 0;
 setInterval(() => {
   try {
     const m = fs.statSync(BOARD).mtimeMs;
-    if (m !== boardMtime) { boardMtime = m; broadcast('board', readBoard()); }
+    if (m !== boardMtime) {
+      boardMtime = m;
+      broadcast('board', readBoard());
+      execFile(process.execPath, [path.join(HUB, 'tools', 'folder-colors.mjs')], { cwd: HUB }, () => {});
+    }
   } catch { /* まだない */ }
 }, 1500);
 

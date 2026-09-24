@@ -7,7 +7,8 @@
     "audit": "node tools/audit.mjs",
     "audit:browser": "node tools/audit.mjs --browser",
     "serve": "python3 -m http.server 8000 --directory ..",
-    "studio": "node studio/server.mjs"
+    "studio": "node studio/server.mjs",
+    "colors": "node tools/folder-colors.mjs"
   },
   "devDependencies": {
     "playwright-core": "^1.55.0"

@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-24T08:36:43.267Z",
+  "updatedAt": "2026-09-24T08:44:36.819Z",
   "projects": [],
   "tasks": [
     {
@@ -118,6 +118,24 @@
       "project": "pentris",
       "title": "新しいアイコンを公開し、ポータルの色と共有画像を更新する",
       "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t11",
+      "project": null,
+      "title": "ポータルに載っていない古い公開リポジトリを整理する（そのまま / Archive / 非公開）",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-09-24",
+      "doneAt": null
+    },
+    {
+      "id": "t12",
+      "project": null,
+      "title": "GitHub の設定で「Keep my email addresses private」をオンにする（github.com/settings/emails）",
+      "owner": "owner",
       "status": "done",
       "created": "2026-09-24",
       "doneAt": "2026-09-24"

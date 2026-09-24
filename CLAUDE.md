@@ -21,7 +21,7 @@ https://sora3141.github.io/ に公開して、このリポジトリのポータ�
 - 本部: `~/GitHub/sora3141.github.io/`（ポータル、ルール、道具）
 - 各アプリ: `~/GitHub/<id>/`（1 アプリ 1 リポジトリ。`<id>` はリポジトリ名で URL のパス）
 - アプリの一覧: [apps.js](apps.js)。ここに載っているものが T.OF... のアプリ
-- 道具: `npm run studio`（社内の様子を見る画面）、`tools/audit.mjs`（自動チェック）、`tools/new-app.sh`（ひな形）、`tools/make-logo.py`・`tools/make-icons.py`（ロゴ・共有画像）
+- 道具: `npm run studio`（社内の様子を見る画面）、`tools/audit.mjs`（自動チェック）、`tools/new-app.sh`（ひな形）、`npm run colors`（フォルダの色を段階に合わせる）、`tools/make-logo.py`・`tools/make-icons.py`（ロゴ・共有画像）
 - 共通部品: [webapp-kit/](webapp-kit/)（正本。直したら各アプリにコピーし直す）
 - 作業用のファイル（スクリーンショットなど）は `.audit/` かスクラッチパッドに置き、リポジトリに入れない
 
