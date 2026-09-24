@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'cell-garden',
+    name: 'CELL GARDEN',
+    title: '生まれて消えるマスの模様',
+    desc: 'マスがまわりの数だけで生まれたり消えたりをくり返す「ライフゲーム」。指で描くか、グライダーなどの有名な形を置いて、動き出す模様を眺める。',
+    category: 'tool',
+    tags: ['セル・オートマトン', '模様'],
+    icon: '/cell-garden/icons/icon-192.png',
+    color: '#a6e36e',
+  },
+  {
     id: 'arnolds-cat',
     name: 'ARNOLD\'S CAT',
     title: '混ぜた絵が必ず元に戻る',
