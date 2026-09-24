@@ -10,8 +10,34 @@ const ROLES = {
   writer: { person: 'オリバー', name: 'note', desc: '記事の下書き', color: '#41c9b4', icon: '✍' },
   owner: { name: 'オーナー', desc: 'あなた', color: '#eceef3', icon: '★' },
 };
-// 表示用の名前（係の人）。成績の表のように係で比べる所は name のまま
-const who = (role) => ROLES[role]?.person || ROLES[role]?.name || role;
+// 係の人の名前。同じ係の人は何人でも同時に動くので、席に着いた人に一人ずつ名前を付ける。
+// 先頭がその係のリーダー（ROLES の person）。成績の表のように係で比べる所は係名のまま
+const PEOPLE = {
+  director: ['マルコ', 'ジュリア', 'ステファノ', 'フランチェスカ', 'ロレンツォ', 'キアラ'],
+  planner: ['エマ', 'ノア', 'ソフィア', 'ルカ', 'イザベラ', 'マテオ', 'クロエ', 'レオ', 'アメリア', 'ニコ', 'オリビア', 'エリック'],
+  designer: ['レア', 'ジュリアン', 'ミラ', 'カミーユ', 'アナ', 'エリオット', 'ゾエ', 'ヤン', 'ルナ', 'ファビオ', 'インカ', 'セリーヌ'],
+  engineer: ['ラヴィ', 'チェン', 'アイシャ', 'ミハイル', 'プリヤ', 'トーマス', 'ユナ', 'カルロス', 'ニーナ', 'オスカー', 'ハサン', 'リン'],
+  qa: ['ハンナ', 'ヨナス', 'エルザ', 'パウロ', 'イングリッド', 'サミール', 'ヘレナ', 'ビョルン', 'アリス', 'テオ', 'マヤ', 'ルーカス'],
+  release: ['ディエゴ', 'ルシア', 'ハビエル', 'カルメン', 'パブロ', 'イネス', 'アレハンドロ', 'バレンティナ', 'ラファエル', 'ビクトリア'],
+  writer: ['オリバー', 'シャーロット', 'ジャック', 'ミア', 'ヘンリー', 'ルビー', 'ウィリアム', 'グレース'],
+};
+const leader = (role) => ROLES[role]?.person || ROLES[role]?.name || role;
+const team = (role) => `${ROLES[role]?.name || role}チーム`;
+// id → 名前。id から決まる番号を起点に、いま席にいるほかの人と重ならない名前を選ぶ。
+// ponytail: 覚えるのはページを開いている間だけ。読み込み直すと、同時に座っている人の顔ぶれ次第で名前が入れ替わることがある
+const named = new Map();
+let seated = new Set();
+function nameOf(role, id) {
+  if (!id) return leader(role);
+  if (named.has(id)) return named.get(id);
+  const pool = PEOPLE[role] || [leader(role)];
+  const taken = new Set([...named].filter(([k]) => seated.has(k)).map(([, v]) => v));
+  let h = 0;
+  for (const c of id) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+  const name = pool.map((_, i) => pool[(h + i) % pool.length]).find((n) => !taken.has(n)) || pool[h % pool.length];
+  named.set(id, name);
+  return name;
+}
 const STAGES = [
   ['idea', 'アイデア'], ['planning', '企画'], ['design', 'デザイン'], ['build', '実装'],
   ['qa', '品質'], ['release', 'リリース'], ['live', '公開済み'],
@@ -88,6 +114,11 @@ function people() {
       (seats[a.role] || seats.engineer).push({ kind: 'agent', ...a, session: s.id });
     }
   }
+  seated = new Set(Object.values(seats).flat().map((p) => p.id));
+  for (const [role, list] of Object.entries(seats)) {
+    list.sort((x, y) => (x.startedAt || x.lastAt) - (y.startedAt || y.lastAt));
+    for (const p of list) p.person = nameOf(role, p.id);
+  }
   return seats;
 }
 
@@ -101,9 +132,9 @@ function renderOffice() {
     room.dataset.role = role;
     room.style.setProperty('--c', r.color);
     const head = el('header', 'room__head');
-    const label = el('span', 'room__role', r.name);
-    label.title = r.desc;
-    head.append(el('span', 'room__icon', r.icon), el('h3', 'room__name', r.person), label);
+    const name = el('h3', 'room__name', r.name);
+    name.title = r.desc;
+    head.append(el('span', 'room__icon', r.icon), name, el('span', 'room__role', `リーダー ${leader(role)}`));
     if (role !== 'director') head.append(el('span', 'room__level', `Lv.${levelOf(roleCount(role))}`));
     const busy = seats[role].filter((p) => p.state === 'working').length;
     head.append(el('span', `room__count${busy ? ' is-busy' : ''}`, busy ? `${busy} 人 作業中` : '空き'));
@@ -146,7 +177,7 @@ function desk(p, role) {
   const avatar = el('div', 'avatar', ROLES[role].icon);
   const body = el('div', 'desk__body');
   const title = p.kind === 'session' ? p.title : (p.description || p.type || 'エージェント');
-  body.append(el('p', 'desk__title', title));
+  body.append(el('p', 'desk__who', p.person || nameOf(role, p.id)), el('p', 'desk__title', title));
   const label = { working: '作業中', stalled: '止まっているかも', done: '完了', idle: '待機中' }[p.state] || p.state;
   body.append(el('p', 'desk__action', p.state === 'done' ? `完了 · ${ago(p.lastAt)}` : `${p.action || '考え中'} · ${ago(p.lastAt)}`));
   if (p.apps?.length) {
@@ -170,23 +201,23 @@ function pushFeed(item) {
 function renderFeed() {
   const list = $('feed');
   // 最初は各セッションの記録から組み立てる
-  if (!feedItems.length) for (const s of state.agents) for (const l of s.log) feedItems.push(l);
+  if (!feedItems.length) for (const s of state.agents) for (const l of s.log) feedItems.push({ ...l, session: s.id });
   feedItems.sort((a, b) => a.at - b.at);
   list.replaceChildren();
   for (const item of feedItems.slice(-60).reverse()) {
     const li = el('li', 'feed__item');
     const color = item.kind === 'report' ? 'var(--ok)' : item.kind === 'return' ? 'var(--ng)' : ROLES[item.role]?.color || '#888';
     li.style.setProperty('--c', color);
-    li.append(el('span', 'feed__who', who(item.role)), el('span', 'feed__text', feedText(item)), el('time', 'feed__time', ago(item.at)));
+    li.append(el('span', 'feed__who', nameOf(item.role, item.agent || item.session)), el('span', 'feed__text', feedText(item)), el('time', 'feed__time', ago(item.at)));
     list.append(li);
   }
 }
 
 // 依頼・報告・差し戻しは「ディレクター → デザイン」のように誰から誰への動きかを表す
 function feedText(item) {
-  if (item.kind === 'handoff') return `${who('director')} → ${who(item.to)}`;
-  if (item.kind === 'return') return `差し戻し → ${who(item.to)}`;
-  if (item.kind === 'report') return `${who(item.role)} → ${who('director')}（報告）`;
+  if (item.kind === 'handoff') return `→ ${team(item.to)}に依頼`;
+  if (item.kind === 'return') return `→ ${team(item.to)}に差し戻し`;
+  if (item.kind === 'report') return `→ ディレクターに報告`;
   return item.text;
 }
 
@@ -682,7 +713,7 @@ function renderStatsMVP() {
   if (!top) { box.append(el('p', 'muted', '今月はまだ、差し戻しなしで終わった仕事がありません。')); return; }
   const [role, n] = top;
   box.style.setProperty('--c', ROLES[role]?.color || '#888');
-  box.append(el('span', 'mvp__icon', ROLES[role]?.icon || '★'), el('span', 'mvp__text', `今月の MVP: ${who(role)}（${ROLES[role]?.name || role}）`), el('span', 'mvp__n', `${n} 件`));
+  box.append(el('span', 'mvp__icon', ROLES[role]?.icon || '★'), el('span', 'mvp__text', `今月の MVP: ${team(role)}（リーダー ${leader(role)}）`), el('span', 'mvp__n', `${n} 件`));
 }
 
 function renderStatsCards() {
@@ -694,7 +725,7 @@ function renderStatsCards() {
     card.style.setProperty('--c', ROLES[role].color);
     const head = el('div', 'employee__head');
     const info = el('div');
-    info.append(el('p', 'employee__name', who(role)), el('p', 'employee__lv', `${ROLES[role].name} · Lv.${lv}`));
+    info.append(el('p', 'employee__name', team(role)), el('p', 'employee__lv', `リーダー ${leader(role)} · Lv.${lv}`));
     head.append(el('span', 'employee__icon', ROLES[role].icon), info);
     const bar = el('div', 'employee__bar');
     const fill = el('span');
@@ -768,7 +799,7 @@ function renderStatsReturns(period) {
     const li = el('li', 'feed__item');
     li.style.setProperty('--c', ROLES[r.role]?.color || '#888');
     const text = `${r.apps.length ? `${r.apps.map(appName).join('・')} — ` : ''}${r.description || ''}`;
-    li.append(el('span', 'feed__who', who(r.role)), el('span', 'feed__text', text), el('time', 'feed__time', ago(r.endedAt)));
+    li.append(el('span', 'feed__who', nameOf(r.role, r.id)), el('span', 'feed__text', text), el('time', 'feed__time', ago(r.endedAt)));
     list.append(li);
   }
 }
