@@ -234,16 +234,18 @@ gh api -X POST repos/Sora3141/<id>/pages -f 'source[branch]=main' -f 'source[pat
 
 ## 既存アプリの対応状況（2026-09-24 時点）
 
-2026-09-24 に直したもの: 他アプリのキャッシュを消す SW（4 本）、`black-translucent`（5 本）、pentris / coord-maze のオフライン対応、全 7 本への T.OF... リンク、insider / score-othello / cube-othello の PWA 化と一覧への追加（この 3 本は RULES に沿って作り直したので残りなし）。
+Half-Cut 以外の 9 本は、このルールに沿うよう直してある。意図して残している違い:
 
-残っている差分（急ぎではない。触るついでに直す）:
+| アプリ | 違い | 理由 |
+|---|---|---|
+| pentris | GitHub Pages の公開元が `master` ブランチ | 切り替えると公開が止まるおそれがあるため |
+| gear-align / hue-hunter | webapp-kit ではなく独自のインストール・共有 UI | iPhone 案内・コピーの代替まで独自に対応済み |
+| gear-align | manifest の名前が `manifest.json` | インストール済みの人への影響を避けるため |
+| hue-hunter / core-image-english / pentris | localStorage のキーが `hueHunter_` / `coreEn.` / `pent.` | すでにアプリ名で区切られている。変えると記録が消える |
+| core-image-english | `html` の背景が `theme-color` と違う | 下端のタブバーと色を合わせるため（CSS にコメントあり） |
+
+まだ直していないもの:
 
 | アプリ | 残っている点 |
 |---|---|
-| pentris | `icon.svg`・`maskable-512.png`・`og.png` がない |
-| coord-maze | アイコンが `icons/` ではなくルート、`favicon-32`・maskable・`og.png` がない、インストールボタンがない |
-| gear-align | webapp-kit ではなく独自のインストール・共有 UI（動作は問題なし）、README の見出しが [8](#8-readme) と違う |
-| glyph-shift | OGP・`og.png`・`icon.svg` がない、インストール・共有ボタンがない |
-| hue-hunter | localStorage の読み書きに try/catch がない、不要な `ads.txt` が残っている |
-| core-image-english | 共有ボタンと iPhone 向けのインストール案内がない、OGP・description がない、`html` の背景が `theme-color` と違う（意図的） |
-| Half-Cut | README に T.OF... の表記がまだない |
+| Half-Cut | README に T.OF... の表記がない、favicon が data URI、`favicon-32.png`・`maskable-512.png` がない、webapp-kit 未使用（独自 UI） |
