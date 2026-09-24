@@ -129,6 +129,22 @@ keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE).map((k) => caches.delete
 - **推奨** 押せるものは 44×44px 以上。
 - **推奨** `prefers-reduced-motion` で大きなアニメーションを弱める。
 
+### 音
+
+- **必須** iPhone のマナーモードでも音が出るようにする。何もしないと、Web Audio の音は着信音と同じ扱いになり、マナーモードで消える。
+  音を鳴らす前（最初のタップで `AudioContext` を作る・`resume()` する直前）と、アプリの音の設定を切り替えたときに次を呼ぶ。
+
+```js
+// iPhone のマナーモードでも鳴らす（Safari 16.4 以降）。
+// 'playback' にすると音楽アプリの曲が止まるので、アプリの音がオンのときだけにする。
+function setAudioSession(soundOn) {
+  try { if (navigator.audioSession) navigator.audioSession.type = soundOn ? 'playback' : 'auto'; } catch { /* 対応していない */ }
+}
+```
+
+- **必須** 音のオン・オフの設定を置き、覚えておく（localStorage）。オフのときは `setAudioSession(false)` にして、ほかのアプリの音楽を止めない。
+- **推奨** 最初の音は、ユーザーが触ったとき（`pointerdown` など）に鳴らす。ブラウザは触る前の音を止める。
+
 ## 6. インストール・共有ボタン（webapp-kit）
 
 - **必須** [`webapp-kit/`](webapp-kit/) をアプリにコピーして、「アプリにする」と「共有」ボタンを置く。
@@ -206,6 +222,7 @@ keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE).map((k) => caches.delete
 - [ ] iPhone でホーム画面に追加 → 上部が隠れない、下端のボタンが押せる
 - [ ] Android / PC Chrome で「アプリにする」が出る、インストール後は消える
 - [ ] 共有ボタンが動く（共有シート or リンクコピー）
+- [ ] 音があるなら: iPhone のマナーモードでも鳴る、音をオフにできる
 - [ ] T.OF... へのリンクがある
 - [ ] README の見出しがそろっている
 - [ ] ポータルの apps.js に追加した
