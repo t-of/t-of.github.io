@@ -157,9 +157,9 @@
       "note": "~/dev/word-wolf を元に 0 から作り直す。きわどいお題の分類は外す。id は仮"
     },
     {
-      "id": "hexomino-drop",
-      "name": "ヘキサミノの落ち物（仮）",
-      "stage": "planning",
+      "id": "sestet",
+      "name": "SESTET",
+      "stage": "build",
       "created": "2026-09-25",
       "note": "QUINTILE の 6 マス版。AI は機械学習。id は仮"
     }
@@ -3433,10 +3433,10 @@
     },
     {
       "id": "t278",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
-      "project": "hexomino-drop",
+      "doneAt": "2026-09-25",
+      "project": "sestet",
       "title": "ヘキサミノ（6 マス・35 種）の落ち物パズルの仕様と権利の調べを書く（QUINTILE と同じルール、盤・得点は合わせ直す、AI は機械学習）",
       "owner": "planner"
     },
@@ -3466,6 +3466,50 @@
       "project": "slope-writer",
       "title": "SLOPE WRITER を公開する（全承認の指示で承諾）",
       "owner": "release"
+    },
+    {
+      "id": "t282",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "sestet",
+      "title": "権利を選ぶ: SESTET（判定 注意）",
+      "owner": "owner",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "全承認の指示（A を選ぶ）によりディレクターが選んだ。企画のおすすめは収益化しない"
+    },
+    {
+      "id": "t283",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "sestet",
+      "title": "SESTET の最初の版を作る（ゲーム本体と線形 CEM の AI）",
+      "owner": "engineer"
+    },
+    {
+      "id": "t284",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "sestet",
+      "title": "SESTET の AI をニューラルネット（自己対戦の TD 学習）に差し替える。線形 AI より強いと測れたら採用",
+      "owner": "engineer"
+    },
+    {
+      "id": "t285",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "pentris",
+      "title": "QUINTILE の見た目がまだテトリスに近い（虹色のベベル付きブロック、HOLD 左・NEXT 右、1:2 の盤）。SESTET と同じ離し方（ひとつながりの形・少ない色・上の帯）を QUINTILE にも当てるか決める",
+      "owner": "owner"
     }
   ],
   "ideas": []
