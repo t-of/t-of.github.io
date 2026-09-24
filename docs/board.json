@@ -154,25 +154,25 @@
       "project": null,
       "title": "t-of.github.io へ移す準備（アドレスの書き換え・記録の引き継ぎ・古いアドレスの中継ページ）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-24"
     },
     {
       "id": "t15",
       "project": null,
       "title": "リポジトリを t-of に移して公開し直し、古いアドレスからの移動と記録の引き継ぎを確かめる",
       "owner": "release",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-24"
     },
     {
       "id": "t16",
       "project": "hue-hunter",
       "title": "Firebase の Authentication → 承認済みドメインに t-of.github.io を足す",
       "owner": "owner",
-      "status": "todo",
+      "status": "waiting",
       "created": "2026-09-24",
       "doneAt": null
     },
@@ -184,7 +184,11 @@
       "status": "waiting",
       "created": "2026-09-24",
       "doneAt": null,
-      "choices": ["1 本のアプリにまとめる", "ローカルから消す", "そのまま置く"]
+      "choices": [
+        "1 本のアプリにまとめる",
+        "ローカルから消す",
+        "そのまま置く"
+      ]
     },
     {
       "id": "t18",
@@ -194,7 +198,11 @@
       "status": "waiting",
       "created": "2026-09-24",
       "doneAt": null,
-      "choices": ["アプリにする", "ローカルから消す", "そのまま置く"]
+      "choices": [
+        "アプリにする",
+        "ローカルから消す",
+        "そのまま置く"
+      ]
     },
     {
       "id": "t19",
@@ -204,7 +212,11 @@
       "status": "waiting",
       "created": "2026-09-24",
       "doneAt": null,
-      "choices": ["試作置き場として残す", "中身をアプリにする", "ローカルから消す"]
+      "choices": [
+        "試作置き場として残す",
+        "中身をアプリにする",
+        "ローカルから消す"
+      ]
     },
     {
       "id": "t20",
@@ -214,7 +226,11 @@
       "status": "waiting",
       "created": "2026-09-24",
       "doneAt": null,
-      "choices": ["全部ローカルから消す", "一部だけ残す", "全部そのまま置く"]
+      "choices": [
+        "全部ローカルから消す",
+        "一部だけ残す",
+        "全部そのまま置く"
+      ]
     },
     {
       "id": "t21",
@@ -224,7 +240,11 @@
       "status": "waiting",
       "created": "2026-09-24",
       "doneAt": null,
-      "choices": ["~/Projects/ に移す", "別の場所に移す（コメントに）", "そのまま置く"]
+      "choices": [
+        "~/Projects/ に移す",
+        "別の場所に移す（コメントに）",
+        "そのまま置く"
+      ]
     },
     {
       "id": "t22",
