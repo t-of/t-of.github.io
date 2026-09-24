@@ -9,7 +9,6 @@
 
 ## あとでやること
 
-- [ ] **Half-Cut**: README に T.OF...、`.nojekyll`、`icon.svg`、`favicon-32.png`、README の見出し（§8）。README はオーナーが編集中なので、オーナーの合図を待つ。— 実装
 - [ ] **全アプリ**: 実機での確認（iPhone のホーム画面、Android のインストール、共有シート）。— オーナー
 - [ ] **pentris**: GitHub Pages を `main` から公開するか決める（今は `master`）。— オーナー
 

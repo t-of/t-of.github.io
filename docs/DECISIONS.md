@@ -26,4 +26,6 @@ hue-hunter の `firestore.rules` を変えたら、Firebase に公開するま�
 | hue-hunter / core-image-english / pentris | localStorage のキーが `hueHunter_` / `coreEn.` / `pent.` | すでにアプリ名で区切られている。変えると記録が消える |
 | core-image-english | `html` の背景が `theme-color` と違う | 下端のタブバーと色を合わせるため（CSS にコメントあり） |
 | cube-othello / glyph-shift | `orientation` を固定しない | 横画面・PC でも遊べる作り |
-| Half-Cut | 独自のインストール・共有 UI | 未整理（[BACKLOG.md](BACKLOG.md)） |
+| Half-Cut | 独自のインストール・共有 UI | Android のインストール・iPhone の手順・シェアまで独自に対応済み |
+| Half-Cut | ブラウザのタブのアイコンが `icon.svg` ではなく `icons/favicon.svg` | 小さいサイズ用に線を太くした別デザイン。32px でも読める |
+| Half-Cut | リポジトリ名に大文字（`Half-Cut`） | URL が変わるので変えない |
