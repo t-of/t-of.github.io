@@ -1,8 +1,8 @@
 {
   "id": "/",
-  "name": "T.OFO — ゲームとアプリ",
-  "short_name": "T.OFO",
-  "description": "T.OFO が作っている、ブラウザで遊べる小さなゲームとアプリの一覧。",
+  "name": "T.OF... — ゲームとアプリ",
+  "short_name": "T.OF...",
+  "description": "T.OF... が作っている、ブラウザで遊べる小さなゲームとアプリの一覧。",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

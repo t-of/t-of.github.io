@@ -30,5 +30,5 @@ with open(os.path.join(out, 'icon.svg'), 'w', encoding='utf-8') as f:
 og = Image.new('RGB', (1200, 630), bg)
 d = ImageDraw.Draw(og)
 d.text((600, 300), name, font=ImageFont.truetype(FONT, 110), fill='#eceef3', anchor='mm')
-d.text((600, 420), 'T.OFO', font=ImageFont.truetype(FONT, 32), fill='#9aa0ab', anchor='mm')
+d.text((600, 420), 'T.OF...', font=ImageFont.truetype(FONT, 32), fill='#9aa0ab', anchor='mm')
 og.save(os.path.join(out, 'og.png'))

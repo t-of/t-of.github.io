@@ -5,7 +5,7 @@ __DESC__
 ## 🔗 リンク
 
 - 遊ぶ: https://sora3141.github.io/__ID__/
-- 制作: [T.OFO](https://sora3141.github.io/)
+- 制作: [T.OF...](https://sora3141.github.io/)
 
 ## 遊び方
 

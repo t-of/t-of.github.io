@@ -76,5 +76,5 @@
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  if (window.WebAppKit) WebAppKit.init({ title: 'T.OFO', text: 'T.OFO のゲームとアプリ' });
+  if (window.WebAppKit) WebAppKit.init({ title: 'T.OF...', text: 'T.OF... のゲームとアプリ' });
 })();

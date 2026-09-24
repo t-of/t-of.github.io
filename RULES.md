@@ -1,6 +1,6 @@
-# T.OFO アプリ制作ルール
+# T.OF... アプリ制作ルール
 
-T.OFO（https://sora3141.github.io/）で公開する Web アプリに共通するルールと必須事項。
+T.OF...（https://sora3141.github.io/）で公開する Web アプリに共通するルールと必須事項。
 新しいアプリを作るときも、既存のアプリを直すときも、これに合わせる。
 
 - 必須 = 公開前に必ず満たす
@@ -146,10 +146,11 @@ keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE).map((k) => caches.delete
 
 ## 7. 制作元の表記
 
-- **必須** アプリのどこか（タイトル画面の下、設定、フッターなど）に **T.OFO へのリンク** を置く。
-  `<a href="/">T.OFO</a>` でポータルに戻れる。ゲーム画面を邪魔しない場所でよい。
-- **推奨** README の「リンク」に `制作: [T.OFO](https://sora3141.github.io/)` を入れる。
-- 名前の表記は **T.OFO**（大文字、ピリオド 1 つ）。
+- **必須** アプリのどこか（タイトル画面の下、設定、フッターなど）に **T.OF... へのリンク** を置く。
+  `<a href="/">T.OF...</a>` でポータルに戻れる。ゲーム画面を邪魔しない場所でよい。
+- **推奨** README の「リンク」に `制作: [T.OF...](https://sora3141.github.io/)` を入れる。
+- 名前の表記は **T.OF...**（大文字。T の後にピリオド 1 つ、最後に半角ピリオド 3 つ）。
+- ロゴは [`logo/`](logo/) にある（作り直すときは `python3 tools/make-logo.py`）。
 
 ## 8. README
 
@@ -159,7 +160,7 @@ keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE).map((k) => caches.delete
 # アプリ名 — ひとこと
 説明 1〜2 文
 
-## 🔗 リンク          遊ぶ URL / 制作: T.OFO
+## 🔗 リンク          遊ぶ URL / 制作: T.OF...
 ## 遊び方             ルールと操作
 ## アプリとして入れる（PWA）
 ## 開発               ローカルでの動かし方・テストの走らせ方
@@ -204,7 +205,7 @@ keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE).map((k) => caches.delete
 - [ ] iPhone でホーム画面に追加 → 上部が隠れない、下端のボタンが押せる
 - [ ] Android / PC Chrome で「アプリにする」が出る、インストール後は消える
 - [ ] 共有ボタンが動く（共有シート or リンクコピー）
-- [ ] T.OFO へのリンクがある
+- [ ] T.OF... へのリンクがある
 - [ ] README の見出しがそろっている
 - [ ] ポータルの apps.js に追加した
 ```
@@ -233,7 +234,7 @@ gh api -X POST repos/Sora3141/<id>/pages -f 'source[branch]=main' -f 'source[pat
 
 ## 既存アプリの対応状況（2026-09-24 時点）
 
-2026-09-24 に直したもの: 他アプリのキャッシュを消す SW（4 本）、`black-translucent`（5 本）、pentris / coord-maze のオフライン対応、全 7 本への T.OFO リンク、insider / score-othello / cube-othello の PWA 化と一覧への追加（この 3 本は RULES に沿って作り直したので残りなし）。
+2026-09-24 に直したもの: 他アプリのキャッシュを消す SW（4 本）、`black-translucent`（5 本）、pentris / coord-maze のオフライン対応、全 7 本への T.OF... リンク、insider / score-othello / cube-othello の PWA 化と一覧への追加（この 3 本は RULES に沿って作り直したので残りなし）。
 
 残っている差分（急ぎではない。触るついでに直す）:
 
@@ -245,4 +246,4 @@ gh api -X POST repos/Sora3141/<id>/pages -f 'source[branch]=main' -f 'source[pat
 | glyph-shift | OGP・`og.png`・`icon.svg` がない、インストール・共有ボタンがない |
 | hue-hunter | localStorage の読み書きに try/catch がない、不要な `ads.txt` が残っている |
 | core-image-english | 共有ボタンと iPhone 向けのインストール案内がない、OGP・description がない、`html` の背景が `theme-color` と違う（意図的） |
-| Half-Cut | README に T.OFO の表記がまだない |
+| Half-Cut | README に T.OF... の表記がまだない |

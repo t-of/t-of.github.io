@@ -57,8 +57,7 @@ button { font: inherit; color: inherit; }
   gap: 10px;
   text-decoration: none;
 }
-.brand__mark { border-radius: 9px; }
-.brand__name { font-weight: 700; font-size: 20px; letter-spacing: 0.06em; }
+.brand__logo { display: block; height: 44px; width: auto; margin-left: -7px; }
 .top__nav { display: flex; align-items: center; gap: 18px; font-size: 14px; }
 .top__nav a { color: var(--muted); text-decoration: none; }
 .top__nav a:hover { color: var(--fg); }
