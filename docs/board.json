@@ -75,35 +75,35 @@
     {
       "id": "slope-writer",
       "name": "SLOPE WRITER",
-      "stage": "build",
+      "stage": "qa",
       "created": "2026-09-25",
       "note": "手元の試作から 0 から作り直す。元: ~/dev/plotfall。id は仮"
     },
     {
       "id": "doorwise",
       "name": "DOORWISE",
-      "stage": "build",
+      "stage": "qa",
       "created": "2026-09-25",
       "note": "手元の試作から 0 から作り直す。元: ~/dev/door-thief。id は仮"
     },
     {
       "id": "pair-carry",
       "name": "PAIR CARRY",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "手元の試作から 0 から作り直す。元: ~/Downloads/コード・プログラム/stone_puzzle*.html。id は仮"
     },
     {
       "id": "cell-garden",
       "name": "CELL GARDEN",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "手元の試作から 0 から作り直す。元: ~/Processing/life_game_3。id は仮"
     },
     {
       "id": "arnolds-cat",
       "name": "ARNOLD'S CAT",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "手元の試作から 0 から作り直す。元: ~/dev/arnold-cat-map。id は仮"
     },
@@ -117,28 +117,28 @@
     {
       "id": "echo-reef",
       "name": "ECHO REEF",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "手元の試作から 0 から作り直す。元: ~/dev/minasoko。id は仮"
     },
     {
       "id": "dawnward",
       "name": "DAWNWARD",
-      "stage": "build",
+      "stage": "qa",
       "created": "2026-09-25",
       "note": "手元の試作から 0 から作り直す。元: ~/dev/lattice。id は仮"
     },
     {
       "id": "buyout",
       "name": "BUYOUT",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "手元の試作から 0 から作り直す。元: ~/dev/zaraba。id は仮"
     },
     {
       "id": "high-floor",
       "name": "HIGH FLOOR",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "手元の試作から 0 から作り直す。元: ~/dev/wariate。id は仮"
     },
@@ -152,7 +152,7 @@
     {
       "id": "one-off",
       "name": "ONE OFF",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "~/dev/word-wolf を元に 0 から作り直す。きわどいお題の分類は外す。id は仮"
     }
@@ -3029,9 +3029,9 @@
       "project": "dawnward",
       "title": "ひな形から DAWNWARD の最初の版を作る",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-25"
     },
     {
       "id": "t239",
@@ -3053,9 +3053,9 @@
     },
     {
       "id": "t241",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "arnolds-cat",
       "title": "ARNOLD'S CAT のアイコン一式と共有画像を作る（配色も見る）",
       "owner": "designer"
@@ -3147,54 +3147,54 @@
     },
     {
       "id": "t247",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "buyout",
       "title": "ひな形から BUYOUT の最初の版を作る",
       "owner": "engineer"
     },
     {
       "id": "t248",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "high-floor",
       "title": "ひな形から HIGH FLOOR の最初の版を作る",
       "owner": "engineer"
     },
     {
       "id": "t249",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "slope-writer",
       "title": "ひな形から SLOPE WRITER の最初の版を作る",
       "owner": "engineer"
     },
     {
       "id": "t250",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "doorwise",
       "title": "ひな形から DOORWISE の最初の版を作る（改めたルールで）",
       "owner": "engineer"
     },
     {
       "id": "t251",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "one-off",
       "title": "ひな形から ONE OFF の最初の版を作る",
       "owner": "engineer"
     },
     {
       "id": "t252",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "cell-garden",
       "title": "CELL GARDEN のアイコン一式と共有画像を作る（配色も見る）",
       "owner": "designer"
@@ -3219,18 +3219,18 @@
     },
     {
       "id": "t255",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "pair-carry",
       "title": "PAIR CARRY のアイコン一式と共有画像を作る（配色も見る）",
       "owner": "designer"
     },
     {
       "id": "t256",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "echo-reef",
       "title": "ECHO REEF のアイコン一式と共有画像を作る（配色も見る）",
       "owner": "designer"
@@ -3255,12 +3255,174 @@
     },
     {
       "id": "t259",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "cell-garden",
       "title": "CELL GARDEN のアイコン一式と共有画像を作る（上限で止まったのを再開）",
       "owner": "designer"
+    },
+    {
+      "id": "t260",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "one-off",
+      "title": "ONE OFF のアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer"
+    },
+    {
+      "id": "t261",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "high-floor",
+      "title": "HIGH FLOOR のアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer"
+    },
+    {
+      "id": "t262",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "echo-reef",
+      "title": "ECHO REEF を確かめる（audit・スマホ幅・手引きと今日の海）",
+      "owner": "qa"
+    },
+    {
+      "id": "t263",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "buyout",
+      "title": "BUYOUT のアイコン一式と共有画像を作る（配色も見る。勧誘に見えない絵）",
+      "owner": "designer"
+    },
+    {
+      "id": "t264",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "pair-carry",
+      "title": "PAIR CARRY を確かめる（audit・スマホ幅・全 10 ステージ）",
+      "owner": "qa"
+    },
+    {
+      "id": "t265",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "arnolds-cat",
+      "title": "ARNOLD'S CAT を確かめる（audit・スマホ幅・周期・写真が外に出ないか）",
+      "owner": "qa"
+    },
+    {
+      "id": "t266",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "cell-garden",
+      "title": "CELL GARDEN を確かめる（audit・スマホ幅・かたち 9 つ・重さ）",
+      "owner": "qa"
+    },
+    {
+      "id": "t267",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "echo-reef",
+      "title": "ECHO REEF を公開する（オーナー不在の指示で承諾）",
+      "owner": "release"
+    },
+    {
+      "id": "t268",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "arnolds-cat",
+      "title": "ARNOLD'S CAT を公開する（オーナー不在の指示で承諾）",
+      "owner": "release"
+    },
+    {
+      "id": "t269",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "cell-garden",
+      "title": "CELL GARDEN を公開する（オーナー不在の指示で承諾）",
+      "owner": "release"
+    },
+    {
+      "id": "t270",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": null,
+      "title": "自動チェック（tools/audit.mjs）に「maskable-512.png の絵柄が中心 80% の円に収まっているか」を足すか決める。いまはファイルがあるかだけを見ていて、PAIR CARRY・数の模様で品質担当が手で見つけた。ルールの変更なのでオーナーが決める",
+      "owner": "owner"
+    },
+    {
+      "id": "t271",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "pair-carry",
+      "title": "PAIR CARRY を公開する（石がすべる件とアイコンの余白を直してから。オーナー不在の指示で承諾）",
+      "owner": "release"
+    },
+    {
+      "id": "t272",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "buyout",
+      "title": "BUYOUT を公開する（オーナー不在の指示で承諾）",
+      "owner": "release"
+    },
+    {
+      "id": "t273",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "high-floor",
+      "title": "HIGH FLOOR を公開する（長い名前のはみ出しを直してから。オーナー不在の指示で承諾）",
+      "owner": "release"
+    },
+    {
+      "id": "t274",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "one-off",
+      "title": "ONE OFF を公開する（小さなボタンを 44px にしてから。オーナー不在の指示で承諾）",
+      "owner": "release"
+    },
+    {
+      "id": "t275",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "doorwise",
+      "title": "DOORWISE を確かめる（audit・スマホ幅・12 面）",
+      "owner": "qa"
+    },
+    {
+      "id": "t276",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "dawnward",
+      "title": "DAWNWARD を確かめる（audit・スマホ幅・1 夜・権利を念入りに）",
+      "owner": "qa"
+    },
+    {
+      "id": "t277",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "slope-writer",
+      "title": "SLOPE WRITER のアイコンを作り、確かめる（audit・スマホ幅・12 ステージ）",
+      "owner": "qa"
     }
   ],
   "ideas": []
