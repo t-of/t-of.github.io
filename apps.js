@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'bloomcast',
+    name: 'BLOOMCAST',
+    title: '雲で日差しと雨を配って育てる',
+    desc: '空の雲を指で動かして太陽を隠し、長押しで雨を降らせて、画面の下の植物をできるだけ早く実らせる。ほしい日差しと水は朝・昼・夕と育ち具合で変わるので、動く太陽を追いかけて雲を配り直す。',
+    category: 'game',
+    tags: ['タイムアタック', '育成'],
+    icon: '/bloomcast/icons/icon-192.png',
+    color: '#5da3d9',
+  },
+  {
     id: 'slope-writer',
     name: 'SLOPE WRITER',
     title: '式の坂でボールを転がす',
