@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-24T14:13:12.657Z",
+  "updatedAt": "2026-09-24T15:37:17.551Z",
   "projects": [
     {
       "id": "note",
@@ -8,6 +8,69 @@
       "stage": "planning",
       "created": "2026-09-24",
       "note": "アプリ制作とは別。100 円の有料記事を 1 日 1 本以上。テーマは生成 AI（平日 5 本: 実務での使い方、週末 2 本: 海外事例の紹介）。2〜4 週で売上を比べて配分を決める。フォルダは ~/GitHub/tof/note/（t-of/note）"
+    },
+    {
+      "id": "last-three",
+      "name": "LAST THREE",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
+    },
+    {
+      "id": "cross-take",
+      "name": "CROSS TAKE",
+      "stage": "qa",
+      "created": "2026-09-25",
+      "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
+    },
+    {
+      "id": "kazukakushi",
+      "name": "かずかくし",
+      "stage": "qa",
+      "created": "2026-09-25",
+      "note": "ビット15・ヒント15 を 1 本にまとめる案。元は ~/GitHub/tof/processing-archive"
+    },
+    {
+      "id": "yotsumawashi",
+      "name": "よつまわし",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "針回しパズル3x3 から。元は ~/GitHub/tof/processing-archive"
+    },
+    {
+      "id": "irowa",
+      "name": "いろわ",
+      "stage": "qa",
+      "created": "2026-09-25",
+      "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
+    },
+    {
+      "id": "hirakibako",
+      "name": "ひらきばこ",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
+    },
+    {
+      "id": "wakuguri",
+      "name": "わくぐり",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
+    },
+    {
+      "id": "tap-quartet",
+      "name": "TAP QUARTET",
+      "stage": "qa",
+      "created": "2026-09-25",
+      "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
+    },
+    {
+      "id": "number-patterns",
+      "name": "数の模様",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
     }
   ],
   "tasks": [
@@ -287,18 +350,18 @@
       "project": null,
       "title": "GitHub の Sora3141/my-games（非公開）を消す。Claude からの削除は止められたので自分で消す（github.com/Sora3141/my-games/settings の一番下 → Delete this repository）",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-24"
     },
     {
       "id": "t25",
       "project": null,
       "title": "公開済みの 10 本の権利を RULES §1「権利」に沿って調べ直し、アプリごとに判定を出す。気になる点: 「オセロ」は登録商標（cube-othello / score-othello）、insider はボードゲーム『インサイダー・ゲーム』と同名、pentris の「-tris」、「コアイメージ」",
       "owner": "planner",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-24"
     },
     {
       "id": "t26",
@@ -567,7 +630,7 @@
     {
       "id": "t58",
       "project": "hineri",
-      "title": "QA の指摘を直す（端のマスで違う層が回る、小さい画面・横画面の崩れ ほか）",
+      "title": "QA の指摘を直す（端のマス���違う層が回る、小さい画面・横画面の崩れ ほか）",
       "owner": "engineer",
       "status": "done",
       "created": "2026-09-24",
@@ -1231,9 +1294,9 @@
       "project": null,
       "title": "GitHub の tetris と color-test を消す。Claude に削除の権限がないので、gh auth refresh -h github.com -s delete_repo で権限を足すか、GitHub の画面から自分で消す",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-24"
     },
     {
       "id": "t102",
@@ -1804,9 +1867,9 @@
       "project": "note",
       "title": "note 専用アカウント「AIのつかいどころ」を作る（名前は 2026-09-24 に決定。ユーザー名の案 ai_tsukaidokoro）。有料記事の前に本人情報の登録も",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-24"
     },
     {
       "id": "t147",
@@ -1834,6 +1897,491 @@
       "status": "done",
       "created": "2026-09-24",
       "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t150",
+      "project": "note",
+      "title": "海外事例 2 本（10/3・10/4）の数字と出典を元記事で確かめる。法律事務所のタイトルの言い過ぎと、カルテの記事の出典の混ざりを直した",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t151",
+      "project": "note",
+      "title": "下書き 7 本（~/GitHub/tof/note/drafts/）を読んで直す。各ファイルの最後の「オーナーへ」を見る。最初の投稿は 9/28（月）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t152",
+      "project": "note",
+      "title": "次の週（10/5〜10/11）の下書き 7 本を作る（平日 5 本は実務、週末 2 本は海外）",
+      "owner": "writer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t153",
+      "project": "note",
+      "title": "note の見出し画像（1280×670）のひな形を実務・海外の 2 種類作り、下書きのタイトルから PNG を作る道具を用意する",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t154",
+      "project": null,
+      "title": "~/Downloads の「ゲーム開発」「自己制作」（Processing の昔の作品 53 本）を、消す・まとめる・アプリにするに分ける。案はディレクターが出し、オーナーが決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t155",
+      "project": "last-three",
+      "title": "消える三目並べ・数取りの仕様と権利の調べを書く（fading-ox, cross-take） → last-three.md・cross-take.md",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t156",
+      "project": "kazukakushi",
+      "title": "ビット15パズル・ヒント15パズル・針回しパズルの仕様と権利の調べを書く（bit-fifteen, hint-fifteen, dial-turn） → kazukakushi.md・yotsumawashi.md",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t157",
+      "project": "irowa",
+      "title": "3つの輪・平面ルービック・輪くぐりの仕様と権利の調べを書く（three-rings, plane-cube, ring-pass） → irowa.md・hirakibako.md・wakuguri.md",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t158",
+      "project": "tap-quartet",
+      "title": "ミニゲーム集・数の模様の仕様と権利の調べを書く（mini-games, number-patterns） → tap-quartet.md・number-patterns.md",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t159",
+      "project": "last-three",
+      "title": "権利を選ぶ: 消える三目並べ → 名前の案 LAST THREE（ほか ONLY THREE / TIDEMARK）。判定 問題なし（光るボタンの市販品に見た目を似せない）。名前を変えたいときはコメントに書く（仕様 docs/private/specs/last-three.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t160",
+      "project": "cross-take",
+      "title": "権利を選ぶ: 数取り → 名前の案 CROSS TAKE（ほか AXIS TAKE / CROSSGRAB）。判定 問題なし（白地に赤十字を描かない）。名前を変えたいときはコメントに書く（仕様 docs/private/specs/cross-take.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t161",
+      "project": "kazukakushi",
+      "title": "権利を選ぶ: 15パズル（ビット・ヒントを1本に） → 名前の案 かずかくし（ほか むばん）。判定 問題なし。名前を変えたいときはコメントに書く（仕様 docs/private/specs/kazukakushi.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t162",
+      "project": "yotsumawashi",
+      "title": "権利を選ぶ: 針回しパズル → 名前の案 よつまわし（ほか はりそろえ）。判定 問題なし（時計の見た目にしない）。名前を変えたいときはコメントに書く（仕様 docs/private/specs/yotsumawashi.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t163",
+      "project": "irowa",
+      "title": "権利を選ぶ: 3つの輪の回転パズル → 名前の案 いろわ（ほか TRILOOP）。判定 問題なし。名前を変えたいときはコメントに書く（仕様 docs/private/specs/irowa.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t164",
+      "project": "hirakibako",
+      "title": "権利を選ぶ: 平面ルービック → 名前の案 ひらきばこ（ほか めんそろえ / FLAT TWIST）。判定 注意。企画のおすすめは「作る（収益化しない）」。名前を変えたいときはコメントに書く（仕様 docs/private/specs/hirakibako.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "名前変えて収益化する"
+    },
+    {
+      "id": "t165",
+      "project": "wakuguri",
+      "title": "権利を選ぶ: 輪くぐり → 名前の案 わくぐり（ほか くぐりだま / わぬけ）。判定 問題なし。名前を変えたいときはコメントに書く（仕様 docs/private/specs/wakuguri.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t166",
+      "project": "tap-quartet",
+      "title": "権利を選ぶ: ミニゲーム集 → 名前の案 TAP QUARTET（ほか FINGER BENCH / ゆびだめし）。判定 問題なし。名前を変えたいときはコメントに書く（仕様 docs/private/specs/tap-quartet.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t167",
+      "project": "number-patterns",
+      "title": "権利を選ぶ: 数の模様 → 名前の案 数の模様（ほか 数学もよう帳 / MATH MOTIF）。判定 問題なし（スピログラフと呼ばない）。名前を変えたいときはコメントに書く（仕様 docs/private/specs/number-patterns.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t168",
+      "project": "last-three",
+      "title": "ひな形から LAST THREE の最初の版を作る（仕様の「作る順番」の最初の版まで）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t169",
+      "project": "cross-take",
+      "title": "ひな形から CROSS TAKE の最初の版を作る（仕様の「作る順番」の最初の版まで）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t170",
+      "project": "kazukakushi",
+      "title": "ひな形から かずかくし の最初の版を作る（仕様の「作る順番」の最初の版まで）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t171",
+      "project": "yotsumawashi",
+      "title": "ひな形から よつまわし の最初の版を作る（仕様の「作る順番」の最初の版まで）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t172",
+      "project": "irowa",
+      "title": "ひな形から いろわ の最初の版を作る（仕様の「作る順番」の最初の版まで）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t173",
+      "project": "hirakibako",
+      "title": "ひな形から ひらきばこ の最初の版を作る（仕様の「作る順番」の最初の版まで）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t174",
+      "project": "wakuguri",
+      "title": "ひな形から わくぐり の最初の版を作る（仕様の「作る順番」の最初の版まで）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t175",
+      "project": "tap-quartet",
+      "title": "ひな形から TAP QUARTET の最初の版を作る（仕様の「作る順番」の最初の版まで）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t176",
+      "project": "number-patterns",
+      "title": "ひな形から 数の模様 の最初の版を作る（仕様の「作る順番」の最初の版まで）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t177",
+      "project": "irowa",
+      "title": "いろわのアイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t178",
+      "project": "kazukakushi",
+      "title": "かずかくしのアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t179",
+      "project": "cross-take",
+      "title": "CROSS TAKE のアイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t180",
+      "project": "cross-take",
+      "title": "CROSS TAKE は先手（よこ）がかなり有利（CPU どうし 1000 局で 66% 対 27%、平均 2.6 点差。始めのマスをランダムにしても変わらない）。どう直すかを選ぶ。A はおすすめ（囲碁のコミと同じ考え方。点数は CPU どうしで試して決める）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "choiceLabels": {
+        "A": "後手に最初から点を足す",
+        "B": "先手は始めのマスを取れない",
+        "C": "1 局ごとに先手と後手を入れ替える",
+        "D": "このまま（CPU 戦で先手を選ぶと易しい）"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t181",
+      "project": "last-three",
+      "title": "LAST THREE のアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t182",
+      "project": "hirakibako",
+      "title": "ひらきばこ のアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t183",
+      "project": "tap-quartet",
+      "title": "TAP QUARTET のアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t184",
+      "project": "yotsumawashi",
+      "title": "よつまわしのステージを、盤の大きさごとに最少手数が減らない並びに直す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t185",
+      "project": "yotsumawashi",
+      "title": "よつまわしのアイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t186",
+      "project": "cross-take",
+      "title": "CROSS TAKE に後手のコミを足す（オーナーが A を選んだ。点数は CPU どうしで決める）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t187",
+      "project": "irowa",
+      "title": "いろわを確かめる（audit・スマホ幅・遊びの流れ）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t188",
+      "project": "kazukakushi",
+      "title": "かずかくしを確かめる（audit・スマホ幅・遊びの流れ）",
+      "owner": "qa",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t189",
+      "project": "number-patterns",
+      "title": "数の模様のアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t190",
+      "project": "tap-quartet",
+      "title": "TAP QUARTET を確かめる（audit・スマホ幅・4 つの遊び）",
+      "owner": "qa",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t191",
+      "project": "irowa",
+      "title": "いろわを公開してよいか選ぶ。品質は合格（audit 30/30、テスト 5 件、390・360 幅と PC で最後まで遊べた）。3 つの輪を回して、崩れた玉の色を元に戻すパズル。やさしい・ふつう・むずかしい、色の印（色覚の違う人向け）つき",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/irowa.png",
+        ".audit/irowa-play.png",
+        ".audit/irowa-clear.png",
+        ".audit/irowa-og.png"
+      ],
+      "choices": [
+        "公開する",
+        "直してから"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t192",
+      "project": "cross-take",
+      "title": "CROSS TAKE を確かめる（audit・スマホ幅・CPU 戦とふたり対戦・コミ）",
+      "owner": "qa",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null
     }
   ],
   "ideas": []
