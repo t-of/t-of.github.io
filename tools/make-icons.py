@@ -23,7 +23,7 @@ word = Image.open(os.path.join(ROOT, 'logo', 'tof-wordmark.png'))
 word = word.resize((round(word.width * 190 / word.height), 190), Image.LANCZOS)   # 高さでそろえる
 og.paste(word, (58, 120), word)
 d.text((84, 345), 'ブラウザで遊べる、小さなゲームとアプリ。', font=ImageFont.truetype(JP_BOLD, 34), fill=FG)
-d.text((84, 405), '無料・インストール不要・オフライン対応', font=ImageFont.truetype(JP, 28), fill=(154, 160, 171))
+d.text((84, 405), '無料・インストール不要', font=ImageFont.truetype(JP, 28), fill=(154, 160, 171))
 d.rectangle((84, 486, 164, 492), fill=ACCENT)
 
 icons = []
