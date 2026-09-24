@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'meguribi',
+    name: 'めぐりび',
+    title: '灯りが止まった町へ行く',
+    desc: '日本地図の上を灯りが町から町へかけめぐり、止めたところが次の旅先になる。全国 1,747 の市区町村から、地方や県でしぼったり、行った県を外したりして選べる。',
+    category: 'tool',
+    tags: ['旅', 'ルーレット'],
+    icon: '/meguribi/icons/icon-192.png',
+    color: '#0b1224',
+  },
+  {
     id: 'kagamigami',
     name: 'かがみがみ',
     title: '写真を切って並べる万華鏡',
