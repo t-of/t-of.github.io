@@ -81,3 +81,4 @@ hue-hunter の `firestore.rules` を変えたら、Firebase に公開するま�
 | Half-Cut | 独自のインストール・共有 UI | Android のインストール・iPhone の手順・シェアまで独自に対応済み |
 | Half-Cut | ブラウザのタブのアイコンが `icon.svg` ではなく `icons/favicon.svg` | 小さいサイズ用に線を太くした別デザイン。32px でも読める |
 | Half-Cut | リポジトリ名に大文字（`Half-Cut`） | URL が変わるので変えない |
+| madoakari | 盤が大きいと窓が 44px を下回る（12×12 で約 26px） | 盤の大きさ 2〜12 は遊びの幅として残す（オーナーが了承、board t107）。押した窓は光って分かる。スマホで押しやすいのは 8 列くらいまで |
