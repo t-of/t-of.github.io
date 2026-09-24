@@ -5,14 +5,15 @@
 
 ## 2026-09-24
 
-### 仕様（docs/specs/）は手元だけに置く
-仕様には企画担当の権利の調べ（どこが危ないかの自己分析）が入る。本部は公開リポジトリなので、`docs/rights.md` と同じく `.gitignore` に入れてコミットしない（RULES §1「権利」）。
-この Mac にしか残らないので、消すと戻せない。遊び方や保存するデータのように、あとで要る中身は各アプリの README とコードに残る。
+### 仕様と権利の調べは非公開リポジトリ `t-of/hq-private` に置く
+仕様には企画担当の権利の調べ（どこが危ないかの自己分析）が入る。本部は公開リポジトリなので入れられない（RULES §1「権利」）。
+手元だけだと Mac が壊れたら戻せないので、`docs/private/`（specs/・rights.md・renames.md）を別の非公開リポジトリにして GitHub に置く。本部の `.gitignore` は `docs/private/` の 1 行。
+`~/GitHub/<id>/` に横並び（RULES §1「ローカルの置き場所」）の例外。本部の中の書類なので、ここに置いたほうが企画担当・実装担当から読みやすい。
 
 ### 収益化するアプリと、名前を変えるアプリ
-収益化の前に 10 本の権利を調べ直した（docs/rights.md）。オセロの 2 本・insider・pentris は収益化しない。
+収益化の前に 10 本の権利を調べ直した（docs/private/rights.md）。オセロの 2 本・insider・pentris は収益化しない。
 insider・pentris・hue-hunter・glyph-shift は、既存の商品と同じか近い名前なので変える。core-image-english はライセンスの表記を直す。
-新しい名前は insider → ワケシリ（役職は 親 / ワケシリ / 子）、pentris → QUINTILE、hue-hunter → DELTA HUE、glyph-shift → ABILITILE（案と調べた結果は docs/renames.md）。
+新しい名前は insider → ワケシリ（役職は 親 / ワケシリ / 子）、pentris → QUINTILE、hue-hunter → DELTA HUE、glyph-shift → ABILITILE（案と調べた結果は docs/private/renames.md）。
 URL・リポジトリ名・保存キー・キャッシュ名は変えない（記録と共有リンクを守るため。Half-Cut と同じ考え）。
 
 ### オフラインで動くことを必須から外す

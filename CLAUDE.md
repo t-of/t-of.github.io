@@ -30,7 +30,7 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 
 | 役割 | エージェント | 任せること |
 |---|---|---|
-| 企画 | `planner` | アイデアを仕様にする（`docs/specs/<id>.md`）。名前・ひとこと・ルール・画面の流れ |
+| 企画 | `planner` | アイデアを仕様にする（`docs/private/specs/<id>.md`）。名前・ひとこと・ルール・画面の流れ |
 | デザイン | `designer` | アイコン一式、共有画像、配色。BRAND.md に沿う |
 | 実装 | `engineer` | ひな形から作る、機能を足す、不具合を直す。RULES.md に沿う |
 | 品質 | `qa` | `npm run audit:browser`、画面を撮って見る、スマホ幅の確認。直さずに報告する |
