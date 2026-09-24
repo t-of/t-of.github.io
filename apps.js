@@ -13,6 +13,36 @@
 
 window.TOFO_APPS = [
   {
+    id: 'pitaori',
+    name: 'ピタオリ',
+    title: '行き来する布を止めて織る',
+    desc: '左右に行き来する布の帯をタップで止めて、下の段に重ねて織り上げる。はみ出たぶんは切り落とされるので、ぴったり止めて細くしないのがこつ。',
+    category: 'game',
+    tags: ['アクション', 'タイミング'],
+    icon: '/pitaori/icons/icon-192.png',
+    color: '#2d4a7a',
+  },
+  {
+    id: 'arimichi',
+    name: 'ありみち',
+    title: 'アリが描く終わらない模様',
+    desc: '右か左に曲がるだけのアリが、歩くたびにマスの色を変えて模様を描く。曲がり方のルールを変えると、渦・左右対称・三角など、まったく違う形が育つ。',
+    category: 'tool',
+    tags: ['シミュレーション', '数学'],
+    icon: '/arimichi/icons/icon-192.png',
+    color: '#3f93b8',
+  },
+  {
+    id: 'hineri',
+    name: 'ひねり並べ',
+    title: '置いてひねる立体の目並べ',
+    desc: '立方体の面に印を置き、置いたあとに列を 1 回だけひねれる目並べ。ひねれば相手の列を崩すことも、自分の列を作ることもできる。CPU 対戦・ふたり対戦。',
+    category: 'game',
+    tags: ['ボードゲーム', '3D'],
+    icon: '/hineri/icons/icon-192.png',
+    color: '#ece6d9',
+  },
+  {
     id: 'yurazumi',
     name: 'ゆらづみ',
     title: '木と石と氷を積むタワー',
