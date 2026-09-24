@@ -304,28 +304,31 @@ function taskRow(t) {
   // オーナーに選んでもらうもの
   if (t.choices?.length) {
     const box = el('div', t.choiceImages ? 'choices choices--cards' : 'choices');
+    // prompt() は VS Code の中のブラウザでは出ないので、コメントは画面の入力欄で受ける
+    const note = el('input', 'choice-comment');
+    note.placeholder = '直してほしい点・コメント（なくてもよい）。書いてから選ぶ';
+    note.value = t.comment || '';
     for (const c of t.choices) {
-      const b = el('button', 'choice', c);
+      const label = t.choiceLabels?.[c] ? `${c}  ${t.choiceLabels[c]}` : c;
+      const b = el('button', 'choice', label);
       if (t.choiceImages?.[c]) {
         const img = new Image();
         img.src = `/hub/${t.choiceImages[c]}`;
         img.alt = c;
-        b.replaceChildren(img, el('span', 'choice__label', t.choiceLabels?.[c] ? `${c}  ${t.choiceLabels[c]}` : c));
+        b.replaceChildren(img, el('span', 'choice__label', label));
       }
       b.type = 'button';
       b.setAttribute('aria-pressed', String(t.choice === c));
       b.addEventListener('click', async () => {
-        const note = prompt(`「${c}」にします。直してほしい点があれば書いてください（なくてもよい）`, t.comment || '');
-        if (note === null) return;
         t.choice = c;
-        t.comment = note.trim();
+        t.comment = note.value.trim();
         t.status = 'done';
         t.doneAt = today();
         await saveBoard();
       });
       box.append(b);
     }
-    text.append(box);
+    text.append(note, box);
     if (t.choice) text.append(el('p', 'choice-note', `選んだもの: ${t.choice}${t.comment ? ` — ${t.comment}` : ''}`));
   }
   const status = el('select', 'task__status');
