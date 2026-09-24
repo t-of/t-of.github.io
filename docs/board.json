@@ -139,6 +139,42 @@
       "status": "done",
       "created": "2026-09-24",
       "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t13",
+      "project": null,
+      "title": "Organization「t-of」を作る（Free・My personal account）",
+      "owner": "owner",
+      "status": "doing",
+      "created": "2026-09-24",
+      "doneAt": null
+    },
+    {
+      "id": "t14",
+      "project": null,
+      "title": "t-of.github.io へ移す準備（アドレスの書き換え・記録の引き継ぎ・古いアドレスの中継ページ）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-24",
+      "doneAt": null
+    },
+    {
+      "id": "t15",
+      "project": null,
+      "title": "リポジトリを t-of に移して公開し直し、古いアドレスからの移動と記録の引き継ぎを確かめる",
+      "owner": "release",
+      "status": "todo",
+      "created": "2026-09-24",
+      "doneAt": null
+    },
+    {
+      "id": "t16",
+      "project": "hue-hunter",
+      "title": "Firebase の Authentication → 承認済みドメインに t-of.github.io を足す",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-09-24",
+      "doneAt": null
     }
   ],
   "ideas": []
