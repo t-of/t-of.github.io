@@ -5,7 +5,7 @@
 
 ## いまやること
 
-- [ ] **hue-hunter**: ランキングの読み込みで Firebase の `Missing or insufficient permissions` が出る（本番も同じ）。— 実装・オーナー
+- [ ] **hue-hunter**: ランキングが出ない。原因は本番の Firestore のルールが古いまま（シーズン 1 の `rankings` しか読めず、`rankings_v2` は読み書きとも拒否）。コードは正しい。リポジトリの `firestore.rules` を Firebase に公開すれば直る（手順は hue-hunter の README）。公開後に `rankings_v2` が読めるか確かめる。— オーナー（公開）→ 品質（確認）
 
 ## あとでやること
 
