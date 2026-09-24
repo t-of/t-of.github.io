@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'irowa',
+    name: 'いろわ',
+    title: '三つの輪を回して色を戻す',
+    desc: '重なった三つの輪を回して、玉の色を元の並びに戻すパズル。輪が重なる所の玉は二つの輪にまたがるので、一つを回すとほかの輪の並びも崩れる。',
+    category: 'game',
+    tags: ['パズル', '回転'],
+    icon: '/irowa/icons/icon-192.png',
+    color: '#ffe04d',
+  },
+  {
     id: 'meguribi',
     name: 'めぐりび',
     title: '灯りが止まった町へ行く',
