@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'tsumitate',
+    name: '積立投資シミュレーター',
+    title: '毎月の積み立て、何年後にいくら',
+    desc: '毎月いくら入れて、年に何 % ふえたら、何年後にいくらになるかを計算する。入れたお金とふえたぶんを分けてグラフにするので、長く続けるほどふえ方が大きくなるのが見て分かる。',
+    category: 'tool',
+    tags: ['学び', 'お金'],
+    icon: '/tsumitate/icons/icon-192.png',
+    color: '#f3efe6',
+  },
+  {
     id: 'madoakari',
     name: 'まどあかり',
     title: '夜の窓をぜんぶ灯す',
