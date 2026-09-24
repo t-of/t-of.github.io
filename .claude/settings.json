@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "additionalDirectories": ["../"],
+    "allow": [
+      "Bash(npm run audit:*)",
+      "Bash(npm run audit)",
+      "Bash(npm install)",
+      "Bash(node tools/*)",
+      "Bash(python3 tools/*)",
+      "Bash(tools/new-app.sh:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git pull:*)",
+      "Bash(git push:*)",
+      "Bash(git -C:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh repo edit:*)",
+      "Bash(gh repo create:*)",
+      "Bash(gh api repos/Sora3141/*)",
+      "Bash(curl -s:*)"
+    ],
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(gh repo delete:*)"
+    ]
+  }
+}

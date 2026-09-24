@@ -31,7 +31,7 @@ import os, sys
 dest = sys.argv[1]
 rep = {k: os.environ[v] for k, v in
        {'__ID__': 'ID', '__NAME__': 'NAME', '__TITLE__': 'TITLE', '__DESC__': 'DESC', '__BG__': 'BG'}.items()}
-for name in ('index.html', 'style.css', 'main.js', 'sw.js', 'manifest.webmanifest', 'README.md'):
+for name in ('index.html', 'style.css', 'main.js', 'sw.js', 'manifest.webmanifest', 'README.md', 'CLAUDE.md'):
     p = os.path.join(dest, name)
     s = open(p, encoding='utf-8').read()
     for a, b in rep.items():
@@ -43,4 +43,4 @@ python3 "$HERE/tools/placeholder-icons.py" "$DEST/icons" "$NAME" "$BG"
 
 git -C "$DEST" init -q -b main
 echo "作成しました: $DEST"
-echo "次: アイコンを差し替え → RULES.md のチェックリスト → GitHub に公開 → apps.js に追加"
+echo "次: 本体を書く → アイコンを作る → npm run audit:browser -- $ID → docs/RELEASE.md の手順で公開"

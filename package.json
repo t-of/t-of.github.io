@@ -1,0 +1,14 @@
+{
+  "name": "tof-hq",
+  "private": true,
+  "type": "module",
+  "description": "T.OF... の本部: アプリ一覧サイト・制作ルール・チェック用の道具",
+  "scripts": {
+    "audit": "node tools/audit.mjs",
+    "audit:browser": "node tools/audit.mjs --browser",
+    "serve": "python3 -m http.server 8000 --directory .."
+  },
+  "devDependencies": {
+    "playwright-core": "^1.55.0"
+  }
+}

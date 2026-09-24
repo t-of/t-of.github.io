@@ -219,7 +219,8 @@ tools/new-app.sh <id> "<アプリ名>" "<ひとこと>" "<説明>" "<背景色>"
 ```
 
 `~/GitHub/<id>/` に、上のルールを満たしたひな形（`<head>`、manifest、sw.js、webapp-kit、仮アイコン、README）ができる。
-あとは本体を書き、アイコンを差し替え、チェックリストを埋める。
+あとは本体を書き、アイコンを差し替え、`npm run audit -- <id>` が通るまで直す。
+Claude Code では本部で `/new-app` を使うと、企画からリリースまで役割を分けて進められる（[CLAUDE.md](CLAUDE.md)）。
 
 GitHub への公開:
 
@@ -232,20 +233,17 @@ gh api -X POST repos/Sora3141/<id>/pages -f 'source[branch]=main' -f 'source[pat
 
 ---
 
-## 既存アプリの対応状況（2026-09-24 時点）
+## 12. 自動チェック
 
-Half-Cut 以外の 9 本は、このルールに沿うよう直してある。意図して残している違い:
+公開前と、ルールを変えたあとに必ず実行する。
 
-| アプリ | 違い | 理由 |
-|---|---|---|
-| pentris | GitHub Pages の公開元が `master` ブランチ | 切り替えると公開が止まるおそれがあるため |
-| gear-align / hue-hunter | webapp-kit ではなく独自のインストール・共有 UI | iPhone 案内・コピーの代替まで独自に対応済み |
-| gear-align | manifest の名前が `manifest.json` | インストール済みの人への影響を避けるため |
-| hue-hunter / core-image-english / pentris | localStorage のキーが `hueHunter_` / `coreEn.` / `pent.` | すでにアプリ名で区切られている。変えると記録が消える |
-| core-image-english | `html` の背景が `theme-color` と違う | 下端のタブバーと色を合わせるため（CSS にコメントあり） |
+```sh
+cd ~/GitHub/sora3141.github.io
+npm run audit              # ファイルを見るチェック（速い）
+npm run audit:browser      # Chrome で開いて、エラー・SW・オフライン起動・はみ出しも見る
+npm run audit -- <id>      # 1 本だけ
+```
 
-まだ直していないもの:
-
-| アプリ | 残っている点 |
-|---|---|
-| Half-Cut | README に T.OF... の表記がない、favicon が data URI、`favicon-32.png`・`maskable-512.png` がない、webapp-kit 未使用（独自 UI） |
+- チェックの中身は [`tools/audit.mjs`](tools/audit.mjs)。このルールを変えたら、機械で判定できる項目はそこにも足す。
+- 意図して残している違いは [docs/DECISIONS.md](docs/DECISIONS.md) に理由を書き、`audit.mjs` の `EXCEPTIONS` に足す。
+- まだ直していないものは [docs/BACKLOG.md](docs/BACKLOG.md) にある。
