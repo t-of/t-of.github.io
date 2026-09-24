@@ -129,8 +129,10 @@ function auditFiles(app) {
   add('safe-area', /env\(safe-area-inset-/.test(code), '', '§5');
   add('html の背景色', /(^|[\s,}])html\s*(,[^{]*)?\{[^}]*background/m.test(code), '', '§5');
 
-  // §5 音（Web Audio を使うなら、iPhone のマナーモードでも鳴るように）
-  if (/AudioContext|new Audio\(/.test(code)) {
+  // §5 音（効果音は必須。Web Audio を使うなら、iPhone のマナーモードでも鳴るように）
+  const hasSound = /AudioContext|new Audio\(/.test(code);
+  add('効果音', hasSound || (EXCEPTIONS[app.id] || []).includes('sound'), '音を鳴らしていない', '§5');
+  if (hasSound) {
     add('マナーモードでも音', /navigator\.audioSession/.test(code), 'navigator.audioSession.type を設定していない', '§5');
   }
 

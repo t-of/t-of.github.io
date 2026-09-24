@@ -177,6 +177,8 @@ keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE).map((k) => caches.delete
 
 ### 音
 
+- **必須** 効果音を付ける。タップ・置く・消す・そろう・勝ち負けなど、操作と結果に短い音を返す。
+  音声ファイルを使わず Web Audio（`OscillatorNode` など）で作ってよい（素材のライセンスを気にしなくてよい）。付けないアプリは理由を DECISIONS.md に書き、`tools/audit.mjs` の `EXCEPTIONS` に `'sound'` を足す。
 - **必須** iPhone のマナーモードでも音が出るようにする。何もしないと、Web Audio の音は着信音と同じ扱いになり、マナーモードで消える。
   音を鳴らす前（最初のタップで `AudioContext` を作る・`resume()` する直前）と、アプリの音の設定を切り替えたときに次を呼ぶ。
 
@@ -269,7 +271,7 @@ function setAudioSession(soundOn) {
 - [ ] iPhone でホーム画面に追加 → 上部が隠れない、下端のボタンが押せる
 - [ ] Android / PC Chrome で「アプリにする」が出る、インストール後は消える
 - [ ] 共有ボタンが動く（共有シート or リンクコピー）
-- [ ] 音があるなら: iPhone のマナーモードでも鳴る、音をオフにできる
+- [ ] 効果音がある。iPhone のマナーモードでも鳴る、音をオフにできる
 - [ ] T.OF... へのリンクがある
 - [ ] README の見出しがそろっている
 - [ ] ポータルの apps.js に追加した
