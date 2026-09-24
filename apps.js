@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'echo-reef',
+    name: 'ECHO REEF',
+    title: '鳴らして沈んだ岩を探す',
+    desc: '海の底に沈んだ岩を、マスを鳴らして探す推理パズル。返ってくるのはいちばん近い岩までの距離だけなので、いくつもの音を重ねて、少ない回数で岩の場所を全部当てる。',
+    category: 'game',
+    tags: ['パズル', '今日の海'],
+    icon: '/echo-reef/icons/icon-192.png',
+    color: '#68d2e8',
+  },
+  {
     id: 'number-bench',
     name: 'NUMBER BENCH',
     title: '確率も体感時間も、すぐ計算',
