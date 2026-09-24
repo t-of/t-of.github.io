@@ -25,7 +25,7 @@ T.OF... のゲームとアプリの一覧サイト。 → https://t-of.github.io
 ## Claude Code で使う
 
 ```sh
-cd ~/GitHub/t-of.github.io
+cd ~/GitHub/tof/t-of.github.io
 npm install        # 最初の 1 回（自動チェック用の Playwright）
 claude
 ```

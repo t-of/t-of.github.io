@@ -4,7 +4,7 @@
 #   tools/new-app.sh <id> <名前> [ひとこと] [説明] [背景色]
 #   例: tools/new-app.sh dot-rush "DOT RUSH" "点を集めるアクション" "点を集めて…" "#0d1017"
 #
-# ~/GitHub/<id>/ に template/ と webapp-kit/ をコピーし、__ID__ などを置き換え、
+# ~/GitHub/tof/apps/<id>/ に template/ と webapp-kit/ をコピーし、__ID__ などを置き換え、
 # 仮のアイコン（頭文字）を作って git init まで行う。
 set -euo pipefail
 
@@ -14,7 +14,7 @@ fi
 
 ID=$1; NAME=$2; TITLE=${3:-$2}; DESC=${4:-}; BG=${5:-#0b0c10}
 HERE=$(cd "$(dirname "$0")/.." && pwd)
-DEST=${DEST_DIR:-$HOME/GitHub}/$ID
+DEST=${DEST_DIR:-$HOME/GitHub/tof/apps}/$ID
 
 if [ -e "$DEST" ]; then echo "すでにあります: $DEST" >&2; exit 1; fi
 if ! [[ $ID =~ ^[A-Za-z0-9._-]+$ ]]; then echo "id は英数字と - _ . だけにしてください" >&2; exit 1; fi

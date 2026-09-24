@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// ~/GitHub/<id>/ のフォルダに、段階に合わせた Finder のタグ（色）を付ける。
+// ~/GitHub/tof/apps/<id>/ のフォルダに、段階に合わせた Finder のタグ（色）を付ける。
 //
 //   node tools/folder-colors.mjs
 //
@@ -12,7 +12,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const HUB = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const WORKSPACE = path.dirname(HUB);
+const WORKSPACE = path.join(path.dirname(HUB), 'apps');   // ~/GitHub/tof/apps
 const ATTR = 'com.apple.metadata:_kMDItemUserTags';
 
 // 名前\n Finder の色番号（1 グレー / 2 緑 / 4 青 / 5 黄）

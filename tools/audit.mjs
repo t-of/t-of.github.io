@@ -6,7 +6,7 @@
 //   npm run audit -- gear-align   1 本だけ
 //   npm run audit -- --json       結果を JSON で出す（エージェント用）
 //
-// アプリの一覧は apps.js、各アプリは ../<id>/（~/GitHub/<id>/）を見る。
+// アプリの一覧は apps.js、各アプリは ../apps/<id>/（~/GitHub/tof/apps/<id>/）を見る。
 // 意図して残している違いは docs/DECISIONS.md に理由を書き、下の EXCEPTIONS に足す。
 
 import fs from 'node:fs';
@@ -16,7 +16,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const HUB = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const WORKSPACE = path.dirname(HUB);
+const WORKSPACE = path.join(path.dirname(HUB), 'apps');   // ~/GitHub/tof/apps
 const ORIGIN = 'https://t-of.github.io';
 
 // 意図して残している違い（docs/DECISIONS.md に理由がある）
@@ -214,7 +214,7 @@ async function auditBrowser(apps) {
 // ---------- 出力 ----------
 
 const listed = loadApps();
-// apps.js にまだ無い（公開前の）アプリも、id を指定すれば ~/GitHub/<id>/ を調べる
+// apps.js にまだ無い（公開前の）アプリも、id を指定すれば ~/GitHub/tof/apps/<id>/ を調べる
 const apps = only.length === 0 ? listed : only.map((id) => listed.find((a) => a.id === id) ?? { id });
 const report = {};
 for (const app of apps) report[app.id] = auditFiles(app);

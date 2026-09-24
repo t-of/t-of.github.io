@@ -21,7 +21,7 @@
 新しいアプリ:
 
 ```sh
-cd ~/GitHub/<id>
+cd ~/GitHub/tof/apps/<id>
 gh repo create t-of/<id> --public --source . --push \
   --description "<説明>" --homepage "https://t-of.github.io/<id>/"
 gh api -X POST repos/t-of/<id>/pages -f 'source[branch]=main' -f 'source[path]=/'

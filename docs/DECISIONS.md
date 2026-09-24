@@ -5,6 +5,11 @@
 
 ## 2026-09-24
 
+### T.OF... のものを `~/GitHub/tof/` にまとめる
+`~/GitHub/` には T.OF... と関係ないリポジトリ（個人の練習、インターン、サークル）も並んでいて見分けにくく、note 運用部も始めたので、オーナーの希望で 1 つのフォルダにまとめた。
+本部は `tof/t-of.github.io/`、アプリ 20 本は `tof/apps/<id>/`、note は `tof/note/`（非公開リポジトリ t-of/note）。GitHub のリポジトリ名と URL は変えていない。
+audit・スタジオ・new-app.sh は `tof/apps/` を見る。下の「横並び」の決定を置き換える。Claude Code の古い会話は元の場所（`~/GitHub/t-of.github.io`）に記録が残る。
+
 ### 今日公開した 6 本は、名前と URL をいっしょに変えた
 オーナーの言葉「日本語が多くてかっこよさがない」から、英字の短い名前にした（案と調べた結果は docs/private/renames-2026-09-24b.md）。
 カドツギ→CORNER REACH（`corner-reach`）、ゆらづみ→SWAYSTONE（`swaystone`）、ひねり並べ→SKEWLINE（`skewline`）、ありみち→ラングトンのアリ（`langtons-ant`）、ピタオリ→SHUTTLE STOP（`shuttle-stop`）、そろえっこ→可視化ソート（`sort-visualizer`）。ラングトンのアリと可視化ソートはオーナーがチャットで決めた。

@@ -7,6 +7,7 @@ const ROLES = {
   engineer: { name: '実装', desc: 'コード', color: '#2cc6e0', icon: '⌘' },
   qa: { name: '品質', desc: 'チェック・確認', color: '#36a075', icon: '✓' },
   release: { name: 'リリース', desc: '公開・掲載', color: '#e2582e', icon: '↑' },
+  writer: { name: 'note', desc: '記事の下書き', color: '#41c9b4', icon: '✍' },
   owner: { name: 'オーナー', desc: 'あなた', color: '#eceef3', icon: '★' },
 };
 const STAGES = [
@@ -75,7 +76,7 @@ function renderOffice() {
   const floor = $('floor');
   floor.replaceChildren();
   const seats = people();
-  for (const role of ['director', 'planner', 'designer', 'engineer', 'qa', 'release']) {
+  for (const role of ['director', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer']) {
     const r = ROLES[role];
     const room = el('section', 'room');
     room.style.setProperty('--c', r.color);

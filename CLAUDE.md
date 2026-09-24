@@ -19,8 +19,8 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 
 ## 置き場所
 
-- 本部: `~/GitHub/t-of.github.io/`（ポータル、ルール、道具）
-- 各アプリ: `~/GitHub/<id>/`（1 アプリ 1 リポジトリ。`<id>` はリポジトリ名で URL のパス）
+- 本部: `~/GitHub/tof/t-of.github.io/`（ポータル、ルール、道具）
+- 各アプリ: `~/GitHub/tof/apps/<id>/`（1 アプリ 1 リポジトリ。`<id>` はリポジトリ名で URL のパス）
 - アプリの一覧: [apps.js](apps.js)。ここに載っているものが T.OF... のアプリ
 - 道具: `npm run studio`（社内の様子を見る画面）、`tools/audit.mjs`（自動チェック）、`tools/new-app.sh`（ひな形）、`npm run colors`（フォルダの色を段階に合わせる）、`tools/make-logo.py`・`tools/make-icons.py`（ロゴ・共有画像）
 - 共通部品: [webapp-kit/](webapp-kit/)（正本。直したら各アプリにコピーし直す）
@@ -35,8 +35,9 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 | 実装 | `engineer` | ひな形から作る、機能を足す、不具合を直す。RULES.md に沿う |
 | 品質 | `qa` | `npm run audit:browser`、画面を撮って見る、スマホ幅の確認。直さずに報告する |
 | リリース | `release` | RELEASE.md の手順で公開し、ポータルに載せ、反映を確かめる |
+| note 運用 | `writer` | note「AIのつかいどころ」の記事の下書き（`~/GitHub/tof/note/`、決まりは GUIDE.md）。投稿はオーナーが手で行う |
 
-- モデル: planner は Opus（指定なし＝ディレクターと同じ）、designer・engineer・qa は Sonnet、release は Haiku（各ファイルの `model:`）。新しいアプリを一から作るときや、Sonnet で直しきれないときは、engineer を `model: "opus"` で呼ぶ。
+- モデル: planner は Opus（指定なし＝ディレクターと同じ）、designer・engineer・qa・writer は Sonnet、release は Haiku（各ファイルの `model:`）。新しいアプリを一から作るときや、Sonnet で直しきれないときは、engineer を `model: "opus"` で呼ぶ。
 - 互いに関係しない作業は並行で頼む（例: デザインと実装）。同じファイルを 2 人に触らせない。
 - 頼むときは、対象のリポジトリ、やること、終わりの条件（どのチェックが通ればよいか）、コミットや push をしてよいかをはっきり書く。
 - メンバーの報告はそのまま信じず、差分とチェック結果で確かめてからオーナーに伝える。

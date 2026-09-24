@@ -19,7 +19,7 @@ import { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const HUB = path.dirname(HERE);
-const WORKSPACE = path.dirname(HUB);
+const WORKSPACE = path.join(path.dirname(HUB), 'apps');   // ~/GitHub/tof/apps
 const PROJECTS_DIR = path.join(os.homedir(), '.claude', 'projects');
 const BOARD = path.join(HUB, 'docs', 'board.json');
 const PORT = Number(process.env.PORT) || 4141;
@@ -30,7 +30,7 @@ const IDLE_MS = 3 * 60 * 1000;           // 記録がこれだけ途絶えたら
 // ---------- 役割 ----------
 
 // エージェントの種類 → 席。general-purpose などは頼んだ内容から推測する
-const ROLE_OF_TYPE = { planner: 'planner', designer: 'designer', engineer: 'engineer', qa: 'qa', release: 'release' };
+const ROLE_OF_TYPE = { planner: 'planner', designer: 'designer', engineer: 'engineer', qa: 'qa', release: 'release', writer: 'writer' };
 const ROLE_HINTS = [
   ['release', /公開|リリース|release|push|pages/i],
   ['qa', /品質|確認|チェック|audit|qa|verify|test/i],
@@ -41,7 +41,7 @@ const ROLE_HINTS = [
 function roleOf(agentType, description, prompt) {
   if (ROLE_OF_TYPE[agentType]) return ROLE_OF_TYPE[agentType];
   // 依頼文の頭に「T.OF... の engineer」のように役割が書いてあれば、それに従う
-  const named = (prompt || '').slice(0, 300).match(/\b(planner|designer|engineer|qa|release)\b|(企画|デザイン|実装|品質|リリース)担当/i);
+  const named = (prompt || '').slice(0, 300).match(/\b(planner|designer|engineer|qa|release|writer)\b|(企画|デザイン|実装|品質|リリース)担当/i);
   if (named) {
     const w = (named[1] || named[2]).toLowerCase();
     return { 企画: 'planner', デザイン: 'designer', 実装: 'engineer', 品質: 'qa', リリース: 'release' }[w] || w;
@@ -60,7 +60,7 @@ function loadApps() {
   } catch { return []; }
 }
 
-// ~/GitHub の下のリポジトリ名（アプリの id として扱う）
+// ~/GitHub/tof/apps の下のリポジトリ名（アプリの id として扱う）
 function repoNames() {
   try {
     return fs.readdirSync(WORKSPACE, { withFileTypes: true })
@@ -69,10 +69,10 @@ function repoNames() {
   } catch { return []; }
 }
 
-// 文字列の中から ~/GitHub/<id> を拾う
+// 文字列の中から apps/<id> を拾う
 function appsIn(text, known) {
   const found = new Set();
-  const re = /GitHub\/([A-Za-z0-9._-]+)/g;
+  const re = /apps\/([A-Za-z0-9._-]+)/g;
   let m;
   while ((m = re.exec(text))) if (known.has(m[1])) found.add(m[1]);
   return found;
@@ -105,7 +105,7 @@ function readNew(file) {
 // 道具の呼び出しを、人が読める一言にする
 function describeTool(name, input = {}) {
   const short = (s, n = 60) => (s || '').replace(/\s+/g, ' ').trim().slice(0, n);
-  const file = (p) => (p ? p.replace(os.homedir(), '~').replace('~/GitHub/', '') : '');
+  const file = (p) => (p ? p.replace(os.homedir(), '~').replace('~/GitHub/tof/apps/', '').replace('~/GitHub/tof/', '') : '');
   switch (name) {
     case 'Bash': return `コマンド: ${short(input.description || input.command)}`;
     case 'Read': return `読む: ${file(input.file_path)}`;

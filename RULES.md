@@ -63,9 +63,9 @@ T.OF...（https://t-of.github.io/）で公開する Web アプリに共通する
 
 ### ローカルの置き場所
 
-- **必須** `~/GitHub/<リポジトリ名>/` に横に並べる。フォルダ 1 つ = リポジトリ 1 つで、名前は GitHub のリポジトリ名と同じにする。
-  audit とスタジオはこの形を前提にしているので、サブフォルダに分けない。
-- **必須** `~/GitHub/` の直下にファイルを置かない。
+- **必須** T.OF... のものは `~/GitHub/tof/` にまとめる。本部は `~/GitHub/tof/t-of.github.io/`、アプリは `~/GitHub/tof/apps/<リポジトリ名>/`、note は `~/GitHub/tof/note/`。
+  フォルダ 1 つ = リポジトリ 1 つで、名前は GitHub のリポジトリ名と同じにする。audit とスタジオはこの形を前提にしているので、`apps/` の中をさらにサブフォルダに分けない。
+- **必須** `~/GitHub/tof/` と `~/GitHub/tof/apps/` の直下にファイルを置かない。
 - **必須** 作業の終わりに、コミットしていない変更を残さない（コミットするか、元に戻す）。
 - **必須** スクリーンショットなどの作業用ファイルは `.audit/` かスクラッチパッドに置き、リポジトリに入れない。
 - `.DS_Store` と `.vscode/` は git の全体設定（`~/.config/git/ignore`）で無視しているので、リポジトリごとに書かなくてよい。
@@ -280,19 +280,19 @@ function setAudioSession(soundOn) {
 ## 11. 新しいアプリの始め方
 
 ```sh
-cd ~/GitHub/t-of.github.io
+cd ~/GitHub/tof/t-of.github.io
 tools/new-app.sh <id> "<アプリ名>" "<ひとこと>" "<説明>" "<背景色>"
 # 例: tools/new-app.sh dot-rush "DOT RUSH" "点を集めるアクション" "点を集めて…" "#0d1017"
 ```
 
-`~/GitHub/<id>/` に、上のルールを満たしたひな形（`<head>`、manifest、sw.js、webapp-kit、仮アイコン、README）ができる。
+`~/GitHub/tof/apps/<id>/` に、上のルールを満たしたひな形（`<head>`、manifest、sw.js、webapp-kit、仮アイコン、README）ができる。
 あとは本体を書き、アイコンを差し替え、`npm run audit -- <id>` が通るまで直す。
 Claude Code では本部で `/new-app` を使うと、企画からリリースまで役割を分けて進められる（[CLAUDE.md](CLAUDE.md)）。
 
 GitHub への公開:
 
 ```sh
-cd ~/GitHub/<id>
+cd ~/GitHub/tof/apps/<id>
 git add -A && git commit -m "最初の版"
 gh repo create t-of/<id> --public --source . --push --description "<説明>" --homepage "https://t-of.github.io/<id>/"
 gh api -X POST repos/t-of/<id>/pages -f 'source[branch]=main' -f 'source[path]=/'
@@ -305,7 +305,7 @@ gh api -X POST repos/t-of/<id>/pages -f 'source[branch]=main' -f 'source[path]=/
 公開前と、ルールを変えたあとに必ず実行する。
 
 ```sh
-cd ~/GitHub/t-of.github.io
+cd ~/GitHub/tof/t-of.github.io
 npm run audit              # ファイルを見るチェック（速い）
 npm run audit:browser      # Chrome で開いて、エラー・はみ出しも見る
 npm run audit -- <id>      # 1 本だけ

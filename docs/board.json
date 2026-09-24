@@ -1,7 +1,15 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-24T11:36:33.287Z",
-  "projects": [],
+  "updatedAt": "2026-09-24T14:00:59.592Z",
+  "projects": [
+    {
+      "id": "note",
+      "name": "note 運用部",
+      "stage": "planning",
+      "created": "2026-09-24",
+      "note": "アプリ制作とは別。100 円の有料記事を 1 日 1 本以上。テーマは生成 AI（平日 5 本: 実務での使い方、週末 2 本: 海外事例の紹介）。2〜4 週で売上を比べて配分を決める。調べは docs/private/note/"
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -127,9 +135,10 @@
       "project": null,
       "title": "ポータルに載っていない古い公開リポジトリを整理する（そのまま / Archive / 非公開）",
       "owner": "owner",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-24",
+      "comment": "ナイトツアー系 7 本はそのまま。Lights-Up・nisa_simulator は Archive した。tetris・color-test は GitHub から消す（t101）。mirror-strips・tabisaki-roulette はトフに写す、fold-viewer はそのまま（t102）"
     },
     {
       "id": "t12",
@@ -276,9 +285,9 @@
     {
       "id": "t24",
       "project": null,
-      "title": "GitHub の my-games（非公開）を、全部公開できたあとで消すか Archive にするか決める（ローカルの ~/GitHub/my-games/ は 6 本の仕様ができたので消した）",
+      "title": "GitHub の Sora3141/my-games（非公開）を消す。Claude からの削除は止められたので自分で消す（github.com/Sora3141/my-games/settings の一番下 → Delete this repository）",
       "owner": "owner",
-      "status": "todo",
+      "status": "waiting",
       "created": "2026-09-24",
       "doneAt": null
     },
@@ -754,9 +763,9 @@
       "project": null,
       "title": "4 本の表示名を変える（insider→ワケシリ、pentris→QUINTILE、hue-hunter→DELTA HUE、glyph-shift→ABILITILE）。URL はそのまま",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-24"
     },
     {
       "id": "t63",
@@ -1072,6 +1081,750 @@
       ],
       "choice": "公開する",
       "comment": ""
+    },
+    {
+      "id": "t90",
+      "project": null,
+      "title": "J-PlatPat で商標を調べる道具 tools/jplatpat.mjs を作る（J-PlatPat の規約で自動取得が禁止、自動のブラウザも弾かれるので作らない）",
+      "owner": "engineer",
+      "status": "skip",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t91",
+      "project": null,
+      "title": "今日の 6 本（カドツギ・ゆらづみ・ひねり並べ・ありみち・ピタオリ・そろえっこ）の新しい名前の案を出す。英字でかっこよく、URL も変える",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t92",
+      "project": "kadotsugi",
+      "title": "カドツギ の新しい名前を選ぶ（docs/private/renames-2026-09-24b.md）。選んだら J-PlatPat の商標検索 → 称呼（類似検索）で読み「コーナーリーチ / ティップトゥティップ / コーナースパン」のうち選んだものを区分 9・28・41 で引き、結果をコメントに（似た登録なし／あり）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "CORNER REACH（おすすめ）",
+        "B": "TIP TO TIP",
+        "C": "CORNERSPAN"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t93",
+      "project": "yurazumi",
+      "title": "ゆらづみ の新しい名前を選ぶ（docs/private/renames-2026-09-24b.md）。選んだら J-PlatPat の商標検索 → 称呼（類似検索）で読み「スウェイストーン / スカイヒープ / ティンバートップ」のうち選んだものを区分 9・28・41 で引き、結果をコメントに（似た登録なし／あり）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "SWAYSTONE（おすすめ）",
+        "B": "SKYHEAP",
+        "C": "TIMBERTOP"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t94",
+      "project": "hineri",
+      "title": "ひねり並べ の新しい名前を選ぶ（docs/private/renames-2026-09-24b.md）。選んだら J-PlatPat の商標検索 → 称呼（類似検索）で読み「スキューライン / フェイスターン / スライスマーク」のうち選んだものを区分 9・28・41 で引き、結果をコメントに（似た登録なし／あり）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "SKEWLINE（おすすめ）",
+        "B": "FACETURN",
+        "C": "SLICEMARK"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t95",
+      "project": "arimichi",
+      "title": "ありみち の新しい名前を選ぶ（docs/private/renames-2026-09-24b.md）。選んだら J-PlatPat の商標検索 → 称呼（類似検索）で読み「アントルール / アントステップ / ターマイト」のうち選んだものを区分 9・28・41 で引き、結果をコメントに（似た登録なし／あり）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "ANTRULE（おすすめ）",
+        "B": "ANTSTEP",
+        "C": "TURMITE"
+      },
+      "choice": "A",
+      "comment": "ラングトンのアリでいいのではないか → ラングトンのアリ（チャットで決定）"
+    },
+    {
+      "id": "t96",
+      "project": "pitaori",
+      "title": "ピタオリ の新しい名前を選ぶ（docs/private/renames-2026-09-24b.md）。選んだら J-PlatPat の商標検索 → 称呼（類似検索）で読み「シャトルストップ / ウェフトライン / トリムウィーブ」のうち選んだものを区分 9・28・41 で引き、結果をコメントに（似た登録なし／あり）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "SHUTTLE STOP（おすすめ）",
+        "B": "WEFTLINE",
+        "C": "TRIMWEAVE"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t97",
+      "project": "soroekko",
+      "title": "そろえっこ の新しい名前を選ぶ（docs/private/renames-2026-09-24b.md）。選んだら J-PlatPat の商標検索 → 称呼（類似検索）で読み「ソートデュエル / ソートバーサス / ソートダービー」のうち選んだものを区分 9・28・41 で引き、結果をコメントに（似た登録なし／あり）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "SORT DUEL（おすすめ）",
+        "B": "SORT VERSUS",
+        "C": "SORT DERBY"
+      },
+      "choice": "A",
+      "comment": "可視化ソートでいいのではないか → 可視化ソート（チャットで決定）"
+    },
+    {
+      "id": "t101",
+      "project": null,
+      "title": "GitHub の tetris と color-test を消す。Claude に削除の権限がないので、gh auth refresh -h github.com -s delete_repo で権限を足すか、GitHub の画面から自分で消す",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-09-24",
+      "doneAt": null
+    },
+    {
+      "id": "t102",
+      "project": null,
+      "title": "Lights-Up・nisa_simulator・mirror-strips・tabisaki-roulette をトフに移す（/new-app）。元のリポジトリは Sora3141 にある",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t98",
+      "project": null,
+      "title": "6 本の名前と URL を変える（CORNER REACH・SWAYSTONE・SKEWLINE・ラングトンのアリ・SHUTTLE STOP・可視化ソート）アプリ側",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "comment": "アプリ側は 6 本ともコミット済み（push とリポジトリの改名は公開のとき）"
+    },
+    {
+      "id": "t99",
+      "project": null,
+      "title": "6 本の共有画像（og.png）を新しい名前で作り直す",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t100",
+      "project": null,
+      "title": "収益化の前に、J-PlatPat の称呼検索で名前を手で引く（読みの一覧はディレクターが出す）。note の「AIのつかいどころ」も引く",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-09-24",
+      "doneAt": null
+    },
+    {
+      "id": "t103",
+      "project": "madoakari",
+      "title": "仕様を書く（名前・デザイン・UI は 0 から。権利も調べる）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t104",
+      "project": "tsumitate",
+      "title": "仕様を書く（名前・デザイン・UI は 0 から。権利も調べる）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t105",
+      "project": "kagamigami",
+      "title": "仕様を書く（名前・デザイン・UI は 0 から。権利も調べる）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t106",
+      "project": "meguribi",
+      "title": "仕様を書く（名前・デザイン・UI は 0 から。権利も調べる）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t107",
+      "project": "madoakari",
+      "title": "名前を選ぶ（仕様 docs/private/specs/madoakari.md）。盤の上限はコメントに: 12 のまま（スマホで窓が 44px より小さくなる。DECISIONS に例外を書く）か 8 まで",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "まどあかり（おすすめ）— 夜の窓をぜんぶ灯す",
+        "B": "ともしあい — となりと灯しあう窓",
+        "C": "よあかし — 窓を灯して夜を明かす"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t108",
+      "project": "madoakari",
+      "title": "権利の判定を選ぶ。企画の判定は「問題なし」（Lights Out の特許は 2014 年に切れた。名前・見た目・言葉は重ならないようにした）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t109",
+      "project": "kagamigami",
+      "title": "名前を選ぶ（仕様 docs/private/specs/kagamigami.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "かがみがみ（おすすめ）— 写真を切って並べる万華鏡",
+        "B": "きりかがみ — 短冊に切って映す万華鏡",
+        "C": "きりばめ — 伝統の技法の名前。すすめない"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t110",
+      "project": "kagamigami",
+      "title": "権利の判定を選ぶ。企画の判定は「問題なし」（短冊に切って並べる手法は昔からある。写真は端末の外に出さない）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t111",
+      "project": "meguribi",
+      "title": "名前を選ぶ（仕様 docs/private/specs/meguribi.md）。「県から決める」を最初の版に入れたいならコメントに（企画は後回しをすすめる）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "めぐりび（おすすめ）— 灯りが止まった町へ行く",
+        "B": "チズクジ — 「旅くじ」（Peach）を思わせる",
+        "C": "つぎのまち — 名前として弱い"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t112",
+      "project": "meguribi",
+      "title": "権利の判定を選ぶ。企画の判定: 試作の地図データのままなら「注意」（出どころの版が分からない）。国土交通省の国土数値情報から作り直せば「問題なし」（出典を書く）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t113",
+      "project": "tsumitate",
+      "title": "名前を選ぶ（仕様 docs/private/specs/tsumitate.md）。取り崩しの利率を試作どおり 4 % 固定にしたいならコメントに（企画は入力した年利で計算するのをすすめる）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "ふえかた（おすすめ）— 毎月の積み立て、何年後にいくら",
+        "B": "ためふえ — 少し言いにくい",
+        "C": "コロダマ — コトダマンと 1 字違い"
+      },
+      "choice": "積立投資シミュレーター",
+      "comment": "チャットで決めた（候補の A〜C は使わない）"
+    },
+    {
+      "id": "t114",
+      "project": "tsumitate",
+      "title": "権利の判定を選ぶ。企画の判定は「問題なし」（条件つき: 名前に NISA を入れない（登録商標）／注意書きを載せて言い切らない／証券口座や金融商品のアフィリエイトは入れない）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t115",
+      "project": "tsumitate",
+      "title": "ひな形から作り、仕様どおりに本体を書く（audit:browser 合格・計算のテスト）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t116",
+      "project": "tsumitate",
+      "title": "アイコン一式と共有画像を作る（ひな形ができてから）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t117",
+      "project": "kagamigami",
+      "title": "ひな形から作り、仕様どおりに本体を書く（audit:browser 合格・テスト）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t118",
+      "project": "kagamigami",
+      "title": "アイコン一式と共有画像を作る（ひな形ができてから）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t119",
+      "project": "meguribi",
+      "title": "ひな形から作り、仕様どおりに本体を書く（audit:browser 合格・テスト）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t120",
+      "project": "meguribi",
+      "title": "アイコン一式と共有画像を作る（ひな形ができてから）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t121",
+      "project": "madoakari",
+      "title": "ひな形から作り、仕様どおりに本体を書く（audit:browser 合格・テスト）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t122",
+      "project": "madoakari",
+      "title": "アイコン一式と共有画像を作る（ひな形ができてから）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t123",
+      "project": "soroekko",
+      "title": "効果音を付ける（RULES §5「音」。マナーモードでも鳴る・オフにできる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t124",
+      "project": "pitaori",
+      "title": "効果音を付ける（RULES §5「音」。マナーモードでも鳴る・オフにできる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t125",
+      "project": "arimichi",
+      "title": "効果音を付ける（RULES §5「音」。マナーモードでも鳴る・オフにできる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t126",
+      "project": "hineri",
+      "title": "効果音を付ける（RULES §5「音」。マナーモードでも鳴る・オフにできる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t127",
+      "project": "yurazumi",
+      "title": "効果音を付ける（RULES §5「音」。マナーモードでも鳴る・オフにできる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t128",
+      "project": "kadotsugi",
+      "title": "効果音を付ける（RULES §5「音」。マナーモードでも鳴る・オフにできる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t129",
+      "project": "tsumitate",
+      "title": "公開前の確認（audit:browser・スマホ幅・計算・注意書き・効果音）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t130",
+      "project": "madoakari",
+      "title": "公開前の確認（audit:browser・スマホ幅・遊べるか・効果音）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t131",
+      "project": "tsumitate",
+      "title": "QA の指摘を直す（縦軸の目盛りの頭が切れる、320 幅で単位の前で折り返す、約 0 円、年齢の範囲、読み上げ）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t132",
+      "project": "madoakari",
+      "title": "まどあかり: スクリーンショットと遊び方（チャット）を見て、公開してよいか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/madoakari-title-390x844.png",
+        ".audit/madoakari-clear-3x3.png",
+        ".audit/madoakari-4x4-unsolvable.png"
+      ],
+      "choices": [
+        "公開する",
+        "直す"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t133",
+      "project": "kagamigami",
+      "title": "公開前の確認（audit:browser・スマホ幅・加工と保存・写真を外に出さない・効果音）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t134",
+      "project": "madoakari",
+      "title": "公開する（GitHub・Pages・About・apps.js・共有画像・本番の確認）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t135",
+      "project": "tsumitate",
+      "title": "積立投資シミュレーター: スクリーンショットと使い方（チャット）を見て、公開してよいか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/tsumitate-390-cap.png",
+        ".audit/tsumitate-390-scrub.png",
+        ".audit/tsumitate-390-help.png",
+        ".audit/tsumitate-fix-320.png"
+      ],
+      "choices": [
+        "公開する",
+        "直す"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t136",
+      "project": "tsumitate",
+      "title": "公開する（GitHub・Pages・About・apps.js・共有画像・本番の確認）。まどあかりの公開が終わってから",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t137",
+      "project": "kagamigami",
+      "title": "かがみがみ: スクリーンショットと使い方（チャット）を見て、公開してよいか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/kagamigami-work-sample-390x844.png",
+        ".audit/kagamigami-work-max-390x844.png",
+        ".audit/kagamigami-upload-portrait-390x844.png"
+      ],
+      "choices": [
+        "公開する",
+        "直す"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t138",
+      "project": "kagamigami",
+      "title": "公開する（GitHub・Pages・About・apps.js・共有画像・本番の確認）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t139",
+      "project": "meguribi",
+      "title": "公開前の確認（audit:browser・スマホ幅・選び方・地図と出典・効果音）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t140",
+      "project": "meguribi",
+      "title": "QA の指摘を直す（範囲を東京都にすると、小笠原まで入って地図が小さくなる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t141",
+      "project": null,
+      "title": "6 本の名前と URL を変えて公開してよいか決める（GitHub のリポジトリ名を変える。旧 URL は 404.html が新 URL へ送る。記録は引き継ぐ）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/rename-corner-reach-title-390.png",
+        ".audit/rename-swaystone-title-390.png",
+        ".audit/rename-skewline-title-390.png",
+        ".audit/rename-langtons-ant-title-390.png",
+        ".audit/rename-shuttle-stop-title-390.png",
+        ".audit/rename-sort-visualizer-title-390.png"
+      ],
+      "choices": [
+        "公開する",
+        "直す"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t142",
+      "project": "note",
+      "title": "note の市場を調べる（売れているジャンル・値段、規約と AI 記事の扱い、世の中の需要）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t143",
+      "project": "meguribi",
+      "title": "めぐりび: スクリーンショットと遊び方（チャット）を見て、公開してよいか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/meguribi-home-390.png",
+        ".audit/meguribi-result-390.png",
+        ".audit/meguribi-sheet-kanto-390.png",
+        ".audit/meguribi-fix-tokyo.png"
+      ],
+      "choices": [
+        "公開する",
+        "直す"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t144",
+      "project": null,
+      "title": "6 本の名前と URL を変えて公開する（リポジトリ名・push・Pages・About・apps.js・404.html・共有画像・本番の確認）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t145",
+      "project": "meguribi",
+      "title": "公開する（GitHub・Pages・About・apps.js・共有画像・本番の確認）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t146",
+      "project": "note",
+      "title": "note 専用アカウント「AIのつかいどころ」を作る（名前は 2026-09-24 に決定。ユーザー名の案 ai_tsukaidokoro）。有料記事の前に本人情報の登録も",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-09-24",
+      "doneAt": null
+    },
+    {
+      "id": "t147",
+      "project": "note",
+      "title": "writer（Sonnet）を足し、記事の書き方の決まりを作り、最初の 7 本の下書きを作る",
+      "owner": "writer",
+      "status": "doing",
+      "created": "2026-09-24",
+      "doneAt": null
+    },
+    {
+      "id": "t148",
+      "project": "note",
+      "title": "note のアイコン（1024×1024）とヘッダー（1920×1006）を作る（docs/private/note/brand/）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
     }
   ],
   "ideas": []
