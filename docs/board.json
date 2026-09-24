@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-24T15:37:17.551Z",
+  "updatedAt": "2026-09-24T16:04:01.927Z",
   "projects": [
     {
       "id": "note",
@@ -12,63 +12,63 @@
     {
       "id": "last-three",
       "name": "LAST THREE",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
     },
     {
       "id": "cross-take",
       "name": "CROSS TAKE",
-      "stage": "qa",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
     },
     {
       "id": "kazukakushi",
       "name": "かずかくし",
-      "stage": "qa",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "ビット15・ヒント15 を 1 本にまとめる案。元は ~/GitHub/tof/processing-archive"
     },
     {
       "id": "yotsumawashi",
       "name": "よつまわし",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "針回しパズル3x3 から。元は ~/GitHub/tof/processing-archive"
     },
     {
       "id": "irowa",
       "name": "いろわ",
-      "stage": "qa",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
     },
     {
       "id": "hirakibako",
       "name": "ひらきばこ",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
     },
     {
       "id": "wakuguri",
       "name": "わくぐり",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
     },
     {
       "id": "tap-quartet",
       "name": "TAP QUARTET",
-      "stage": "qa",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
     },
     {
       "id": "number-patterns",
       "name": "数の模様",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
     }
@@ -2191,9 +2191,9 @@
       "project": "wakuguri",
       "title": "ひな形から わくぐり の最初の版を作る（仕様の「作る順番」の最初の版まで）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-25"
     },
     {
       "id": "t175",
@@ -2268,18 +2268,18 @@
       "project": "last-three",
       "title": "LAST THREE のアイコン一式と共有画像を作る（配色も見る）",
       "owner": "designer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-25"
     },
     {
       "id": "t182",
       "project": "hirakibako",
       "title": "ひらきばこ のアイコン一式と共有画像を作る（配色も見る）",
       "owner": "designer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-25"
     },
     {
       "id": "t183",
@@ -2304,9 +2304,9 @@
       "project": "yotsumawashi",
       "title": "よつまわしのアイコン一式と共有画像を作る",
       "owner": "designer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-25"
     },
     {
       "id": "t186",
@@ -2331,27 +2331,27 @@
       "project": "kazukakushi",
       "title": "かずかくしを確かめる（audit・スマホ幅・遊びの流れ）",
       "owner": "qa",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-25"
     },
     {
       "id": "t189",
       "project": "number-patterns",
       "title": "数の模様のアイコン一式と共有画像を作る（配色も見る）",
       "owner": "designer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-25"
     },
     {
       "id": "t190",
       "project": "tap-quartet",
       "title": "TAP QUARTET を確かめる（audit・スマホ幅・4 つの遊び）",
       "owner": "qa",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-25"
     },
     {
       "id": "t191",
@@ -2379,9 +2379,321 @@
       "project": "cross-take",
       "title": "CROSS TAKE を確かめる（audit・スマホ幅・CPU 戦とふたり対戦・コミ）",
       "owner": "qa",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t193",
+      "project": "irowa",
+      "title": "いろわを公開する（GitHub・Pages・apps.js・共有画像）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t194",
+      "project": "t-of.github.io",
+      "title": "スタジオ: 依頼と報告の動き・部屋のホワイトボード・今日の日報・オーナーへの通知",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t195",
+      "project": "hirakibako",
+      "title": "ひらきばこの浅葱色を見分けやすい色（#1c8a8a）に直す（藤と見分けにくいため）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t196",
+      "project": "yotsumawashi",
+      "title": "よつまわしを確かめる（audit・スマホ幅・12 ステージ）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t197",
+      "project": "last-three",
+      "title": "LAST THREE を確かめる（audit・スマホ幅・CPU 戦とふたり対戦）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t198",
+      "project": "number-patterns",
+      "title": "数の模様を確かめる（audit・スマホ幅・8 図・重さ）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t199",
+      "project": "hirakibako",
+      "title": "ひらきばこを確かめる（audit・スマホ幅・2×2 と 3×3・見た目の条件）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t200",
+      "project": "hirakibako",
+      "title": "ひらきばこを公開してよいか選ぶ。品質は合格（audit 30/30、2×2・3×3 とも最後まで遊べた、権利の見た目の条件も念入りに確認済み）。箱の 6 面を平らに開いた図で、面を回して各面の色をそろえるパズル",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "images": [
+        ".audit/hirakibako.png",
+        ".audit/hirakibako-play.png",
+        ".audit/hirakibako-clear.png",
+        ".audit/hirakibako-og.png"
+      ],
+      "choices": [
+        "公開する",
+        "直してから"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t201",
+      "project": "t-of.github.io",
+      "title": "撮影用のブラウザを窓の出ないもの（chrome-headless-shell）にし、確認用サーバーのポートを空き番号にする決まりを足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t202",
+      "project": "kazukakushi",
+      "title": "かずかくしを公開してよいか選ぶ。品質は合格（audit 30/30、テスト 9 件、3 つのモードとも最後まで解けて手がかりの表示も正しい）。番号の見えない 15 パズル。ずれ・ビット・合計の手がかりで完成形に戻す",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "images": [
+        ".audit/kazukakushi.png",
+        ".audit/kazukakushi-play.png",
+        ".audit/kazukakushi-clear.png",
+        ".audit/kazukakushi-og.png"
+      ],
+      "choices": [
+        "公開する",
+        "直してから"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t203",
+      "project": "hirakibako",
+      "title": "ひらきばこを公開する（GitHub・Pages・apps.js・共有画像）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t204",
+      "project": "kazukakushi",
+      "title": "かずかくしを公開する（GitHub・Pages・apps.js・共有画像）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t205",
+      "project": "number-patterns",
+      "title": "数の模様を公開してよいか選ぶ。素数・倍数・コラッツ・星形・マンデルブロ集合など 8 つの数学の図を、つまみで値を変えて眺めるツール。品質は合格（8 図とも正しく描け、CPU を遅くしても固まらない）。Android の丸いアイコンで星の先が欠けないよう、いま余白だけ直している",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "images": [
+        ".audit/number-patterns.png",
+        ".audit/number-patterns-play.png",
+        ".audit/number-patterns-play2.png",
+        ".audit/number-patterns-og.png"
+      ],
+      "choices": [
+        "公開する",
+        "直してから"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t206",
+      "project": "tap-quartet",
+      "title": "TAP QUARTETを公開してよいか選ぶ。目かくし10秒・合図でタップ・1文字タイプ・ふたりで連打の 4 つの腕だめし。品質は合格（4 つとも最後まで遊べ、時間の測り方とふたり同時押しも確認済み）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "images": [
+        ".audit/tap-quartet.png",
+        ".audit/tap-quartet-play.png",
+        ".audit/tap-quartet-play2.png",
+        ".audit/tap-quartet-og.png"
+      ],
+      "choices": [
+        "公開する",
+        "直してから"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t207",
+      "project": "last-three",
+      "title": "LAST THREEを公開してよいか選ぶ。消える三目並べ。各自 3 つまでで、4 つ目を置くと自分の一番古い印が消える。CPU 戦・ふたり対戦。品質は合格（ボタンを 44px に直した）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "images": [
+        ".audit/last-three.png",
+        ".audit/last-three-play.png",
+        ".audit/last-three-play2.png",
+        ".audit/last-three-og.png"
+      ],
+      "choices": [
+        "公開する",
+        "直してから"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t208",
+      "project": "yotsumawashi",
+      "title": "よつまわしを公開してよいか選ぶ。つまみを 2×2 の 4 本ずつ回して、全部の針を真上に向けるパズル。12 ステージ。品質は合格（回すボタンを 44px 以上に直した）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "images": [
+        ".audit/yotsumawashi.png",
+        ".audit/yotsumawashi-play.png",
+        ".audit/yotsumawashi-play2.png",
+        ".audit/yotsumawashi-og.png"
+      ],
+      "choices": [
+        "公開する",
+        "直してから"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t209",
+      "project": null,
+      "title": "数の模様・TAP QUARTET・LAST THREE・よつまわしを公開する（CROSS TAKE はリポジトリ作成が権限で止められ、別にした）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t210",
+      "project": "cross-take",
+      "title": "CROSS TAKE を公開してよいか選ぶ。横と縦で数を取り合うふたり対戦（CPU 戦あり）。先手有利はコミ 2.5 点で直した（CPU どうしで勝ちがほぼ半々）。品質は合格（後手で遊んだときに最高点が消える不具合を直した）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "images": [
+        ".audit/cross-take.png",
+        ".audit/cross-take-play.png",
+        ".audit/cross-take-play2.png",
+        ".audit/cross-take-og.png"
+      ],
+      "choices": [
+        "公開する",
+        "直してから"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t211",
+      "project": "wakuguri",
+      "title": "わくぐりのアイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t212",
+      "project": "wakuguri",
+      "title": "わくぐりを確かめる（audit・スマホ幅・12 ステージ・タイミング）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t213",
+      "project": "cross-take",
+      "title": "CROSS TAKE の GitHub リポジトリ t-of/cross-take を作る（エージェントからは権限で止められる。オーナーが手で実行する）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t214",
+      "project": "wakuguri",
+      "title": "わくぐりを公開してよいか選ぶ。回る輪のすき間を、下から撃った玉でくぐり抜けるタイミングゲーム。12 ステージ。品質は合格（1・6・12 を実際にクリア、画面の速さが変わっても判定がぶれない）。ステージ 12 は 6 秒に 1 回、0.17 秒しか通れない最難関",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "images": [
+        ".audit/wakuguri.png",
+        ".audit/wakuguri-play.png",
+        ".audit/wakuguri-play2.png",
+        ".audit/wakuguri-og.png"
+      ],
+      "choices": [
+        "公開する",
+        "直してから"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t215",
+      "project": "t-of.github.io",
+      "title": "スタジオ: 仕事の台帳（ledger.jsonl）と成績タブ、レベル・バッジ・今月の MVP",
+      "owner": "engineer",
       "status": "doing",
       "created": "2026-09-25",
       "doneAt": null
+    },
+    {
+      "id": "t216",
+      "project": "wakuguri",
+      "title": "わくぐりを公開する（GitHub・Pages・apps.js・共有画像）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
     }
   ],
   "ideas": []
