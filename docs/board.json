@@ -162,6 +162,20 @@
       "stage": "build",
       "created": "2026-09-25",
       "note": "QUINTILE の 6 マス版。AI は機械学習。id は仮"
+    },
+    {
+      "id": "bloomcast",
+      "name": "BLOOMCAST",
+      "stage": "live",
+      "created": "2026-09-25",
+      "note": "オーナーのアイデア。雲を動かして日差しと雨を調整し、画面下の植物をできるだけ早く育てる。id は仮"
+    },
+    {
+      "id": "stay-asleep",
+      "name": "STAY ASLEEP",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "オーナーのアイデア。2 つの扉のどちらかが正解。何回続けて当てられるかを記録する。テーマと演出が大事。id は仮"
     }
   ],
   "tasks": [
@@ -3486,20 +3500,20 @@
     },
     {
       "id": "t283",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "sestet",
       "title": "SESTET の最初の版を作る（ゲーム本体と線形 CEM の AI）",
       "owner": "engineer"
     },
     {
       "id": "t284",
-      "status": "todo",
+      "status": "doing",
       "created": "2026-09-25",
       "doneAt": null,
       "project": "sestet",
-      "title": "SESTET の AI をニューラルネット（自己対戦の TD 学習）に差し替える。線形 AI より強いと測れたら採用",
+      "title": "SESTET の AI をニューラルネット（自己対戦の TD 学習）に差し替える。線形 AI より強いと測れたら採用。ネットを採用（+42.6%）。スピンが多すぎるので得点を直して学び直し中",
       "owner": "engineer"
     },
     {
@@ -3510,6 +3524,130 @@
       "project": "pentris",
       "title": "QUINTILE の見た目がまだテトリスに近い（虹色のベベル付きブロック、HOLD 左・NEXT 右、1:2 の盤）。SESTET と同じ離し方（ひとつながりの形・少ない色・上の帯）を QUINTILE にも当てるか決める",
       "owner": "owner"
+    },
+    {
+      "id": "t286",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "sestet",
+      "title": "SESTET のアイコン一式と共有画像を作る",
+      "owner": "designer"
+    },
+    {
+      "id": "t287",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "sestet",
+      "title": "SESTET を試遊して、人が 350 PIECES を最後まで打てそうか見る（AI は NEXT を読まないと 100 手ほどで詰む。難しすぎるなら 210 PIECES に）。公開のあとでよい",
+      "owner": "owner"
+    },
+    {
+      "id": "t288",
+      "project": "bloomcast",
+      "title": "雲で日差しと雨を調整して植物を育てるゲームの仕様と権利の調べを書く",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t289",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "bloomcast",
+      "title": "権利を選ぶ: BLOOMCAST（判定 問題なし）",
+      "owner": "owner",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "全承認の指示（A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t290",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "bloomcast",
+      "title": "ひな形から BLOOMCAST の最初の版を作る（ボットで釣り合いを測って数値を直す）",
+      "owner": "engineer"
+    },
+    {
+      "id": "t291",
+      "project": "stay-asleep",
+      "title": "2 つの扉を選び続ける運ゲーの仕様と権利の調べを書く（テーマと演出を中心に）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t292",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "stay-asleep",
+      "title": "権利を選ぶ: STAY ASLEEP（判定 問題なし）",
+      "owner": "owner",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "全承認の指示（A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t293",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "stay-asleep",
+      "title": "ひな形から STAY ASLEEP の最初の版を作る（夢の中のテーマと演出、封印、今日の扉）",
+      "owner": "engineer"
+    },
+    {
+      "id": "t294",
+      "project": "bloomcast",
+      "title": "BLOOMCAST のアイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t295",
+      "project": "bloomcast",
+      "title": "BLOOMCAST を確かめる（audit・スマホ幅・3 種を育てる・雨の操作）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t296",
+      "project": "stay-asleep",
+      "title": "STAY ASLEEP のアイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t297",
+      "project": "bloomcast",
+      "title": "BLOOMCAST を公開する（全承認の指示で承諾。色は #5da3d9）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
     }
   ],
   "ideas": []
