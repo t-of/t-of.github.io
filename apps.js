@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'one-off',
+    name: 'ONE OFF',
+    title: 'ひとりだけ、お題が少しちがう',
+    desc: '1 台の端末を回して遊ぶ、3〜10 人の会話ゲーム。ひとりだけ少し違うお題を配られた人を（本人も気づいていない）、話のかみ合わなさから見つけ出す。',
+    category: 'game',
+    tags: ['パーティー', '1 台で'],
+    icon: '/one-off/icons/icon-192.png',
+    color: '#7ab8ff',
+  },
+  {
     id: 'high-floor',
     name: 'HIGH FLOOR',
     title: '一番損する人を出さない割り当て',
