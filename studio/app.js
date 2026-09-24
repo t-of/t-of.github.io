@@ -1,15 +1,17 @@
 // T.OF... スタジオの画面。サーバー（server.mjs）から届く状態を描くだけ。
 
 const ROLES = {
-  director: { name: 'ディレクター', desc: '会話・割り振り', color: '#ffd35c', icon: '◆' },
-  planner: { name: '企画', desc: '仕様・名前', color: '#9d7bff', icon: '✎' },
-  designer: { name: 'デザイン', desc: 'アイコン・画像', color: '#e24bc6', icon: '✦' },
-  engineer: { name: '実装', desc: 'コード', color: '#2cc6e0', icon: '⌘' },
-  qa: { name: '品質', desc: 'チェック・確認', color: '#36a075', icon: '✓' },
-  release: { name: 'リリース', desc: '公開・掲載', color: '#e2582e', icon: '↑' },
-  writer: { name: 'note', desc: '記事の下書き', color: '#41c9b4', icon: '✍' },
+  director: { person: 'マルコ', name: 'ディレクター', desc: '会話・割り振り', color: '#ffd35c', icon: '◆' },
+  planner: { person: 'エマ', name: '企画', desc: '仕様・名前', color: '#9d7bff', icon: '✎' },
+  designer: { person: 'レア', name: 'デザイン', desc: 'アイコン・画像', color: '#e24bc6', icon: '✦' },
+  engineer: { person: 'ラヴィ', name: '実装', desc: 'コード', color: '#2cc6e0', icon: '⌘' },
+  qa: { person: 'ハンナ', name: '品質', desc: 'チェック・確認', color: '#36a075', icon: '✓' },
+  release: { person: 'ディエゴ', name: 'リリース', desc: '公開・掲載', color: '#e2582e', icon: '↑' },
+  writer: { person: 'オリバー', name: 'note', desc: '記事の下書き', color: '#41c9b4', icon: '✍' },
   owner: { name: 'オーナー', desc: 'あなた', color: '#eceef3', icon: '★' },
 };
+// 表示用の名前（係の人）。成績の表のように係で比べる所は name のまま
+const who = (role) => ROLES[role]?.person || ROLES[role]?.name || role;
 const STAGES = [
   ['idea', 'アイデア'], ['planning', '企画'], ['design', 'デザイン'], ['build', '実装'],
   ['qa', '品質'], ['release', 'リリース'], ['live', '公開済み'],
@@ -99,9 +101,10 @@ function renderOffice() {
     room.dataset.role = role;
     room.style.setProperty('--c', r.color);
     const head = el('header', 'room__head');
-    head.append(el('span', 'room__icon', r.icon), el('h3', 'room__name', r.name));
+    const label = el('span', 'room__role', r.name);
+    label.title = r.desc;
+    head.append(el('span', 'room__icon', r.icon), el('h3', 'room__name', r.person), label);
     if (role !== 'director') head.append(el('span', 'room__level', `Lv.${levelOf(roleCount(role))}`));
-    head.append(el('span', 'room__desc', r.desc));
     const busy = seats[role].filter((p) => p.state === 'working').length;
     head.append(el('span', `room__count${busy ? ' is-busy' : ''}`, busy ? `${busy} 人 作業中` : '空き'));
     room.append(head);
@@ -174,17 +177,16 @@ function renderFeed() {
     const li = el('li', 'feed__item');
     const color = item.kind === 'report' ? 'var(--ok)' : item.kind === 'return' ? 'var(--ng)' : ROLES[item.role]?.color || '#888';
     li.style.setProperty('--c', color);
-    const who = ROLES[item.role]?.name || item.role;
-    li.append(el('span', 'feed__who', who), el('span', 'feed__text', feedText(item)), el('time', 'feed__time', ago(item.at)));
+    li.append(el('span', 'feed__who', who(item.role)), el('span', 'feed__text', feedText(item)), el('time', 'feed__time', ago(item.at)));
     list.append(li);
   }
 }
 
 // 依頼・報告・差し戻しは「ディレクター → デザイン」のように誰から誰への動きかを表す
 function feedText(item) {
-  if (item.kind === 'handoff') return `${ROLES.director.name} → ${ROLES[item.to]?.name || item.to}`;
-  if (item.kind === 'return') return `差し戻し → ${ROLES[item.to]?.name || item.to}`;
-  if (item.kind === 'report') return `${ROLES[item.role]?.name || item.role} → ${ROLES.director.name}（報告）`;
+  if (item.kind === 'handoff') return `${who('director')} → ${who(item.to)}`;
+  if (item.kind === 'return') return `差し戻し → ${who(item.to)}`;
+  if (item.kind === 'report') return `${who(item.role)} → ${who('director')}（報告）`;
   return item.text;
 }
 
@@ -680,7 +682,7 @@ function renderStatsMVP() {
   if (!top) { box.append(el('p', 'muted', '今月はまだ、差し戻しなしで終わった仕事がありません。')); return; }
   const [role, n] = top;
   box.style.setProperty('--c', ROLES[role]?.color || '#888');
-  box.append(el('span', 'mvp__icon', ROLES[role]?.icon || '★'), el('span', 'mvp__text', `今月の MVP: ${ROLES[role]?.name || role}`), el('span', 'mvp__n', `${n} 件`));
+  box.append(el('span', 'mvp__icon', ROLES[role]?.icon || '★'), el('span', 'mvp__text', `今月の MVP: ${who(role)}（${ROLES[role]?.name || role}）`), el('span', 'mvp__n', `${n} 件`));
 }
 
 function renderStatsCards() {
@@ -692,7 +694,7 @@ function renderStatsCards() {
     card.style.setProperty('--c', ROLES[role].color);
     const head = el('div', 'employee__head');
     const info = el('div');
-    info.append(el('p', 'employee__name', ROLES[role].name), el('p', 'employee__lv', `Lv.${lv}`));
+    info.append(el('p', 'employee__name', who(role)), el('p', 'employee__lv', `${ROLES[role].name} · Lv.${lv}`));
     head.append(el('span', 'employee__icon', ROLES[role].icon), info);
     const bar = el('div', 'employee__bar');
     const fill = el('span');
@@ -766,7 +768,7 @@ function renderStatsReturns(period) {
     const li = el('li', 'feed__item');
     li.style.setProperty('--c', ROLES[r.role]?.color || '#888');
     const text = `${r.apps.length ? `${r.apps.map(appName).join('・')} — ` : ''}${r.description || ''}`;
-    li.append(el('span', 'feed__who', ROLES[r.role]?.name || r.role), el('span', 'feed__text', text), el('time', 'feed__time', ago(r.endedAt)));
+    li.append(el('span', 'feed__who', who(r.role)), el('span', 'feed__text', text), el('time', 'feed__time', ago(r.endedAt)));
     list.append(li);
   }
 }

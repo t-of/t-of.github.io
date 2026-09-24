@@ -111,3 +111,7 @@ hue-hunter の `firestore.rules` を変えたら、Firebase に公開するま�
 Playwright で `channel: 'chrome'` を付けると、headless でも普段の Google Chrome が動き、mac ではオーナーの画面に窓が出てしまう（品質担当が何人も同時に確認していたときに起きた）。
 `chromium.launch()` だけにして、撮影専用の chrome-headless-shell を使う。新しい Mac では本部で `npx playwright-core install chromium-headless-shell` を 1 回実行する。
 確認用のサーバーも決まった番号をやめ、空いている番号（`http.server 0`、`listen(0)`）にする。同じ番号を取り合って別のアプリが映るのを防ぐ。qa・engineer・designer の定義に書いた。
+
+### スタジオの係の名前
+画面で会社らしく見せるため、係に名前を付けた（studio/app.js の ROLES の person）。成績の表のように係で比べる所は係名のまま。
+マルコ（ディレクター）、エマ（企画）、レア（デザイン）、ラヴィ（実装）、ハンナ（品質）、ディエゴ（リリース）、オリバー（note）。
