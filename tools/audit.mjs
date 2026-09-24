@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const HUB = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
@@ -76,6 +77,9 @@ function auditFiles(app) {
   const htmlAll = sources.filter((p) => p.endsWith('.html')).map(read).join('\n');
 
   // §1 リポジトリ
+  let branch = '';
+  try { branch = execFileSync('git', ['-C', dir, 'rev-parse', '--abbrev-ref', 'HEAD'], { encoding: 'utf8' }).trim(); } catch { /* git でない */ }
+  add('main ブランチ', branch === 'main', branch || 'git リポジトリでない', '§1');
   add('.nojekyll', exists(path.join(dir, '.nojekyll')), '', '§1');
   add('相対パス', !/(?:src|href)=["']\/(?!\/)[^"']+["']/.test(html.replace(/href=["']\/["']/g, '')),
     'ルートから始まるパス（/xxx）がある', '§1');
@@ -137,6 +141,7 @@ function auditFiles(app) {
 
   // §8 README
   const readme = read(path.join(dir, 'README.md')) || '';
+  add('README の題', /^# .+ — .+/.test(readme), '1 行目を「# 名前 — ひとこと」に', '§8');
   const heads = ['リンク', '遊び方', 'アプリとして入れる', '開発'];
   const missingHeads = heads.filter((h) => !new RegExp(`^##\\s.*${h}`, 'm').test(readme));
   add('README の見出し', missingHeads.length === 0, missingHeads.join(', '), '§8');

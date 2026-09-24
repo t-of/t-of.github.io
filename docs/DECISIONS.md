@@ -5,6 +5,9 @@
 
 ## 2026-09-24
 
+### 全リポジトリのブランチは `main`
+pentris だけ `master` だったので `main` に揃えた（既定ブランチ・Pages の公開元とも）。`npm run audit` で確かめる。
+
 ### Firebase のルールはリポジトリが正本
 hue-hunter の `firestore.rules` を変えたら、Firebase に公開するまで本番には効かない（公開し忘れて、シーズン 2 のランキングが読めなくなっていた）。公開はオーナーが行う。手順は hue-hunter の README。
 
@@ -20,7 +23,6 @@ hue-hunter の `firestore.rules` を変えたら、Firebase に公開するま�
 
 | アプリ | 例外 | 理由 |
 |---|---|---|
-| pentris | GitHub Pages の公開元が `master` ブランチ | 切り替えると公開が止まるおそれがある |
 | gear-align / hue-hunter | webapp-kit ではなく独自のインストール・共有 UI | iPhone 向けの案内とコピーの代替まで独自に対応済み。両方置くとボタンが重なる |
 | gear-align | manifest の名前が `manifest.json` | インストール済みの人への影響を避ける |
 | hue-hunter / core-image-english / pentris | localStorage のキーが `hueHunter_` / `coreEn.` / `pent.` | すでにアプリ名で区切られている。変えると記録が消える |
