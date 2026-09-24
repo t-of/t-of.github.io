@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'near-pin',
+    name: 'NEAR PIN',
+    title: 'ぴたり・おしいで番号を当てる',
+    desc: '隠れた 3〜5 桁の数を当てる。予想すると、数字も場所も合った数「ぴたり」と、数字だけ合った数「おしい」が返ってくるので、手がかりを重ねて少ない回数でしぼり込む。',
+    category: 'game',
+    tags: ['パズル', '今日の 1 問'],
+    icon: '/near-pin/icons/icon-192.png',
+    color: '#ff8a65',
+  },
+  {
     id: 'wakuguri',
     name: 'わくぐり',
     title: '回る輪のすき間を通す',
