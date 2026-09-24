@@ -13,6 +13,26 @@
 
 window.TOFO_APPS = [
   {
+    id: 'kazukakushi',
+    name: 'かずかくし',
+    title: '番号の見えない15パズル',
+    desc: '数字の見えない 15 パズル。番号の 1 桁だけの白黒、正しい場所とのずれ、行と列の合計など、手がかりから番号を読み解いて元の並びに戻す。',
+    category: 'game',
+    tags: ['パズル', '15パズル'],
+    icon: '/kazukakushi/icons/icon-192.png',
+    color: '#e8e3d4',
+  },
+  {
+    id: 'hirakibako',
+    name: 'ひらきばこ',
+    title: '開いた箱の六面をそろえる',
+    desc: '箱を開いて平らにした図の上で、面を回して六つの面の色をそろえるパズル。まん中の面を囲む四つの面と、外をぐるりと囲む裏の面がつながって動く。2×2 と 3×3。',
+    category: 'game',
+    tags: ['パズル', '回転'],
+    icon: '/hirakibako/icons/icon-192.png',
+    color: '#e3a21a',
+  },
+  {
     id: 'irowa',
     name: 'いろわ',
     title: '三つの輪を回して色を戻す',
