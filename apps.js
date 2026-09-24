@@ -59,7 +59,7 @@ window.TOFO_APPS = [
     desc: '2〜12 次元の格子迷路を、座標だけで解くパズル。タップだけで遊べる。',
     category: 'game',
     tags: ['パズル', '迷路'],
-    icon: '/coord-maze/icon-192.png',
+    icon: '/coord-maze/icons/icon-192.png',
     color: '#9d7bff',
   },
   {
