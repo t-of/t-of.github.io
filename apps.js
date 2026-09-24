@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'dawnward',
+    name: 'DAWNWARD',
+    title: '攻撃をそらして灯を守る',
+    desc: '夜の町の灯を、三つの駒で敵の攻撃から守る盤の上の戦術ゲーム。敵が次にどこを撃つかは全部見えているので、押す・壁を建てる・向きを変えるで攻撃をそらし、三つの刻を守り抜く。',
+    category: 'game',
+    tags: ['戦術', '今夜'],
+    icon: '/dawnward/icons/icon-192.png',
+    color: '#ffb554',
+  },
+  {
     id: 'one-off',
     name: 'ONE OFF',
     title: 'ひとりだけ、お題が少しちがう',
