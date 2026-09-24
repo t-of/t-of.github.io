@@ -274,6 +274,15 @@
       "status": "todo",
       "created": "2026-09-24",
       "doneAt": null
+    },
+    {
+      "id": "t25",
+      "project": null,
+      "title": "公開済みの 10 本の権利を RULES §1「権利」に沿って調べ直し、アプリごとに判定を出す。気になる点: 「オセロ」は登録商標（cube-othello / score-othello）、insider はボードゲーム『インサイダー・ゲーム』と同名、pentris の「-tris」、「コアイメージ」",
+      "owner": "planner",
+      "status": "todo",
+      "created": "2026-09-24",
+      "doneAt": null
     }
   ],
   "ideas": []
