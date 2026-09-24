@@ -209,14 +209,16 @@
       "project": null,
       "title": "my-games（試作置き場。未コミットのフォルダ 3d-othello / score-othello / langton あり）をどうするか決める。何に使っているかもコメントに",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null,
+      "doneAt": "2026-09-24",
       "choices": [
         "試作置き場として残す",
         "中身をアプリにする",
         "ローカルから消す"
-      ]
+      ],
+      "choice": "中身をアプリにする",
+      "comment": "中の 6 つは遊びのルールだけ受け継ぎ、名前・デザイン・UI/UX は 0 から考えてトフで公開する（t23）。my-games 自体は消してよい"
     },
     {
       "id": "t20",
@@ -250,6 +252,24 @@
       "id": "t22",
       "project": null,
       "title": "~/GitHub/ 直下の空の package.json と package-lock.json を消す（Claude からの削除は止められたので、自分で消すか許可する）",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-09-24",
+      "doneAt": null
+    },
+    {
+      "id": "t23",
+      "project": null,
+      "title": "my-games の 6 試作（block-stack / blokus / cube-tictactoe / langton / physics-stack / sorting-visualizer）を /new-app でアプリにして公開する。ルールだけ受け継ぎ、名前・デザイン・UI/UX はおまかせ",
+      "owner": "planner",
+      "status": "todo",
+      "created": "2026-09-24",
+      "doneAt": null
+    },
+    {
+      "id": "t24",
+      "project": null,
+      "title": "6 本の仕様（docs/specs/）ができたら ~/GitHub/my-games/ をローカルから消す。GitHub の my-games（非公開）は、全部公開できたあとで消すか Archive にするか決める",
       "owner": "owner",
       "status": "todo",
       "created": "2026-09-24",
