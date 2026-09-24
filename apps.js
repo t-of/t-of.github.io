@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'buyout',
+    name: 'BUYOUT',
+    title: '架空の会社を買い占める放置相場',
+    desc: '架空の会社の株を売り買いして、配当で資産を増やす放置ゲーム。閉じている間も相場とニュースは動き続け、開くと留守の間の配当がまとめて入る。全 8 社の株を買い占めたらクリア。',
+    category: 'game',
+    tags: ['放置', '架空の相場'],
+    icon: '/buyout/icons/icon-192.png',
+    color: '#f2b64a',
+  },
+  {
     id: 'pair-carry',
     name: 'PAIR CARRY',
     title: '二つずつ運んで白黒に分ける',
