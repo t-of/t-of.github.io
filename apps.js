@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'cross-take',
+    name: 'CROSS TAKE',
+    title: '横と縦で数を取り合う',
+    desc: '6×6 の数字の盤で、ひとりは横、ひとりは縦にだけ動いて数を取り合う。どの数を取るかで、相手が次に選べる列が決まる。CPU 対戦・ふたり対戦。',
+    category: 'game',
+    tags: ['対戦', 'CPU'],
+    icon: '/cross-take/icons/icon-192.png',
+    color: '#f2b035',
+  },
+  {
     id: 'yotsumawashi',
     name: 'よつまわし',
     title: '4本ずつ回して上に向ける',
