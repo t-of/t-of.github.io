@@ -1,6 +1,6 @@
 'use strict';
 
-// localStorage はほかのアプリと共有される（同じ sora3141.github.io のため）。
+// localStorage はほかのアプリと共有される（同じ t-of.github.io のため）。
 // キーは必ず '__ID__.' で始める。
 const STORE = '__ID__.';
 

@@ -47,7 +47,7 @@
     const play = el('a', 'btn btn--play', app.category === 'game' ? '遊ぶ' : '開く');
     play.href = `/${app.id}/`;
     const src = el('a', 'btn btn--ghost', 'ソース');
-    src.href = `https://github.com/Sora3141/${app.id}`;
+    src.href = `https://github.com/t-of/${app.id}`;
     src.rel = 'noopener';
     actions.append(play, src);
 

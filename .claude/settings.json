@@ -19,7 +19,7 @@
       "Bash(gh repo view:*)",
       "Bash(gh repo edit:*)",
       "Bash(gh repo create:*)",
-      "Bash(gh api repos/Sora3141/*)",
+      "Bash(gh api repos/t-of/*)",
       "Bash(curl -s:*)"
     ],
     "deny": [

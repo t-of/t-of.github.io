@@ -1,6 +1,6 @@
 # T.OF... アプリ制作ルール
 
-T.OF...（https://sora3141.github.io/）で公開する Web アプリに共通するルールと必須事項。
+T.OF...（https://t-of.github.io/）で公開する Web アプリに共通するルールと必須事項。
 新しいアプリを作るときも、既存のアプリを直すときも、これに合わせる。
 
 - 必須 = 公開前に必ず満たす
@@ -10,7 +10,7 @@ T.OF...（https://sora3141.github.io/）で公開する Web アプリに共通�
 
 ## 0. 大前提：全アプリが同じオリジンに住んでいる
 
-すべてのアプリは `https://sora3141.github.io/<リポジトリ名>/` で公開される。
+すべてのアプリは `https://t-of.github.io/<リポジトリ名>/` で公開される。
 ブラウザから見ると **全部ひとつのサイト（同じオリジン）** なので、次のものが全アプリで共有される。
 
 | 共有されるもの | 起きうる事故 | 対策 |
@@ -83,8 +83,8 @@ T.OF...（https://sora3141.github.io/）で公開する Web アプリに共通�
 <meta property="og:site_name" content="アプリ名">
 <meta property="og:title" content="アプリ名 — ひとこと">
 <meta property="og:description" content="説明">
-<meta property="og:url" content="https://sora3141.github.io/<id>/">
-<meta property="og:image" content="https://sora3141.github.io/<id>/icons/og.png">
+<meta property="og:url" content="https://t-of.github.io/<id>/">
+<meta property="og:image" content="https://t-of.github.io/<id>/icons/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ja_JP">
@@ -184,7 +184,7 @@ function setAudioSession(soundOn) {
 
 - **必須** アプリのどこか（タイトル画面の下、設定、フッターなど）に **T.OF... へのリンク** を置く。
   `<a href="/">T.OF...</a>` でポータルに戻れる。ゲーム画面を邪魔しない場所でよい。
-- **推奨** README の「リンク」に `制作: [T.OF...](https://sora3141.github.io/)` を入れる。
+- **推奨** README の「リンク」に `制作: [T.OF...](https://t-of.github.io/)` を入れる。
 - 名前の表記は **T.OF...**（大文字。T の後にピリオド 1 つ、最後に半角ピリオド 3 つ）。
 - ロゴは [`logo/`](logo/) にある（作り直すときは `python3 tools/make-logo.py`）。
 
@@ -229,7 +229,7 @@ function setAudioSession(soundOn) {
 コピーして使う。
 
 ```markdown
-- [ ] GitHub Pages で開ける（https://sora3141.github.io/<id>/）
+- [ ] GitHub Pages で開ける（https://t-of.github.io/<id>/）
 - [ ] リポジトリの About に説明と Website を入れた
 - [ ] パスはすべて相対パス（./ 始まり）
 - [ ] <head>: viewport-fit=cover / theme-color / description / OGP / manifest / アイコン
@@ -251,7 +251,7 @@ function setAudioSession(soundOn) {
 ## 11. 新しいアプリの始め方
 
 ```sh
-cd ~/GitHub/sora3141.github.io
+cd ~/GitHub/t-of.github.io
 tools/new-app.sh <id> "<アプリ名>" "<ひとこと>" "<説明>" "<背景色>"
 # 例: tools/new-app.sh dot-rush "DOT RUSH" "点を集めるアクション" "点を集めて…" "#0d1017"
 ```
@@ -265,8 +265,8 @@ GitHub への公開:
 ```sh
 cd ~/GitHub/<id>
 git add -A && git commit -m "最初の版"
-gh repo create Sora3141/<id> --public --source . --push --description "<説明>" --homepage "https://sora3141.github.io/<id>/"
-gh api -X POST repos/Sora3141/<id>/pages -f 'source[branch]=main' -f 'source[path]=/'
+gh repo create t-of/<id> --public --source . --push --description "<説明>" --homepage "https://t-of.github.io/<id>/"
+gh api -X POST repos/t-of/<id>/pages -f 'source[branch]=main' -f 'source[path]=/'
 ```
 
 ---
@@ -276,7 +276,7 @@ gh api -X POST repos/Sora3141/<id>/pages -f 'source[branch]=main' -f 'source[pat
 公開前と、ルールを変えたあとに必ず実行する。
 
 ```sh
-cd ~/GitHub/sora3141.github.io
+cd ~/GitHub/t-of.github.io
 npm run audit              # ファイルを見るチェック（速い）
 npm run audit:browser      # Chrome で開いて、エラー・SW・オフライン起動・はみ出しも見る
 npm run audit -- <id>      # 1 本だけ

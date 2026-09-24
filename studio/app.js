@@ -32,7 +32,7 @@ const ago = (t) => {
   if (s < 3600) return `${Math.floor(s / 60)} 分前`;
   return `${Math.floor(s / 3600)} 時間前`;
 };
-const appName = (id) => id === 'sora3141.github.io' ? '本部' : state.apps.find((a) => a.id === id)?.name || state.board.projects.find((p) => p.id === id)?.name || id;
+const appName = (id) => id === 't-of.github.io' ? '本部' : state.apps.find((a) => a.id === id)?.name || state.board.projects.find((p) => p.id === id)?.name || id;
 
 // ---------- 接続 ----------
 
@@ -176,7 +176,7 @@ function projectCard(p) {
   card.type = 'button';
   card.style.setProperty('--c', p.color || '#8a8f9c');
   const top = el('div', 'pcard__top');
-  if (p.icon) { const img = new Image(40, 40); img.src = p.icon.startsWith('/') ? `https://sora3141.github.io${p.icon}` : p.icon; img.alt = ''; img.className = 'pcard__icon'; top.append(img); }
+  if (p.icon) { const img = new Image(40, 40); img.src = p.icon.startsWith('/') ? `https://t-of.github.io${p.icon}` : p.icon; img.alt = ''; img.className = 'pcard__icon'; top.append(img); }
   else top.append(el('div', 'pcard__icon pcard__icon--text', (p.name || p.id).slice(0, 1)));
   const t = el('div');
   t.append(el('p', 'pcard__name', p.name || p.id), el('p', 'pcard__id', p.id));

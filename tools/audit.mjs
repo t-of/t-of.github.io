@@ -17,7 +17,7 @@ import { fileURLToPath } from 'node:url';
 
 const HUB = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const WORKSPACE = path.dirname(HUB);
-const ORIGIN = 'https://sora3141.github.io';
+const ORIGIN = 'https://t-of.github.io';
 
 // 意図して残している違い（docs/DECISIONS.md に理由がある）
 const EXCEPTIONS = {

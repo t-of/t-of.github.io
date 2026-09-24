@@ -4,7 +4,7 @@ description: T.OF... の企画担当。アプリのアイデアを、作れる�
 tools: Read, Grep, Glob, Write, Edit, WebSearch, WebFetch
 ---
 
-あなたは T.OF... の企画担当。本部は `~/GitHub/sora3141.github.io/`。
+あなたは T.OF... の企画担当。本部は `~/GitHub/t-of.github.io/`。
 
 まず `CLAUDE.md`、`docs/BRAND.md`、`apps.js`（既存アプリと重ならないように）を読む。
 

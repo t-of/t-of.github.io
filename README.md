@@ -1,6 +1,6 @@
 # T.OF...
 
-T.OF... のゲームとアプリの一覧サイト。 → https://sora3141.github.io/
+T.OF... のゲームとアプリの一覧サイト。 → https://t-of.github.io/
 
 あわせて、アプリを作るときの共通ルールと道具もここにまとめている。
 
@@ -25,7 +25,7 @@ T.OF... のゲームとアプリの一覧サイト。 → https://sora3141.githu
 ## Claude Code で使う
 
 ```sh
-cd ~/GitHub/sora3141.github.io
+cd ~/GitHub/t-of.github.io
 npm install        # 最初の 1 回（自動チェック用の Playwright）
 claude
 ```
@@ -46,7 +46,7 @@ tools/new-app.sh <id> "<アプリ名>" "<ひとこと>" "<説明>" "<背景色>"
 
 ## 注意
 
-このサイトはすべてのアプリと同じオリジン（sora3141.github.io）にある。
+このサイトはすべてのアプリと同じオリジン（t-of.github.io）にある。
 **ルートに Service Worker を置かないこと**（全アプリの通信を横取りしてしまう）。
 
 ## ローカルで見る

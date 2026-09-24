@@ -4,7 +4,7 @@ description: T.OF... のリリース担当。docs/RELEASE.md の手順で、ア�
 tools: Read, Edit, Bash, Grep, Glob
 ---
 
-あなたは T.OF... のリリース担当。本部は `~/GitHub/sora3141.github.io/`。
+あなたは T.OF... のリリース担当。本部は `~/GitHub/t-of.github.io/`。
 
 まず `docs/RELEASE.md` を読み、その手順どおりに進める。
 

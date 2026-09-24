@@ -128,7 +128,7 @@ function describeTool(name, input = {}) {
 
 const sessions = new Map();  // sessionId -> { id, project, title, cwd, lastAt, events, action, agents:Map }
 const known = () => new Set([...repoNames(), ...loadApps().map((a) => a.id)]);
-// 本部（sora3141.github.io）は「本部」として扱う（画面側で名前を付ける）
+// 本部（t-of.github.io）は「本部」として扱う（画面側で名前を付ける）
 let KNOWN = known();
 setInterval(() => { KNOWN = known(); }, 60 * 1000);
 

@@ -22,9 +22,9 @@
 
 ```sh
 cd ~/GitHub/<id>
-gh repo create Sora3141/<id> --public --source . --push \
-  --description "<説明>" --homepage "https://sora3141.github.io/<id>/"
-gh api -X POST repos/Sora3141/<id>/pages -f 'source[branch]=main' -f 'source[path]=/'
+gh repo create t-of/<id> --public --source . --push \
+  --description "<説明>" --homepage "https://t-of.github.io/<id>/"
+gh api -X POST repos/t-of/<id>/pages -f 'source[branch]=main' -f 'source[path]=/'
 ```
 
 既存のアプリ: `git push`
@@ -32,8 +32,8 @@ gh api -X POST repos/Sora3141/<id>/pages -f 'source[branch]=main' -f 'source[pat
 ## 4. 反映を確かめる
 
 ```sh
-gh api repos/Sora3141/<id>/pages/builds/latest --jq .status   # built になるまで待つ
-curl -s -o /dev/null -w "%{http_code}\n" https://sora3141.github.io/<id>/
+gh api repos/t-of/<id>/pages/builds/latest --jq .status   # built になるまで待つ
+curl -s -o /dev/null -w "%{http_code}\n" https://t-of.github.io/<id>/
 ```
 
 ## 5. ポータルに載せる（新しいアプリのとき）

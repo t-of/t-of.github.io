@@ -5,7 +5,7 @@ description: T.OF... の全アプリを RULES.md に照らして自動チェッ�
 
 # 全アプリの点検
 
-1. `cd ~/GitHub/sora3141.github.io && npm run audit:browser` を実行する（時間がかかる。速く見るだけなら `npm run audit`）。
+1. `cd ~/GitHub/t-of.github.io && npm run audit:browser` を実行する（時間がかかる。速く見るだけなら `npm run audit`）。
    各アプリのリポジトリが古いかもしれないので、先に `git -C ~/GitHub/<id> pull --ff-only` で最新にする（編集中の変更があるリポジトリは飛ばす）。
 2. 落ちた項目をアプリごとにまとめる。docs/DECISIONS.md にある例外は数えない。
 3. `.audit/*.png` のスクリーンショットをざっと見て、崩れていそうなものがあれば `qa` に詳しく見させる。

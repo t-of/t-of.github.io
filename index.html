@@ -2,6 +2,10 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <script>/* sora3141.github.io から移ってきた記録を受け取る。ponytail: 2027-09 ごろに消す */
+  (function(){var m=location.hash.match(/^#tof-move=([^&]*)&?(.*)$/);if(!m)return;
+  try{var d=JSON.parse(decodeURIComponent(m[1]));for(var k in d)if(localStorage.getItem(k)===null)localStorage.setItem(k,d[k]);}catch(e){}
+  history.replaceState(null,'',location.pathname+location.search+(m[2]?'#'+m[2]:''));})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0b0c10">
   <meta name="description" content="T.OF... が作っている、ブラウザで遊べる小さなゲームとアプリの一覧。どれも無料で、ホーム画面に追加すればオフラインでも動きます。">
@@ -11,8 +15,8 @@
   <meta property="og:site_name" content="T.OF...">
   <meta property="og:title" content="T.OF... — ゲームとアプリ">
   <meta property="og:description" content="ブラウザで遊べる小さなゲームとアプリ。どれも無料、ホーム画面に追加すればオフラインでも動きます。">
-  <meta property="og:url" content="https://sora3141.github.io/">
-  <meta property="og:image" content="https://sora3141.github.io/icons/og.png">
+  <meta property="og:url" content="https://t-of.github.io/">
+  <meta property="og:image" content="https://t-of.github.io/icons/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="ja_JP">
@@ -81,7 +85,7 @@
           <li><strong>データは端末の中</strong>記録や設定はブラウザ内に保存されます。</li>
         </ul>
         <p class="about__links">
-          <a href="https://github.com/Sora3141" rel="noopener">GitHub</a>
+          <a href="https://github.com/t-of" rel="noopener">GitHub</a>
           <button class="linklike" data-wak="share" data-wak-text="T.OF... のゲームとアプリ">このページを共有</button>
         </p>
       </div>
