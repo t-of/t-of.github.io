@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'soroekko',
+    name: 'そろえっこ',
+    title: '2 つの並べ替えで競走',
+    desc: 'ばらばらの棒を、2 つのやり方で同時に並べ替えて競走させる。データの並び方を変えると勝ち負けが入れ替わり、比べた回数・動かした回数も数字で分かる。',
+    category: 'tool',
+    tags: ['学び', 'プログラミング'],
+    icon: '/soroekko/icons/icon-192.png',
+    color: '#6c4bd1',
+  },
+  {
     id: 'pitaori',
     name: 'ピタオリ',
     title: '行き来する布を止めて織る',

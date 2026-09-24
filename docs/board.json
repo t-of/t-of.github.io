@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-24T08:44:36.819Z",
+  "updatedAt": "2026-09-24T11:36:33.287Z",
   "projects": [],
   "tasks": [
     {
@@ -172,37 +172,41 @@
       "project": "hue-hunter",
       "title": "Firebase の Authentication → 承認済みドメインに t-of.github.io を足す",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-24"
     },
     {
       "id": "t17",
       "project": null,
       "title": "knight-tour 系 6 個（3d / Cuboid ×2 / both-sides / cylindrical / knight-tour-app）をどうするか決める。3〜5 ファイルの小さな実験",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null,
+      "doneAt": "2026-09-24",
       "choices": [
         "1 本のアプリにまとめる",
         "ローカルから消す",
         "そのまま置く"
-      ]
+      ],
+      "choice": "そのまま置く",
+      "comment": ""
     },
     {
       "id": "t18",
       "project": null,
       "title": "common-net-viewer（Three.js の展開図ビューア、非公開リポジトリ）をどうするか決める",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null,
+      "doneAt": "2026-09-24",
       "choices": [
         "アプリにする",
         "ローカルから消す",
         "そのまま置く"
-      ]
+      ],
+      "choice": "そのまま置く",
+      "comment": ""
     },
     {
       "id": "t19",
@@ -225,51 +229,54 @@
       "project": null,
       "title": "6 月の小さな実験（tetris / Lights-Up / color-test / nisa_simulator / Tip_Calculation）をどうするか決める。一部だけ残すならコメントに",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null,
+      "doneAt": "2026-09-24",
       "choices": [
         "全部ローカルから消す",
         "一部だけ残す",
         "全部そのまま置く"
-      ]
+      ],
+      "choice": "一部だけ残す",
+      "comment": "lights-upとnisa-simulatorはトフに移動する。tetrisとcolor-testは削除していい。tip-calculationはそのまま置いておいて"
     },
     {
       "id": "t21",
       "project": null,
       "title": "トフ以外（28_intern_group1 / official-website / AtCoder_Practice）を ~/GitHub/ の外に移すか決める。未コミットの変更があるので、移す前に中身を確かめる",
       "owner": "owner",
-      "status": "waiting",
+      "status": "skip",
       "created": "2026-09-24",
-      "doneAt": null,
+      "doneAt": "2026-09-24",
       "choices": [
         "~/Projects/ に移す",
         "別の場所に移す（コメントに）",
         "そのまま置く"
-      ]
+      ],
+      "comment": "トフのほうを ~/T.OF/ に移すことにしたので要らない"
     },
     {
       "id": "t22",
       "project": null,
       "title": "~/GitHub/ 直下の空の package.json と package-lock.json を消す（Claude からの削除は止められたので、自分で消すか許可する）",
       "owner": "owner",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-24"
     },
     {
       "id": "t23",
       "project": null,
       "title": "my-games の 6 試作（block-stack / blokus / cube-tictactoe / langton / physics-stack / sorting-visualizer）を /new-app でアプリにして公開する。ルールだけ受け継ぎ、名前・デザイン・UI/UX はおまかせ",
-      "owner": "planner",
-      "status": "todo",
+      "owner": "owner",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-24"
     },
     {
       "id": "t24",
       "project": null,
-      "title": "6 本の仕様（docs/specs/）ができたら ~/GitHub/my-games/ をローカルから消す。GitHub の my-games（非公開）は、全部公開できたあとで消すか Archive にするか決める",
+      "title": "GitHub の my-games（非公開）を、全部公開できたあとで消すか Archive にするか決める（ローカルの ~/GitHub/my-games/ は 6 本の仕様ができたので消した）",
       "owner": "owner",
       "status": "todo",
       "created": "2026-09-24",
@@ -283,6 +290,788 @@
       "status": "todo",
       "created": "2026-09-24",
       "doneAt": null
+    },
+    {
+      "id": "t26",
+      "project": "kadotsugi",
+      "title": "仕様を書く（名前・デザイン・UI は 0 から。権利も調べる）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t27",
+      "project": "yurazumi",
+      "title": "仕様を書く（名前・デザイン・UI は 0 から。権利も調べる）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t28",
+      "project": "hineri",
+      "title": "仕様を書く（名前・デザイン・UI は 0 から。権利も調べる）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t29",
+      "project": "kadotsugi",
+      "title": "カドツギ: 権利の判定（docs/private/specs/kadotsugi.md §権利）を見て、作るかどうか選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化しない）",
+      "comment": ""
+    },
+    {
+      "id": "t30",
+      "project": "yurazumi",
+      "title": "ゆらづみ: 権利の判定（docs/private/specs/yurazumi.md §権利）を見て、作るかどうか選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t31",
+      "project": "hineri",
+      "title": "ひねり並べ: 権利の判定（docs/private/specs/hineri.md §権利）を見て、作るかどうか選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t32",
+      "project": "kadotsugi",
+      "title": "仕様どおりに本体を書く（audit:browser とテストを通す）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t33",
+      "project": "kadotsugi",
+      "title": "アイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t34",
+      "project": "yurazumi",
+      "title": "仕様どおりに本体を書く（audit:browser とテストを通す）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t35",
+      "project": "yurazumi",
+      "title": "アイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t36",
+      "project": "hineri",
+      "title": "仕様どおりに本体を書く（audit:browser とテストを通す）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t37",
+      "project": "hineri",
+      "title": "アイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t38",
+      "project": "kadotsugi",
+      "title": "公開前の確認（audit:browser・スマホ幅・オフライン・遊べるか）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t39",
+      "project": null,
+      "title": "公開済みの 10 本の権利を、収益化の前に調べ直す（docs/private/rights.md）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t40",
+      "project": null,
+      "title": "プライバシーポリシーのページ（privacy/）を公開するか決める。できている",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t41",
+      "project": null,
+      "title": "特定商取引法の表記の下書き（docs/tokushoho.md）に、名前・住所・連絡先を入れるか決める。課金を始めるときまででよい",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-09-24",
+      "doneAt": null
+    },
+    {
+      "id": "t52",
+      "project": "hineri",
+      "title": "先手が必ず勝つかを調べ、直す案を出す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "comment": "insider・pentris・オセロ 2 本は収益化しない。insider・pentris・hue-hunter・glyph-shift は改名。core-image-english は表記を直す"
+    },
+    {
+      "id": "t53",
+      "project": "hineri",
+      "title": "公開前の確認（audit:browser・スマホ幅・オフライン・遊べるか）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t54",
+      "project": "kadotsugi",
+      "title": "QA の指摘を直す（PC・横画面で盤が消える、小さい画面で結果が盤に重なる ほか）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "comment": "コミット済み（1502007）。push はオーナーの OK 待ち"
+    },
+    {
+      "id": "t55",
+      "project": "kadotsugi",
+      "title": "カドツギ: スクリーンショットと遊び方（チャット）を見て、公開してよいか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/kadotsugi-title.png",
+        ".audit/kadotsugi-game.png",
+        ".audit/kadotsugi-result.png",
+        ".audit/kadotsugi-1280x800-game.png"
+      ],
+      "choices": [
+        "公開する",
+        "直す"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t42",
+      "project": null,
+      "title": "権利の調べ直し（docs/private/rights.md）を見て、insider・pentris・オセロ 2 本・hue-hunter・glyph-shift をどうするか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t56",
+      "project": "yurazumi",
+      "title": "公開前の確認（audit:browser・スマホ幅・遊べるか）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t57",
+      "project": "kadotsugi",
+      "title": "公開の許可を出す（Claude からの公開リポジトリ作成が自動で止められた）→ チャットで「公開して」と言うか、設定で許可する",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t43",
+      "project": null,
+      "title": "insider・pentris・hue-hunter・glyph-shift の新しい名前の案を出す",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t44",
+      "project": "core-image-english",
+      "title": "NGSL のライセンス表記を CC BY-SA 4.0 に直し、アプリの中にも出典を出す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "comment": "公開した"
+    },
+    {
+      "id": "t58",
+      "project": "hineri",
+      "title": "QA の指摘を直す（端のマスで違う層が回る、小さい画面・横画面の崩れ ほか）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t59",
+      "project": "yurazumi",
+      "title": "QA の指摘を直す（横画面で塔が映らない、倒れる途中の高さが記録に入る、すぐ崩れる ほか）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t50",
+      "project": "hineri",
+      "title": "ひねり並べ: 3×3 は先手必勝（全部読んで確かめた）。どう直すか選ぶ（詳しくはチャット）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "choiceLabels": {
+        "A": "4×4 だけにする（おすすめ）",
+        "B": "4×4 を標準、3×3 は練習として残す",
+        "C": "ルールも変える（ひねれるのは置いたマスの層だけ）",
+        "D": "そのまま出す"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t45",
+      "project": "insider",
+      "title": "insider の新しい名前を選ぶ（役職名は 親・○○・子 のように案ごとに組。詳しくは docs/private/renames.md。どれも違えばコメントに）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "ワケシリ（親 / ワケシリ / 子）",
+        "B": "物知り顔（答え役 / 物知り / 聞き手）",
+        "C": "知ってた人（番人 / 知ってた人 / 知らない人）"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t46",
+      "project": "pentris",
+      "title": "pentris（PENT!）の新しい名前を選ぶ（docs/private/renames.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "QUINTILE — 5 マスのブロックで列を消す",
+        "B": "HANDFUL! — 片手ぶんのブロックを積む",
+        "C": "V-STACK — V は 5。5 マスで積む落ち物"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t47",
+      "project": "hue-hunter",
+      "title": "hue-hunter（Hue Hunter）の新しい名前を選ぶ（docs/private/renames.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "DELTA HUE（ΔHUE）— 見分けられる色の差を測る",
+        "B": "HUE ACUITY — 色を見分ける「視力」を測る",
+        "C": "HUE LIMEN — 色の違いが見える境目を測る"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t48",
+      "project": "glyph-shift",
+      "title": "glyph-shift（Glyph Shift）の新しい名前を選ぶ（docs/private/renames.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "ABILITILE — 能力を持ったブロックのパズル",
+        "B": "KINETILE — 押すと周りが動くブロック",
+        "C": "CARRYMARK — 印が能力を運んでいく"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t49",
+      "project": null,
+      "title": "名前を変える 4 本の URL（リポジトリ名）も変えるか",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "表示名だけ変える。URL はそのまま（おすすめ）",
+        "B": "pentris だけ URL も変える",
+        "C": "4 本とも URL も変える"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t51",
+      "project": "yurazumi",
+      "title": "ゆらづみ: スクリーンショットと遊び方（チャット）を見て、公開してよいか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/yurazumi-390x844-title.png",
+        ".audit/yurazumi-390x844-play.png",
+        ".audit/yurazumi-390x844-over.png",
+        ".audit/yurazumi-844x390-play.png"
+      ],
+      "choices": [
+        "公開する",
+        "直す"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t60",
+      "project": "yurazumi",
+      "title": "公開の許可を出す（公開リポジトリの作成が自動で止められる）→ チャットで「公開して」と言うか、設定で許可する",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t61",
+      "project": "kadotsugi",
+      "title": "公開する（GitHub・Pages・About・apps.js・共有画像・本番の確認）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t62",
+      "project": "yurazumi",
+      "title": "公開する（GitHub・Pages・About・apps.js・共有画像・本番の確認）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t61",
+      "project": null,
+      "title": "4 本の表示名を変える（insider→ワケシリ、pentris→QUINTILE、hue-hunter→DELTA HUE、glyph-shift→ABILITILE）。URL はそのまま",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-24",
+      "doneAt": null
+    },
+    {
+      "id": "t63",
+      "project": null,
+      "title": "改名する 4 本の共有画像（og.png）と、名前の入ったアイコンを作り直す",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t64",
+      "project": "pitaori",
+      "title": "仕様を書く（名前・デザイン・UI は 0 から。権利も調べる）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t65",
+      "project": "arimichi",
+      "title": "仕様を書く（名前・デザイン・UI は 0 から。権利も調べる）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t66",
+      "project": "arimichi",
+      "title": "ありみち: 権利の判定（docs/private/specs/arimichi.md §権利）を見て、作るかどうか選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t67",
+      "project": "pitaori",
+      "title": "ピタオリ: 権利の判定（docs/private/specs/pitaori.md §権利）を見て、作るかどうか選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t68",
+      "project": "pitaori",
+      "title": "仕様どおりに本体を書く（audit:browser とテストを通す）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t69",
+      "project": "pitaori",
+      "title": "アイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t70",
+      "project": "arimichi",
+      "title": "仕様どおりに本体を書く（audit:browser とテストを通す）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t71",
+      "project": "arimichi",
+      "title": "アイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t72",
+      "project": "hineri",
+      "title": "アイコンと共有画像を 4×4 の立方体に描き直す",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t73",
+      "project": "hineri",
+      "title": "ひねり並べ: スクリーンショットと遊び方（チャット）を見て、公開してよいか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/hineri-390-title.png",
+        ".audit/hineri-390-twisting.png",
+        ".audit/hineri-390-result-cpu.png",
+        ".audit/hineri-844l-title.png"
+      ],
+      "choices": [
+        "公開する",
+        "直す"
+      ],
+      "choice": "公開する",
+      "comment": "チャットで「公開していい」"
+    },
+    {
+      "id": "t74",
+      "project": "arimichi",
+      "title": "公開前の確認（audit:browser・スマホ幅・触って楽しいか）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t75",
+      "project": "pitaori",
+      "title": "公開前の確認（audit:browser・スマホ幅・遊べるか）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t76",
+      "project": "arimichi",
+      "title": "QA の指摘 2 点を直す（390 幅で見本が隠れる、PC の Space）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t77",
+      "project": "arimichi",
+      "title": "ありみち: スクリーンショットと遊び方（チャット）を見て、公開してよいか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/qa-arimichi-390-run.png",
+        ".audit/arimichi-390x844-full.png",
+        ".audit/qa-arimichi-1280-rule.png",
+        ".audit/qa-arimichi-cards12.png"
+      ],
+      "choices": [
+        "公開する",
+        "直す"
+      ],
+      "choice": "公開する",
+      "comment": "チャットで「公開していい」"
+    },
+    {
+      "id": "t78",
+      "project": "pitaori",
+      "title": "QA の細かい点を直す（土台と同じ段、横画面の結果、共有の文）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t79",
+      "project": "hineri",
+      "title": "公開する（GitHub・Pages・About・apps.js・共有画像・本番の確認）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t80",
+      "project": "arimichi",
+      "title": "公開する（GitHub・Pages・About・apps.js・共有画像・本番の確認）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t81",
+      "project": "pitaori",
+      "title": "ピタオリ: スクリーンショットと遊び方（チャット）を見て、公開してよいか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/pitaori-390x844-title.png",
+        ".audit/qa-pitaori-390x844-perfect.png",
+        ".audit/pitaori-390x844-result.png",
+        ".audit/pitaori-844x390-result.png"
+      ],
+      "choices": [
+        "公開する",
+        "直す"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t82",
+      "project": "pitaori",
+      "title": "公開する（GitHub・Pages・About・apps.js・共有画像・本番の確認）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t83",
+      "project": "soroekko",
+      "title": "仕様を書く（名前・デザイン・UI は 0 から。権利も調べる）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t84",
+      "project": "soroekko",
+      "title": "そろえっこ: 権利の判定（docs/private/specs/soroekko.md §権利）を見て、作るかどうか選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t85",
+      "project": "soroekko",
+      "title": "仕様どおりに本体を書く（audit:browser とテストを通す）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t86",
+      "project": "soroekko",
+      "title": "アイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t87",
+      "project": "soroekko",
+      "title": "公開前の確認（audit:browser・スマホ幅・触って楽しいか）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t88",
+      "project": "soroekko",
+      "title": "QA の指摘を直す（注目の棒が比べている色に隠れる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t89",
+      "project": "soroekko",
+      "title": "そろえっこ: スクリーンショットと遊び方（チャット）を見て、公開してよいか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/qa-soroekko-390x844-mid.png",
+        ".audit/soroekko-390x844-focus.png",
+        ".audit/qa-soroekko-390x844-result.png",
+        ".audit/qa-soroekko-1280x800-mid.png"
+      ],
+      "choices": [
+        "公開する",
+        "直す"
+      ],
+      "choice": "公開する",
+      "comment": ""
     }
   ],
   "ideas": []
