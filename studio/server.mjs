@@ -316,12 +316,13 @@ setInterval(() => {
   } catch { /* まだない */ }
 }, 1500);
 
-// apps.js が書き換えられたら（公開したら）知らせる。開いたままの画面でも「公開中のアプリ」が増える
+// apps.js が書き換えられたら（公開したら）知らせ、チェックをやり直す（起動したときも 1 回走る）。
+// 開いたままの画面でも「公開中のアプリ」が増え、新しいアプリにもチェックの結果が付く
 let appsMtime = 0;
 setInterval(() => {
   try {
     const m = fs.statSync(path.join(HUB, 'apps.js')).mtimeMs;
-    if (m !== appsMtime) { appsMtime = m; broadcast('apps', loadApps()); }
+    if (m !== appsMtime) { appsMtime = m; broadcast('apps', loadApps()); runAudit(false); }
   } catch { /* 読めなければ前のまま */ }
 }, 1500);
 
@@ -386,7 +387,6 @@ const server = http.createServer(async (req, res) => {
 
 scan();
 setInterval(tick, 1000);
-runAudit(false);
 server.listen(PORT, '127.0.0.1', () => {
   console.log(`T.OF... スタジオ: http://localhost:${PORT}`);
 });
