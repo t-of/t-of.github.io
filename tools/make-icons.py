@@ -50,20 +50,21 @@ with open(os.path.join(ROOT, 'apps.js'), encoding='utf-8') as f:
         line = line.strip()
         if line.startswith("icon: '"):
             icons.append(line.split("'")[1])
-x0, y0, cell = 820, 70, 150
+S, cell = 112, 128                      # 3×3 に並べる
+x0, y0 = 1200 - 64 - 3 * cell + (cell - S), (630 - 3 * cell + (cell - S)) // 2
 for i, path in enumerate(icons[:9]):
     try:
         raw = urllib.request.urlopen('https://sora3141.github.io' + path, timeout=10).read()
     except Exception as e:
         print('skip', path, e)
         continue
-    ic = Image.open(io.BytesIO(raw)).convert('RGBA').resize((124, 124), Image.LANCZOS)
-    m = Image.new('L', (124 * 4, 124 * 4), 0)
-    ImageDraw.Draw(m).rounded_rectangle((0, 0, 124 * 4 - 1, 124 * 4 - 1), radius=30 * 4, fill=255)
-    m = m.resize((124, 124), Image.LANCZOS)
-    alpha = Image.composite(ic.getchannel('A'), Image.new('L', (124, 124), 0), m)
+    ic = Image.open(io.BytesIO(raw)).convert('RGBA').resize((S, S), Image.LANCZOS)
+    m = Image.new('L', (S * 4, S * 4), 0)
+    ImageDraw.Draw(m).rounded_rectangle((0, 0, S * 4 - 1, S * 4 - 1), radius=27 * 4, fill=255)
+    m = m.resize((S, S), Image.LANCZOS)
+    alpha = Image.composite(ic.getchannel('A'), Image.new('L', (S, S), 0), m)
     ic.putalpha(alpha)
-    col, row = i % 2, i // 2
-    og.paste(ic, (x0 + col * cell + (row % 2) * 60, y0 + row * 124), ic)
+    col, row = i % 3, i // 3
+    og.paste(ic, (x0 + col * cell, y0 + row * cell), ic)
 save(og, 'og.png')
 print('ok')

@@ -13,6 +13,36 @@
 
 window.TOFO_APPS = [
   {
+    id: 'cube-othello',
+    name: 'キューブ・オセロ',
+    title: '立方体の6面で遊ぶオセロ',
+    desc: '立方体の 6 つの面すべてが盤面のオセロ。縦横の列は辺を越えて隣の面へつながる。CPU 対戦・ふたり対戦。',
+    category: 'game',
+    tags: ['ボードゲーム', '3D'],
+    icon: '/cube-othello/icons/icon-192.png',
+    color: '#36a075',
+  },
+  {
+    id: 'score-othello',
+    name: '点数オセロ',
+    title: '石に点数がついたオセロ',
+    desc: '石の一つひとつに点数がついたオセロ。石の数ではなく点の合計で勝負する。CPU 対戦・ふたり対戦。',
+    category: 'game',
+    tags: ['ボードゲーム', 'オセロ'],
+    icon: '/score-othello/icons/icon-192.png',
+    color: '#f2c66d',
+  },
+  {
+    id: 'insider',
+    name: 'インサイダー',
+    title: '1台で遊ぶ会話と推理',
+    desc: '1 台の端末を回して遊ぶ、4〜8 人のインサイダー・ゲーム。お題当てと裏切り者探しをアプリが進行する。',
+    category: 'game',
+    tags: ['パーティー', '推理'],
+    icon: '/insider/icons/icon-192.png',
+    color: '#ff4d5e',
+  },
+  {
     id: 'pentris',
     name: 'PENT!',
     title: 'ペントミノ落ち物パズル',

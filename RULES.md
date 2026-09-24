@@ -233,7 +233,7 @@ gh api -X POST repos/Sora3141/<id>/pages -f 'source[branch]=main' -f 'source[pat
 
 ## 既存アプリの対応状況（2026-09-24 時点）
 
-2026-09-24 に直したもの: 他アプリのキャッシュを消す SW（4 本）、`black-translucent`（5 本）、pentris / coord-maze のオフライン対応、全 7 本への T.OFO リンク。
+2026-09-24 に直したもの: 他アプリのキャッシュを消す SW（4 本）、`black-translucent`（5 本）、pentris / coord-maze のオフライン対応、全 7 本への T.OFO リンク、insider / score-othello / cube-othello の PWA 化と一覧への追加（この 3 本は RULES に沿って作り直したので残りなし）。
 
 残っている差分（急ぎではない。触るついでに直す）:
 
@@ -246,4 +246,3 @@ gh api -X POST repos/Sora3141/<id>/pages -f 'source[branch]=main' -f 'source[pat
 | hue-hunter | localStorage の読み書きに try/catch がない、不要な `ads.txt` が残っている |
 | core-image-english | 共有ボタンと iPhone 向けのインストール案内がない、OGP・description がない、`html` の背景が `theme-color` と違う（意図的） |
 | Half-Cut | README に T.OFO の表記がまだない |
-| insider / score-othello / cube-othello | PWA 化していない（manifest・アイコンなし）ため一覧に未掲載 |
