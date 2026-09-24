@@ -1,7 +1,15 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
   "updatedAt": "2026-09-24T00:00:00Z",
-  "projects": [],
+  "projects": [
+    {
+      "id": "pentris",
+      "name": "PENT!",
+      "stage": "design",
+      "created": "2026-09-24",
+      "note": "アイコンを新しいデザインに作り直す"
+    }
+  ],
   "tasks": [
     {
       "id": "t1",
@@ -47,6 +55,43 @@
       "status": "done",
       "created": "2026-09-24",
       "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t6",
+      "project": "pentris",
+      "title": "新しいアイコンの案を 3 つ出す",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t7",
+      "project": "pentris",
+      "title": "新しいアイコンの案から 1 つ選ぶ",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-09-24",
+      "doneAt": null,
+      "images": [
+        ".audit/pentris-icon-concepts.png"
+      ],
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choice": null,
+      "choiceImages": {
+        "A": ".audit/pentris-concept-A.svg",
+        "B": ".audit/pentris-concept-B.svg",
+        "C": ".audit/pentris-concept-C.svg"
+      },
+      "choiceLabels": {
+        "A": "組み合わせ",
+        "B": "「P!」",
+        "C": "着地寸前"
+      }
     }
   ],
   "ideas": []

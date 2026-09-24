@@ -69,6 +69,9 @@ https://sora3141.github.io/ に公開して、このリポジトリのポータ�
 - `owner`: `planner` / `designer` / `engineer` / `qa` / `release` / `owner`（オーナーが決める・操作するもの）
 - `status`: `todo`（未着手）/ `doing`（進行中）/ `waiting`（待ち。オーナーの返事など）/ `done`（完了。`doneAt` に日付）
 - `id` は `t` + 連番。今ある一番大きい番号の次にする。
+- オーナーに見て選んでほしいときは、task に `images`（本部からの相対パス。例 `.audit/xxx.png`）と `choices`（例 `["A","B","C"]`）を付け、`owner: "owner"`・`status: "waiting"` にする。
+  案ごとの画像は `choiceImages`（例 `{"A": ".audit/a.svg"}`）、短い名前は `choiceLabels` に入れると、スタジオで大きなカードとして並ぶ。
+  オーナーがスタジオで選ぶと `choice` と `comment` が入り `done` になる。ディレクターはそれを読んで次へ進める。
 - ディレクターの役目: 仕事を振るときに task を足して `doing` にし、段階が進んだら project の `stage` を進め、終わったら `done` にする。
 - メンバーにはボードを触らせない（同時に書き換えて壊さないように）。ボードはディレクターだけが更新する。
 

@@ -286,6 +286,46 @@ function taskRow(t) {
   if (t.project) meta.append(el('span', 'app-tag', appName(t.project)));
   if (t.created) meta.append(el('span', null, t.created));
   text.append(meta);
+  // 見てほしい画像（案の比較など）
+  if (t.images?.length) {
+    const thumbs = el('div', 'thumbs');
+    for (const src of t.images) {
+      const img = new Image();
+      img.src = `/hub/${src}`;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.addEventListener('click', () => openImage(img.src));
+      thumbs.append(img);
+    }
+    text.append(thumbs);
+  }
+  // オーナーに選んでもらうもの
+  if (t.choices?.length) {
+    const box = el('div', t.choiceImages ? 'choices choices--cards' : 'choices');
+    for (const c of t.choices) {
+      const b = el('button', 'choice', c);
+      if (t.choiceImages?.[c]) {
+        const img = new Image();
+        img.src = `/hub/${t.choiceImages[c]}`;
+        img.alt = c;
+        b.replaceChildren(img, el('span', 'choice__label', t.choiceLabels?.[c] ? `${c}  ${t.choiceLabels[c]}` : c));
+      }
+      b.type = 'button';
+      b.setAttribute('aria-pressed', String(t.choice === c));
+      b.addEventListener('click', async () => {
+        const note = prompt(`「${c}」にします。直してほしい点があれば書いてください（なくてもよい）`, t.comment || '');
+        if (note === null) return;
+        t.choice = c;
+        t.comment = note.trim();
+        t.status = 'done';
+        t.doneAt = today();
+        await saveBoard();
+      });
+      box.append(b);
+    }
+    text.append(box);
+    if (t.choice) text.append(el('p', 'choice-note', `選んだもの: ${t.choice}${t.comment ? ` — ${t.comment}` : ''}`));
+  }
   const status = el('select', 'task__status');
   for (const [k, label] of Object.entries(STATUS)) { const o = el('option', null, label); o.value = k; o.selected = t.status === k; status.append(o); }
   status.addEventListener('change', async () => { t.status = status.value; t.doneAt = t.status === 'done' ? today() : null; await saveBoard(); });
@@ -333,6 +373,12 @@ function renderTasks() {
   document.querySelectorAll('#filters [data-filter]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filter === f)));
 }
 
+function openImage(src) {
+  const d = $('lightbox');
+  d.querySelector('img').src = src;
+  d.showModal();
+}
+
 // ---------- 数字 ----------
 
 function renderStats() {
@@ -349,7 +395,7 @@ function renderStats() {
   add('動いている会話', sessionsLive);
   add('作っているアプリ', building);
   add('未完了のタスク', open.length);
-  add('あなたの番', mine, mine ? 'is-owner' : '');
+  add('あなたの番', mine, mine ? 'is-owner is-link' : '');
   add('チェック不合格のアプリ', failed, failed ? 'is-ng' : '');
   $('task-badge').textContent = open.length || '';
 }
@@ -395,6 +441,13 @@ $('btn-new-project').addEventListener('click', async () => {
   await saveBoard();
   openProject(id);
 });
+
+$('stats').addEventListener('click', (e) => {
+  if (!e.target.closest('.is-link')) return;
+  state.filter = 'owner';
+  document.querySelector('.tabs [data-view="tasks"]').click();
+});
+$('lightbox').addEventListener('click', (e) => e.currentTarget.close());
 
 $('project-sheet').addEventListener('click', (e) => { if (e.target === e.currentTarget) e.currentTarget.close(); });
 
