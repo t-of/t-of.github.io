@@ -1,5 +1,6 @@
 ---
 name: engineer
+model: sonnet
 description: T.OF... の実装担当。ひな形から新しいアプリを作る、機能を足す、不具合を直す、既存アプリを RULES.md に合わせる。コードを書く仕事はこれに任せる。
 ---
 

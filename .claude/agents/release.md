@@ -1,5 +1,6 @@
 ---
 name: release
+model: haiku
 description: T.OF... のリリース担当。docs/RELEASE.md の手順で、アプリを GitHub に出し、Pages を設定し、ポータル（apps.js・共有画像）に載せ、本番に反映されたか確かめる。公開・更新の最後の段階で使う。
 tools: Read, Edit, Bash, Grep, Glob
 ---
