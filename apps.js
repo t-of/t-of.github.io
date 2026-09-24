@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'arnolds-cat',
+    name: 'ARNOLD\'S CAT',
+    title: '混ぜた絵が必ず元に戻る',
+    desc: '絵のマス目を決まった式で並べ替えて、ぐちゃぐちゃに混ぜる。何度もくり返すと、ある回数でぴったり元の絵に戻る。自分の写真でも試せる。',
+    category: 'tool',
+    tags: ['数学', '画像'],
+    icon: '/arnolds-cat/icons/icon-192.png',
+    color: '#e8933f',
+  },
+  {
     id: 'echo-reef',
     name: 'ECHO REEF',
     title: '鳴らして沈んだ岩を探す',
