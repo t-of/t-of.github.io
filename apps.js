@@ -54,9 +54,9 @@ window.TOFO_APPS = [
   },
   {
     id: 'insider',
-    name: 'インサイダー',
+    name: 'ワケシリ',
     title: '1台で遊ぶ会話と推理',
-    desc: '1 台の端末を回して遊ぶ、4〜8 人のインサイダー・ゲーム。お題当てと裏切り者探しをアプリが進行する。',
+    desc: '1 台の端末を回して遊ぶ、4〜8 人の会話ゲーム。お題当てと、答えを知る者探しをアプリが進行する。',
     category: 'game',
     tags: ['パーティー', '推理'],
     icon: '/insider/icons/icon-192.png',
@@ -64,7 +64,7 @@ window.TOFO_APPS = [
   },
   {
     id: 'pentris',
-    name: 'PENT!',
+    name: 'QUINTILE',
     title: 'ペントミノ落ち物パズル',
     desc: '5 マスのブロック「ペントミノ」で遊ぶ落ち物パズル。スコアを狙う AI 付き。',
     category: 'game',
@@ -104,7 +104,7 @@ window.TOFO_APPS = [
   },
   {
     id: 'glyph-shift',
-    name: 'Glyph Shift',
+    name: 'ABILITILE',
     title: '絵柄が能力になるパズル',
     desc: 'ブロックを押すと絵柄の効果が発動し、能力はブロックと一緒に動く。盤面を目標の柄に揃えるとクリア。',
     category: 'game',
@@ -114,7 +114,7 @@ window.TOFO_APPS = [
   },
   {
     id: 'hue-hunter',
-    name: 'Hue Hunter',
+    name: 'DELTA HUE',
     title: '色相識別テスト',
     desc: '1 つだけ色相の違うマスを探して、見分けられる最小の色差を測る。',
     category: 'tool',

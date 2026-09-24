@@ -8,6 +8,8 @@
 ### 収益化するアプリと、名前を変えるアプリ
 収益化の前に 10 本の権利を調べ直した（docs/rights.md）。オセロの 2 本・insider・pentris は収益化しない。
 insider・pentris・hue-hunter・glyph-shift は、既存の商品と同じか近い名前なので変える。core-image-english はライセンスの表記を直す。
+新しい名前は insider → ワケシリ（役職は 親 / ワケシリ / 子）、pentris → QUINTILE、hue-hunter → DELTA HUE、glyph-shift → ABILITILE（案と調べた結果は docs/renames.md）。
+URL・リポジトリ名・保存キー・キャッシュ名は変えない（記録と共有リンクを守るため。Half-Cut と同じ考え）。
 
 ### オフラインで動くことを必須から外す
 オーナーが決めたルールではなく、作る途中で入っていたもの。広告など、ネットにつながっていないと動かないものを入れるので外した（RULES §4）。
