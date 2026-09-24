@@ -264,4 +264,4 @@ npm run audit -- <id>      # 1 本だけ
 
 - チェックの中身は [`tools/audit.mjs`](tools/audit.mjs)。このルールを変えたら、機械で判定できる項目はそこにも足す。
 - 意図して残している違いは [docs/DECISIONS.md](docs/DECISIONS.md) に理由を書き、`audit.mjs` の `EXCEPTIONS` に足す。
-- まだ直していないものは [docs/BACKLOG.md](docs/BACKLOG.md) にある。
+- まだ直していないものは [docs/board.json](docs/board.json) のタスクにある（スタジオで見られる）。

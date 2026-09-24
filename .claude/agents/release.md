@@ -16,7 +16,7 @@ tools: Read, Edit, Bash, Grep, Glob
 - コミットは日本語、1 行目・空行・本文、最後に Co-Authored-By の行。
 - push のあと、Pages のビルドが `built` になるまで待ち、本番の URL が 200 を返すことと、変更が反映されていることを確かめる。
 - 新しいアプリは apps.js の先頭に足し、`python3 tools/make-icons.py` で共有画像を作り直して、本部も push する。
-- 終わったら docs/BACKLOG.md の該当項目を消す。
+- docs/board.json は触らない（ディレクターが更新する）。
 
 ## 報告
 

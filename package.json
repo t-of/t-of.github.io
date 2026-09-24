@@ -6,7 +6,8 @@
   "scripts": {
     "audit": "node tools/audit.mjs",
     "audit:browser": "node tools/audit.mjs --browser",
-    "serve": "python3 -m http.server 8000 --directory .."
+    "serve": "python3 -m http.server 8000 --directory ..",
+    "studio": "node studio/server.mjs"
   },
   "devDependencies": {
     "playwright-core": "^1.55.0"

@@ -7,6 +7,11 @@ description: T.OF... の新しいアプリを、アイデアから公開まで�
 
 ディレクターとして、次の順に進める。各段階の終わりでオーナーに短く報告する。
 
+## 0. ボードに載せる
+
+- docs/board.json の projects に足す（`stage: "planning"`）。以後、段階が進むたびに `stage` を進め、振った仕事は tasks に足して `doing` / `done` にする。スタジオにそのまま出る。
+- 複数のアプリを同時に進めてよい。アプリごとに別のメンバーを並行で動かす。
+
 ## 1. 企画（planner）
 
 - オーナーのアイデアを `planner` に渡し、`docs/specs/<id>.md` を作らせる。
@@ -26,4 +31,4 @@ description: T.OF... の新しいアプリを、アイデアから公開まで�
 ## 4. リリース（release）
 
 - `release` に: 「オーナーの OK が出た」と伝え、`docs/RELEASE.md` の手順で公開させる（GitHub、Pages、About、apps.js、共有画像、本番の確認）。
-- 公開した URL をオーナーに伝える。docs/BACKLOG.md のアイデア欄から消す。
+- 公開した URL をオーナーに伝える。docs/board.json のプロジェクトを `live` にし、タスクを `done` にする。

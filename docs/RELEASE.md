@@ -44,5 +44,5 @@ curl -s -o /dev/null -w "%{http_code}\n" https://sora3141.github.io/<id>/
 
 ## 6. 記録
 
-- [BACKLOG.md](BACKLOG.md) の該当項目を消す。
+- [board.json](board.json) の該当タスクを `done` にし、プロジェクトの `stage` を `live` にする（ディレクターが行う）。
 - ルールから外したことがあれば [DECISIONS.md](DECISIONS.md) に書く。

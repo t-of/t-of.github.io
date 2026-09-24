@@ -1,0 +1,53 @@
+{
+  "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
+  "updatedAt": "2026-09-24T00:00:00Z",
+  "projects": [],
+  "tasks": [
+    {
+      "id": "t1",
+      "project": "hue-hunter",
+      "title": "Firestore のルールを公開してランキングを直す",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t2",
+      "project": "Half-Cut",
+      "title": "README とアイコンを RULES.md に合わせる",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t3",
+      "project": "pentris",
+      "title": "公開ブランチを main に揃える",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t4",
+      "project": null,
+      "title": "iPhone のマナーモードでも音が出るようにする（全アプリ）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t5",
+      "project": null,
+      "title": "実機での確認（ホーム画面・インストール・共有シート）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    }
+  ],
+  "ideas": []
+}

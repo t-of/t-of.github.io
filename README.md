@@ -10,7 +10,8 @@ T.OF... のゲームとアプリの一覧サイト。 → https://sora3141.githu
 | [RULES.md](RULES.md) | **アプリ制作ルール**（必須事項・公開前チェックリスト・自動チェック） |
 | [docs/BRAND.md](docs/BRAND.md) | 名前の表記・ロゴ・色・アイコンの作り方・文章 |
 | [docs/RELEASE.md](docs/RELEASE.md) | 公開の手順 |
-| [docs/BACKLOG.md](docs/BACKLOG.md) | やること・アイデア |
+| [docs/board.json](docs/board.json) | プロジェクトとタスク（スタジオで見る・編集する） |
+| [studio/](studio/) | 社内の様子を見るダッシュボード（`npm run studio`） |
 | [docs/DECISIONS.md](docs/DECISIONS.md) | 決めたこと・ルールの例外 |
 | [apps.js](apps.js) | 一覧に並べるアプリのデータ。新しいアプリはここに 1 件足す |
 | [template/](template/) | 新しいアプリのひな形 |

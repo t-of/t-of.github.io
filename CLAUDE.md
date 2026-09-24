@@ -13,7 +13,7 @@ https://sora3141.github.io/ に公開して、このリポジトリのポータ�
 | [RULES.md](RULES.md) | 全アプリ共通の技術ルール（必須・推奨・チェックリスト） |
 | [docs/BRAND.md](docs/BRAND.md) | 名前の表記、ロゴ、色、アイコンの作り方、文章のトーン |
 | [docs/RELEASE.md](docs/RELEASE.md) | 公開の手順 |
-| [docs/BACKLOG.md](docs/BACKLOG.md) | やることとアイデア |
+| [docs/board.json](docs/board.json) | プロジェクト（作っているアプリ）とタスク。スタジオの画面に出る |
 | [docs/DECISIONS.md](docs/DECISIONS.md) | 決めたこと、ルールの例外とその理由 |
 
 ## 置き場所
@@ -21,7 +21,7 @@ https://sora3141.github.io/ に公開して、このリポジトリのポータ�
 - 本部: `~/GitHub/sora3141.github.io/`（ポータル、ルール、道具）
 - 各アプリ: `~/GitHub/<id>/`（1 アプリ 1 リポジトリ。`<id>` はリポジトリ名で URL のパス）
 - アプリの一覧: [apps.js](apps.js)。ここに載っているものが T.OF... のアプリ
-- 道具: `tools/audit.mjs`（自動チェック）、`tools/new-app.sh`（ひな形）、`tools/make-logo.py`・`tools/make-icons.py`（ロゴ・共有画像）
+- 道具: `npm run studio`（社内の様子を見る画面）、`tools/audit.mjs`（自動チェック）、`tools/new-app.sh`（ひな形）、`tools/make-logo.py`・`tools/make-icons.py`（ロゴ・共有画像）
 - 共通部品: [webapp-kit/](webapp-kit/)（正本。直したら各アプリにコピーし直す）
 - 作業用のファイル（スクリーンショットなど）は `.audit/` かスクラッチパッドに置き、リポジトリに入れない
 
@@ -47,6 +47,31 @@ https://sora3141.github.io/ に公開して、このリポジトリのポータ�
 | `/release <id>` | 1 本を公開・更新する |
 | `/audit` | 全アプリを自動チェックし、直すべき点をまとめる |
 
+## ボード（docs/board.json）
+
+スタジオ（`npm run studio` → http://localhost:4141）が、この中身と作業記録から「社内の様子」を描く。
+オーナーが画面から編集することもあるので、書き換える前に必ず読み直す。JSON を壊さない。
+
+```jsonc
+{
+  "projects": [   // 作っている途中のアプリ。公開済みのものは apps.js から自動で出るので、更新するときだけ足す
+    { "id": "dot-rush", "name": "DOT RUSH", "stage": "build", "created": "2026-09-25", "note": "最初の版" }
+  ],
+  "tasks": [
+    { "id": "t12", "project": "dot-rush", "title": "タイトル画面を作る", "owner": "engineer",
+      "status": "doing", "created": "2026-09-25", "doneAt": null }
+  ],
+  "ideas": []
+}
+```
+
+- `stage`: `idea` → `planning` → `design` → `build` → `qa` → `release` → `live`（公開済み。公開したら projects から消してよい）
+- `owner`: `planner` / `designer` / `engineer` / `qa` / `release` / `owner`（オーナーが決める・操作するもの）
+- `status`: `todo`（未着手）/ `doing`（進行中）/ `waiting`（待ち。オーナーの返事など）/ `done`（完了。`doneAt` に日付）
+- `id` は `t` + 連番。今ある一番大きい番号の次にする。
+- ディレクターの役目: 仕事を振るときに task を足して `doing` にし、段階が進んだら project の `stage` を進め、終わったら `done` にする。
+- メンバーにはボードを触らせない（同時に書き換えて壊さないように）。ボードはディレクターだけが更新する。
+
 ## オーナーに確認すること
 
 次はオーナーが決める。勝手に進めない。
@@ -64,5 +89,5 @@ https://sora3141.github.io/ に公開して、このリポジトリのポータ�
 - push の前に `npm run audit -- <id>` を通す。落ちたら直すか、理由を DECISIONS.md に書いて例外にする。
 - コミットは日本語。1 行目に何をしたか、空行、本文。最後に Co-Authored-By の行。
 - 保存データのキーを変えるときは、古いキーから引き継ぐ処理を入れる（遊んでいる人の記録を消さない）。
-- 終わったら BACKLOG.md を更新する。ルールから外したら DECISIONS.md に書く。ルールを変えたら audit.mjs も合わせる。
+- 仕事を受けたら・進んだら・終わったら docs/board.json を更新する（上の「ボード」）。ルールから外したら DECISIONS.md に書く。ルールを変えたら audit.mjs も合わせる。
 - 報告は日本語で短く。何をしたか、どう確かめたか、残っていること、オーナーに決めてほしいこと。

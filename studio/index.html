@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0c10">
+  <title>T.OF... スタジオ — 社内の様子</title>
+  <link rel="icon" href="/hub/icons/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <img src="/hub/logo/tof-wordmark.svg" alt="T.OF..." height="34">
+      <span class="brand__sub">STUDIO</span>
+    </div>
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-view="office" aria-selected="true">社内</button>
+      <button role="tab" data-view="projects" aria-selected="false">プロジェクト</button>
+      <button role="tab" data-view="tasks" aria-selected="false">タスク <span class="badge" id="task-badge"></span></button>
+    </nav>
+    <div class="status">
+      <span class="live" id="live"><i></i><span>接続中…</span></span>
+    </div>
+  </header>
+
+  <section class="stats" id="stats"></section>
+
+  <main>
+    <!-- 社内 -->
+    <section class="view" data-view="office">
+      <div class="office">
+        <div class="floor" id="floor"></div>
+        <aside class="feed">
+          <h2 class="panel-title">いまの動き</h2>
+          <ol class="feed__list" id="feed"></ol>
+        </aside>
+      </div>
+    </section>
+
+    <!-- プロジェクト -->
+    <section class="view" data-view="projects" hidden>
+      <div class="board-head">
+        <p class="muted">アプリごとの進み具合。カードを押すと、そのアプリのタスクと担当が見られます。</p>
+        <div class="board-actions">
+          <button class="btn" id="btn-new-project">＋ 新しいプロジェクト</button>
+          <button class="btn btn--ghost" id="btn-audit">チェックを実行</button>
+        </div>
+      </div>
+      <div class="kanban" id="kanban"></div>
+    </section>
+
+    <!-- タスク -->
+    <section class="view" data-view="tasks" hidden>
+      <form class="task-form" id="task-form">
+        <input name="title" placeholder="タスクを追加（例: タイトル画面の文字を大きくする）" required autocomplete="off">
+        <select name="project" id="task-project"></select>
+        <select name="owner">
+          <option value="engineer">実装</option>
+          <option value="designer">デザイン</option>
+          <option value="planner">企画</option>
+          <option value="qa">品質</option>
+          <option value="release">リリース</option>
+          <option value="owner">オーナー</option>
+        </select>
+        <button class="btn">追加</button>
+      </form>
+      <div class="filters" id="filters">
+        <button data-filter="open" aria-pressed="true">未完了</button>
+        <button data-filter="owner" aria-pressed="false">あなたの番</button>
+        <button data-filter="done" aria-pressed="false">完了</button>
+        <button data-filter="all" aria-pressed="false">すべて</button>
+      </div>
+      <div id="task-groups"></div>
+    </section>
+  </main>
+
+  <dialog class="sheet" id="project-sheet">
+    <form method="dialog" class="sheet__body" id="project-body"></form>
+  </dialog>
+
+  <script src="./app.js" type="module"></script>
+</body>
+</html>
