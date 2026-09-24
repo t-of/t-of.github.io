@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'madoakari',
+    name: 'まどあかり',
+    title: '夜の窓をぜんぶ灯す',
+    desc: '夜の建物の窓をタップして明かりをつける。押した窓と上下左右のとなりが一緒に切り替わるので、どこを押すかを考えて、なるべく少ない数で全部の窓を灯す。',
+    category: 'game',
+    tags: ['パズル'],
+    icon: '/madoakari/icons/icon-192.png',
+    color: '#141a33',
+  },
+  {
     id: 'soroekko',
     name: 'そろえっこ',
     title: '2 つの並べ替えで競走',
