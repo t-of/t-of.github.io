@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'doorwise',
+    name: 'DOORWISE',
+    title: '扉を開けて泥棒を追いつめる',
+    desc: '光っている扉のどれかに泥棒が隠れている。扉を開けるたびに泥棒は音から遠ざかって逃げるので、開けた扉を壁にして追いこみ、光を最後の 1 枚まで減らす。全 12 ステージ。',
+    category: 'game',
+    tags: ['パズル', 'ステージ'],
+    icon: '/doorwise/icons/icon-192.png',
+    color: '#6ef2c2',
+  },
+  {
     id: 'dawnward',
     name: 'DAWNWARD',
     title: '攻撃をそらして灯を守る',
