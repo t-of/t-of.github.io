@@ -6,7 +6,7 @@
 ## 2026-09-25
 
 ### Processing の昔の作品を 9 本のアプリに作り直す
-`~/Downloads` にあった Processing の作品 53 本を整理した。古い版・下書き・公開済みのアプリと重なる 23 本は消し、元にする 30 本は `~/GitHub/tof/processing-archive/` に残した。
+`~/Downloads` にあった Processing の作品 53 本を整理した。古い版・下書き・公開済みのアプリと重なる 23 本は消し、元にする 30 本は `~/GitHub/tof/processing-archive/`（非公開リポジトリ t-of/processing-archive）に残した。
 そこから 9 本を作る（15 パズル 2 本は 1 本にまとめ、ミニゲーム 4 本・数学と模様 17 本もそれぞれ 1 本にまとめた）。仕様は `docs/private/specs/`。
 
 ### 平面ルービック（hirakibako）は判定「注意」だが収益化する
