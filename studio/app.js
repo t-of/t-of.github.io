@@ -45,6 +45,7 @@ function connect() {
   es.addEventListener('agents', (e) => { state.agents = JSON.parse(e.data); render(); });
   es.addEventListener('board', (e) => { state.board = JSON.parse(e.data); render(); });
   es.addEventListener('audit', (e) => { const a = JSON.parse(e.data); state.audit = a.summary ? a : { ...state.audit, running: a.running }; render(); });
+  es.addEventListener('apps', (e) => { state.apps = JSON.parse(e.data); render(); });
   es.addEventListener('log', (e) => { pushFeed(JSON.parse(e.data)); });
 }
 

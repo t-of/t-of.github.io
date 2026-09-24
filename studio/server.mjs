@@ -316,6 +316,15 @@ setInterval(() => {
   } catch { /* まだない */ }
 }, 1500);
 
+// apps.js が書き換えられたら（公開したら）知らせる。開いたままの画面でも「公開中のアプリ」が増える
+let appsMtime = 0;
+setInterval(() => {
+  try {
+    const m = fs.statSync(path.join(HUB, 'apps.js')).mtimeMs;
+    if (m !== appsMtime) { appsMtime = m; broadcast('apps', loadApps()); }
+  } catch { /* 読めなければ前のまま */ }
+}, 1500);
+
 // ---------- HTTP ----------
 
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8',
