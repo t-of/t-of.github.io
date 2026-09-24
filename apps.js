@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'kagamigami',
+    name: 'かがみがみ',
+    title: '写真を切って並べる万華鏡',
+    desc: '写真を鏡に映したように 4 枚並べ、細い短冊に切って端から交互に並べ直す。短冊の数を変えるだけで、万華鏡のような模様が次々に変わる。',
+    category: 'tool',
+    tags: ['画像', 'アート'],
+    icon: '/kagamigami/icons/icon-192.png',
+    color: '#18171c',
+  },
+  {
     id: 'tsumitate',
     name: '積立投資シミュレーター',
     title: '毎月の積み立て、何年後にいくら',
