@@ -71,6 +71,90 @@
       "stage": "live",
       "created": "2026-09-25",
       "note": "Processing の昔の作品から作り直す（~/GitHub/tof/processing-archive）。id は仮"
+    },
+    {
+      "id": "slope-writer",
+      "name": "SLOPE WRITER",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "手元の試作から 0 から作り直す。元: ~/dev/plotfall。id は仮"
+    },
+    {
+      "id": "doorwise",
+      "name": "DOORWISE",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "手元の試作から 0 から作り直す。元: ~/dev/door-thief。id は仮"
+    },
+    {
+      "id": "pair-carry",
+      "name": "PAIR CARRY",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "手元の試作から 0 から作り直す。元: ~/Downloads/コード・プログラム/stone_puzzle*.html。id は仮"
+    },
+    {
+      "id": "cell-garden",
+      "name": "CELL GARDEN",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "手元の試作から 0 から作り直す。元: ~/Processing/life_game_3。id は仮"
+    },
+    {
+      "id": "arnolds-cat",
+      "name": "ARNOLD'S CAT",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "手元の試作から 0 から作り直す。元: ~/dev/arnold-cat-map。id は仮"
+    },
+    {
+      "id": "near-pin",
+      "name": "NEAR PIN",
+      "stage": "live",
+      "created": "2026-09-25",
+      "note": "手元の試作から 0 から作り直す。元: OneDrive デスクトップ numberguess・Suziate.java。id は仮"
+    },
+    {
+      "id": "echo-reef",
+      "name": "ECHO REEF",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "手元の試作から 0 から作り直す。元: ~/dev/minasoko。id は仮"
+    },
+    {
+      "id": "dawnward",
+      "name": "DAWNWARD",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "手元の試作から 0 から作り直す。元: ~/dev/lattice。id は仮"
+    },
+    {
+      "id": "buyout",
+      "name": "BUYOUT",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "手元の試作から 0 から作り直す。元: ~/dev/zaraba。id は仮"
+    },
+    {
+      "id": "high-floor",
+      "name": "HIGH FLOOR",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "手元の試作から 0 から作り直す。元: ~/dev/wariate。id は仮"
+    },
+    {
+      "id": "number-bench",
+      "name": "NUMBER BENCH",
+      "stage": "qa",
+      "created": "2026-09-25",
+      "note": "数学の計算の道具をまとめる 1 本。最初はガチャ確率（n 回引いて k 回以上当たる確率）と人生の体感時間（ジャネーの法則）。元: OneDrive デスクトップ Java/遊び asobi5・asobi19、primenumber/kura*.java。id は仮"
+    },
+    {
+      "id": "one-off",
+      "name": "ONE OFF",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "~/dev/word-wolf を元に 0 から作り直す。きわどいお題の分類は外す。id は仮"
     }
   ],
   "tasks": [
@@ -2682,9 +2766,9 @@
       "project": "t-of.github.io",
       "title": "スタジオ: 仕事の台帳（ledger.jsonl）と成績タブ、レベル・バッジ・今月の MVP",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-25"
     },
     {
       "id": "t216",
@@ -2694,6 +2778,471 @@
       "status": "done",
       "created": "2026-09-25",
       "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t217",
+      "project": "slope-writer",
+      "title": "plotfall・door-thief の仕様と権利の調べを書く（door-thief はルールを見直す）（plotfall, door-thief）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t218",
+      "project": "stone-puzzle",
+      "title": "碁石パズル・ライフゲームの仕様と権利の調べを書く（stone-puzzle, life-game） → pair-carry.md・cell-garden.md",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t219",
+      "project": "arnolds-cat",
+      "title": "猫写像・Hit & Blow の仕様と権利の調べを書く（cat-map, hit-blow） → cat-map.md・pitaoshi.md",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t220",
+      "project": "echo-reef",
+      "title": "minasoko・lattice の仕様と権利の調べを書く（minasoko, lattice）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t221",
+      "project": "buyout",
+      "title": "zaraba・wariate の仕様と権利の調べを書く（zaraba, wariate）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t222",
+      "project": "number-bench",
+      "title": "数の道具箱（ガチャ確率・人生の体感時間）の仕様と権利の調べを書く → math-tools.md",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t223",
+      "project": "one-off",
+      "title": "ワードウルフ系の会話ゲームの仕様と権利の調べを書く（名前の権利、きわどいお題を外す）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t224",
+      "project": "number-bench",
+      "title": "権利を選ぶ: 数の道具箱（判定 問題なし）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナー不在。指示（すべて承諾・A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t225",
+      "project": "number-bench",
+      "title": "ひな形から 数の道具箱 の最初の版を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t226",
+      "project": "arnolds-cat",
+      "title": "権利を選ぶ: 猫写像（判定 問題なし）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナー不在。指示（すべて承諾・A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t227",
+      "project": "arnolds-cat",
+      "title": "ひな形から 猫写像 の最初の版を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t228",
+      "project": "near-pin",
+      "title": "権利を選ぶ: ぴたおし（判定 問題なし）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナー不在。指示（すべて承諾・A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t229",
+      "project": "near-pin",
+      "title": "ひな形から ぴたおし の最初の版を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t230",
+      "project": null,
+      "title": "名前を英語・カタカナに付け直す（オーナーの希望。BRAND.md に書いた）: 数の道具箱・猫写像・ぴたおし・水底・ひもり・ザラバ・うらみっこなし・しきころがし・とびらがくれ・ヒトリチガイ",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t231",
+      "project": "pair-carry",
+      "title": "権利を選ぶ: PAIR CARRY（判定 問題なし）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナー不在。指示（すべて承諾・A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t232",
+      "project": "pair-carry",
+      "title": "ひな形から PAIR CARRY の最初の版を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t233",
+      "project": "cell-garden",
+      "title": "権利を選ぶ: CELL GARDEN（判定 問題なし）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナー不在。指示（すべて承諾・A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t234",
+      "project": "cell-garden",
+      "title": "ひな形から CELL GARDEN の最初の版を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t235",
+      "project": "echo-reef",
+      "title": "権利を選ぶ: ECHO REEF（判定 問題なし）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナー不在。指示（すべて承諾・A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t236",
+      "project": "echo-reef",
+      "title": "ひな形から ECHO REEF の最初の版を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t237",
+      "project": "dawnward",
+      "title": "権利を選ぶ: DAWNWARD（判定 注意）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナー不在。指示（すべて承諾・A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t238",
+      "project": "dawnward",
+      "title": "ひな形から DAWNWARD の最初の版を作る",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t239",
+      "project": "number-bench",
+      "title": "NUMBER BENCH のアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t240",
+      "project": "near-pin",
+      "title": "NEAR PIN のアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t241",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "arnolds-cat",
+      "title": "ARNOLD'S CAT のアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer"
+    },
+    {
+      "id": "t242",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "buyout",
+      "title": "権利を選ぶ: BUYOUT（判定 問題なし・条件つき）",
+      "owner": "owner",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナー不在。指示（すべて承諾・A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t243",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "high-floor",
+      "title": "権利を選ぶ: HIGH FLOOR（判定 問題なし）",
+      "owner": "owner",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナー不在。指示（すべて承諾・A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t244",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "slope-writer",
+      "title": "権利を選ぶ: SLOPE WRITER（判定 問題なし）",
+      "owner": "owner",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナー不在。指示（すべて承諾・A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t245",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "doorwise",
+      "title": "権利を選ぶ: DOORWISE（判定 問題なし）",
+      "owner": "owner",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナー不在。指示（すべて承諾・A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t246",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "one-off",
+      "title": "権利を選ぶ: ONE OFF（判定 問題なし）",
+      "owner": "owner",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナー不在。指示（すべて承諾・A を選ぶ）によりディレクターが選んだ"
+    },
+    {
+      "id": "t247",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "buyout",
+      "title": "ひな形から BUYOUT の最初の版を作る",
+      "owner": "engineer"
+    },
+    {
+      "id": "t248",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "high-floor",
+      "title": "ひな形から HIGH FLOOR の最初の版を作る",
+      "owner": "engineer"
+    },
+    {
+      "id": "t249",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "slope-writer",
+      "title": "ひな形から SLOPE WRITER の最初の版を作る",
+      "owner": "engineer"
+    },
+    {
+      "id": "t250",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "doorwise",
+      "title": "ひな形から DOORWISE の最初の版を作る（改めたルールで）",
+      "owner": "engineer"
+    },
+    {
+      "id": "t251",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "one-off",
+      "title": "ひな形から ONE OFF の最初の版を作る",
+      "owner": "engineer"
+    },
+    {
+      "id": "t252",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "cell-garden",
+      "title": "CELL GARDEN のアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer"
+    },
+    {
+      "id": "t253",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "near-pin",
+      "title": "NEAR PIN を確かめる（audit・スマホ幅・ひとりと今日の 1 問）",
+      "owner": "qa"
+    },
+    {
+      "id": "t254",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "number-bench",
+      "title": "NUMBER BENCH を確かめる（audit・スマホ幅・2 つの道具の計算）",
+      "owner": "qa"
+    },
+    {
+      "id": "t255",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "pair-carry",
+      "title": "PAIR CARRY のアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer"
+    },
+    {
+      "id": "t256",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "echo-reef",
+      "title": "ECHO REEF のアイコン一式と共有画像を作る（配色も見る）",
+      "owner": "designer"
+    },
+    {
+      "id": "t257",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "near-pin",
+      "title": "NEAR PIN を公開する（オーナー不在の指示で承諾。GitHub・Pages・apps.js・共有画像）",
+      "owner": "release"
     }
   ],
   "ideas": []
