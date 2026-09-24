@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0c10">
+  <meta name="description" content="T.OF... のサイトとアプリが、どんな情報を保存し、どこへ送っているか。">
+  <title>プライバシーポリシー — T.OF...</title>
+
+  <link rel="manifest" href="../manifest.webmanifest">
+  <link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <a class="brand" href="../">
+        <img class="brand__logo" src="../logo/tof-wordmark.svg" alt="T.OF..." width="107" height="44">
+      </a>
+      <nav class="top__nav">
+        <a href="../#apps">アプリ</a>
+        <a href="../#about">T.OF... について</a>
+      </nav>
+    </header>
+
+    <main class="doc">
+      <h1 class="doc__title">プライバシーポリシー</h1>
+      <p class="doc__date">制定 2026-09-24</p>
+
+      <p>
+        T.OF... のサイト（https://t-of.github.io/）と、そこに並んでいるアプリで、どんな情報を保存し、どこへ送っているかをまとめます。
+        T.OF... は個人の制作レーベルです。
+      </p>
+
+      <h2>ひとことで</h2>
+      <ul>
+        <li>記録や設定は、あなたの端末のブラウザの中に保存します。T.OF... には送りません。</li>
+        <li>名前やメールアドレスを集めるのは、Hue Hunter で Google ログインしたときだけです。</li>
+        <li>今は広告もアクセス解析も入れていません。T.OF... のページは Cookie を使っていません。</li>
+      </ul>
+
+      <h2>端末の中に保存するもの</h2>
+      <p>
+        ブラウザの保存場所（localStorage など）に入れます。端末の外には出ません。
+        全アプリが同じアドレス（t-of.github.io）の下にあるので、保存場所もひとつにまとまっています。
+      </p>
+      <ul class="doc__list">
+        <li><strong>ポータル</strong>一覧の絞り込み（すべて / ゲーム / 学び・ツール）</li>
+        <li><strong>キューブ・オセロ、点数オセロ</strong>対戦の設定、表示の設定、途中の対局</li>
+        <li><strong>インサイダー</strong>プレイヤーの名前、制限時間、お題の種類などの設定</li>
+        <li><strong>PENT!</strong>ベストスコア、操作や音の設定</li>
+        <li><strong>COORD MAZE</strong>クリアの記録、途中の迷路、音の設定</li>
+        <li><strong>GEAR ALIGN</strong>コースごとのベスト記録、音の設定</li>
+        <li><strong>Half/Cut</strong>エンドレスのベスト、練習の進み具合、連続日数、音の設定</li>
+        <li><strong>Glyph Shift</strong>絵柄の選択、音の設定</li>
+        <li><strong>Hue Hunter</strong>ベストスコア、表示名、音と周辺色の設定。ログインしたときは、ログインの状態もブラウザに残ります</li>
+        <li><strong>コアイメージ英語</strong>問題ごとの正解・不正解と復習の予定、句動詞の表で開いたカード、表示の設定</li>
+      </ul>
+
+      <h2>送るもの（Hue Hunter のランキング）</h2>
+      <p>
+        Hue Hunter は、ログインせずに遊べます。ランキングに載せたいときだけ、Google アカウントでログインします。
+        ログインのしくみとランキングの保存には Google の Firebase を使います。
+      </p>
+      <ul>
+        <li>ログインすると、Google アカウントの名前・メールアドレス・プロフィール画像の URL と、利用者ごとの番号が Firebase に登録されます。これは本人を見分けるためで、ランキングには出しません。</li>
+        <li>ベストを更新すると、自分で入れた表示名（8 文字まで）、スコア、見分けられた最小の色差、記録した日時を送ります。</li>
+        <li>ランキングは誰でも見られます。見えるのは表示名・スコア・色差です。</li>
+      </ul>
+
+      <h2>URL に入るもの</h2>
+      <ul>
+        <li>GEAR ALIGN は、共有リンクの <code>#</code> 以降に、コースの種類・大きさ・番号を入れます（例: <code>#m90/4/1/f/AB12</code>）。遊んだ人の情報は入りません。</li>
+        <li>PENT! は、<code>?seed=</code> で落ちてくる順番を決められます。</li>
+        <li>古いアドレス（sora3141.github.io）から開くと、記録を URL の <code>#</code> 以降に入れて新しいアドレスへ運び、端末の中に書き戻したあと URL から消します。<code>#</code> 以降はブラウザからサーバへ送られません。</li>
+      </ul>
+
+      <h2>集めないもの</h2>
+      <p>
+        住所、電話番号、位置情報、連絡先、写真などは集めません。
+        Hue Hunter のログインのほかに、名前やメールアドレスを入れてもらうことはありません。
+      </p>
+
+      <h2>使う目的</h2>
+      <ul>
+        <li>端末の中の記録と設定: 続きから遊べるように、設定を覚えておくため</li>
+        <li>Hue Hunter のランキング: 記録を並べて見せるため、別の端末でも同じ記録を使えるようにするため</li>
+        <li>広告とアクセス解析（入れたとき）: サイトを続けるため、よく使われている所を知って直すため</li>
+      </ul>
+      <p>集めた情報を売ったり、ほかの目的に使ったりはしません。</p>
+
+      <h2>外のサービス</h2>
+      <p>ページを開くと、次のサービスにも通信します。そのとき、各サービスには IP アドレスやブラウザの種類が届きます。</p>
+      <ul class="doc__list">
+        <li><strong>Google Fonts</strong>文字の形（フォント）を読み込みます。ポータルと、ほとんどのアプリで使っています。</li>
+        <li><strong>jsDelivr</strong>キューブ・オセロの 3D 表示の部品（three.js）を読み込みます。</li>
+        <li><strong>Firebase（Google）</strong>Hue Hunter のログインとランキング。上の「送るもの」のとおりです。</li>
+        <li><strong>GitHub Pages</strong>このサイトを置いている場所です。ページを配るときに、アクセスの記録が GitHub に残ることがあります。</li>
+        <li><strong>X、LINE</strong>共有ボタンを押したときだけ、そのサービスのページを開きます。</li>
+      </ul>
+      <p>
+        各サービスでの情報の扱いは、それぞれのプライバシーポリシーに従います。
+      </p>
+
+      <h2>広告とアクセス解析（入れたとき）</h2>
+      <p>今は入れていません。これから Google AdSense の広告と、アクセス解析を入れることがあります。入れたときは、次のようになります。</p>
+      <ul>
+        <li>Google などの第三者配信事業者は、Cookie を使って、このサイトやほかのサイトに前に来たときの情報をもとに広告を出します。</li>
+        <li>Google は広告 Cookie を使うことで、このサイトやほかのサイトへのアクセスの情報をもとに、あなたに合った広告を出します。</li>
+        <li>あなたに合わせた広告は、<a href="https://adssettings.google.com/" rel="noopener">Google の広告設定</a>で止められます。</li>
+        <li>Google が広告で Cookie をどう使うかは、<a href="https://policies.google.com/technologies/ads" rel="noopener">Google の広告に関するページ</a>にあります。</li>
+        <li>アクセス解析は、どのページがどれくらい見られたかを知るために使います。名前などの、あなたを特定する情報は集めません。Google のサービスを使う場合、情報の扱いは<a href="https://policies.google.com/technologies/partner-sites" rel="noopener">こちら</a>のとおりです。</li>
+      </ul>
+      <p>入れたときは、このページを書き換えて知らせます。</p>
+
+      <h2>記録の消し方</h2>
+      <ul>
+        <li>ブラウザの設定で、t-of.github.io のサイトデータ（Cookie とサイトデータ）を消すと、端末の中の記録と設定が消えます。全アプリの記録がまとめて消えます。</li>
+        <li>iPhone のホーム画面に追加したアプリは、Safari とは記録の置き場所が別です。ホーム画面からアイコンを消すと、その記録も消えます。</li>
+        <li>Hue Hunter のランキングから消したいときは、下の問い合わせ先から、表示名とスコアを添えて知らせてください。</li>
+      </ul>
+
+      <h2>問い合わせ</h2>
+      <p>
+        <a href="https://github.com/t-of/t-of.github.io/issues" rel="noopener">GitHub の Issues</a> から知らせてください。
+        Issues は誰でも読めるので、メールアドレスなどは書かないでください。
+      </p>
+
+      <h2>変えるとき</h2>
+      <p>このページの中身を変えるときは、このページで知らせます。</p>
+    </main>
+
+    <footer class="foot">
+      <span>© 2026 T.OF...</span>
+      <a href="../">ポータルへ戻る</a>
+    </footer>
+  </div>
+</body>
+</html>
