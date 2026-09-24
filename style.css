@@ -1,0 +1,252 @@
+:root {
+  --bg: #0b0c10;
+  --surface: #13151b;
+  --surface-2: #1a1d25;
+  --line: rgba(255, 255, 255, 0.08);
+  --fg: #eceef3;
+  --muted: #9aa0ab;
+  --accent: #ffd35c;
+  --radius: 20px;
+  --font: 'Space Grotesk', system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+
+  --wak-bg: #171a21;
+  --wak-fg: var(--fg);
+  --wak-muted: var(--muted);
+  --wak-line: var(--line);
+  --wak-accent: var(--accent);
+  --wak-accent-fg: #1a1400;
+}
+
+* { box-sizing: border-box; }
+
+/* Safari 26 の上下バーの色は html の背景から取られる */
+html { background-color: var(--bg); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+
+.page {
+  width: min(1080px, 100%);
+  margin: 0 auto;
+  padding:
+    max(16px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+}
+
+/* ---------- ヘッダー ---------- */
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.brand__mark { border-radius: 9px; }
+.brand__name { font-weight: 700; font-size: 20px; letter-spacing: 0.06em; }
+.top__nav { display: flex; align-items: center; gap: 18px; font-size: 14px; }
+.top__nav a { color: var(--muted); text-decoration: none; }
+.top__nav a:hover { color: var(--fg); }
+.chip {
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* ---------- ヒーロー ---------- */
+.hero { padding: clamp(40px, 9vw, 96px) 0 clamp(32px, 6vw, 56px); }
+.hero__eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  font-size: 13px;
+}
+.hero__title {
+  margin: 0;
+  font-size: clamp(30px, 6.4vw, 56px);
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+}
+.hero__lead { margin: 20px 0 0; max-width: 36em; color: var(--muted); font-size: clamp(15px, 2vw, 17px); }
+
+/* ---------- 一覧 ---------- */
+.section-title { margin: 0; font-size: 22px; font-weight: 700; }
+.count { color: var(--muted); font-weight: 500; font-size: 15px; margin-left: 4px; }
+.apps__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.filter {
+  display: inline-flex;
+  padding: 4px;
+  gap: 2px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.filter button {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.filter button[aria-selected="true"] { background: var(--surface-2); color: var(--fg); }
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 14px;
+}
+.card {
+  --c: #8a8f9c;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 120px;
+  background: radial-gradient(120% 100% at 0% 0%, color-mix(in srgb, var(--c) 22%, transparent), transparent 70%);
+  pointer-events: none;
+}
+.card:hover { border-color: color-mix(in srgb, var(--c) 45%, transparent); transform: translateY(-2px); }
+.card__main {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  padding: 18px 18px 12px;
+  text-decoration: none;
+  flex: 1;
+}
+.card__icon {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--surface-2);
+  box-shadow: 0 8px 24px -10px color-mix(in srgb, var(--c) 60%, transparent);
+}
+.card__icon img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.card__icon--text {
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--c);
+}
+.card__text { min-width: 0; }
+.card__name { margin: 2px 0 0; font-size: 18px; line-height: 1.3; }
+.card__title { margin: 2px 0 0; font-size: 13px; color: var(--c); font-weight: 500; }
+.card__desc { margin: 8px 0 0; font-size: 14px; color: var(--muted); line-height: 1.6; }
+.card__tags { margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  font-size: 11px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+.card__actions {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  padding: 0 18px 18px 106px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.btn--play { background: var(--c); color: #0b0c10; font-weight: 700; }
+.btn--ghost { border: 1px solid var(--line); color: var(--muted); }
+.btn--ghost:hover { color: var(--fg); }
+
+/* ---------- 説明 ---------- */
+.about { margin-top: clamp(56px, 10vw, 96px); }
+.about__body { margin-top: 16px; max-width: 880px; color: var(--muted); }
+.about__body > p { max-width: 44em; }
+.about__body p { margin: 0 0 16px; }
+.facts {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr));
+  gap: 12px;
+}
+.facts li {
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.facts strong { display: block; color: var(--fg); font-size: 15px; margin-bottom: 2px; }
+.about__links { display: flex; gap: 20px; align-items: center; }
+.about__links a, .linklike { color: var(--fg); text-underline-offset: 3px; }
+.linklike { background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
+
+.foot {
+  margin-top: 64px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+}
+.muted { color: var(--muted); }
+
+@media (max-width: 520px) {
+  .top__nav a { display: none; }
+  .card__actions { padding-left: 18px; }
+  .card__actions .btn { flex: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+  .card:hover { transform: none; }
+}
