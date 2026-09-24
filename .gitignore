@@ -5,3 +5,4 @@ node_modules/
 # 権利の調べ（手元だけに置く。公開リポジトリに自己分析を出さない）
 docs/rights.md
 docs/renames.md
+docs/specs/
