@@ -183,7 +183,11 @@ async function auditBrowser(apps) {
   const base = `http://localhost:${server.address().port}`;
   const shots = path.join(HUB, '.audit');
   fs.mkdirSync(shots, { recursive: true });
-  const browser = await chromium.launch({ channel: 'chrome' });
+  // 撮影専用の chrome-headless-shell を使う。channel: 'chrome'（普段の Chrome）だと mac で窓が出てしまう
+  const browser = await chromium.launch().catch(() => {
+    console.error('撮影用のブラウザがない。本部で npx playwright-core install chromium-headless-shell を実行する。');
+    process.exit(2);
+  });
   const out = {};
   for (const app of apps) {
     const results = [];

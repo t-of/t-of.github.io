@@ -140,7 +140,7 @@ function session(id, project) {
 function agent(s, agentId) {
   if (!s.agents.has(agentId)) {
     s.agents.set(agentId, { id: agentId, type: '', description: '', role: 'engineer', startedAt: 0, lastAt: 0,
-      action: '', lastText: '', done: false, pending: 0, tools: 0, apps: new Set() });
+      action: '', lastText: '', done: false, pending: 0, tools: 0, apps: new Set(), promptApps: new Set() });
   }
   return s.agents.get(agentId);
 }
@@ -169,20 +169,32 @@ function apply(s, a, d) {
       who.pending++;
       who.tools = (who.tools || 0) + 1;
       who.action = describeTool(b.name, b.input);
-      const text = JSON.stringify(b.input || {});
-      for (const id of appsIn(text, KNOWN)) { who.apps.add(id); s.apps.add(id); }
+      // 作業中のアプリは、書き込んだ先（編集・作成）と、依頼の文面に出てくるものだけ。
+      // 読んだだけのもの（お手本にしたほかのアプリ）は数えない
+      const target = /^(Edit|MultiEdit|Write|NotebookEdit)$/.test(b.name) ? (b.input?.file_path || b.input?.notebook_path || '')
+        : !a && (b.name === 'Agent' || b.name === 'Task') ? (b.input?.prompt || '') : '';
+      for (const id of appsIn(target, KNOWN)) { who.apps.add(id); s.apps.add(id); }
       if (a) a.done = false;
-      pushLog(s, { at: t, agent: a?.id || null, role: a?.role || 'director', text: who.action });
+      const entry = { at: t, agent: a?.id || null, role: a?.role || 'director', text: who.action };
+      // ディレクターからの依頼は「部屋から部屋へ」飛ばす（社内画面）。差し戻し（直す・修正など）は別の色にする
+      if (!a && (b.name === 'Agent' || b.name === 'Task')) {
+        entry.to = roleOf(b.input?.subagent_type, b.input?.description, b.input?.prompt);
+        entry.kind = /直す|直し|修正|差し戻|やり直/.test(b.input?.description || '') ? 'return' : 'handoff';
+      }
+      pushLog(s, entry);
     } else if (b.type === 'tool_result') {
       who.pending = Math.max(0, who.pending - 1);
     } else if (b.type === 'text' && msg.role === 'assistant' && b.text?.trim()) {
       who.lastText = b.text.trim().slice(0, 200);
     }
   }
-  if (a && msg.role === 'assistant' && msg.stop_reason === 'end_turn' && a.pending === 0) {
+  // end_turn はそのターンで道具を呼んでいないということなので、pending の数え違いがあっても完了にする
+  if (a && msg.role === 'assistant' && msg.stop_reason === 'end_turn') {
+    a.pending = 0;
     a.done = true;
     a.action = '完了';
-    pushLog(s, { at: t, agent: a.id, role: a.role, text: '完了' });
+    // エージェントの「完了」はディレクターへの報告として飛ばす（SubagentHandback 自体は文字だけのまま二重に飛ばさない）
+    pushLog(s, { at: t, agent: a.id, role: a.role, text: '完了', kind: 'report', to: 'director' });
   }
 }
 
@@ -226,6 +238,7 @@ function scan() {
           const first = events.find((e) => e.type === 'user' && e.message);
           const firstText = typeof first?.message?.content === 'string' ? first.message.content : JSON.stringify(first?.message?.content || '');
           a.role = roleOf(a.type, a.description, firstText);
+          a.promptApps = appsIn(firstText, KNOWN);
           a.role0 = true;
           if (first?.timestamp) a.startedAt = Date.parse(first.timestamp);
         }
@@ -246,7 +259,8 @@ function snapshotAgents() {
       id: a.id, type: a.type, role: a.role, description: a.description,
       startedAt: a.startedAt, lastAt: a.lastAt, tools: a.tools,
       state: a.done ? 'done' : now - a.lastAt > IDLE_MS ? 'stalled' : 'working',
-      action: a.action, lastText: a.lastText, apps: [...a.apps],
+      // まだ何も書いていない間と、書き込まない係（品質・リリース）は、依頼の文面のアプリ
+      action: a.action, lastText: a.lastText, apps: [...(a.apps.size ? a.apps : a.promptApps)],
     })).sort((x, y) => y.lastAt - x.lastAt);
     out.push({
       id: s.id, title: s.title || '（無題の会話）', cwd: s.cwd.replace(os.homedir(), '~'), lastAt: s.lastAt,
@@ -303,15 +317,36 @@ function tick() {
   if (sig !== lastSig) { lastSig = sig; broadcast('agents', agents); }
 }
 
-// board.json が書き換えられたら知らせ、フォルダの色（Finder のタグ）を段階に合わせる
 let boardMtime = 0;
+
+// ---------- 通知（オーナーの番） ----------
+
+// オーナーがやることになっている、閉じていないタスクの id
+function ownerTaskIds(board) {
+  return new Set(board.tasks.filter((t) => t.owner === 'owner' && t.status !== 'done' && t.status !== 'skip').map((t) => t.id));
+}
+function notifyOwnerTask(title) {
+  if (process.platform !== 'darwin') return;
+  const esc = (s) => String(s).replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+  const script = `display notification "${esc(title)}" with title "T.OF... スタジオ" subtitle "あなたの番です" sound name "Glass"`;
+  execFile('osascript', ['-e', script], () => {});
+}
+// 起動時にすでにあるものは知らせない（新しく増えた id だけ知らせる）
+let knownOwnerTasks = ownerTaskIds(readBoard());
+
+// board.json が書き換えられたら知らせ、フォルダの色（Finder のタグ）を段階に合わせる。オーナーの番が増えたら mac に通知する
+
 setInterval(() => {
   try {
     const m = fs.statSync(BOARD).mtimeMs;
     if (m !== boardMtime) {
       boardMtime = m;
-      broadcast('board', readBoard());
+      const board = readBoard();
+      broadcast('board', board);
       execFile(process.execPath, [path.join(HUB, 'tools', 'folder-colors.mjs')], { cwd: HUB }, () => {});
+      const current = ownerTaskIds(board);
+      for (const t of board.tasks) if (current.has(t.id) && !knownOwnerTasks.has(t.id)) notifyOwnerTask(t.title);
+      knownOwnerTasks = current;
     }
   } catch { /* まだない */ }
 }, 1500);

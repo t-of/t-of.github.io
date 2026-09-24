@@ -47,7 +47,12 @@ function connect() {
   es.addEventListener('board', (e) => { state.board = JSON.parse(e.data); render(); });
   es.addEventListener('audit', (e) => { const a = JSON.parse(e.data); state.audit = a.summary ? a : { ...state.audit, running: a.running }; render(); });
   es.addEventListener('apps', (e) => { state.apps = JSON.parse(e.data); render(); });
-  es.addEventListener('log', (e) => { pushFeed(JSON.parse(e.data)); });
+  es.addEventListener('log', (e) => {
+    const item = JSON.parse(e.data);
+    pushFeed(item);
+    // ディレクター ⇔ 各部屋の依頼・報告・差し戻しは、届いたものだけ書類を飛ばす（最初の読み込みでは飛ばさない）
+    if (item.kind) flyDoc(item.kind === 'report' ? item.role : 'director', item.kind === 'report' ? 'director' : item.to, item.kind);
+  });
 }
 
 async function saveBoard() {
@@ -65,7 +70,8 @@ function people() {
       seats.director.push({ kind: 'session', id: s.id, title: s.title, state: s.state, action: s.action, apps: s.apps, lastAt: s.lastAt, cwd: s.cwd });
     }
     for (const a of s.agents) {
-      if (a.state === 'done' && now - a.lastAt > RECENT_DONE_MS) continue;
+      // 終わったものと、途中で止められたまま動かないものは、しばらくしたら席から外す
+      if (a.state !== 'working' && now - a.lastAt > RECENT_DONE_MS) continue;
       (seats[a.role] || seats.engineer).push({ kind: 'agent', ...a, session: s.id });
     }
   }
@@ -79,18 +85,44 @@ function renderOffice() {
   for (const role of ['director', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer']) {
     const r = ROLES[role];
     const room = el('section', 'room');
+    room.dataset.role = role;
     room.style.setProperty('--c', r.color);
     const head = el('header', 'room__head');
     head.append(el('span', 'room__icon', r.icon), el('h3', 'room__name', r.name), el('span', 'room__desc', r.desc));
     const busy = seats[role].filter((p) => p.state === 'working').length;
     head.append(el('span', `room__count${busy ? ' is-busy' : ''}`, busy ? `${busy} 人 作業中` : '空き'));
     room.append(head);
+    if (role !== 'director') room.append(whiteboard(role));
     const desks = el('div', 'desks');
     if (!seats[role].length) desks.append(el('p', 'desk-empty', '— 今は誰もいません —'));
     for (const p of seats[role]) desks.append(desk(p, role));
     room.append(desks);
     floor.append(room);
   }
+}
+
+// 部屋ごとのホワイトボード（その役割の、未完了・作業中・待ちのタスクを付箋で並べる）
+function whiteboard(role) {
+  const tasks = state.board.tasks.filter((t) => t.owner === role && ['todo', 'doing', 'waiting'].includes(t.status));
+  const doneToday = state.board.tasks.filter((t) => t.owner === role && t.doneAt === today()).length;
+  const doneLabel = el('span', 'whiteboard__done', `今日の済 ${doneToday}`);
+  if (!tasks.length) {
+    const board = el('div', 'whiteboard whiteboard--empty');
+    board.append(el('p', 'whiteboard__empty', '仕事の山はありません'), doneLabel);
+    return board;
+  }
+  const board = el('div', 'whiteboard');
+  const notes = el('div', 'notes');
+  for (const t of tasks.slice(0, 6)) notes.append(note(t));
+  if (tasks.length > 6) notes.append(el('div', 'note note--more', `＋${tasks.length - 6}`));
+  board.append(notes, doneLabel);
+  return board;
+}
+function note(t) {
+  const n = el('div', `note is-${t.status}`);
+  n.append(el('p', 'note__title', t.title));
+  if (t.project) n.append(el('p', 'note__app', appName(t.project)));
+  return n;
 }
 
 function desk(p, role) {
@@ -115,7 +147,9 @@ const feedItems = [];
 function pushFeed(item) {
   feedItems.push(item);
   if (feedItems.length > 120) feedItems.shift();
-  if (state.view === 'office') renderFeed();
+  if (state.view !== 'office') return;
+  renderFeed();
+  if (item.kind) renderDaily();   // 依頼・報告・差し戻しの数はすぐ反映する
 }
 function renderFeed() {
   const list = $('feed');
@@ -125,10 +159,106 @@ function renderFeed() {
   list.replaceChildren();
   for (const item of feedItems.slice(-60).reverse()) {
     const li = el('li', 'feed__item');
-    li.style.setProperty('--c', ROLES[item.role]?.color || '#888');
+    const color = item.kind === 'report' ? 'var(--ok)' : item.kind === 'return' ? 'var(--ng)' : ROLES[item.role]?.color || '#888';
+    li.style.setProperty('--c', color);
     const who = ROLES[item.role]?.name || item.role;
-    li.append(el('span', 'feed__who', who), el('span', 'feed__text', item.text), el('time', 'feed__time', ago(item.at)));
+    li.append(el('span', 'feed__who', who), el('span', 'feed__text', feedText(item)), el('time', 'feed__time', ago(item.at)));
     list.append(li);
+  }
+}
+
+// 依頼・報告・差し戻しは「ディレクター → デザイン」のように誰から誰への動きかを表す
+function feedText(item) {
+  if (item.kind === 'handoff') return `${ROLES.director.name} → ${ROLES[item.to]?.name || item.to}`;
+  if (item.kind === 'return') return `差し戻し → ${ROLES[item.to]?.name || item.to}`;
+  if (item.kind === 'report') return `${ROLES[item.role]?.name || item.role} → ${ROLES.director.name}（報告）`;
+  return item.text;
+}
+
+// 送り手の部屋の見出しから受け手の部屋の見出しへ、書類のアイコンを飛ばす
+function flyDoc(fromRole, toRole, kind) {
+  const toRoom = document.querySelector(`.room[data-role="${toRole}"]`);
+  if (state.view !== 'office' || !toRoom) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { flashRoom(toRoom); return; }
+  const fromHead = document.querySelector(`.room[data-role="${fromRole}"] .room__head`);
+  const toHead = toRoom.querySelector('.room__head');
+  if (!fromHead || !toHead) { flashRoom(toRoom); return; }
+  const a = fromHead.getBoundingClientRect();
+  const b = toHead.getBoundingClientRect();
+  const ax = a.left + a.width / 2, ay = a.top + a.height / 2;
+  const bx = b.left + b.width / 2, by = b.top + b.height / 2;
+  const color = kind === 'report' ? 'var(--ok)' : kind === 'return' ? 'var(--ng)' : ROLES[fromRole]?.color || '#888';
+  const doc = el('div', 'flying-doc', '📄');
+  doc.style.color = color;
+  doc.style.left = `${ax}px`;
+  doc.style.top = `${ay}px`;
+  document.body.append(doc);
+  const midX = (ax + bx) / 2 - ax, midY = Math.min(ay, by) - 90 - ay;   // 弧を描くよう、中間点を上に持ち上げる
+  const anim = doc.animate([
+    { transform: 'translate(-50%, -50%) scale(0.7)', offset: 0 },
+    { transform: `translate(calc(${midX}px - 50%), calc(${midY}px - 50%)) scale(1.1)`, offset: 0.5 },
+    { transform: `translate(calc(${bx - ax}px - 50%), calc(${by - ay}px - 50%)) scale(0.7)`, offset: 1 },
+  ], { duration: 900, easing: 'ease-in-out' });
+  anim.onfinish = () => { doc.remove(); flashRoom(toRoom); };
+}
+function flashRoom(roomEl) {
+  roomEl.classList.remove('room--flash');
+  void roomEl.offsetWidth;   // アニメーションを最初からやり直す
+  roomEl.classList.add('room--flash');
+  setTimeout(() => roomEl.classList.remove('room--flash'), 700);
+}
+
+// ---------- 今日の日報 ----------
+
+function dailyReport() {
+  const t = today();
+  const doneToday = state.board.tasks.filter((x) => x.doneAt === t).length;
+  // ponytail: サーバーが持つ作業記録は直近 12 時間分だけ。それより前に動いたメンバーは延べ人数に入らない
+  const workers = [];
+  for (const s of state.agents) for (const a of s.agents) if (sameDay(a.lastAt || a.startedAt, t)) workers.push(a);
+  const byRole = {};
+  for (const a of workers) byRole[a.role] = (byRole[a.role] || 0) + 1;
+  let handoff = 0, report = 0, ret = 0;
+  for (const item of feedItems) {
+    if (!sameDay(item.at, t)) continue;
+    if (item.kind === 'handoff') handoff++;
+    else if (item.kind === 'report') report++;
+    else if (item.kind === 'return') ret++;
+  }
+  return { doneToday, workers: workers.length, byRole, handoff, report, ret };
+}
+
+function dailyStat(label, value) {
+  const s = el('div', 'daily__stat');
+  s.append(el('span', 'daily__value', String(value)), el('span', 'daily__label', label));
+  return s;
+}
+
+function renderDaily() {
+  const box = $('daily');
+  box.replaceChildren();
+  box.append(el('h2', 'panel-title', '今日の日報'));
+  const r = dailyReport();
+  const stats = el('div', 'daily__stats');
+  stats.append(dailyStat('完了タスク', r.doneToday), dailyStat('延べ人数', r.workers));
+  stats.append(dailyStat('依頼', r.handoff), dailyStat('報告', r.report), dailyStat('差し戻し', r.ret));
+  box.append(stats);
+  if (r.workers) {
+    const bar = el('div', 'daily__bar');
+    const legend = el('div', 'daily__legend');
+    for (const [role, n] of Object.entries(r.byRole)) {
+      const seg = el('span', 'daily__seg');
+      seg.style.width = `${(n / r.workers) * 100}%`;
+      seg.style.background = ROLES[role]?.color || '#888';
+      seg.title = `${ROLES[role]?.name || role} ${n}`;
+      bar.append(seg);
+      const item = el('span', 'daily__legend-item');
+      item.style.setProperty('--c', ROLES[role]?.color || '#888');
+      item.append(el('i'), document.createTextNode(`${ROLES[role]?.name || role} ${n}`));
+      legend.append(item);
+    }
+    box.append(bar, legend);
   }
 }
 
@@ -155,8 +285,10 @@ function renderProjects() {
   // 作っている途中（アイデア〜リリース）は段階ごとの列、公開済みは下にまとめる
   const cols = el('div', 'cols');
   for (const [key, label] of STAGES.filter(([k]) => k !== 'live')) {
-    const col = el('section', 'col');
     const items = projects.filter((p) => (p.stage || 'idea') === key);
+    // 空の列は細く、カードが多い列ほど広げる
+    const col = el('section', items.length ? 'col' : 'col is-empty');
+    if (items.length) col.style.flexGrow = items.length;
     col.append(el('h3', 'col__title', label), el('span', 'col__count', items.length));
     const list = el('div', 'col__list');
     for (const p of items) list.append(projectCard(p));
@@ -188,6 +320,8 @@ function projectCard(p) {
   const open = state.board.tasks.filter((x) => x.project === p.id && !closed(x));
   const workers = activeOn(p.id);
   const audit = state.audit.summary?.[p.id];
+  // メンバーが作業中か、進行中のタスクがあれば縁を光らせる
+  if (workers.length || open.some((x) => x.status === 'doing')) card.classList.add('is-working');
   const meta = el('div', 'pcard__meta');
   if (workers.length) {
     const w = el('span', 'chip chip--live');
@@ -268,7 +402,17 @@ function openProject(id) {
 
 // ---------- タスク ----------
 
-const today = () => new Date().toISOString().slice(0, 10);
+// 端末のローカル日付（toISOString は UTC になり、日本時間の朝 9 時前は前日になってしまう）
+const today = () => {
+  const d = new Date();
+  const y = d.getFullYear(), m = String(d.getMonth() + 1).padStart(2, '0'), day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+};
+const sameDay = (ms, dateStr) => {
+  if (!ms) return false;
+  const d = new Date(ms);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}` === dateStr;
+};
 
 function taskRow(t) {
   const row = el('div', `task is-${t.status}`);
@@ -404,13 +548,31 @@ function renderStats() {
   add('あなたの番', mine, mine ? 'is-owner is-link' : '');
   add('チェック不合格のアプリ', failed, failed ? 'is-ng' : '');
   $('task-badge').textContent = open.length || '';
+  updateMyTurn(mine);
+}
+
+// ヘッダーの「あなたの番」ボタンとタブのタイトル
+let prevMyTurn = 0;
+const BASE_TITLE = document.title;
+function updateMyTurn(mine) {
+  const btn = $('btn-my-turn');
+  $('my-turn-count').textContent = mine;
+  btn.classList.toggle('is-active', mine > 0);
+  if (mine > prevMyTurn) {
+    btn.classList.remove('is-wiggle');
+    void btn.offsetWidth;   // アニメーションを最初からやり直す
+    btn.classList.add('is-wiggle');
+    setTimeout(() => btn.classList.remove('is-wiggle'), 2400);
+  }
+  prevMyTurn = mine;
+  document.title = mine ? `(${mine}) ${BASE_TITLE}` : BASE_TITLE;
 }
 
 // ---------- 全体 ----------
 
 function render() {
   renderStats();
-  if (state.view === 'office') { renderOffice(); renderFeed(); }
+  if (state.view === 'office') { renderOffice(); renderFeed(); renderDaily(); }
   if (state.view === 'projects') renderProjects();
   if (state.view === 'tasks') renderTasks();
 }
@@ -453,11 +615,15 @@ $('stats').addEventListener('click', (e) => {
   state.filter = 'owner';
   document.querySelector('.tabs [data-view="tasks"]').click();
 });
+$('btn-my-turn').addEventListener('click', () => {
+  state.filter = 'owner';
+  document.querySelector('.tabs [data-view="tasks"]').click();
+});
 $('lightbox').addEventListener('click', (e) => e.currentTarget.close());
 
 $('project-sheet').addEventListener('click', (e) => { if (e.target === e.currentTarget) e.currentTarget.close(); });
 
-setInterval(() => { if (state.view === 'office') { renderOffice(); renderFeed(); } }, 15000);  // 「◯分前」を進める
+setInterval(() => { if (state.view === 'office') { renderOffice(); renderFeed(); renderDaily(); } }, 15000);  // 「◯分前」を進める
 
 (async () => {
   try { state.apps = await (await fetch('/api/apps')).json(); } catch { /* 空のまま */ }

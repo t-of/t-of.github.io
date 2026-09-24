@@ -22,7 +22,7 @@ tools: Read, Write, Edit, Bash, Grep, Glob
 
 ## 作り方
 
-- SVG で描き、本部の Playwright（`~/GitHub/tof/t-of.github.io/node_modules/playwright-core`、`chromium.launch({ channel: 'chrome' })`）で開いて各サイズに撮る。Pillow も使える。
+- SVG で描き、本部の Playwright（`~/GitHub/tof/t-of.github.io/node_modules/playwright-core`、`chromium.launch()`。`channel: 'chrome'` は付けない）で開いて各サイズに撮る。Pillow も使える。
 - 生成用のスクリプトはスクラッチパッドか `/tmp` に置き、アプリのリポジトリには入れない。
 - **できた PNG は必ず Read で見て**、崩れ・小さいときの見え方・余白を直す。32px の favicon も見る。
 - 頭文字だけの仮アイコンで終わらせない。そのアプリらしい絵柄にする。

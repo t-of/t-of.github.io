@@ -23,6 +23,7 @@
       <button role="tab" data-view="tasks" aria-selected="false">タスク <span class="badge" id="task-badge"></span></button>
     </nav>
     <div class="status">
+      <button class="my-turn" id="btn-my-turn" type="button">★ あなたの番 <span id="my-turn-count">0</span></button>
       <span class="live" id="live"><i></i><span>接続中…</span></span>
     </div>
   </header>
@@ -34,10 +35,13 @@
     <section class="view" data-view="office">
       <div class="office">
         <div class="floor" id="floor"></div>
-        <aside class="feed">
-          <h2 class="panel-title">いまの動き</h2>
-          <ol class="feed__list" id="feed"></ol>
-        </aside>
+        <div class="side">
+          <section class="daily" id="daily"></section>
+          <aside class="feed">
+            <h2 class="panel-title">いまの動き</h2>
+            <ol class="feed__list" id="feed"></ol>
+          </aside>
+        </div>
       </div>
     </section>
 

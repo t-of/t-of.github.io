@@ -106,3 +106,8 @@ hue-hunter の `firestore.rules` を変えたら、Firebase に公開するま�
 | Half-Cut | ブラウザのタブのアイコンが `icon.svg` ではなく `icons/favicon.svg` | 小さいサイズ用に線を太くした別デザイン。32px でも読める |
 | Half-Cut | リポジトリ名に大文字（`Half-Cut`） | URL が変わるので変えない |
 | madoakari | 盤が大きいと窓が 44px を下回る（12×12 で約 26px） | 盤の大きさ 2〜12 は遊びの幅として残す（オーナーが了承、board t107）。押した窓は光って分かる。スマホで押しやすいのは 8 列くらいまで |
+
+### 撮影には chrome-headless-shell を使う
+Playwright で `channel: 'chrome'` を付けると、headless でも普段の Google Chrome が動き、mac ではオーナーの画面に窓が出てしまう（品質担当が何人も同時に確認していたときに起きた）。
+`chromium.launch()` だけにして、撮影専用の chrome-headless-shell を使う。新しい Mac では本部で `npx playwright-core install chromium-headless-shell` を 1 回実行する。
+確認用のサーバーも決まった番号をやめ、空いている番号（`http.server 0`、`listen(0)`）にする。同じ番号を取り合って別のアプリが映るのを防ぐ。qa・engineer・designer の定義に書いた。
