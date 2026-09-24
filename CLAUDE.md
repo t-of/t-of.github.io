@@ -67,7 +67,7 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 
 - `stage`: `idea` → `planning` → `design` → `build` → `qa` → `release` → `live`（公開済み。公開したら projects から消してよい）
 - `owner`: `planner` / `designer` / `engineer` / `qa` / `release` / `owner`（オーナーが決める・操作するもの）
-- `status`: `todo`（未着手）/ `doing`（進行中）/ `waiting`（待ち。オーナーの返事など）/ `done`（完了。`doneAt` に日付）
+- `status`: `todo`（未着手）/ `doing`（進行中）/ `waiting`（待ち。オーナーの返事など）/ `done`（完了。`doneAt` に日付）/ `skip`（しなくていい。やらないと決めたもの。`doneAt` に決めた日付）
 - `id` は `t` + 連番。今ある一番大きい番号の次にする。
 - オーナーに見て選んでほしいときは、task に `images`（本部からの相対パス。例 `.audit/xxx.png`）と `choices`（例 `["A","B","C"]`）を付け、`owner: "owner"`・`status: "waiting"` にする。
   案ごとの画像は `choiceImages`（例 `{"A": ".audit/a.svg"}`）、短い名前は `choiceLabels` に入れると、スタジオで大きなカードとして並ぶ。

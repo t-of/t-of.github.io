@@ -21,7 +21,7 @@ function check() {
   let task;
   try { task = JSON.parse(fs.readFileSync(BOARD, 'utf8')).tasks.find((t) => t.id === id); } catch { return; }  // 書きかけなら次に
   if (!task) { console.error(`タスク ${id} が board.json にない`); process.exit(1); }
-  if (task.choice || task.status === 'done') {
+  if (task.choice || task.status === 'done' || task.status === 'skip') {
     console.log(JSON.stringify({ id: task.id, title: task.title, choice: task.choice ?? null, comment: task.comment ?? '', status: task.status }, null, 2));
     process.exit(0);
   }

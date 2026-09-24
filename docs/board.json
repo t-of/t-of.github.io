@@ -175,6 +175,65 @@
       "status": "todo",
       "created": "2026-09-24",
       "doneAt": null
+    },
+    {
+      "id": "t17",
+      "project": null,
+      "title": "knight-tour 系 6 個（3d / Cuboid ×2 / both-sides / cylindrical / knight-tour-app）をどうするか決める。3〜5 ファイルの小さな実験",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-09-24",
+      "doneAt": null,
+      "choices": ["1 本のアプリにまとめる", "ローカルから消す", "そのまま置く"]
+    },
+    {
+      "id": "t18",
+      "project": null,
+      "title": "common-net-viewer（Three.js の展開図ビューア、非公開リポジトリ）をどうするか決める",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-09-24",
+      "doneAt": null,
+      "choices": ["アプリにする", "ローカルから消す", "そのまま置く"]
+    },
+    {
+      "id": "t19",
+      "project": null,
+      "title": "my-games（試作置き場。未コミットのフォルダ 3d-othello / score-othello / langton あり）をどうするか決める。何に使っているかもコメントに",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-09-24",
+      "doneAt": null,
+      "choices": ["試作置き場として残す", "中身をアプリにする", "ローカルから消す"]
+    },
+    {
+      "id": "t20",
+      "project": null,
+      "title": "6 月の小さな実験（tetris / Lights-Up / color-test / nisa_simulator / Tip_Calculation）をどうするか決める。一部だけ残すならコメントに",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-09-24",
+      "doneAt": null,
+      "choices": ["全部ローカルから消す", "一部だけ残す", "全部そのまま置く"]
+    },
+    {
+      "id": "t21",
+      "project": null,
+      "title": "トフ以外（28_intern_group1 / official-website / AtCoder_Practice）を ~/GitHub/ の外に移すか決める。未コミットの変更があるので、移す前に中身を確かめる",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-09-24",
+      "doneAt": null,
+      "choices": ["~/Projects/ に移す", "別の場所に移す（コメントに）", "そのまま置く"]
+    },
+    {
+      "id": "t22",
+      "project": null,
+      "title": "~/GitHub/ 直下の空の package.json と package-lock.json を消す（Claude からの削除は止められたので、自分で消すか許可する）",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-09-24",
+      "doneAt": null
     }
   ],
   "ideas": []

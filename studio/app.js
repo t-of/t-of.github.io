@@ -13,7 +13,8 @@ const STAGES = [
   ['idea', 'アイデア'], ['planning', '企画'], ['design', 'デザイン'], ['build', '実装'],
   ['qa', '品質'], ['release', 'リリース'], ['live', '公開済み'],
 ];
-const STATUS = { todo: '未着手', doing: '進行中', waiting: '待ち', done: '完了' };
+const STATUS = { todo: '未着手', doing: '進行中', waiting: '待ち', done: '完了', skip: "しなくていい" };
+const closed = (t) => t.status === "done" || t.status === "skip";   // 終わったもの（完了・しなくていい）
 const RECENT_DONE_MS = 30 * 60 * 1000;   // 終わったエージェントを席に残しておく時間
 
 const state = { agents: [], board: { projects: [], tasks: [], ideas: [] }, apps: [], audit: { summary: {} }, filter: 'open', view: 'office' };
@@ -182,7 +183,7 @@ function projectCard(p) {
   t.append(el('p', 'pcard__name', p.name || p.id), el('p', 'pcard__id', p.id));
   top.append(t);
   card.append(top);
-  const open = state.board.tasks.filter((x) => x.project === p.id && x.status !== 'done');
+  const open = state.board.tasks.filter((x) => x.project === p.id && !closed(x));
   const workers = activeOn(p.id);
   const audit = state.audit.summary?.[p.id];
   const meta = el('div', 'pcard__meta');
@@ -238,7 +239,7 @@ function openProject(id) {
   for (const a of workers) body.append(desk(a, a.role));
 
   const tasks = state.board.tasks.filter((x) => x.project === id);
-  body.append(el('h3', 'sheet__h', `タスク（未完了 ${tasks.filter((x) => x.status !== 'done').length}）`));
+  body.append(el('h3', 'sheet__h', `タスク（未完了 ${tasks.filter((x) => !closed(x)).length}）`));
   const list = el('div', 'task-list');
   for (const t of tasks) list.append(taskRow(t));
   if (!tasks.length) list.append(el('p', 'muted', 'タスクはありません。'));
@@ -328,7 +329,7 @@ function taskRow(t) {
   }
   const status = el('select', 'task__status');
   for (const [k, label] of Object.entries(STATUS)) { const o = el('option', null, label); o.value = k; o.selected = t.status === k; status.append(o); }
-  status.addEventListener('change', async () => { t.status = status.value; t.doneAt = t.status === 'done' ? today() : null; await saveBoard(); });
+  status.addEventListener('change', async () => { t.status = status.value; t.doneAt = closed(t) ? today() : null; await saveBoard(); });
   const del = el('button', 'task__del', '×');
   del.type = 'button';
   del.title = '削除';
@@ -353,7 +354,7 @@ function renderTasks() {
 
   const f = state.filter;
   const tasks = state.board.tasks.filter((t) =>
-    f === 'all' ? true : f === 'done' ? t.status === 'done' : f === 'owner' ? t.owner === 'owner' && t.status !== 'done' : t.status !== 'done');
+    f === 'all' ? true : f === "done" ? closed(t) : f === "owner" ? t.owner === "owner" && !closed(t) : !closed(t));
   const groups = new Map();
   for (const t of tasks) {
     const k = t.project || '';
@@ -366,7 +367,7 @@ function renderTasks() {
   for (const [k, list] of groups) {
     const g = el('section', 'tgroup');
     g.append(el('h3', 'tgroup__title', k ? appName(k) : '全体'));
-    const order = { doing: 0, waiting: 1, todo: 2, done: 3 };
+    const order = { doing: 0, waiting: 1, todo: 2, done: 3, skip: 4 };
     for (const t of list.sort((a, b) => order[a.status] - order[b.status])) g.append(taskRow(t));
     wrap.append(g);
   }
@@ -384,7 +385,7 @@ function openImage(src) {
 function renderStats() {
   const working = state.agents.reduce((n, s) => n + s.agents.filter((a) => a.state === 'working').length, 0);
   const sessionsLive = state.agents.filter((s) => s.state === 'working').length;
-  const open = state.board.tasks.filter((t) => t.status !== 'done');
+  const open = state.board.tasks.filter((t) => !closed(t));
   const mine = open.filter((t) => t.owner === 'owner').length;
   const building = projectList().filter((p) => p.stage && p.stage !== 'live').length;
   const failed = Object.values(state.audit.summary || {}).filter((a) => a.failed.length).length;
