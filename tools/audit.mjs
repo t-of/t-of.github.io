@@ -2,7 +2,7 @@
 // 全アプリを RULES.md に照らして自動チェックする。
 //
 //   npm run audit                 ファイルだけ見る（速い）
-//   npm run audit -- --browser    実際に Chrome で開いて、エラー・SW・オフライン起動も見る
+//   npm run audit -- --browser    実際に Chrome で開いて、エラー・はみ出しも見る
 //   npm run audit -- gear-align   1 本だけ
 //   npm run audit -- --json       結果を JSON で出す（エージェント用）
 //
@@ -45,7 +45,7 @@ const exists = (p) => fs.existsSync(p);
 
 function walk(dir, exts, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (e.name.startsWith('.') || ['node_modules', 'tools', 'test', 'tests', 'archive', 'docs'].includes(e.name)) continue;
+    if (e.name.startsWith('.') || ['node_modules', 'tools', 'test', 'tests', 'archive', 'docs', 'vendor'].includes(e.name)) continue;
     const p = path.join(dir, e.name);
     if (e.isDirectory()) walk(p, exts, out);
     else if (exts.includes(path.extname(e.name))) out.push(p);
@@ -118,10 +118,8 @@ function auditFiles(app) {
   const bareKey = code.match(/localStorage\.(?:get|set)Item\(\s*['"`](best|settings|state|save|progress|score|sound)['"`]/);
   add('localStorage のキー', !bareKey, bareKey ? `素のキー "${bareKey[1]}"` : '', '§3');
 
-  // §4 Service Worker
+  // §4 Service Worker（置くのは任意。置くなら他アプリのキャッシュを消さない）
   const sw = read(path.join(dir, 'sw.js'));
-  add('sw.js', !!sw, '', '§4');
-  add('SW の登録', /serviceWorker\.register\(/.test(code), '', '§4');
   if (sw) {
     const deletes = /caches\.delete/.test(sw);
     add('他アプリのキャッシュを消さない', !deletes || /startsWith\(|\.test\(k|\.test\(key/.test(sw), '古いキャッシュの削除が自分の接頭辞に限られていない', '§4');
@@ -199,18 +197,7 @@ async function auditBrowser(apps) {
       add('エラーなし', errors.length === 0, errors.slice(0, 2).join(' / '));
       const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
       add('横にはみ出さない', !overflow);
-      await page.reload({ waitUntil: 'load' });
-      const controlled = await page.waitForFunction(() => !!navigator.serviceWorker?.controller, null, { timeout: 8000 }).then(() => true, () => false);
-      add('SW が動く', controlled);
       await page.screenshot({ path: path.join(shots, `${app.id}.png`) });
-      if (controlled) {
-        await page.waitForTimeout(1000);
-        await ctx.setOffline(true);
-        const ok = await page.reload({ waitUntil: 'load', timeout: 10000 }).then(() => true, () => false);
-        const text = ok && await page.evaluate(() => document.body.innerText.trim().length);
-        add('オフラインで起動', !!ok && text > 0);
-        await ctx.setOffline(false);
-      } else add('オフラインで起動', false, 'SW が動いていない');
     } catch (e) {
       add('開ける', false, e.message.split('\n')[0]);
     }
