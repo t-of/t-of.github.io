@@ -145,7 +145,7 @@
     {
       "id": "number-bench",
       "name": "NUMBER BENCH",
-      "stage": "qa",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "数学の計算の道具をまとめる 1 本。最初はガチャ確率（n 回引いて k 回以上当たる確率）と人生の体感時間（ジャネーの法則）。元: OneDrive デスクトップ Java/遊び asobi5・asobi19、primenumber/kura*.java。id は仮"
     },
@@ -3210,9 +3210,9 @@
     },
     {
       "id": "t254",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "number-bench",
       "title": "NUMBER BENCH を確かめる（audit・スマホ幅・2 つの道具の計算）",
       "owner": "qa"
@@ -3243,6 +3243,24 @@
       "project": "near-pin",
       "title": "NEAR PIN を公開する（オーナー不在の指示で承諾。GitHub・Pages・apps.js・共有画像）",
       "owner": "release"
+    },
+    {
+      "id": "t258",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "project": "number-bench",
+      "title": "NUMBER BENCH を公開する（オーナー不在の指示で承諾。GitHub・Pages・apps.js・共有画像）",
+      "owner": "release"
+    },
+    {
+      "id": "t259",
+      "status": "doing",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "cell-garden",
+      "title": "CELL GARDEN のアイコン一式と共有画像を作る（上限で止まったのを再開）",
+      "owner": "designer"
     }
   ],
   "ideas": []

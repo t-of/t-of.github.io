@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'number-bench',
+    name: 'NUMBER BENCH',
+    title: '確率も体感時間も、すぐ計算',
+    desc: '当たる確率や人生の体感時間など、ふと気になった数をすぐ計算する道具を集めた箱。つまみを動かすと、答えとグラフがその場で変わる。',
+    category: 'tool',
+    tags: ['数学', '計算'],
+    icon: '/number-bench/icons/icon-192.png',
+    color: '#e0603f',
+  },
+  {
     id: 'near-pin',
     name: 'NEAR PIN',
     title: 'ぴたり・おしいで番号を当てる',
