@@ -15,6 +15,7 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 | [docs/RELEASE.md](docs/RELEASE.md) | 公開の手順 |
 | [docs/board.json](docs/board.json) | プロジェクト（作っているアプリ）とタスク。スタジオの画面に出る |
 | [docs/DECISIONS.md](docs/DECISIONS.md) | 決めたこと、ルールの例外とその理由 |
+| [docs/VISION.md](docs/VISION.md) | これからどうしていきたいか（オーナーが書く） |
 
 ## 置き場所
 
