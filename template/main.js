@@ -16,7 +16,7 @@ function save(key, value) {
 
 WebAppKit.init({ title: '__NAME__', text: '__DESC__' });
 
-if ('serviceWorker' in navigator && location.protocol === 'https:') {
+if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js');
 }
 

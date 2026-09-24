@@ -224,7 +224,9 @@ async function auditBrowser(apps) {
 
 // ---------- 出力 ----------
 
-const apps = loadApps().filter((a) => only.length === 0 || only.includes(a.id));
+const listed = loadApps();
+// apps.js にまだ無い（公開前の）アプリも、id を指定すれば ~/GitHub/<id>/ を調べる
+const apps = only.length === 0 ? listed : only.map((id) => listed.find((a) => a.id === id) ?? { id });
 const report = {};
 for (const app of apps) report[app.id] = auditFiles(app);
 if (BROWSER) {
