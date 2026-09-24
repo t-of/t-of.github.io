@@ -17,8 +17,10 @@ const STAGES = [
 const STATUS = { todo: '未着手', doing: '進行中', waiting: '待ち', done: '完了', skip: "しなくていい" };
 const closed = (t) => t.status === "done" || t.status === "skip";   // 終わったもの（完了・しなくていい）
 const RECENT_DONE_MS = 30 * 60 * 1000;   // 終わったエージェントを席に残しておく時間
+const STATS_ROLES = ['planner', 'designer', 'engineer', 'qa', 'release', 'writer'];   // 成績タブで見る係（ディレクター・オーナーは除く）
 
-const state = { agents: [], board: { projects: [], tasks: [], ideas: [] }, apps: [], audit: { summary: {} }, filter: 'open', view: 'office' };
+const state = { agents: [], board: { projects: [], tasks: [], ideas: [] }, apps: [], audit: { summary: {} },
+  ledger: [], statsPeriod: 'month', filter: 'open', view: 'office' };
 
 const $ = (id) => document.getElementById(id);
 function el(tag, cls, text) {
@@ -47,6 +49,15 @@ function connect() {
   es.addEventListener('board', (e) => { state.board = JSON.parse(e.data); render(); });
   es.addEventListener('audit', (e) => { const a = JSON.parse(e.data); state.audit = a.summary ? a : { ...state.audit, running: a.running }; render(); });
   es.addEventListener('apps', (e) => { state.apps = JSON.parse(e.data); render(); });
+  es.addEventListener('ledger', (e) => {
+    const row = JSON.parse(e.data);
+    const before = levelOf(roleCount(row.role));
+    state.ledger.push(row);
+    const after = levelOf(roleCount(row.role));
+    if (after > before) showLevelUp(row.role, after);
+    if (state.view === 'office') renderOffice();
+    if (state.view === 'stats') renderStatsTab();
+  });
   es.addEventListener('log', (e) => {
     const item = JSON.parse(e.data);
     pushFeed(item);
@@ -88,7 +99,9 @@ function renderOffice() {
     room.dataset.role = role;
     room.style.setProperty('--c', r.color);
     const head = el('header', 'room__head');
-    head.append(el('span', 'room__icon', r.icon), el('h3', 'room__name', r.name), el('span', 'room__desc', r.desc));
+    head.append(el('span', 'room__icon', r.icon), el('h3', 'room__name', r.name));
+    if (role !== 'director') head.append(el('span', 'room__level', `Lv.${levelOf(roleCount(role))}`));
+    head.append(el('span', 'room__desc', r.desc));
     const busy = seats[role].filter((p) => p.state === 'working').length;
     head.append(el('span', `room__count${busy ? ' is-busy' : ''}`, busy ? `${busy} 人 作業中` : '空き'));
     room.append(head);
@@ -207,6 +220,17 @@ function flashRoom(roomEl) {
   void roomEl.offsetWidth;   // アニメーションを最初からやり直す
   roomEl.classList.add('room--flash');
   setTimeout(() => roomEl.classList.remove('room--flash'), 700);
+}
+
+// レベルが上がったら、その部屋に一言出す（社内画面を見ているときだけ）
+function showLevelUp(role, lv) {
+  if (state.view !== 'office') return;
+  const room = document.querySelector(`.room[data-role="${role}"]`);
+  if (!room) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const toast = el('div', `level-toast${reduce ? ' level-toast--still' : ''}`, `Lv.${lv} に上がった！`);
+  room.append(toast);
+  setTimeout(() => toast.remove(), 2000);
 }
 
 // ---------- 今日の日報 ----------
@@ -568,6 +592,204 @@ function updateMyTurn(mine) {
   document.title = mine ? `(${mine}) ${BASE_TITLE}` : BASE_TITLE;
 }
 
+// ---------- 成績 ----------
+
+// 係ごとの累計件数からレベルを出す（台帳の全件、期間は関係ない）。Lv = floor(sqrt(件数)) + 1
+const roleCount = (role) => state.ledger.filter((l) => l.role === role).length;
+const levelOf = (n) => Math.floor(Math.sqrt(n)) + 1;
+function levelProgress(n) {
+  const lv = levelOf(n);
+  const lo = (lv - 1) ** 2, hi = lv ** 2;
+  return { lv, pct: hi > lo ? (n - lo) / (hi - lo) : 1 };
+}
+
+// 選んだ期間の始まり（端末のローカル時刻）。今週は月曜始まり
+function periodStart(period) {
+  const d = new Date();
+  d.setHours(0, 0, 0, 0);
+  if (period === 'all') return 0;
+  if (period === 'month') { d.setDate(1); return d.getTime(); }
+  d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+  return d.getTime();
+}
+const ledgerInPeriod = (period) => state.ledger.filter((l) => (l.startedAt || 0) >= periodStart(period));
+
+// その係・そのアプリへの差し戻し（kind: 'return'）が、job が終わってから 24 時間以内に来たか
+function hasReturnWithin24h(role, apps, sinceMs) {
+  const until = sinceMs + 24 * 60 * 60 * 1000;
+  return state.ledger.some((r) => r.kind === 'return' && r.role === role && r.startedAt >= sinceMs && r.startedAt <= until
+    && r.apps.some((a) => apps.includes(a)));
+}
+// 一発合格率: kind 'job' かつアプリが分かっているものだけを数える
+function firstPassRate(rows) {
+  const jobs = rows.filter((l) => l.kind === 'job' && l.apps.length);
+  if (!jobs.length) return null;
+  const pass = jobs.filter((j) => !hasReturnWithin24h(j.role, j.apps, j.endedAt || j.startedAt)).length;
+  return pass / jobs.length;
+}
+
+const fmtMs = (ms) => {
+  const s = Math.round((ms || 0) / 1000);
+  if (s < 60) return `${s}秒`;
+  const m = Math.floor(s / 60);
+  if (m < 60) return `${m}分${s % 60}秒`;
+  return `${Math.floor(m / 60)}時間${m % 60}分`;
+};
+const fmtTok = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : String(Math.round(n)));
+
+// バッジ。台帳から毎回計算するだけで、どこにも保存しない
+function jobsWithApps(role) { return state.ledger.filter((l) => l.role === role && l.kind === 'job' && l.apps.length).sort((a, b) => b.endedAt - a.endedAt); }
+function streak10(role) {
+  const jobs = jobsWithApps(role);
+  return jobs.length >= 10 && jobs.slice(0, 10).every((j) => !hasReturnWithin24h(j.role, j.apps, j.endedAt || j.startedAt));
+}
+function ecoRole() {   // 今月、平均出力トークンが一番少ない係
+  const from = periodStart('month');
+  let best = null, bestAvg = Infinity;
+  for (const role of STATS_ROLES) {
+    const rows = state.ledger.filter((l) => l.role === role && l.startedAt >= from);
+    if (!rows.length) continue;
+    const avg = rows.reduce((n, l) => n + (l.tokens?.output || 0), 0) / rows.length;
+    if (avg < bestAvg) { bestAvg = avg; best = role; }
+  }
+  return best;
+}
+function nightCount(role) {
+  return state.ledger.filter((l) => l.role === role && l.endedAt && (new Date(l.endedAt).getHours() >= 22 || new Date(l.endedAt).getHours() < 5)).length;
+}
+const BADGES = [
+  { title: '初仕事', need: '1 件終える', ok: (role) => roleCount(role) >= 1 },
+  { title: 'ベテラン', need: '50 件終える', ok: (role) => roleCount(role) >= 50 },
+  { title: '100 件', need: '100 件終える', ok: (role) => roleCount(role) >= 100 },
+  { title: '一発合格 10 連続', need: '直近 10 件のアプリ仕事が続けて差し戻しなし', ok: (role) => streak10(role) },
+  { title: '省エネ', need: '今月、平均の出力トークンが全係で一番少ない', ok: (role) => ecoRole() === role },
+  { title: '夜ふかし', need: '22 時〜5 時に終えた仕事が 10 件', ok: (role) => nightCount(role) >= 10 },
+];
+
+function renderStatsMVP() {
+  const from = periodStart('month');
+  const byRole = {};
+  for (const l of state.ledger) {
+    if (l.kind !== 'job' || l.startedAt < from || !l.apps.length) continue;
+    if (hasReturnWithin24h(l.role, l.apps, l.endedAt || l.startedAt)) continue;
+    byRole[l.role] = (byRole[l.role] || 0) + 1;
+  }
+  const box = $('stats-mvp');
+  box.replaceChildren();
+  const top = Object.entries(byRole).sort((a, b) => b[1] - a[1])[0];
+  if (!top) { box.append(el('p', 'muted', '今月はまだ、差し戻しなしで終わった仕事がありません。')); return; }
+  const [role, n] = top;
+  box.style.setProperty('--c', ROLES[role]?.color || '#888');
+  box.append(el('span', 'mvp__icon', ROLES[role]?.icon || '★'), el('span', 'mvp__text', `今月の MVP: ${ROLES[role]?.name || role}`), el('span', 'mvp__n', `${n} 件`));
+}
+
+function renderStatsCards() {
+  const wrap = $('stats-cards');
+  wrap.replaceChildren();
+  for (const role of STATS_ROLES) {
+    const { lv, pct } = levelProgress(roleCount(role));
+    const card = el('article', 'employee');
+    card.style.setProperty('--c', ROLES[role].color);
+    const head = el('div', 'employee__head');
+    const info = el('div');
+    info.append(el('p', 'employee__name', ROLES[role].name), el('p', 'employee__lv', `Lv.${lv}`));
+    head.append(el('span', 'employee__icon', ROLES[role].icon), info);
+    const bar = el('div', 'employee__bar');
+    const fill = el('span');
+    fill.style.width = `${Math.round(pct * 100)}%`;
+    bar.append(fill);
+    const badges = el('div', 'badges');
+    for (const b of BADGES) {
+      const got = b.ok(role);
+      const chip = el('span', `badge-chip${got ? ' is-on' : ''}`, b.title);
+      chip.title = got ? b.title : `未取得: ${b.need}`;
+      badges.append(chip);
+    }
+    card.append(head, bar, el('p', 'employee__count', `累計 ${roleCount(role)} 件`), badges);
+    wrap.append(card);
+  }
+}
+
+function renderStatsTable(period) {
+  const rows = ledgerInPeriod(period);
+  const wrap = $('stats-table');
+  wrap.replaceChildren();
+  const table = el('table', 'stats-table__table');
+  const thead = el('thead');
+  const htr = el('tr');
+  for (const h of ['係', 'モデル', '件数', '平均時間', '平均トークン(出力)', '平均トークン(入力+キャッシュ)', '一発合格率']) htr.append(el('th', null, h));
+  thead.append(htr);
+  table.append(thead);
+  const tbody = el('tbody');
+  for (const role of STATS_ROLES) {
+    const byModel = new Map();
+    for (const l of rows.filter((l) => l.role === role)) {
+      const k = l.model || '（不明）';
+      if (!byModel.has(k)) byModel.set(k, []);
+      byModel.get(k).push(l);
+    }
+    const models = [...byModel.entries()].sort((a, b) => b[1].length - a[1].length);
+    if (!models.length) {
+      const tr = el('tr', 'stats-row stats-row--empty');
+      tr.style.setProperty('--c', ROLES[role].color);
+      tr.append(el('td', 'stats-role', ROLES[role].name), ...Array.from({ length: 6 }, () => el('td', null, '—')));
+      tbody.append(tr);
+      continue;
+    }
+    for (const [model, list] of models) {
+      const thin = list.length < 5;
+      const tr = el('tr', `stats-row${thin ? ' is-thin' : ''}`);
+      tr.style.setProperty('--c', ROLES[role].color);
+      if (thin) tr.title = '数が少ない';
+      const avgMs = list.reduce((n, l) => n + (l.ms || 0), 0) / list.length;
+      const avgOut = list.reduce((n, l) => n + (l.tokens?.output || 0), 0) / list.length;
+      const avgIn = list.reduce((n, l) => n + (l.tokens?.input || 0) + (l.tokens?.cacheRead || 0) + (l.tokens?.cacheWrite || 0), 0) / list.length;
+      const fp = firstPassRate(list);
+      tr.append(
+        el('td', 'stats-role', ROLES[role].name), el('td', null, model), el('td', null, String(list.length)),
+        el('td', null, fmtMs(avgMs)), el('td', null, fmtTok(avgOut)), el('td', null, fmtTok(avgIn)),
+        el('td', null, fp == null ? '—' : `${Math.round(fp * 100)}%`),
+      );
+      tbody.append(tr);
+    }
+  }
+  table.append(tbody);
+  wrap.append(table);
+}
+
+function renderStatsReturns(period) {
+  const rows = ledgerInPeriod(period).filter((l) => l.kind === 'return').sort((a, b) => b.endedAt - a.endedAt).slice(0, 10);
+  const list = $('stats-returns');
+  list.replaceChildren();
+  if (!rows.length) { list.append(el('li', 'muted', '差し戻しはありません。')); return; }
+  for (const r of rows) {
+    const li = el('li', 'feed__item');
+    li.style.setProperty('--c', ROLES[r.role]?.color || '#888');
+    const text = `${r.apps.length ? `${r.apps.map(appName).join('・')} — ` : ''}${r.description || ''}`;
+    li.append(el('span', 'feed__who', ROLES[r.role]?.name || r.role), el('span', 'feed__text', text), el('time', 'feed__time', ago(r.endedAt)));
+    list.append(li);
+  }
+}
+
+function renderStatsAdoption(period) {
+  const from = periodStart(period);
+  const tasks = state.board.tasks.filter((t) => t.choices?.length && t.choice && (period === 'all' || (t.doneAt && new Date(t.doneAt).getTime() >= from)));
+  const box = $('stats-adoption');
+  box.className = 'daily__stats adopt';
+  box.replaceChildren();
+  box.append(dailyStat('そのまま採用', tasks.filter((t) => !t.comment).length));
+  box.append(dailyStat('直しの注文つき', tasks.filter((t) => t.comment).length));
+}
+
+function renderStatsTab() {
+  document.querySelectorAll('#stats-period [data-period]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.period === state.statsPeriod)));
+  renderStatsMVP();
+  renderStatsCards();
+  renderStatsTable(state.statsPeriod);
+  renderStatsReturns(state.statsPeriod);
+  renderStatsAdoption(state.statsPeriod);
+}
+
 // ---------- 全体 ----------
 
 function render() {
@@ -575,6 +797,7 @@ function render() {
   if (state.view === 'office') { renderOffice(); renderFeed(); renderDaily(); }
   if (state.view === 'projects') renderProjects();
   if (state.view === 'tasks') renderTasks();
+  if (state.view === 'stats') renderStatsTab();
 }
 
 document.querySelectorAll('.tabs [data-view]').forEach((b) => b.addEventListener('click', () => {
@@ -586,6 +809,7 @@ document.querySelectorAll('.tabs [data-view]').forEach((b) => b.addEventListener
 }));
 
 document.querySelectorAll('#filters [data-filter]').forEach((b) => b.addEventListener('click', () => { state.filter = b.dataset.filter; renderTasks(); }));
+document.querySelectorAll('#stats-period [data-period]').forEach((b) => b.addEventListener('click', () => { state.statsPeriod = b.dataset.period; renderStatsTab(); }));
 
 $('task-form').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -627,6 +851,7 @@ setInterval(() => { if (state.view === 'office') { renderOffice(); renderFeed();
 
 (async () => {
   try { state.apps = await (await fetch('/api/apps')).json(); } catch { /* 空のまま */ }
+  try { state.ledger = await (await fetch('/api/ledger')).json(); } catch { /* 空のまま */ }
   let v = 'office';
   try { v = localStorage.getItem('tof-studio.view') || 'office'; } catch { /* 既定 */ }
   document.querySelector(`.tabs [data-view="${v}"]`)?.click();

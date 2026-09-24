@@ -21,6 +21,7 @@
       <button role="tab" data-view="office" aria-selected="true">社内</button>
       <button role="tab" data-view="projects" aria-selected="false">プロジェクト</button>
       <button role="tab" data-view="tasks" aria-selected="false">タスク <span class="badge" id="task-badge"></span></button>
+      <button role="tab" data-view="stats" aria-selected="false">成績</button>
     </nav>
     <div class="status">
       <button class="my-turn" id="btn-my-turn" type="button">★ あなたの番 <span id="my-turn-count">0</span></button>
@@ -80,6 +81,31 @@
         <button data-filter="all" aria-pressed="false">すべて</button>
       </div>
       <div id="task-groups"></div>
+    </section>
+
+    <!-- 成績 -->
+    <section class="view" data-view="stats" hidden>
+      <div class="board-head">
+        <p class="muted">係ごとの仕事ぶり。数字はメンバー（サブエージェント）の作業記録から。</p>
+        <div class="filters" id="stats-period">
+          <button data-period="week" aria-pressed="false">今週</button>
+          <button data-period="month" aria-pressed="true">今月</button>
+          <button data-period="all" aria-pressed="false">すべて</button>
+        </div>
+      </div>
+      <div class="mvp" id="stats-mvp"></div>
+      <div class="cards" id="stats-cards"></div>
+      <div class="table-wrap" id="stats-table"></div>
+      <div class="stats-cols">
+        <section class="panel">
+          <h2 class="panel-title">差し戻しの一覧（直近 10 件）</h2>
+          <ol class="feed__list" id="stats-returns"></ol>
+        </section>
+        <section class="panel">
+          <h2 class="panel-title">案の採用</h2>
+          <div id="stats-adoption"></div>
+        </section>
+      </div>
     </section>
   </main>
 

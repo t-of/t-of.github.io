@@ -22,9 +22,11 @@ const HUB = path.dirname(HERE);
 const WORKSPACE = path.join(path.dirname(HUB), 'apps');   // ~/GitHub/tof/apps
 const PROJECTS_DIR = path.join(os.homedir(), '.claude', 'projects');
 const BOARD = path.join(HUB, 'docs', 'board.json');
+const LEDGER = path.join(HUB, 'docs', 'private', 'ledger.jsonl');
 const PORT = Number(process.env.PORT) || 4141;
+const BACKFILL = process.argv.includes('--backfill');   // node server.mjs --backfill: 過去分を台帳に足して終了する
 
-const RECENT_MS = 12 * 60 * 60 * 1000;   // これより前に止まったセッションは見ない
+const RECENT_MS = 12 * 60 * 60 * 1000;   // これより前に止まったセッションは見ない（--backfill のときは効かせない）
 const IDLE_MS = 3 * 60 * 1000;           // 記録がこれだけ途絶えたら「止まっているかも」
 
 // ---------- 役割 ----------
@@ -69,12 +71,20 @@ function repoNames() {
   } catch { return []; }
 }
 
-// 文字列の中から apps/<id> を拾う
+// 名前を変えたアプリの古い id → 新しい id。ポータルの 404.html の MOVED を正本にする
+const MOVED = (() => {
+  try {
+    const body = fs.readFileSync(path.join(HUB, '404.html'), 'utf8').match(/const MOVED = (\{[\s\S]*?\});/)[1];
+    return Object.fromEntries([...body.matchAll(/([\w-]+):\s*'([^']+)'/g)].map((x) => [x[1], x[2]]));
+  } catch { return {}; }
+})();
+
+// 文字列の中から apps/<id> を拾う（2026-09-24 に ~/GitHub/tof/apps/ へ移す前は ~/GitHub/<id> だった）
 function appsIn(text, known) {
   const found = new Set();
-  const re = /apps\/([A-Za-z0-9._-]+)/g;
+  const re = /(?:apps|GitHub)\/([A-Za-z0-9._-]+)/g;
   let m;
-  while ((m = re.exec(text))) if (known.has(m[1])) found.add(m[1]);
+  while ((m = re.exec(text))) { const id = MOVED[m[1]] || m[1]; if (known.has(id)) found.add(id); }
   return found;
 }
 
@@ -140,7 +150,9 @@ function session(id, project) {
 function agent(s, agentId) {
   if (!s.agents.has(agentId)) {
     s.agents.set(agentId, { id: agentId, type: '', description: '', role: 'engineer', startedAt: 0, lastAt: 0,
-      action: '', lastText: '', done: false, pending: 0, tools: 0, apps: new Set(), promptApps: new Set() });
+      action: '', lastText: '', done: false, pending: 0, tools: 0, apps: new Set(), promptApps: new Set(),
+      // 台帳（docs/private/ledger.jsonl）向け: assistant メッセージから拾うモデルとトークン。message.id ごとに 1 回だけ数える
+      models: {}, tokens: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 }, seenMsgIds: new Set() });
   }
   return s.agents.get(agentId);
 }
@@ -163,6 +175,19 @@ function apply(s, a, d) {
   if (!msg || !Array.isArray(msg.content)) {
     if (a && d.type === 'user' && typeof msg?.content === 'string' && !a.description) a.description = msg.content.slice(0, 80);
     return;
+  }
+  // 台帳向け: このエージェントの assistant メッセージのモデルとトークンを拾う。
+  // 同じ message.id が内容ブロックごとに複数行に分かれて出てくるので、message.id ごとに 1 回だけ数える
+  if (a && msg.role === 'assistant' && msg.id && !a.seenMsgIds.has(msg.id)) {
+    a.seenMsgIds.add(msg.id);
+    if (msg.model) a.models[msg.model] = (a.models[msg.model] || 0) + 1;
+    const u = msg.usage;
+    if (u) {
+      a.tokens.input += u.input_tokens || 0;
+      a.tokens.output += u.output_tokens || 0;
+      a.tokens.cacheRead += u.cache_read_input_tokens || 0;
+      a.tokens.cacheWrite += u.cache_creation_input_tokens || 0;
+    }
   }
   for (const b of msg.content) {
     if (b.type === 'tool_use') {
@@ -195,7 +220,48 @@ function apply(s, a, d) {
     a.action = '完了';
     // エージェントの「完了」はディレクターへの報告として飛ばす（SubagentHandback 自体は文字だけのまま二重に飛ばさない）
     pushLog(s, { at: t, agent: a.id, role: a.role, text: '完了', kind: 'report', to: 'director' });
+    appendLedger(ledgerRow(s, a, t));
   }
+}
+
+// ---------- 台帳（docs/private/ledger.jsonl） ----------
+
+// 1 行 = 1 件の仕事。あとで「どの係にどのモデルを使うか」を数字で見るための記録
+function ledgerRow(s, a, t) {
+  const model = Object.entries(a.models).sort((x, y) => y[1] - x[1])[0]?.[0] || '';
+  const kind = /直す|直し|修正|差し戻|やり直/.test(a.description || '') ? 'return' : 'job';
+  return {
+    id: a.id, session: s.id, role: a.role, type: a.type, model, description: a.description,
+    apps: [...(a.apps.size ? a.apps : a.promptApps)],
+    startedAt: a.startedAt, endedAt: t, ms: Math.max(0, t - (a.startedAt || t)),
+    tools: a.tools || 0, tokens: { ...a.tokens }, kind,
+  };
+}
+
+const ledgerIds = new Set();
+function loadLedgerIds() {
+  let text = '';
+  try { text = fs.readFileSync(LEDGER, 'utf8'); } catch { return; }
+  for (const line of text.split('\n')) {
+    if (!line) continue;
+    try { ledgerIds.add(JSON.parse(line).id); } catch { /* 書きかけの行 */ }
+  }
+}
+// 起動時に読み込んだ id と、この実行中に書いた id を同じ Set で見る。
+// 同じエージェントが 2 回 end_turn しても（続きを頼まれたとき）、最初の完了だけ書く
+function appendLedger(row) {
+  if (ledgerIds.has(row.id)) return;
+  ledgerIds.add(row.id);
+  fs.mkdirSync(path.dirname(LEDGER), { recursive: true });
+  fs.appendFileSync(LEDGER, JSON.stringify(row) + '\n');
+  broadcast('ledger', row);
+}
+function readLedger() {
+  let text = '';
+  try { text = fs.readFileSync(LEDGER, 'utf8'); } catch { return []; }
+  const out = [];
+  for (const line of text.split('\n')) { if (line) try { out.push(JSON.parse(line)); } catch { /* 書きかけ */ } }
+  return out;
 }
 
 function scan() {
@@ -211,7 +277,7 @@ function scan() {
     for (const f of files) {
       const file = path.join(pdir, f);
       let st; try { st = fs.statSync(file); } catch { continue; }
-      if (now - st.mtimeMs > RECENT_MS && !cursors.has(file)) continue;
+      if (!BACKFILL && now - st.mtimeMs > RECENT_MS && !cursors.has(file)) continue;
       const id = f.replace(/\.jsonl$/, '');
       const s = session(id, project);
       for (const d of readNew(file)) apply(s, null, d);
@@ -222,7 +288,7 @@ function scan() {
       for (const x of subs) {
         const sf = path.join(sub, x);
         let sst; try { sst = fs.statSync(sf); } catch { continue; }
-        if (now - sst.mtimeMs > RECENT_MS && !cursors.has(sf)) continue;
+        if (!BACKFILL && now - sst.mtimeMs > RECENT_MS && !cursors.has(sf)) continue;
         const agentId = x.replace(/^agent-/, '').replace(/\.jsonl$/, '');
         const a = agent(s, agentId);
         if (!a.type) {
@@ -393,6 +459,7 @@ const server = http.createServer(async (req, res) => {
       return;
     }
     if (p === '/api/apps') return send(res, 200, loadApps());
+    if (p === '/api/ledger') return send(res, 200, readLedger());
     if (p === '/api/board' && req.method === 'GET') return send(res, 200, readBoard());
     if (p === '/api/board' && req.method === 'PUT') {
       const board = await readBody(req);
@@ -420,7 +487,13 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
+loadLedgerIds();
+const ledgerBefore = ledgerIds.size;
 scan();
+if (BACKFILL) {
+  console.log(`台帳: ${ledgerIds.size} 件（今回 ${ledgerIds.size - ledgerBefore} 件を追加）`);
+  process.exit(0);
+}
 setInterval(tick, 1000);
 server.listen(PORT, '127.0.0.1', () => {
   console.log(`T.OF... スタジオ: http://localhost:${PORT}`);
