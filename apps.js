@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'high-floor',
+    name: 'HIGH FLOOR',
+    title: '一番損する人を出さない割り当て',
+    desc: '部屋割りや係決めで、みんなが持ち点 100 点を行きたい先に配って、1 台の端末を回して入れる。一番点の低い人ができるだけ高くなる組み合わせを、端末の中だけで計算して出す。',
+    category: 'tool',
+    tags: ['割り当て', '公平'],
+    icon: '/high-floor/icons/icon-192.png',
+    color: '#7ee0b5',
+  },
+  {
     id: 'buyout',
     name: 'BUYOUT',
     title: '架空の会社を買い占める放置相場',
