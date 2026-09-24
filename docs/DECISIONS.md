@@ -5,6 +5,9 @@
 
 ## 2026-09-24
 
+### iPhone のマナーモードでも音を出す
+`navigator.audioSession.type` を、アプリの音がオンのときだけ `'playback'` にする（RULES §5「音」）。オフのときは `'auto'` に戻し、ほかのアプリの音楽を止めない。全 10 本に入れ、iPhone の実機でマナーモードでも鳴ることを確かめた。
+
 ### 全リポジトリのブランチは `main`
 pentris だけ `master` だったので `main` に揃えた（既定ブランチ・Pages の公開元とも）。`npm run audit` で確かめる。
 
