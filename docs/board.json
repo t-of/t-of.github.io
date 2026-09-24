@@ -1,15 +1,7 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-24T00:00:00Z",
-  "projects": [
-    {
-      "id": "pentris",
-      "name": "PENT!",
-      "stage": "design",
-      "created": "2026-09-24",
-      "note": "アイコンを新しいデザインに作り直す"
-    }
-  ],
+  "updatedAt": "2026-09-24T08:36:43.267Z",
+  "projects": [],
   "tasks": [
     {
       "id": "t1",
@@ -70,9 +62,9 @@
       "project": "pentris",
       "title": "新しいアイコンの案から 1 つ選ぶ",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null,
+      "doneAt": "2026-09-24",
       "images": [
         ".audit/pentris-icon-concepts.png"
       ],
@@ -81,7 +73,7 @@
         "B",
         "C"
       ],
-      "choice": null,
+      "choice": "A",
       "choiceImages": {
         "A": ".audit/pentris-concept-A.svg",
         "B": ".audit/pentris-concept-B.svg",
@@ -91,7 +83,44 @@
         "A": "組み合わせ",
         "B": "「P!」",
         "C": "着地寸前"
-      }
+      },
+      "comment": ""
+    },
+    {
+      "id": "t8",
+      "project": "pentris",
+      "title": "案 A でアイコン一式と共有画像を仕上げる",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
+    },
+    {
+      "id": "t9",
+      "project": "pentris",
+      "title": "仕上がったアイコンと共有画像を見て、公開してよいか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24",
+      "images": [
+        ".audit/pentris-icon-final.png"
+      ],
+      "choices": [
+        "公開する",
+        "直す"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t10",
+      "project": "pentris",
+      "title": "新しいアイコンを公開し、ポータルの色と共有画像を更新する",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-24",
+      "doneAt": "2026-09-24"
     }
   ],
   "ideas": []
