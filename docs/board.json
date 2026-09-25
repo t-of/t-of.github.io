@@ -173,7 +173,7 @@
     {
       "id": "stay-asleep",
       "name": "STAY ASLEEP",
-      "stage": "build",
+      "stage": "release",
       "created": "2026-09-25",
       "note": "オーナーのアイデア。2 つの扉のどちらかが正解。何回続けて当てられるかを記録する。テーマと演出が大事。id は仮"
     }
@@ -3513,7 +3513,7 @@
       "created": "2026-09-25",
       "doneAt": null,
       "project": "sestet",
-      "title": "SESTET の AI をニューラルネット（自己対戦の TD 学習）に差し替える。線形 AI より強いと測れたら採用。ネットを採用（+42.6%）。スピンが多すぎるので得点を直して学び直し中",
+      "title": "SESTET の AI をニューラルネット（自己対戦の TD 学習）に差し替える。線形 AI より強いと測れたら採用。ネットを採用（+42.6%）。スピンが多すぎるので得点を直して学び直し中。オーナーが PC を閉じたので一時停止中（学習の区切りで止める）",
       "owner": "engineer"
     },
     {
@@ -3636,9 +3636,9 @@
       "project": "stay-asleep",
       "title": "STAY ASLEEP のアイコン一式と共有画像を作る",
       "owner": "designer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-25"
     },
     {
       "id": "t297",
@@ -3648,6 +3648,24 @@
       "status": "done",
       "created": "2026-09-25",
       "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t298",
+      "project": "stay-asleep",
+      "title": "STAY ASLEEP を確かめる（audit・スマホ幅・演出・封印・今日の扉）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t299",
+      "project": "stay-asleep",
+      "title": "STAY ASLEEP を公開する（品質は合格、「もう一度眠る」の隙間は直してコミット済み。色は #fff3d6）。オーナーが PC を閉じたので一時停止中。再開したら最初にやる",
+      "owner": "release",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null
     }
   ],
   "ideas": []
