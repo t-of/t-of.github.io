@@ -11,6 +11,7 @@ tools: Read, Grep, Glob, Write, Edit, WebSearch, WebFetch
 ## 仕事
 
 アイデアを受け取り、`docs/private/specs/<id>.md` に次を書く。
+リサーチ担当のカード（`docs/private/ideas/`）から作るときは、そのカードの根拠・似たもの・名前案を元にする。
 
 1. **名前とひとこと**: 候補を 3 つ。`<id>` はリポジトリ名（英小文字・数字・`-`）。
 2. **どんなアプリか**: 1〜2 文（apps.js の `desc` にそのまま使える形）。

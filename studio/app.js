@@ -2,6 +2,7 @@
 
 const ROLES = {
   director: { person: 'マルコ', name: 'ディレクター', desc: '会話・割り振り', color: '#ffd35c', icon: '◆' },
+  researcher: { person: 'サラ', name: 'リサーチ', desc: '調査・アイデア', color: '#5b8cff', icon: '⌕' },
   planner: { person: 'エマ', name: '企画', desc: '仕様・名前', color: '#9d7bff', icon: '✎' },
   designer: { person: 'レア', name: 'デザイン', desc: 'アイコン・画像', color: '#e24bc6', icon: '✦' },
   engineer: { person: 'ラヴィ', name: '実装', desc: 'コード', color: '#2cc6e0', icon: '⌘' },
@@ -14,6 +15,7 @@ const ROLES = {
 // 先頭がその係のリーダー（ROLES の person）。成績の表のように係で比べる所は係名のまま
 const PEOPLE = {
   director: ['マルコ', 'ジュリア', 'ステファノ', 'フランチェスカ', 'ロレンツォ', 'キアラ'],
+  researcher: ['サラ', 'イヴァン', 'ダリア', 'オマール', 'フレヤ', 'ヴィクトル', 'ファティマ', 'ジョナサン', 'ラーラ', 'アーロン'],
   planner: ['エマ', 'ノア', 'ソフィア', 'ルカ', 'イザベラ', 'マテオ', 'クロエ', 'レオ', 'アメリア', 'ニコ', 'オリビア', 'エリック'],
   designer: ['レア', 'ジュリアン', 'ミラ', 'カミーユ', 'アナ', 'エリオット', 'ゾエ', 'ヤン', 'ルナ', 'ファビオ', 'インカ', 'セリーヌ'],
   engineer: ['ラヴィ', 'チェン', 'アイシャ', 'ミハイル', 'プリヤ', 'トーマス', 'ユナ', 'カルロス', 'ニーナ', 'オスカー', 'ハサン', 'リン'],
@@ -45,7 +47,7 @@ const STAGES = [
 const STATUS = { todo: '未着手', doing: '進行中', waiting: '待ち', done: '完了', skip: "しなくていい" };
 const closed = (t) => t.status === "done" || t.status === "skip";   // 終わったもの（完了・しなくていい）
 const RECENT_DONE_MS = 30 * 60 * 1000;   // 終わったエージェントを席に残しておく時間
-const STATS_ROLES = ['planner', 'designer', 'engineer', 'qa', 'release', 'writer'];   // 成績タブで見る係（ディレクター・オーナーは除く）
+const STATS_ROLES = ['researcher', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer'];   // 成績タブで見る係（ディレクター・オーナーは除く）
 
 const state = { agents: [], board: { projects: [], tasks: [], ideas: [] }, apps: [], audit: { summary: {} },
   ledger: [], statsPeriod: 'month', filter: 'open', view: 'office' };
@@ -126,7 +128,7 @@ function renderOffice() {
   const floor = $('floor');
   floor.replaceChildren();
   const seats = people();
-  for (const role of ['director', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer']) {
+  for (const role of ['director', 'researcher', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer']) {
     const r = ROLES[role];
     const room = el('section', 'room');
     room.dataset.role = role;

@@ -30,6 +30,7 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 
 | 役割 | エージェント | 任せること |
 |---|---|---|
+| リサーチ | `researcher` | 需要や流行を自分で調べ、根拠つきのアイデアカードにする（`docs/private/ideas/`） |
 | 企画 | `planner` | アイデアを仕様にする（`docs/private/specs/<id>.md`）。名前・ひとこと・ルール・画面の流れ |
 | デザイン | `designer` | アイコン一式、共有画像、配色。BRAND.md に沿う |
 | 実装 | `engineer` | ひな形から作る、機能を足す、不具合を直す。RULES.md に沿う |
@@ -37,7 +38,7 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 | リリース | `release` | RELEASE.md の手順で公開し、ポータルに載せ、反映を確かめる |
 | note 運用 | `writer` | note「AIのつかいどころ」の記事の下書き（`~/GitHub/tof/note/`、決まりは GUIDE.md）。投稿はオーナーが手で行う |
 
-- モデル: planner は Opus（指定なし＝ディレクターと同じ）、designer・engineer・qa・writer は Sonnet、release は Haiku（各ファイルの `model:`）。新しいアプリを一から作るときや、Sonnet で直しきれないときは、engineer を `model: "opus"` で呼ぶ。
+- モデル: researcher と planner は Opus（researcher は `model: opus`、planner は指定なし＝ディレクターと同じ）、designer・engineer・qa・writer は Sonnet、release は Haiku（各ファイルの `model:`）。新しいアプリを一から作るときや、Sonnet で直しきれないときは、engineer を `model: "opus"` で呼ぶ。
 - 互いに関係しない作業は並行で頼む（例: デザインと実装）。同じファイルを 2 人に触らせない。
 - 頼むときは、対象のリポジトリ、やること、終わりの条件（どのチェックが通ればよいか）、コミットや push をしてよいかをはっきり書く。
 - メンバーの報告はそのまま信じず、差分とチェック結果で確かめてからオーナーに伝える。
@@ -46,6 +47,7 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 
 | コマンド | 内容 |
 |---|---|
+| `/ideas [テーマ]` | リサーチに調べさせてアイデアを出し、オーナーに選んでもらう（選んだら `/new-app` へ） |
 | `/new-app` | アイデアから公開まで（企画 → デザイン・実装 → 品質 → リリース） |
 | `/release <id>` | 1 本を公開・更新する |
 | `/audit` | 全アプリを自動チェックし、直すべき点をまとめる |
@@ -69,7 +71,7 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 ```
 
 - `stage`: `idea` → `planning` → `design` → `build` → `qa` → `release` → `live`（公開済み。公開したら projects から消してよい）
-- `owner`: `planner` / `designer` / `engineer` / `qa` / `release` / `owner`（オーナーが決める・操作するもの）
+- `owner`: `researcher` / `planner` / `designer` / `engineer` / `qa` / `release` / `owner`（オーナーが決める・操作するもの）
 - `status`: `todo`（未着手）/ `doing`（進行中）/ `waiting`（待ち。オーナーの返事など）/ `done`（完了。`doneAt` に日付）/ `skip`（しなくていい。やらないと決めたもの。`doneAt` に決めた日付）
 - `id` は `t` + 連番。今ある一番大きい番号の次にする。
 - オーナーに見て選んでほしいときは、task に `images`（本部からの相対パス。例 `.audit/xxx.png`）と `choices`（例 `["A","B","C"]`）を付け、`owner: "owner"`・`status: "waiting"` にする。
