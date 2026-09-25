@@ -13,6 +13,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'stay-asleep',
+    name: 'STAY ASLEEP',
+    title: '2 枚の扉で、夢を深く',
+    desc: '夢の中に浮かぶ 2 枚の扉のうち、夢が続くのは片方だけで、もう片方を開けると目が覚める。ただの運を、どこまで深く眠れたかと、その確率（10 枚で 1/1,024）で記録していく。',
+    category: 'game',
+    tags: ['運', '今日の扉'],
+    icon: '/stay-asleep/icons/icon-192.png',
+    color: '#fff3d6',
+  },
+  {
     id: 'bloomcast',
     name: 'BLOOMCAST',
     title: '雲で日差しと雨を配って育てる',
