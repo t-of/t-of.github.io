@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-24T16:04:01.927Z",
+  "updatedAt": "2026-09-25T12:51:06.979Z",
   "projects": [
     {
       "id": "note",
@@ -176,6 +176,46 @@
       "stage": "live",
       "created": "2026-09-25",
       "note": "オーナーのアイデア。2 つの扉のどちらかが正解。何回続けて当てられるかを記録する。テーマと演出が大事。id は仮"
+    },
+    {
+      "id": "rowbreak",
+      "name": "ROWBREAK",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "置いて消す 8×8 ブロック",
+      "idea": "docs/private/ideas/2026-09-25-rowbreak.md"
+    },
+    {
+      "id": "lone-deck",
+      "name": "LONE DECK",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "必ず解けるひとりトランプ",
+      "idea": "docs/private/ideas/2026-09-25-lone-deck.md"
+    },
+    {
+      "id": "ringgrain",
+      "name": "RINGGRAIN",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "毎日の気分が年輪になる",
+      "idea": "docs/private/ideas/2026-09-25-ringgrain.md"
+    },
+    {
+      "id": "landing-day",
+      "name": "LANDING DAY",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "試験日から逆算する暗記カード",
+      "idea": "docs/private/ideas/2026-09-25-runway-deck.md"
+    },
+    {
+      "id": "pencil-hour",
+      "name": "PENCIL HOUR",
+      "stage": "build",
+      "created": "2026-09-25",
+      "note": "大きな字の脳トレを毎日刷る",
+      "idea": "docs/private/ideas/2026-09-25-pencil-hour.md"
     }
   ],
   "tasks": [
@@ -2461,7 +2501,7 @@
     {
       "id": "t191",
       "project": "irowa",
-      "title": "いろわを公開してよいか選ぶ。品質は合格（audit 30/30、テスト 5 件、390・360 幅と PC で最後まで遊べた）。3 つの輪を回して、崩れた玉の色を元に戻すパズル。やさしい・ふつう・むずかしい、色の印（色覚の違う人向け）つき",
+      "title": "いろわを公開してよいか選ぶ。品�������は合格（audit 30/30、テスト 5 件、390・360 幅と PC で最後まで遊べた）。3 つの輪を回して、崩れた玉の色を元に戻すパズル。やさしい・ふつう・むずかしい、色の印（色覚の違う人向け）つき",
       "owner": "owner",
       "status": "done",
       "created": "2026-09-25",
@@ -3509,11 +3549,11 @@
     },
     {
       "id": "t284",
-      "status": "doing",
+      "status": "todo",
       "created": "2026-09-25",
       "doneAt": null,
       "project": "sestet",
-      "title": "SESTET の AI をニューラルネット（自己対戦の TD 学習）に差し替える。線形 AI より強いと測れたら採用。ネットを採用（+42.6%）。スピンが多すぎるので得点を直して学び直し中",
+      "title": "SESTET の得点を直して AI を学び直す（オーナーの指示で一時停止中）。途中の変更はアプリのリポジトリの git stash（stash@{0}）、学習の状態は ~/.cache/sestet-train/net-work2（38 回目まで）。再開は git stash pop してから train-net.js を同じ --work で続ける。コミット済みの版（ネットの AI・スピン多め）はそのまま動く",
       "owner": "engineer"
     },
     {
@@ -3663,6 +3703,306 @@
       "project": "stay-asleep",
       "title": "STAY ASLEEP を公開する（全承認の指示で承諾。色は #fff3d6）",
       "owner": "release",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t300",
+      "project": "t-of.github.io",
+      "title": "リサーチ担当（researcher）と /ideas を作り、スタジオに部屋を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t301",
+      "project": null,
+      "title": "アイデアを探す（テーマなし・稼げるもの）",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t302",
+      "project": null,
+      "title": "リサーチの 5 案から、作るものを選ぶ（2 つ以上ならコメントに）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "ROWBREAK",
+        "LONE DECK",
+        "RINGGRAIN",
+        "RUNWAY DECK",
+        "PENCIL HOUR",
+        "今回は作らない"
+      ],
+      "choiceLabels": {
+        "ROWBREAK": "置いて消す 8×8 ブロック",
+        "LONE DECK": "必ず解けるひとりトランプ",
+        "RINGGRAIN": "毎日の気分が年輪になる",
+        "RUNWAY DECK": "試験日から逆算する暗記カード",
+        "PENCIL HOUR": "大きな字の脳トレを毎日刷る"
+      },
+      "choice": "ROWBREAK",
+      "comment": "全部作る（チャットで）"
+    },
+    {
+      "id": "t303",
+      "project": "rowbreak",
+      "title": "ROWBREAK: カードから仕様を書く（docs/private/specs/rowbreak.md）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t304",
+      "project": "lone-deck",
+      "title": "LONE DECK: カードから仕様を書く（docs/private/specs/lone-deck.md）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t305",
+      "project": "ringgrain",
+      "title": "RINGGRAIN: カードから仕様を書く（docs/private/specs/ringgrain.md）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t306",
+      "project": "landing-day",
+      "title": "RUNWAY DECK: カードから仕様を書く（docs/private/specs/runway-deck.md）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t307",
+      "project": "pencil-hour",
+      "title": "PENCIL HOUR: カードから仕様を書く（docs/private/specs/pencil-hour.md）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t308",
+      "project": "t-of.github.io",
+      "title": "課金・広告・紹介料の法律を調べる（日本と海外）（2026-09-25 中断。途中まで作ってある。続きから）",
+      "owner": "researcher",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t309",
+      "project": "t-of.github.io",
+      "title": "課金のセキュリティと仕組みを調べる（決済・購入の管理）",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t310",
+      "project": "t-of.github.io",
+      "title": "webapp-kit の文言を日本語・英語に（端末の言語で切り替え、既存アプリは今のまま）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t311",
+      "project": "rowbreak",
+      "title": "ROWBREAK: 名前と権利を決める（仕様 docs/private/specs/rowbreak.md）。名前を ROWSWEEP / CLEAR HAND に変えるならコメントに",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナーがおすすめで一任（チャット）。名前はおすすめの 1 つ目"
+    },
+    {
+      "id": "t312",
+      "project": "lone-deck",
+      "title": "LONE DECK: 名前と権利を決める（仕様 docs/private/specs/lone-deck.md）。名前を FAIR DEAL / QUIET DECK に変えるならコメントに",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナーがおすすめで一任（チャット）。名前はおすすめの 1 つ目"
+    },
+    {
+      "id": "t313",
+      "project": "ringgrain",
+      "title": "RINGGRAIN: 名前と権利を決める（仕様 docs/private/specs/ringgrain.md）。名前を SAPWOOD / TINTWOOD に変えるならコメントに",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナーがおすすめで一任（チャット）。名前はおすすめの 1 つ目"
+    },
+    {
+      "id": "t314",
+      "project": "landing-day",
+      "title": "LANDING DAY: 名前と権利を決める（仕様 docs/private/specs/runway-deck.md）。名前を GLIDEPATH / RUNWAY DECK に変えるならコメントに",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナーがおすすめで一任（チャット）。名前はおすすめの 1 つ目"
+    },
+    {
+      "id": "t315",
+      "project": "pencil-hour",
+      "title": "PENCIL HOUR: 名前と権利を決める（仕様 docs/private/specs/pencil-hour.md）。名前を PENCIL BREAK / ONE MORE SHEET に変えるならコメントに",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "オーナーがおすすめで一任（チャット）。名前はおすすめの 1 つ目"
+    },
+    {
+      "id": "t316",
+      "project": null,
+      "title": "収益化の前に: 5 本（ROWBREAK・LONE DECK・RINGGRAIN・LANDING DAY・PENCIL HOUR）の名前を J-PlatPat・USPTO・EUIPO で引く（語の一覧は各仕様の 9 章）",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t317",
+      "project": "rowbreak",
+      "title": "ROWBREAK: 仕様どおりに最初の版を作る（日英）（2026-09-25 中断。途中まで作ってある。続きから）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t318",
+      "project": "rowbreak",
+      "title": "ROWBREAK: アイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t319",
+      "project": "lone-deck",
+      "title": "LONE DECK: 仕様どおりに最初の版を作る（日英）（2026-09-25 中断。途中まで作ってある。続きから）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t320",
+      "project": "lone-deck",
+      "title": "LONE DECK: アイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t321",
+      "project": "ringgrain",
+      "title": "RINGGRAIN: 仕様どおりに最初の版を作る（日英）（2026-09-25 中断。途中まで作ってある。続きから）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t322",
+      "project": "ringgrain",
+      "title": "RINGGRAIN: アイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t323",
+      "project": "landing-day",
+      "title": "LANDING DAY: 仕様どおりに最初の版を作る（日英）（2026-09-25 中断。途中まで作ってある。続きから）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t324",
+      "project": "landing-day",
+      "title": "LANDING DAY: アイコン一式と共有画像を作る（2026-09-25 中断。途中まで作ってある。続きから）",
+      "owner": "designer",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t325",
+      "project": "pencil-hour",
+      "title": "PENCIL HOUR: 仕様どおりに最初の版を作る（日英）（2026-09-25 中断。途中まで作ってある。続きから）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null
+    },
+    {
+      "id": "t326",
+      "project": "pencil-hour",
+      "title": "PENCIL HOUR: アイコン一式と共有画像を作る",
+      "owner": "designer",
       "status": "done",
       "created": "2026-09-25",
       "doneAt": "2026-09-25"
