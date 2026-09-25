@@ -3553,7 +3553,7 @@
       "created": "2026-09-25",
       "doneAt": null,
       "project": "sestet",
-      "title": "SESTET の得点を直して AI を学び直す（オーナーの指示で一時停止中）。途中の変更はアプリのリポジトリの git stash（stash@{0}）、学習の状態は ~/.cache/sestet-train/net-work2（38 回目まで）。再開は git stash pop してから train-net.js を同じ --work で続ける。コミット済みの版（ネットの AI・スピン多め）はそのまま動く",
+      "title": "SESTET の得点を直して AI を学び直す（オーナーの指示で一時停止中）。途中の変更はアプリのリポジトリの git stash（stash@{0}）、学習の状態は ~/.cache/sestet-train/net-work2（41 回目まで）。再開は git stash pop してから train-net.js を同じ --work で続ける",
       "owner": "engineer"
     },
     {
@@ -3799,11 +3799,11 @@
     {
       "id": "t308",
       "project": "t-of.github.io",
-      "title": "課金・広告・紹介料の法律を調べる（日本と海外）（2026-09-25 中断。途中まで作ってある。続きから）",
+      "title": "課金・広告・紹介料の法律を調べる（日本と海外）",
       "owner": "researcher",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-26"
     },
     {
       "id": "t309",
@@ -3920,11 +3920,11 @@
     {
       "id": "t317",
       "project": "rowbreak",
-      "title": "ROWBREAK: 仕様どおりに最初の版を作る（日英）（2026-09-25 中断。途中まで作ってある。続きから）",
+      "title": "ROWBREAK: 仕様どおりに最初の版を作る（日英）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-26"
     },
     {
       "id": "t318",
@@ -3938,7 +3938,7 @@
     {
       "id": "t319",
       "project": "lone-deck",
-      "title": "LONE DECK: 仕様どおりに最初の版を作る（日英）（2026-09-25 中断。途中まで作ってある。続きから）",
+      "title": "LONE DECK: 仕様どおりに最初の版を作る（日英）（2026-09-26 中断。途中まで作ってある。続きから）",
       "owner": "engineer",
       "status": "todo",
       "created": "2026-09-25",
@@ -3956,11 +3956,11 @@
     {
       "id": "t321",
       "project": "ringgrain",
-      "title": "RINGGRAIN: 仕様どおりに最初の版を作る（日英）（2026-09-25 中断。途中まで作ってある。続きから）",
+      "title": "RINGGRAIN: 仕様どおりに最初の版を作る（日英）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-26"
     },
     {
       "id": "t322",
@@ -3974,7 +3974,7 @@
     {
       "id": "t323",
       "project": "landing-day",
-      "title": "LANDING DAY: 仕様どおりに最初の版を作る（日英）（2026-09-25 中断。途中まで作ってある。続きから）",
+      "title": "LANDING DAY: 仕様どおりに最初の版を作る（日英）（2026-09-26 中断。途中まで作ってある。続きから）",
       "owner": "engineer",
       "status": "todo",
       "created": "2026-09-25",
@@ -3983,20 +3983,20 @@
     {
       "id": "t324",
       "project": "landing-day",
-      "title": "LANDING DAY: アイコン一式と共有画像を作る（2026-09-25 中断。途中まで作ってある。続きから）",
+      "title": "LANDING DAY: アイコン一式と共有画像を作る",
       "owner": "designer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-26"
     },
     {
       "id": "t325",
       "project": "pencil-hour",
-      "title": "PENCIL HOUR: 仕様どおりに最初の版を作る（日英）（2026-09-25 中断。途中まで作ってある。続きから）",
+      "title": "PENCIL HOUR: 仕様どおりに最初の版を作る（日英）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-26"
     },
     {
       "id": "t326",
@@ -4006,6 +4006,15 @@
       "status": "done",
       "created": "2026-09-25",
       "doneAt": "2026-09-25"
+    },
+    {
+      "id": "t327",
+      "project": "pencil-hour",
+      "title": "PENCIL HOUR: 390 幅の下の帯の文字の重なりと、計算の紙の 2 桁の番号の詰まりを直す（2026-09-26 中断）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-09-26",
+      "doneAt": null
     }
   ],
   "ideas": []
