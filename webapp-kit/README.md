@@ -41,6 +41,45 @@ WebAppKit.isStandalone();   // ホーム画面から起動しているか
 
 色は CSS 変数（`--wak-bg`, `--wak-fg`, `--wak-accent` など）で上書きできる。
 
+## 言語（日本語 / 英語）
+
+「ホーム画面に追加」の案内やコピー完了のトーストなど、画面に出る文言は日本語・英語の 2 つを内蔵していて、自動で切り替わる。
+
+判定の順番:
+
+1. `WebAppKit.init({ lang: 'en' })` で渡した値（`'ja'` / `'en'`）
+2. `<html lang>` が `en` で始まれば英語、`ja` で始まれば日本語
+3. どちらでもなければ `navigator.language` が `ja` で始まれば日本語、それ以外は英語
+
+既存のアプリは `<html lang="ja">` なので、何もしなくても今までどおり日本語になる。
+
+```js
+WebAppKit.init({ lang: 'en' });          // 明示的に英語にする
+WebAppKit.lang();                         // 判定された言語（'ja' / 'en'）を取る
+```
+
+### 文言を上書きする
+
+`strings` に渡したキーだけ、言語判定を無視してその文字列を使う。
+
+```js
+WebAppKit.init({ strings: { copied: 'コピー完了！' } });
+```
+
+キーの一覧（`<b>` はそのまま HTML として出る）:
+
+| キー | 内容 |
+|---|---|
+| `copied` | リンクをコピーしたときのトースト |
+| `guideTitle` | 案内シートのタイトル |
+| `close` | 案内シートの閉じるボタン |
+| `guideInAppNotice` | アプリ内ブラウザ向け：追加できない旨 |
+| `guideInAppMenu` | アプリ内ブラウザ向け：Safari で開く手順 |
+| `guideMacSafari` | Mac Safari 向け：Dock に追加する手順 |
+| `guideShare` | iPhone/iPad 向け：共有ボタンの手順 |
+| `guideAdd` | iPhone/iPad 向け：「ホーム画面に追加」を選ぶ手順 |
+| `guideFinish` | iPhone/iPad 向け：「追加」をタップする手順 |
+
 ## 新しいアプリで毎回やることチェックリスト
 
 ### `<head>`

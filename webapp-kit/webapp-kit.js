@@ -7,6 +7,10 @@
  *   <button data-wak="install">アプリにする</button>   ← インストールできないときは自動で隠れる
  *   <button data-wak="share">共有</button>
  *   WebAppKit.share({ text: '…' })                       ← JS から呼ぶ場合
+ *
+ * 言語（詳細は README.md）:
+ *   WebAppKit.init({ lang: 'en' })                       ← 明示指定。省略時は <html lang> → navigator.language の順に判定
+ *   WebAppKit.init({ strings: { copied: '…' } })         ← 文言の上書き
  */
 (function () {
   'use strict';
@@ -21,15 +25,53 @@
   let installed = false;
   const listeners = new Set();
 
+  // 画面に出す文言。ja / en の 2 言語ぶん。キーの一覧は README.md 参照
+  const STRINGS = {
+    ja: {
+      copied: 'リンクをコピーしました',
+      guideTitle: 'ホーム画面に追加',
+      close: '閉じる',
+      guideInAppNotice: 'このアプリ内のブラウザからは追加できません。',
+      guideInAppMenu: 'メニューから「Safari で開く」（または「ブラウザで開く」）を選んでください。',
+      guideMacSafari: 'メニューバーの「ファイル」→「Dock に追加…」を選んでください。',
+      guideShare: '画面の<b>共有ボタン</b>をタップします（見当たらないときは「…」メニューの中にあります）。',
+      guideAdd: '一覧から<b>「ホーム画面に追加」</b>を選びます。',
+      guideFinish: '右上の<b>「追加」</b>をタップすると、ホーム画面からアプリとして開けます。',
+    },
+    en: {
+      copied: 'Link copied',
+      guideTitle: 'Add to Home Screen',
+      close: 'Close',
+      guideInAppNotice: "You can't add this from an in-app browser.",
+      guideInAppMenu: 'Choose "Open in Safari" (or "Open in Browser") from the menu.',
+      guideMacSafari: 'Choose File → "Add to Dock…" from the menu bar.',
+      guideShare: 'Tap the <b>Share</b> button (if you don’t see it, look in the "…" menu).',
+      guideAdd: 'Choose <b>"Add to Home Screen"</b> from the list.',
+      guideFinish: 'Tap <b>"Add"</b> in the top right to open it as an app from your Home Screen.',
+    },
+  };
+
+  function detectLang() {
+    if (config.lang) return config.lang;
+    const htmlLang = (document.documentElement.lang || '').toLowerCase();
+    if (htmlLang.indexOf('en') === 0) return 'en';
+    if (htmlLang.indexOf('ja') === 0) return 'ja';
+    const navLang = (navigator.language || '').toLowerCase();
+    return navLang.indexOf('ja') === 0 ? 'ja' : 'en';
+  }
+
+  // 文言を 1 つ取る（strings で上書きされていればそれ、なければ言語ごとの既定値）
+  function t(key) {
+    if (config.strings && key in config.strings) return config.strings[key];
+    return STRINGS[detectLang()][key];
+  }
+
   const config = {
     title: document.title,
     text: '',
     url: null,             // 省略時は現在のページ（クエリ除く）
-    labels: {
-      copied: 'リンクをコピーしました',
-      guideTitle: 'ホーム画面に追加',
-      close: '閉じる',
-    },
+    lang: null,             // 省略時は <html lang> → navigator.language の順に判定
+    strings: null,          // 文言の上書き（{ copied: '…' } など。キーは README.md 参照）
   };
 
   function isStandalone() {
@@ -110,7 +152,7 @@
       try { document.execCommand('copy'); } catch { /* 何もできない環境 */ }
       ta.remove();
     }
-    toast(config.labels.copied);
+    toast(t('copied'));
     return 'copied';
   }
 
@@ -122,19 +164,19 @@
   function guideSteps() {
     if (isInApp) {
       return [
-        ['', 'このアプリ内のブラウザからは追加できません。'],
-        [ICON_MORE, 'メニューから「Safari で開く」（または「ブラウザで開く」）を選んでください。'],
+        ['', t('guideInAppNotice')],
+        [ICON_MORE, t('guideInAppMenu')],
       ];
     }
     if (isMacSafari) {
       return [
-        ['', 'メニューバーの「ファイル」→「Dock に追加…」を選んでください。'],
+        ['', t('guideMacSafari')],
       ];
     }
     return [
-      [ICON_SHARE, '画面の<b>共有ボタン</b>をタップします（見当たらないときは「…」メニューの中にあります）。'],
-      [ICON_PLUS, '一覧から<b>「ホーム画面に追加」</b>を選びます。'],
-      ['', '右上の<b>「追加」</b>をタップすると、ホーム画面からアプリとして開けます。'],
+      [ICON_SHARE, t('guideShare')],
+      [ICON_PLUS, t('guideAdd')],
+      ['', t('guideFinish')],
     ];
   }
 
@@ -146,11 +188,11 @@
     wrap.setAttribute('aria-modal', 'true');
     wrap.innerHTML = `
       <div class="wak-sheet">
-        <h2 class="wak-title">${config.labels.guideTitle}</h2>
+        <h2 class="wak-title">${t('guideTitle')}</h2>
         <ol class="wak-steps">
           ${guideSteps().map(([icon, text]) => `<li>${icon ? `<span class="wak-icon">${icon}</span>` : '<span class="wak-icon wak-dot"></span>'}<span>${text}</span></li>`).join('')}
         </ol>
-        <button type="button" class="wak-close">${config.labels.close}</button>
+        <button type="button" class="wak-close">${t('close')}</button>
       </div>`;
     const close = () => {
       wrap.classList.remove('wak-open');
@@ -195,7 +237,7 @@
   });
 
   function init(options = {}) {
-    Object.assign(config, options, { labels: { ...config.labels, ...(options.labels || {}) } });
+    Object.assign(config, options, { strings: { ...config.strings, ...(options.strings || {}) } });
     refresh();
     return api;
   }
@@ -206,6 +248,7 @@
     share,
     canInstall,
     isStandalone,
+    lang: detectLang,
     toast,
     showGuide,
     onChange(fn) { listeners.add(fn); return () => listeners.delete(fn); },
