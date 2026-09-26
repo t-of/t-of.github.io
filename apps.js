@@ -456,7 +456,7 @@ window.TOFO_APPS = [
     category: 'game',
     tags: ['パズル', '落ち物'],
     icon: '/pentris/icons/icon-192.png',
-    color: '#6a9bff',
+    color: '#2fc4e6',
   },
   {
     id: 'coord-maze',
