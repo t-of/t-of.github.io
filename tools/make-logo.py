@@ -11,6 +11,7 @@ SVG と PNG を同じ図形データから作れる。
   logo/tof-mark-transparent.svg           アイコンの図柄だけ
   icons/icon.svg, icon-192/512.png, apple-touch-icon.png, favicon-32.png   サイトのアイコン
 """
+import math
 import os
 from PIL import Image, ImageDraw
 
@@ -21,28 +22,35 @@ LIGHT = {'fg': '#111317', 'accent': '#e0a800'}    # 明るい背景の上
 
 # ---------- 文字ロゴ（字の高さ = 100） ----------
 # 図形は ('rect', x, y, w, h, 色) / ('circle', cx, cy, r, 色) / ('ring', cx, cy, r, 太さ, 色)
+#       / ('poly', cx, cy, a, 辺の数, 色)  底辺が水平な正多角形。a は中心から辺まで
 # 色は 'fg' か 'accent'
 S = 22          # 線の太さ
 WORD_W = 312    # 幅
 WORD = [
     # T
     ('rect', 0, 0, 84, 22, 'fg'), ('rect', 31, 0, S, 100, 'fg'),
-    # . （T の横棒の下にもぐらせる）
-    ('circle', 75, 88, 12, 'accent'),
+    # . （T の横棒の下にもぐらせる）。円周率が正確になるほど円に近づくので、点は 四角 → 八角形 → 16 角形 → 円
+    ('poly', 74, 89, 11, 4, 'accent'),
     # O
     ('ring', 147, 50, 51, S, 'fg'),
     # F
     ('rect', 212, 0, S, 100, 'fg'), ('rect', 212, 0, 68, 22, 'fg'), ('rect', 212, 41, 56, 20, 'fg'),
-    # ... T の「.」と同じく F の腕の下にもぐらせ、右へ行くほど小さくして余韻を出す。下端はベースラインにそろえる
-    ('circle', 252, 88, 12, 'accent'), ('circle', 281, 90.5, 9.5, 'accent'), ('circle', 305, 93, 7, 'accent'),
+    # ... T の「.」と同じく F の腕の下にもぐらせ、右へ行くほど小さく丸くして余韻を出す。下端はベースラインにそろえる
+    ('poly', 252, 88.5, 11.5, 8, 'accent'), ('poly', 280, 91, 9, 16, 'accent'), ('circle', 303, 93, 7, 'accent'),
 ]
 
 # ---------- アイコン（512 マス） ----------
 # 絵柄は中央 80%（半径 204）に収まっているので、そのまま maskable にも使える
 MARK = [
     ('rect', 92, 136, 252, 68, 'fg'), ('rect', 170, 136, 68, 256, 'fg'),
-    ('circle', 282, 362, 30, 'accent'), ('circle', 348, 368, 24, 'accent'), ('circle', 402, 374, 18, 'accent'),
+    ('poly', 282, 363, 29, 4, 'accent'), ('poly', 348, 368, 24, 8, 'accent'), ('circle', 402, 374, 18, 'accent'),
 ]
+
+
+def poly_points(cx, cy, a, n):
+    r = a / math.cos(math.pi / n)
+    return [(cx + r * math.cos(math.pi / 2 + math.pi / n + 2 * math.pi * k / n),
+             cy + r * math.sin(math.pi / 2 + math.pi / n + 2 * math.pi * k / n)) for k in range(n)]
 
 
 def svg_shapes(shapes, pal):
@@ -55,6 +63,10 @@ def svg_shapes(shapes, pal):
         elif kind == 'circle':
             _, cx, cy, r, _ = s
             out.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{color}"/>')
+        elif kind == 'poly':
+            _, cx, cy, a, n, _ = s
+            points = ' '.join(f'{x:.2f},{y:.2f}' for x, y in poly_points(cx, cy, a, n))
+            out.append(f'<polygon points="{points}" fill="{color}"/>')
         else:
             _, cx, cy, r, t, _ = s
             out.append(f'<circle cx="{cx}" cy="{cy}" r="{r - t / 2}" fill="none" stroke="{color}" stroke-width="{t}"/>')
@@ -78,6 +90,9 @@ def png_shapes(shapes, pal, scale, size, offset=(0, 0), bg=None, radius=0):
         elif kind == 'circle':
             _, cx, cy, r, c = s
             d.ellipse((ox + (cx - r) * k, oy + (cy - r) * k, ox + (cx + r) * k, oy + (cy + r) * k), fill=pal[c])
+        elif kind == 'poly':
+            _, cx, cy, a, n, c = s
+            d.polygon([(ox + x * k, oy + y * k) for x, y in poly_points(cx, cy, a, n)], fill=pal[c])
         else:
             _, cx, cy, r, t, c = s
             layer = Image.new('L', (W, H), 0)
