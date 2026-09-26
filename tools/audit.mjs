@@ -291,6 +291,121 @@ export function safetyChecks(app, files, opts = {}) {
   return results;
 }
 
+// ---------- maskable-512.png の絵柄が中央 80% に収まっているか（§2） ----------
+//
+// 背景の見本は「半径 230px より外側の輪」から取る。内接円（半径 256px）より外は、どんな形に
+// マスクされても映らないので見ない。背景がグラデーションでも崩れないように、見本は角度ごとに
+// 「色は半径の一次式」で近似する（固定の色 1 つだと、輪の中だけでも一次式で表せる分の変化が
+// 誤判定の元になる）。見本から離れた点のうち、中心から一番遠いものの距離が 204.8px を超えたら不合格。
+// しきい値は角度ごとのばらつき（背景がグローなどで揺れている場合はゆるめる）に合わせて自動で決める。
+//
+// ブラウザ（canvas）でも Node（テスト）でも呼べるように、DOM に触れない純粋な関数にしてある。
+// data は ImageData.data と同じ形（RGBA が並んだ配列）、w・h は画像の幅・高さ（512 の正方形を想定）。
+export function maskableOverflow(data, w, h) {
+  const LIMIT = 204.8;                      // RULES.md §2: 絵柄を中央 80% に収める
+  const scale = w / 512;
+  const cx = w / 2, cy = h / 2;
+  const rSafe = LIMIT * scale;
+  const rOuter = 230 * scale;               // これより外を背景の見本にする
+  const rMax = Math.min(w, h) / 2;          // 内接円より外はどのマスクでも映らない
+  const BINS = 72;                          // 5° ごと
+  const angleBin = (dx, dy) => (Math.floor((Math.atan2(dy, dx) + Math.PI) / (2 * Math.PI) * BINS) + BINS) % BINS;
+
+  // 角度ごとに、背景の輪（rOuter〜rMax）の色を「半径の一次式」で近似する材料を集める
+  const n = new Array(BINS).fill(0);
+  const sR = new Array(BINS).fill(0), sRR = new Array(BINS).fill(0);
+  const sC = Array.from({ length: BINS }, () => [0, 0, 0]);
+  const sRC = Array.from({ length: BINS }, () => [0, 0, 0]);
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const dx = x - cx, dy = y - cy;
+      const r = Math.hypot(dx, dy);
+      if (r < rOuter || r > rMax) continue;
+      const i = (y * w + x) * 4;
+      if (data[i + 3] < 10) continue;   // 透明はそもそも背景
+      const b = angleBin(dx, dy);
+      n[b]++; sR[b] += r; sRR[b] += r * r;
+      for (let c = 0; c < 3; c++) { sC[b][c] += data[i + c]; sRC[b][c] += r * data[i + c]; }
+    }
+  }
+  const slope = Array.from({ length: BINS }, () => [0, 0, 0]);
+  const intercept = Array.from({ length: BINS }, () => [0, 0, 0]);
+  for (let b = 0; b < BINS; b++) {
+    if (n[b] === 0) continue;
+    const denom = n[b] * sRR[b] - sR[b] * sR[b];
+    for (let c = 0; c < 3; c++) {
+      if (n[b] < 2 || Math.abs(denom) < 1e-6) {
+        slope[b][c] = 0; intercept[b][c] = sC[b][c] / n[b];   // 材料が少なければ平均で済ませる
+      } else {
+        slope[b][c] = (n[b] * sRC[b][c] - sR[b] * sC[b][c]) / denom;
+        intercept[b][c] = (sC[b][c] - slope[b][c] * sR[b]) / n[b];
+      }
+    }
+  }
+  for (let b = 0; b < BINS; b++) {   // 材料がない角度は隣から借りる（内接円の中は全角度に輪があるので、通常は起きない）
+    if (n[b]) continue;
+    let n2 = b; do { n2 = (n2 + 1) % BINS; } while (!n[n2] && n2 !== b);
+    slope[b] = slope[n2]; intercept[b] = intercept[n2];
+  }
+  const predict = (b, r) => [0, 1, 2].map((c) => intercept[b][c] + slope[b][c] * r);
+
+  // 角度ごとのばらつき（ここが大きいと、しきい値をゆるめる）
+  const sq = new Array(BINS).fill(0);
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const dx = x - cx, dy = y - cy;
+      const r = Math.hypot(dx, dy);
+      if (r < rOuter || r > rMax) continue;
+      const i = (y * w + x) * 4;
+      if (data[i + 3] < 10) continue;
+      const b = angleBin(dx, dy);
+      const p = predict(b, r);
+      const d = Math.hypot(data[i] - p[0], data[i + 1] - p[1], data[i + 2] - p[2]);
+      sq[b] += d * d;
+    }
+  }
+  const std = n.map((c, b) => (c ? Math.sqrt(sq[b] / c) : 0));
+
+  // 安全円の外で、背景の見本から離れた点のうち、中心から一番遠いものを探す
+  let maxR = 0;
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const dx = x - cx, dy = y - cy;
+      const r = Math.hypot(dx, dy);
+      if (r <= rSafe || r > rMax) continue;
+      const i = (y * w + x) * 4;
+      if (data[i + 3] < 10) continue;
+      const b = angleBin(dx, dy);
+      const p = predict(b, r);
+      const d = Math.hypot(data[i] - p[0], data[i + 1] - p[1], data[i + 2] - p[2]);
+      const threshold = Math.max(28, std[b] * 4);   // グローなど、薄くぼけた部分で落ちすぎないように
+      if (d > threshold && r > maxR) maxR = r;
+    }
+  }
+  return { maxR: maxR / scale, limit: LIMIT };
+}
+
+// アプリの index.html を経由せず、画像を直接開いて調べる。アプリの CSP（script-src 'self' など）が
+// unsafe-eval を許していなくても、maskableOverflow を new Function で動かせるようにするため
+async function checkMaskable(page, base, appId) {
+  const url = `${base}/${appId}/icons/maskable-512.png`;
+  let resp;
+  try { resp = await page.goto(url, { timeout: 10000 }); } catch (e) { return { ok: false, error: String(e) }; }
+  if (!resp || !resp.ok()) return { ok: false, error: `icons/maskable-512.png を読めない（${resp ? resp.status() : '?'}）` };
+  return page.evaluate(({ fnSrc }) => {
+    const img = document.images[0];
+    if (!img || !img.naturalWidth) return { ok: false, error: '画像として開けない' };
+    const canvas = document.createElement('canvas');
+    canvas.width = img.naturalWidth; canvas.height = img.naturalHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    const { data } = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    // eslint-disable-next-line no-new-func
+    const fn = new Function(`return (${fnSrc})`)();
+    return { ok: true, ...fn(data, canvas.width, canvas.height) };
+  }, { fnSrc: maskableOverflow.toString() }).catch((e) => ({ ok: false, error: String(e) }));
+}
+
 // ---------- ブラウザのチェック ----------
 
 function serve(root) {
@@ -381,7 +496,7 @@ async function auditBrowser(apps) {
   const out = {};
   for (const app of apps) {
     const results = [];
-    const add = (id, ok, detail = '', warn = false) => results.push(warn ? { id, ok: true, warn: !ok, detail: ok ? '' : detail, rule: 'browser' } : { id, ok, detail, rule: 'browser' });
+    const add = (id, ok, detail = '', warn = false, rule = 'browser') => results.push(warn ? { id, ok: true, warn: !ok, detail: ok ? '' : detail, rule } : { id, ok, detail, rule });
     const widthResults = [];
     for (const w of SHEET_WIDTHS) widthResults.push(await checkWidth(browser, base, app.id, w));
 
@@ -401,6 +516,17 @@ async function auditBrowser(apps) {
       }
     }
     add('オフラインで再読み込み', widthResults.every((r) => !r.opened || r.offlineOk), '再読み込みで真っ白（Service Worker がないなら普通）', true);
+
+    // maskable-512.png の絵柄が中央 80% に収まっているか（§2）
+    const maskCtx = await browser.newContext();
+    const mask = await checkMaskable(await maskCtx.newPage(), base, app.id);
+    await maskCtx.close();
+    if (mask.ok) {
+      add('maskable の絵柄が中央 80%', mask.maxR <= mask.limit,
+        `絵柄が中心から最大 ${mask.maxR.toFixed(1)}px（${mask.limit}px 以内。icons/maskable-512.png）`, false, '§2');
+    } else {
+      add('maskable の絵柄が中央 80%', false, mask.error || 'icons/maskable-512.png を読めない', false, '§2');
+    }
 
     await makeSheet(browser, app.id, widthResults, path.join(shots, `${app.id}-sheet.png`));
     out[app.id] = results;

@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { safetyChecks, repoFiles } from './audit.mjs';
+import { safetyChecks, repoFiles, maskableOverflow } from './audit.mjs';
 
 const find = (results, id) => {
   const r = results.find((x) => x.id === id);
@@ -182,4 +182,58 @@ test('repoFiles: コミット前のファイルも見る、.gitignore のもの�
   } finally {
     fs.rmSync(dir, { recursive: true, force: true });
   }
+});
+
+// ---------- maskable-512.png の絵柄が中央 80% に収まっているか（§2） ----------
+
+// w×h の RGBA 配列を作る。bg(x, y) が背景の色、fg があれば重ねて描く（中心からの距離・角度で判定する）
+function makeIcon(w, h, bg, fg) {
+  const data = new Uint8ClampedArray(w * h * 4);
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const i = (y * w + x) * 4;
+      const [r, g, b, a = 255] = fg?.(x, y) ?? bg(x, y);
+      data[i] = r; data[i + 1] = g; data[i + 2] = b; data[i + 3] = a;
+    }
+  }
+  return data;
+}
+const dist = (x, y, cx, cy) => Math.hypot(x - cx, y - cy);
+
+test('maskable: 背景だけなら合格（0px）', () => {
+  const w = 256, h = 256;
+  const data = makeIcon(w, h, () => [200, 200, 200]);
+  const r = maskableOverflow(data, w, h);
+  assert.equal(r.maxR, 0);
+  assert.ok(r.maxR <= r.limit);
+});
+
+test('maskable: 安全円の中の絵柄だけなら合格', () => {
+  const w = 256, h = 256, cx = w / 2, cy = h / 2;
+  const data = makeIcon(w, h, (x, y) => (dist(x, y, cx, cy) <= 40 ? [10, 10, 10] : [200, 200, 200]));
+  const r = maskableOverflow(data, w, h);
+  assert.ok(r.maxR <= r.limit, `はみ出し扱いになった: ${r.maxR}`);
+});
+
+test('maskable: 安全円の外に色の違う点があれば不合格', () => {
+  const w = 256, h = 256, cx = w / 2, cy = h / 2;
+  // 204.8 と 230 の間（安全円のすぐ外・背景の見本より内側）に、背景と離れた色の点を置く
+  const data = makeIcon(w, h, () => [255, 255, 255], (x, y) => (dist(x, y, cx + 108, cy) <= 4 ? [0, 0, 0] : null));
+  const r = maskableOverflow(data, w, h);
+  assert.ok(r.maxR > r.limit, `はみ出しを見つけられなかった: ${r.maxR}`);
+});
+
+test('maskable: 背景がグラデーションでも誤判定しない', () => {
+  const w = 256, h = 256;
+  // 横一直線に白 → 黒（画像いっぱいに変わる、きつめのグラデーション）
+  const data = makeIcon(w, h, (x) => { const v = Math.round((x / (w - 1)) * 255); return [v, v, v]; });
+  const r = maskableOverflow(data, w, h);
+  assert.ok(r.maxR <= r.limit, `グラデーションを絵柄と誤判定した: ${r.maxR}`);
+});
+
+test('maskable: 透明な隅は絵柄として数えない', () => {
+  const w = 256, h = 256, cx = w / 2, cy = h / 2;
+  const data = makeIcon(w, h, (x, y) => (dist(x, y, cx, cy) > 120 ? [200, 200, 200, 0] : [200, 200, 200]));
+  const r = maskableOverflow(data, w, h);
+  assert.equal(r.maxR, 0);
 });
