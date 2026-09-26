@@ -2,8 +2,8 @@
 // リンクの作り方はここにまとめる。検索先が増えたり URL が変わったら、ここだけ直せばよい。
 const OFFICES = [
   // jp: 語をコピーして J-PlatPat（称呼検索）を開く。URL に語を渡せないため
-  { id: 'jplatpat', label: 'J-PlatPat', words: 'jp', url: () => 'https://www.j-platpat.inpit.go.jp/t0100', copyOnly: true },
-  { id: 'uspto', label: 'USPTO', words: 'en', url: (w) => `https://tmsearch.uspto.gov/search/search-results?query=${encodeURIComponent(w)}` },
+  { id: 'jplatpat', label: 'J-PlatPat', words: 'jp', first: true, url: () => 'https://www.j-platpat.inpit.go.jp/t0100', copyOnly: true },
+  { id: 'uspto', label: 'USPTO', words: 'en', first: true, url: (w) => `https://tmsearch.uspto.gov/search/search-results?query=${encodeURIComponent(w)}` },
   { id: 'euipo', label: 'EUIPO', words: 'en', url: (w) => `https://euipo.europa.eu/eSearch/#basic/1+1+1+1/100+100+100+100/${encodeURIComponent(w)}` },
   { id: 'tmview', label: 'TMview', words: 'en', url: (w) => `https://www.tmdn.org/tmview/#/tmview/results?page=1&pageSize=30&criteria=C&basicSearch=${encodeURIComponent(w)}` },
   { id: 'wipo', label: 'WIPO Brand DB', words: 'en', url: () => 'https://branddb.wipo.int/en/similarname', copyOnly: true },
@@ -29,7 +29,8 @@ function rowsFor(name) {
   const out = [];
   for (const office of OFFICES) {
     const words = office.words === 'jp' ? name.jp : name.en;
-    for (const w of words || []) out.push({ office, word: w });
+    // まず引くのは first の検索先の 1 語目だけ。称呼（類似検索）が読みの揺れを拾うので、残りは似たものが出たときに引く
+    (words || []).forEach((w, i) => out.push({ office, word: w, first: office.first && i === 0 }));
   }
   return out;
 }
@@ -41,18 +42,20 @@ function render() {
     const rows = rowsFor(name);
     const done = rows.filter((r) => data.results[`${name.id}|${r.office.id}|${r.word}`]?.status).length;
     const flags = rows.map((r) => data.results[`${name.id}|${r.office.id}|${r.word}`]?.status).filter(Boolean);
+    const firsts = rows.filter((r) => r.first);
+    const firstDone = firsts.filter((r) => data.results[`${name.id}|${r.office.id}|${r.word}`]?.status).length;
     const worst = flags.includes('same') ? 'same' : flags.includes('similar') ? 'similar' : '';
 
     const card = document.createElement('section');
     card.className = 'panel tm-card';
     const head = document.createElement('div');
     head.className = 'tm-card__head';
-    head.innerHTML = `<h2>${name.name}</h2><span class="muted">${done}/${rows.length} 済み</span>` +
+    head.innerHTML = `<h2>${name.name}</h2><span class="muted">まず ${firstDone}/${firsts.length}・全部 ${done}/${rows.length} 済み</span>` +
       (name.classes ? `<span class="muted">区分 ${name.classes}</span>` : '') +
       (worst ? `<span class="tm-flag tm-flag--${worst}">${STATUS_LABEL[worst]}</span>` : '');
     card.appendChild(head);
 
-    for (const { office, word } of rows) {
+    for (const { office, word, first } of rows) {
       const key = `${name.id}|${office.id}|${word}`;
       const result = data.results[key] || {};
       const row = document.createElement('div');
@@ -64,7 +67,7 @@ function render() {
 
       const wordEl = document.createElement('span');
       wordEl.className = 'tm-row__word';
-      wordEl.textContent = word;
+      wordEl.textContent = first ? `★ ${word}` : word;
 
       const openBtn = document.createElement('button');
       openBtn.className = 'btn btn--ghost';
@@ -92,7 +95,7 @@ function render() {
 
       const note = document.createElement('input');
       note.type = 'text';
-      note.placeholder = 'メモ';
+      note.placeholder = first ? '結果の一覧を貼る' : 'メモ';
       note.value = result.note || '';
 
       const dateEl = document.createElement('span');
