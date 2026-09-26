@@ -309,6 +309,60 @@ function serve(root) {
   });
 }
 
+// 360・390・1280 幅で 1 枚ずつ開いて、はみ出し・コンソールのエラーを見る。390 はスクリーンショットも撮る（今までどおり失格になる）。
+// 360・1280 と、オフラインでの再読み込みは警告どまり（人が見る。落とさない）
+const SHEET_WIDTHS = [
+  { width: 360, height: 780 },
+  { width: 390, height: 844 },
+  { width: 1280, height: 800 },
+];
+
+async function checkWidth(browser, base, appId, { width, height }) {
+  const phone = width < 500;
+  const ctx = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 2, hasTouch: phone, isMobile: phone });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+  page.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|firebase|firestore/i.test(m.text())) errors.push(m.text()); });
+  let shot = null;
+  let overflow = false;
+  let opened = true;
+  let offlineOk = true;
+  try {
+    await page.goto(`${base}/${appId}/`, { waitUntil: 'load', timeout: 20000 });
+    await page.waitForTimeout(1200);
+    overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
+    shot = await page.screenshot();
+    // オフラインで再読み込み（Service Worker があれば表示できるはず）。失敗しても警告だけ
+    await ctx.setOffline(true);
+    try {
+      await page.reload({ waitUntil: 'load', timeout: 8000 });
+      offlineOk = (await page.evaluate(() => document.body.innerText.trim().length)) > 0;
+    } catch { offlineOk = false; }
+    await ctx.setOffline(false);
+  } catch (e) {
+    opened = false;
+    errors.push(e.message.split('\n')[0]);
+  }
+  await ctx.close();
+  return { width, height, opened, overflow, errors, shot, offlineOk };
+}
+
+// 撮った 3 枚を横に並べて 1 枚に縮める（外の画像ライブラリを使わず、Chromium 自身に描かせる）
+async function makeSheet(browser, appId, shots, outFile) {
+  const usable = shots.filter((s) => s.shot);
+  if (usable.length === 0) return;
+  const gap = 16;
+  const targetWidth = 1200;
+  const factor = (targetWidth - gap * (usable.length - 1)) / usable.reduce((s, x) => s + x.width, 0);
+  const imgs = usable.map((s) => `<img src="data:image/png;base64,${s.shot.toString('base64')}" width="${Math.round(s.width * factor)}">`).join('');
+  const maxH = Math.round(Math.max(...shots.map((s) => s.height)) * factor);
+  const page = await browser.newPage({ viewport: { width: targetWidth, height: maxH + gap * 2 } });
+  await page.setContent(`<body style="margin:0;background:#fff;display:flex;gap:${gap}px;padding:${gap}px;align-items:flex-start">${imgs}</body>`);
+  await page.screenshot({ path: outFile });
+  await page.close();
+}
+
 async function auditBrowser(apps) {
   let chromium;
   try { ({ chromium } = await import('playwright-core')); } catch {
@@ -327,23 +381,28 @@ async function auditBrowser(apps) {
   const out = {};
   for (const app of apps) {
     const results = [];
-    const add = (id, ok, detail = '') => results.push({ id, ok, detail, rule: 'browser' });
-    const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true, deviceScaleFactor: 2 });
-    const page = await ctx.newPage();
-    const errors = [];
-    page.on('pageerror', (e) => errors.push(e.message));
-    page.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|firebase|firestore/i.test(m.text())) errors.push(m.text()); });
-    try {
-      await page.goto(`${base}/${app.id}/`, { waitUntil: 'load', timeout: 20000 });
-      await page.waitForTimeout(1500);
-      add('エラーなし', errors.length === 0, errors.slice(0, 2).join(' / '));
-      const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1);
-      add('横にはみ出さない', !overflow);
-      await page.screenshot({ path: path.join(shots, `${app.id}.png`) });
-    } catch (e) {
-      add('開ける', false, e.message.split('\n')[0]);
+    const add = (id, ok, detail = '', warn = false) => results.push(warn ? { id, ok: true, warn: !ok, detail: ok ? '' : detail, rule: 'browser' } : { id, ok, detail, rule: 'browser' });
+    const widthResults = [];
+    for (const w of SHEET_WIDTHS) widthResults.push(await checkWidth(browser, base, app.id, w));
+
+    const main = widthResults.find((r) => r.width === 390);
+    add('開ける', main.opened, main.errors[0] || '');
+    if (main.opened) {
+      add('エラーなし', main.errors.length === 0, main.errors.slice(0, 2).join(' / '));
+      add('横にはみ出さない', !main.overflow);
+      if (main.shot) fs.writeFileSync(path.join(shots, `${app.id}.png`), main.shot);
     }
-    await ctx.close();
+    for (const r of widthResults) {
+      if (r.width === 390) continue;   // 上ですでに失格つきで見た
+      add(`開ける (${r.width}px)`, r.opened, r.errors[0] || '', true);
+      if (r.opened) {
+        add(`エラーなし (${r.width}px)`, r.errors.length === 0, r.errors.slice(0, 2).join(' / '), true);
+        add(`横にはみ出さない (${r.width}px)`, !r.overflow, '', true);
+      }
+    }
+    add('オフラインで再読み込み', widthResults.every((r) => !r.opened || r.offlineOk), '再読み込みで真っ白（Service Worker がないなら普通）', true);
+
+    await makeSheet(browser, app.id, widthResults, path.join(shots, `${app.id}-sheet.png`));
     out[app.id] = results;
   }
   await browser.close();

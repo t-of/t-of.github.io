@@ -22,6 +22,7 @@ const HUB = path.dirname(HERE);
 const WORKSPACE = path.join(path.dirname(HUB), 'apps');   // ~/GitHub/tof/apps
 const PROJECTS_DIR = path.join(os.homedir(), '.claude', 'projects');
 const BOARD = path.join(HUB, 'docs', 'board.json');
+const ARCHIVE = path.join(HUB, 'docs', 'board-archive.json');
 const LEDGER = path.join(HUB, 'docs', 'private', 'ledger.jsonl');
 const PORT = Number(process.env.PORT) || 4141;
 const BACKFILL = process.argv.includes('--backfill');   // node server.mjs --backfill: 過去分を台帳に足して終了する
@@ -338,12 +339,23 @@ function snapshotAgents() {
   return out.sort((x, y) => y.lastAt - x.lastAt);
 }
 
+// tools/board.mjs archive で移した過去分（docs/board-archive.json）も、表示用には合わせて読む。
+// 画面から保存するときはそちらへは書き戻さない（アーカイブ済みの id は除いて board.json に保存する）
+function readArchive() {
+  try { return JSON.parse(fs.readFileSync(ARCHIVE, 'utf8')).tasks || []; } catch { return []; }
+}
 function readBoard() {
-  try { return JSON.parse(fs.readFileSync(BOARD, 'utf8')); } catch { return { projects: [], tasks: [], ideas: [] }; }
+  let board;
+  try { board = JSON.parse(fs.readFileSync(BOARD, 'utf8')); } catch { board = { projects: [], tasks: [], ideas: [] }; }
+  const archived = readArchive();
+  if (archived.length) board.tasks = [...archived, ...board.tasks];
+  return board;
 }
 function writeBoard(board) {
   board.updatedAt = new Date().toISOString();
-  fs.writeFileSync(BOARD, JSON.stringify(board, null, 2) + '\n');
+  const archivedIds = new Set(readArchive().map((t) => t.id));
+  const toSave = { ...board, tasks: board.tasks.filter((t) => !archivedIds.has(t.id)) };
+  fs.writeFileSync(BOARD, JSON.stringify(toSave, null, 2) + '\n');
 }
 
 let auditCache = { at: 0, running: false, report: null };
