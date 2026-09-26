@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0c10">
+  <title>商標チェック — T.OF... スタジオ</title>
+  <link rel="icon" href="/hub/icons/icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    /* このページだけの見た目。共通の色・字体は style.css を使う */
+    .tm-main { padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-area-inset-left)); max-width: 1000px; margin: 0 auto; }
+    .tm-card { margin-bottom: 18px; }
+    .tm-card__head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+    .tm-card__head h2 { margin: 0; font-size: 18px; }
+    .tm-flag { border-radius: 999px; padding: 2px 10px; font-size: 12px; font-weight: 700; }
+    .tm-flag--same { background: var(--ng); color: #fff; }
+    .tm-flag--similar { background: var(--accent); color: #1a1400; }
+    .tm-row { display: grid; grid-template-columns: 100px 1fr auto auto 140px 1fr 90px; gap: 8px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--line); }
+    .tm-row:last-child { border-bottom: 0; }
+    .tm-row__office { font-size: 12px; color: var(--muted); }
+    .tm-row__word { font-family: monospace; }
+    .tm-row select, .tm-row input { background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 4px 8px; color: var(--fg); font-size: 13px; }
+    .tm-row input[type=text] { width: 100%; }
+    .tm-row__date { font-size: 11px; color: var(--muted); text-align: right; }
+    .tm-row.is-same select { color: var(--ng); }
+    .tm-row.is-similar select { color: var(--accent); }
+    @media (max-width: 700px) {
+      .tm-row { grid-template-columns: 1fr; gap: 4px; padding: 10px 0; }
+      .tm-row__date { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <img src="/hub/logo/tof-wordmark.svg" alt="T.OF..." height="34">
+      <span class="brand__sub">STUDIO</span>
+    </div>
+    <div class="status">
+      <a class="btn btn--ghost" href="./index.html">← 社内へ</a>
+    </div>
+  </header>
+  <main class="tm-main">
+    <p class="muted">名前ごとに J-PlatPat・USPTO・EUIPO などを開いて手で引く。ここは「開く・コピー・記録」を楽にするだけで、自動では調べない。</p>
+    <div id="cards"></div>
+  </main>
+  <script src="./trademark.js" type="module"></script>
+</body>
+</html>

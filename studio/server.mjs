@@ -24,6 +24,7 @@ const PROJECTS_DIR = path.join(os.homedir(), '.claude', 'projects');
 const BOARD = path.join(HUB, 'docs', 'board.json');
 const ARCHIVE = path.join(HUB, 'docs', 'board-archive.json');
 const LEDGER = path.join(HUB, 'docs', 'private', 'ledger.jsonl');
+const TRADEMARK = path.join(HUB, 'docs', 'private', 'trademark.json');
 const PORT = Number(process.env.PORT) || 4141;
 const BACKFILL = process.argv.includes('--backfill');   // node server.mjs --backfill: 過去分を台帳に足して終了する
 
@@ -358,6 +359,22 @@ function writeBoard(board) {
   fs.writeFileSync(BOARD, JSON.stringify(toSave, null, 2) + '\n');
 }
 
+// ---------- 商標チェック（docs/private/trademark.json） ----------
+
+function readTrademark() {
+  try { return JSON.parse(fs.readFileSync(TRADEMARK, 'utf8')); } catch { return { names: [], results: {} }; }
+}
+// 1 件だけ書く。読み直してから一時ファイル経由（board と同じやり方）
+function writeTrademarkResult(key, status, note) {
+  const data = readTrademark();
+  if (status) data.results[key] = { status, note: note || '', date: new Date().toISOString().slice(0, 10) };
+  else delete data.results[key];
+  const tmp = TRADEMARK + '.tmp';
+  fs.writeFileSync(tmp, JSON.stringify(data, null, 2) + '\n');
+  fs.renameSync(tmp, TRADEMARK);
+  return data;
+}
+
 let auditCache = { at: 0, running: false, report: null };
 function runAudit(browser = false) {
   if (auditCache.running) return;
@@ -480,6 +497,12 @@ const server = http.createServer(async (req, res) => {
       writeBoard(board);
       broadcast('board', readBoard());
       return send(res, 200, { ok: true });
+    }
+    if (p === '/api/trademark' && req.method === 'GET') return send(res, 200, readTrademark());
+    if (p === '/api/trademark/result' && req.method === 'PUT') {
+      const { key, status, note } = await readBody(req);
+      if (!key) return send(res, 400, { error: 'key が要る' });
+      return send(res, 200, writeTrademarkResult(key, status, note));
     }
     if (p === '/api/audit' && req.method === 'POST') { runAudit(url.searchParams.get('browser') === '1'); return send(res, 202, { ok: true }); }
     if (p.startsWith('/shots/')) {
