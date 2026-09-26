@@ -175,6 +175,8 @@ function apply(s, a, d) {
   if (d.type === 'ai-title' && d.aiTitle) s.title = d.aiTitle;
   if (!a && d.type === 'ai-title' && d.title) s.title = d.title;
   const msg = d.message;
+  // 返事が一度もない会話（/clear しただけのもの）は席に出さない
+  if (!a && msg?.role === 'assistant') s.talked = true;
   if (!msg || !Array.isArray(msg.content)) {
     if (a && d.type === 'user' && typeof msg?.content === 'string' && !a.description) a.description = msg.content.slice(0, 80);
     return;
@@ -323,7 +325,7 @@ function snapshotAgents() {
   const now = Date.now();
   const out = [];
   for (const s of sessions.values()) {
-    if (now - s.lastAt > RECENT_MS) continue;
+    if (now - s.lastAt > RECENT_MS || !s.talked) continue;
     const agents = [...s.agents.values()].map((a) => ({
       id: a.id, type: a.type, role: a.role, description: a.description,
       startedAt: a.startedAt, lastAt: a.lastAt, tools: a.tools,

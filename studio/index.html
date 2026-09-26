@@ -33,10 +33,17 @@
   <section class="stats" id="stats"></section>
 
   <main>
-    <!-- 社内 -->
+    <!-- 社内（ドット絵のバーチャルオフィス） -->
     <section class="view" data-view="office">
       <div class="office">
-        <div class="floor" id="floor"></div>
+        <div class="stage" id="stage">
+          <svg id="floor" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="オフィスの見取り図">
+            <defs id="defs"></defs>
+            <g id="g-floor"></g>
+            <g id="g-fx"></g>
+            <g id="g-people"></g>
+          </svg>
+        </div>
         <div class="side">
           <section class="daily" id="daily"></section>
           <aside class="feed">
@@ -116,6 +123,8 @@
   </dialog>
 
   <dialog class="lightbox" id="lightbox"><img alt=""></dialog>
+
+  <div class="popover" id="popover" hidden></div>
 
   <script src="./app.js" type="module"></script>
 </body>

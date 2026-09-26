@@ -53,6 +53,7 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 | `/new-app` | アイデアから公開まで（企画 → デザイン・実装 → 品質 → リリース） |
 | `/release <id>` | 1 本を公開・更新する |
 | `/audit` | 全アプリを自動チェックし、直すべき点をまとめる |
+| `/studio-prompt <要望>` | スタジオの作り直しの依頼文を作る。材料は [studio/HANDOFF.md](studio/HANDOFF.md)（外の AI に渡すときはこれを貼る） |
 
 ## ボード（docs/board.json）
 

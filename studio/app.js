@@ -1,52 +1,16 @@
 // T.OF... スタジオの画面。サーバー（server.mjs）から届く状態を描くだけ。
 
-const ROLES = {
-  director: { person: 'マルコ', name: 'ディレクター', desc: '会話・割り振り', color: '#ffd35c', icon: '◆' },
-  researcher: { person: 'サラ', name: 'リサーチ', desc: '調査・アイデア', color: '#5b8cff', icon: '⌕' },
-  planner: { person: 'エマ', name: '企画', desc: '仕様・名前', color: '#9d7bff', icon: '✎' },
-  designer: { person: 'レア', name: 'デザイン', desc: 'アイコン・画像', color: '#e24bc6', icon: '✦' },
-  engineer: { person: 'ラヴィ', name: '実装', desc: 'コード', color: '#2cc6e0', icon: '⌘' },
-  qa: { person: 'ハンナ', name: '品質', desc: 'チェック・確認', color: '#36a075', icon: '✓' },
-  release: { person: 'ディエゴ', name: 'リリース', desc: '公開・掲載', color: '#e2582e', icon: '↑' },
-  writer: { person: 'オリバー', name: 'note', desc: '記事の下書き', color: '#41c9b4', icon: '✍' },
-  owner: { name: 'オーナー', desc: 'あなた', color: '#eceef3', icon: '★' },
-};
-// 係の人の名前。同じ係の人は何人でも同時に動くので、席に着いた人に一人ずつ名前を付ける。
-// 先頭がその係のリーダー（ROLES の person）。成績の表のように係で比べる所は係名のまま
-const PEOPLE = {
-  director: ['マルコ', 'ジュリア', 'ステファノ', 'フランチェスカ', 'ロレンツォ', 'キアラ'],
-  researcher: ['サラ', 'イヴァン', 'ダリア', 'オマール', 'フレヤ', 'ヴィクトル', 'ファティマ', 'ジョナサン', 'ラーラ', 'アーロン'],
-  planner: ['エマ', 'ノア', 'ソフィア', 'ルカ', 'イザベラ', 'マテオ', 'クロエ', 'レオ', 'アメリア', 'ニコ', 'オリビア', 'エリック'],
-  designer: ['レア', 'ジュリアン', 'ミラ', 'カミーユ', 'アナ', 'エリオット', 'ゾエ', 'ヤン', 'ルナ', 'ファビオ', 'インカ', 'セリーヌ'],
-  engineer: ['ラヴィ', 'チェン', 'アイシャ', 'ミハイル', 'プリヤ', 'トーマス', 'ユナ', 'カルロス', 'ニーナ', 'オスカー', 'ハサン', 'リン'],
-  qa: ['ハンナ', 'ヨナス', 'エルザ', 'パウロ', 'イングリッド', 'サミール', 'ヘレナ', 'ビョルン', 'アリス', 'テオ', 'マヤ', 'ルーカス'],
-  release: ['ディエゴ', 'ルシア', 'ハビエル', 'カルメン', 'パブロ', 'イネス', 'アレハンドロ', 'バレンティナ', 'ラファエル', 'ビクトリア'],
-  writer: ['オリバー', 'シャーロット', 'ジャック', 'ミア', 'ヘンリー', 'ルビー', 'ウィリアム', 'グレース'],
-};
-const leader = (role) => ROLES[role]?.person || ROLES[role]?.name || role;
+// 社内タブのフロア（ドット絵のオフィス）は office.js が描く。ここからは状態を渡すだけ。
+// 係の名簿（ROLES・PEOPLE・名前の決め方）も office.js の 1 か所にまとめてあるので、ここでは import するだけ
+import { ROLES, leader, nameOf, officeAgents, officeBoard, officeLog } from './office.js';
+
 const team = (role) => `${ROLES[role]?.name || role}チーム`;
-// id → 名前。id から決まる番号を起点に、いま席にいるほかの人と重ならない名前を選ぶ。
-// ponytail: 覚えるのはページを開いている間だけ。読み込み直すと、同時に座っている人の顔ぶれ次第で名前が入れ替わることがある
-const named = new Map();
-let seated = new Set();
-function nameOf(role, id) {
-  if (!id) return leader(role);
-  if (named.has(id)) return named.get(id);
-  const pool = PEOPLE[role] || [leader(role)];
-  const taken = new Set([...named].filter(([k]) => seated.has(k)).map(([, v]) => v));
-  let h = 0;
-  for (const c of id) h = (h * 31 + c.charCodeAt(0)) >>> 0;
-  const name = pool.map((_, i) => pool[(h + i) % pool.length]).find((n) => !taken.has(n)) || pool[h % pool.length];
-  named.set(id, name);
-  return name;
-}
 const STAGES = [
   ['idea', 'アイデア'], ['planning', '企画'], ['design', 'デザイン'], ['build', '実装'],
   ['qa', '品質'], ['release', 'リリース'], ['live', '公開済み'],
 ];
 const STATUS = { todo: '未着手', doing: '進行中', waiting: '待ち', done: '完了', skip: "しなくていい" };
 const closed = (t) => t.status === "done" || t.status === "skip";   // 終わったもの（完了・しなくていい）
-const RECENT_DONE_MS = 30 * 60 * 1000;   // 終わったエージェントを席に残しておく時間
 const STATS_ROLES = ['researcher', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer'];   // 成績タブで見る係（ディレクター・オーナーは除く）
 
 const state = { agents: [], board: { projects: [], tasks: [], ideas: [] }, apps: [], audit: { summary: {} },
@@ -81,18 +45,14 @@ function connect() {
   es.addEventListener('apps', (e) => { state.apps = JSON.parse(e.data); render(); });
   es.addEventListener('ledger', (e) => {
     const row = JSON.parse(e.data);
-    const before = levelOf(roleCount(row.role));
     state.ledger.push(row);
-    const after = levelOf(roleCount(row.role));
-    if (after > before) showLevelUp(row.role, after);
-    if (state.view === 'office') renderOffice();
     if (state.view === 'stats') renderStatsTab();
   });
   es.addEventListener('log', (e) => {
     const item = JSON.parse(e.data);
     pushFeed(item);
-    // ディレクター ⇔ 各部屋の依頼・報告・差し戻しは、届いたものだけ書類を飛ばす（最初の読み込みでは飛ばさない）
-    if (item.kind) flyDoc(item.kind === 'report' ? item.role : 'director', item.kind === 'report' ? 'director' : item.to, item.kind);
+    // ディレクター ⇔ 各部屋の依頼・報告・差し戻しは、社内タブが開いているときだけ書類を飛ばす（最初の読み込みでは飛ばさない）
+    if (state.view === 'office' && item.kind) officeLog(item);
   });
 }
 
@@ -100,79 +60,7 @@ async function saveBoard() {
   await fetch('/api/board', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(state.board) });
 }
 
-// ---------- 社内 ----------
-
-// 席ごとの人。ディレクター席には会話（セッション）、ほかの席にはエージェント
-function people() {
-  const seats = Object.fromEntries(Object.keys(ROLES).map((k) => [k, []]));
-  const now = Date.now();
-  for (const s of state.agents) {
-    if (s.state === 'working' || now - s.lastAt < RECENT_DONE_MS) {
-      seats.director.push({ kind: 'session', id: s.id, title: s.title, state: s.state, action: s.action, apps: s.apps, lastAt: s.lastAt, cwd: s.cwd });
-    }
-    for (const a of s.agents) {
-      // 終わったものと、途中で止められたまま動かないものは、しばらくしたら席から外す
-      if (a.state !== 'working' && now - a.lastAt > RECENT_DONE_MS) continue;
-      (seats[a.role] || seats.engineer).push({ kind: 'agent', ...a, session: s.id });
-    }
-  }
-  seated = new Set(Object.values(seats).flat().map((p) => p.id));
-  for (const [role, list] of Object.entries(seats)) {
-    list.sort((x, y) => (x.startedAt || x.lastAt) - (y.startedAt || y.lastAt));
-    for (const p of list) p.person = nameOf(role, p.id);
-  }
-  return seats;
-}
-
-function renderOffice() {
-  const floor = $('floor');
-  floor.replaceChildren();
-  const seats = people();
-  for (const role of ['director', 'researcher', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer']) {
-    const r = ROLES[role];
-    const room = el('section', 'room');
-    room.dataset.role = role;
-    room.style.setProperty('--c', r.color);
-    const head = el('header', 'room__head');
-    const name = el('h3', 'room__name', r.name);
-    name.title = r.desc;
-    head.append(el('span', 'room__icon', r.icon), name, el('span', 'room__role', `リーダー ${leader(role)}`));
-    if (role !== 'director') head.append(el('span', 'room__level', `Lv.${levelOf(roleCount(role))}`));
-    const busy = seats[role].filter((p) => p.state === 'working').length;
-    head.append(el('span', `room__count${busy ? ' is-busy' : ''}`, busy ? `${busy} 人 作業中` : '空き'));
-    room.append(head);
-    if (role !== 'director') room.append(whiteboard(role));
-    const desks = el('div', 'desks');
-    if (!seats[role].length) desks.append(el('p', 'desk-empty', '— 今は誰もいません —'));
-    for (const p of seats[role]) desks.append(desk(p, role));
-    room.append(desks);
-    floor.append(room);
-  }
-}
-
-// 部屋ごとのホワイトボード（その役割の、未完了・作業中・待ちのタスクを付箋で並べる）
-function whiteboard(role) {
-  const tasks = state.board.tasks.filter((t) => t.owner === role && ['todo', 'doing', 'waiting'].includes(t.status));
-  const doneToday = state.board.tasks.filter((t) => t.owner === role && t.doneAt === today()).length;
-  const doneLabel = el('span', 'whiteboard__done', `今日の済 ${doneToday}`);
-  if (!tasks.length) {
-    const board = el('div', 'whiteboard whiteboard--empty');
-    board.append(el('p', 'whiteboard__empty', '仕事の山はありません'), doneLabel);
-    return board;
-  }
-  const board = el('div', 'whiteboard');
-  const notes = el('div', 'notes');
-  for (const t of tasks.slice(0, 6)) notes.append(note(t));
-  if (tasks.length > 6) notes.append(el('div', 'note note--more', `＋${tasks.length - 6}`));
-  board.append(notes, doneLabel);
-  return board;
-}
-function note(t) {
-  const n = el('div', `note is-${t.status}`);
-  n.append(el('p', 'note__title', t.title));
-  if (t.project) n.append(el('p', 'note__app', appName(t.project)));
-  return n;
-}
+// ---------- 社内（フロアそのものは office.js が描く。ここに残るのはほかのタブでも使う desk() と、日報・フィード） ----------
 
 function desk(p, role) {
   const d = el('article', `desk is-${p.state}`);
@@ -221,51 +109,6 @@ function feedText(item) {
   if (item.kind === 'return') return `→ ${team(item.to)}に差し戻し`;
   if (item.kind === 'report') return `→ ディレクターに報告`;
   return item.text;
-}
-
-// 送り手の部屋の見出しから受け手の部屋の見出しへ、書類のアイコンを飛ばす
-function flyDoc(fromRole, toRole, kind) {
-  const toRoom = document.querySelector(`.room[data-role="${toRole}"]`);
-  if (state.view !== 'office' || !toRoom) return;
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) { flashRoom(toRoom); return; }
-  const fromHead = document.querySelector(`.room[data-role="${fromRole}"] .room__head`);
-  const toHead = toRoom.querySelector('.room__head');
-  if (!fromHead || !toHead) { flashRoom(toRoom); return; }
-  const a = fromHead.getBoundingClientRect();
-  const b = toHead.getBoundingClientRect();
-  const ax = a.left + a.width / 2, ay = a.top + a.height / 2;
-  const bx = b.left + b.width / 2, by = b.top + b.height / 2;
-  const color = kind === 'report' ? 'var(--ok)' : kind === 'return' ? 'var(--ng)' : ROLES[fromRole]?.color || '#888';
-  const doc = el('div', 'flying-doc', '📄');
-  doc.style.color = color;
-  doc.style.left = `${ax}px`;
-  doc.style.top = `${ay}px`;
-  document.body.append(doc);
-  const midX = (ax + bx) / 2 - ax, midY = Math.min(ay, by) - 90 - ay;   // 弧を描くよう、中間点を上に持ち上げる
-  const anim = doc.animate([
-    { transform: 'translate(-50%, -50%) scale(0.7)', offset: 0 },
-    { transform: `translate(calc(${midX}px - 50%), calc(${midY}px - 50%)) scale(1.1)`, offset: 0.5 },
-    { transform: `translate(calc(${bx - ax}px - 50%), calc(${by - ay}px - 50%)) scale(0.7)`, offset: 1 },
-  ], { duration: 900, easing: 'ease-in-out' });
-  anim.onfinish = () => { doc.remove(); flashRoom(toRoom); };
-}
-function flashRoom(roomEl) {
-  roomEl.classList.remove('room--flash');
-  void roomEl.offsetWidth;   // アニメーションを最初からやり直す
-  roomEl.classList.add('room--flash');
-  setTimeout(() => roomEl.classList.remove('room--flash'), 700);
-}
-
-// レベルが上がったら、その部屋に一言出す（社内画面を見ているときだけ）
-function showLevelUp(role, lv) {
-  if (state.view !== 'office') return;
-  const room = document.querySelector(`.room[data-role="${role}"]`);
-  if (!room) return;
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const toast = el('div', `level-toast${reduce ? ' level-toast--still' : ''}`, `Lv.${lv} に上がった！`);
-  room.append(toast);
-  setTimeout(() => toast.remove(), 2000);
 }
 
 // ---------- 今日の日報 ----------
@@ -829,7 +672,7 @@ function renderStatsTab() {
 
 function render() {
   renderStats();
-  if (state.view === 'office') { renderOffice(); renderFeed(); renderDaily(); }
+  if (state.view === 'office') { officeAgents(state.agents); officeBoard(state.board); renderFeed(); renderDaily(); }
   if (state.view === 'projects') renderProjects();
   if (state.view === 'tasks') renderTasks();
   if (state.view === 'stats') renderStatsTab();
@@ -882,7 +725,7 @@ $('lightbox').addEventListener('click', (e) => e.currentTarget.close());
 
 $('project-sheet').addEventListener('click', (e) => { if (e.target === e.currentTarget) e.currentTarget.close(); });
 
-setInterval(() => { if (state.view === 'office') { renderOffice(); renderFeed(); renderDaily(); } }, 15000);  // 「◯分前」を進める
+setInterval(() => { if (state.view === 'office') { officeAgents(state.agents); officeBoard(state.board); renderFeed(); renderDaily(); } }, 15000);  // 「◯分前」を進める
 
 (async () => {
   try { state.apps = await (await fetch('/api/apps')).json(); } catch { /* 空のまま */ }

@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-26T04:49:37.260Z",
+  "updatedAt": "2026-09-26T06:32:17.881Z",
   "projects": [
     {
       "id": "note",
@@ -180,9 +180,16 @@
     {
       "id": "super-marubatsu",
       "name": "スーパーマルバツゲーム",
-      "stage": "live",
+      "stage": "build",
       "created": "2026-09-26",
       "note": "第 1 版（2 人対戦）を公開。第 2 版で AI（MCTS＋NN、手元の Mac で学習）"
+    },
+    {
+      "id": "yen-trail",
+      "name": "YEN TRAIL（仮）",
+      "stage": "planning",
+      "created": "2026-09-26",
+      "note": "お札の記番号と場所を登録し、同じ番号が来たらどこから移動したかわかる。Where's George? の日本円版。id は仮"
     }
   ],
   "tasks": [
@@ -1443,9 +1450,10 @@
       "project": null,
       "title": "収益化の前に: 収益化してよいと決めた公開済みの 21 本の名前を、スタジオの商標チェックで引く（まず ★ の 2 つ）",
       "owner": "owner",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-24",
-      "doneAt": null
+      "doneAt": "2026-09-26",
+      "comment": "27 件すべて引き終わった（2026-09-26）。生きている同名・ほぼ同名の登録は 9・28・41 で見つからず。注意: めぐり美（メグリビ、区分 10・20・24…）、まどあかり（区分 11）は同じ読みだが区分が違う"
     },
     {
       "id": "t103",
@@ -2489,7 +2497,7 @@
     {
       "id": "t192",
       "project": "cross-take",
-      "title": "CROSS TAKE を確かめる（audit・スマホ幅・CPU 戦とふたり対戦・コミ）",
+      "title": "CROSS TAKE を確かめる（audit・スマホ幅・CPU 戦���ふた��対戦・コミ）",
       "owner": "qa",
       "status": "done",
       "created": "2026-09-25",
@@ -4360,20 +4368,175 @@
     {
       "id": "t363",
       "project": "super-marubatsu",
-      "title": "第 2 版: 素の MCTS と NN の学習（手元の Mac）、強さ 5 段階、AI ボタンを押せるように",
+      "title": "第 2 版: AI の中身（素の MCTS・NN の推論・学習と測る道具）を作る",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-26",
-      "doneAt": null
+      "doneAt": "2026-09-26"
     },
     {
       "id": "t364",
       "project": "super-marubatsu",
       "title": "第 2 版の前に: 最強の合格を「同じ 1 手 1 秒で素の MCTS に 90% 以上」にしてよいか",
       "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "choice": "同じ 1 手 1 秒で素の MCTS に 90% 以上（オーナーがチャットで）"
+    },
+    {
+      "id": "t365",
+      "project": "super-marubatsu",
+      "title": "第 2 版: 一晩学習させる（nohup で回す）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-26",
+      "doneAt": null,
+      "comment": "nohup で回し中（2026-09-26 14:13 開始、480 分）。ログ apps/super-marubatsu/.train/run1.log。続きは同じコマンド: node tools/train.js --work .train/run1 --minutes 480"
+    },
+    {
+      "id": "t366",
+      "project": "super-marubatsu",
+      "title": "第 2 版: 画面（強さと先手後手を選ぶ・AI の番・Web Worker）を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t367",
+      "project": "super-marubatsu",
+      "title": "第 2 版: 強さを測り（Elo の表・最強の合格）、段階の回数を決める",
+      "owner": "engineer",
       "status": "todo",
       "created": "2026-09-26",
       "doneAt": null
+    },
+    {
+      "id": "t368",
+      "project": "t-of.github.io",
+      "title": "スタジオの引っ越し資料（studio/HANDOFF.md）と /studio-prompt を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t369",
+      "project": "t-of.github.io",
+      "title": "バーチャルオフィスの試作（studio/office.html）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t370",
+      "project": null,
+      "title": "新しいロゴの O の形を選ぶ（点は全案共通: 四角 → 八角形 → 円）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "images": [
+        ".audit/logo-new/sheet.png"
+      ],
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceImages": {
+        "A": ".audit/logo-new/opt-A.png",
+        "B": ".audit/logo-new/opt-B.png",
+        "C": ".audit/logo-new/opt-C.png"
+      },
+      "choiceLabels": {
+        "A": "丸い O（今のまま）",
+        "B": "八角形の外・円の内",
+        "C": "八角形・16角形・円の3重"
+      },
+      "choice": "A",
+      "comment": ""
+    },
+    {
+      "id": "t371",
+      "project": "t-of.github.io",
+      "title": "バーチャルオフィス案B: 明るい現実のビルのオフィス（studio/office-bright.html）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t372",
+      "project": "t-of.github.io",
+      "title": "バーチャルオフィス案C: 3D の会社（studio/office-3d.html）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t373",
+      "project": "t-of.github.io",
+      "title": "バーチャルオフィスの案を選ぶ（引っ越すか・どれにするか）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "なし"
+      ],
+      "choiceLabels": {
+        "A": "暗いドット絵",
+        "B": "明るいビル",
+        "C": "3D",
+        "なし": "引っ越さない"
+      },
+      "choiceImages": {
+        "A": ".audit/office-1280.png",
+        "B": ".audit/office-bright-1280.png",
+        "C": ".audit/office-3d-1280.png"
+      },
+      "choice": "A",
+      "comment": "名前を日本の名字にして"
+    },
+    {
+      "id": "t374",
+      "project": "t-of.github.io",
+      "title": "スタジオの社内タブを案A（暗いドット絵）に引っ越す・名前を日本の名字にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t375",
+      "project": "yen-trail",
+      "title": "お札の旅の仕様を作る（名前・権利・共有データの置き場所）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t376",
+      "project": "yen-trail",
+      "title": "YEN TRAIL（お札の追跡）の権利の判定を選ぶ（企画の判定: 問題なし。おすすめは収益化しない）",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-09-26",
+      "doneAt": null,
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ]
     }
   ],
   "ideas": []

@@ -62,69 +62,59 @@ main { padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-
 .stat.is-ng .stat__value { color: var(--ng); }
 
 /* ---------- 社内 ---------- */
+/* フロア（ドット絵のオフィス）本体は office.js が描く SVG。ここでは置き場所とサイズだけ */
 .office { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; align-items: start; }
-.floor {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px;
-  padding: 14px; border-radius: 22px; border: 1px solid var(--line);
-  background:
-    linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 28px 28px,
-    linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 28px 28px,
-    #0e1015;
-}
-.room {
-  --c: #888;
-  position: relative;
-  background: color-mix(in srgb, var(--surface) 92%, transparent);
-  border: 1px solid color-mix(in srgb, var(--c) 30%, var(--line));
-  border-radius: var(--radius);
-  padding: 12px;
-  min-height: 150px;
-  box-shadow: inset 0 3px 0 color-mix(in srgb, var(--c) 70%, transparent);
-}
-.room__head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
-.room__icon { width: 26px; height: 26px; display: grid; place-items: center; border-radius: 8px; background: color-mix(in srgb, var(--c) 18%, transparent); color: var(--c); font-size: 14px; }
-.room__name { margin: 0; font-size: 15px; }
-.room__level { font-size: 10px; padding: 1px 8px; border-radius: 999px; background: color-mix(in srgb, var(--c) 20%, transparent); color: var(--c); font-weight: 700; }
-.room__role { font-size: 11px; color: var(--muted); }
+.stage { width: 100%; }
+#floor { display: block; margin: 0 auto; font-family: var(--font); shape-rendering: crispEdges; user-select: none; }
+#floor text { shape-rendering: auto; }
+.wall { fill: none; stroke: #3a4150; stroke-width: 8; }
+.wall--outer { stroke: #4a5264; stroke-width: 10; }
+.corr-label { font-size: 12px; fill: #3c4250; text-anchor: middle; letter-spacing: .4em; font-weight: 700; }
+.door-label { font-size: 11px; fill: var(--muted); font-weight: 700; }
+.room-name { font-size: 13px; font-weight: 700; }
+.room-sub { font-size: 10px; fill: var(--muted); }
+.room-sub.is-busy { fill: var(--accent); }
+.wb-empty { font-size: 8px; fill: #4b5260; text-anchor: middle; }
+.note-txt { font-size: 7.5px; fill: #1d2028; text-anchor: middle; font-weight: 700; }
+.note-more { font-size: 9px; fill: #1d2028; text-anchor: middle; font-weight: 700; }
+.owner-star { font-size: 14px; fill: #ffd35c; text-anchor: middle; }
+.owner-count { font-size: 11px; fill: #ffd35c; text-anchor: middle; font-weight: 700; }
+.owner-glow { fill: none; stroke: #ffd35c; stroke-width: 0; }
+.owner-glow.is-on { stroke-width: 2; animation: owner-glow 2s ease-in-out infinite; }
+@keyframes owner-glow { 50% { stroke-opacity: .25; } }
+.screen.is-on { animation: flicker 1.3s steps(1) infinite; }
+@keyframes flicker { 0%, 100% { opacity: 1; } 33% { opacity: .7; } 66% { opacity: .9; } }
+.flash { fill-opacity: .28; stroke-width: 3; animation: flash .9s ease-out forwards; }
+@keyframes flash { 0%, 50% { opacity: 1; } 100% { opacity: 0; } }
 
-/* レベルが上がった一言 */
-.level-toast {
-  position: absolute; top: 10px; right: 10px; z-index: 2;
-  padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
-  background: var(--c); color: #10121a;
-  animation: toast-pop 2s ease-out forwards;
-}
-.level-toast--still { animation: none; }
-@keyframes toast-pop {
-  0% { opacity: 0; transform: translateY(-4px) scale(0.9); }
-  15% { opacity: 1; transform: translateY(0) scale(1); }
-  80% { opacity: 1; }
-  100% { opacity: 0; }
-}
-.room__count { margin-left: auto; font-size: 12px; color: var(--muted); }
-.room__count.is-busy { color: var(--c); font-weight: 700; }
-.room--flash { animation: room-flash 0.7s ease-out; }
-@keyframes room-flash {
-  0% { box-shadow: inset 0 3px 0 var(--c), 0 0 0 3px color-mix(in srgb, var(--c) 60%, transparent), 0 0 20px color-mix(in srgb, var(--c) 45%, transparent); }
-  100% { box-shadow: inset 0 3px 0 var(--c), 0 0 0 0 transparent; }
-}
-.desks { display: flex; flex-direction: column; gap: 8px; }
+/* 人（ドット絵） */
+.person { cursor: pointer; outline: none; }
+.person:focus-visible .hit { stroke: #fff; stroke-width: 2; }
+.person .back { display: none; }
+.person.face-up .back { display: inline; }
+.person.face-up .front { display: none; }
+.person.pose-desk .leg { display: none; }
+.person.pose-sofa .leg { transform: translateY(-2px); }
+.person .arm, .person .leg, .person .sprite { transform-box: view-box; }
+.person.is-type .arm { transform: translateY(-8px); animation: type .28s steps(1) infinite; }
+.person.is-type .arm-r { animation-delay: -.14s; }
+@keyframes type { 0%, 100% { transform: translateY(-8px); } 50% { transform: translateY(-10px); } }
+.person.is-walk .sprite { animation: sprite-bob .34s steps(1) infinite; }
+.person.is-walk .leg-l, .person.is-walk .arm-r { animation: stride .34s steps(1) infinite; }
+.person.is-walk .leg-r, .person.is-walk .arm-l { animation: stride .34s steps(1) infinite reverse; animation-delay: -.17s; }
+@keyframes sprite-bob { 50% { transform: translateY(-1px); } }
+@keyframes stride { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+.person.is-walk .bubble { display: none; }
+.tag-txt { font-size: 9.5px; fill: #eceef3; text-anchor: middle; font-weight: 500; }
+.bubble-txt { font-size: 9.5px; fill: #15171d; text-anchor: middle; font-weight: 500; }
+.bubble-txt.is-stall { fill: #eceef3; font-weight: 700; }
+.doc-glyph { font-size: 7px; fill: #15171d; text-anchor: middle; font-weight: 700; }
 
-/* 部屋ごとのホワイトボード */
-.whiteboard { margin-bottom: 10px; padding: 8px; border-radius: 10px; background: color-mix(in srgb, var(--c) 6%, var(--surface-2)); border: 1px dashed color-mix(in srgb, var(--c) 30%, var(--line)); }
-.whiteboard--empty { display: flex; align-items: center; justify-content: space-between; padding: 6px 10px; }
-.whiteboard__empty { margin: 0; font-size: 11px; color: var(--muted); }
-.whiteboard__done { display: block; margin-top: 6px; text-align: right; font-size: 10px; color: var(--muted); }
-.notes { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 6px; }
-.note { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; font-size: 11px; }
-.note.is-doing { background: color-mix(in srgb, var(--c) 24%, var(--surface)); border-color: color-mix(in srgb, var(--c) 55%, transparent); }
-.note.is-waiting { opacity: 0.55; }
-.note__title { margin: 0; font-weight: 600; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
-.note__app { margin: 2px 0 0; color: var(--muted); font-size: 10px; }
-.note--more { display: grid; place-items: center; color: var(--muted); font-weight: 700; }
+.popover { position: fixed; z-index: 60; max-width: 240px; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,.5); font-size: 12px; }
+.popover h4 { margin: 0 0 4px; font-size: 13px; }
+.popover p { margin: 2px 0; color: var(--muted); }
 
-/* 書類が部屋から部屋へ飛ぶ */
-.flying-doc { position: fixed; z-index: 50; font-size: 20px; pointer-events: none; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5)); }
+/* desk() は社内タブでは使わず、プロジェクトの詳細シート（作業中のメンバー）で使う */
 .desk-empty { margin: 18px 0; text-align: center; font-size: 12px; color: color-mix(in srgb, var(--muted) 60%, transparent); }
 
 .desk {
@@ -315,5 +305,8 @@ main { padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-
   .task__status { grid-column: 2; justify-self: start; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .desk.is-working .avatar, .live.on i, .desk.is-working .desk__action::before, .pcard.is-working, .my-turn.is-wiggle, .level-toast { animation: none; }
+  .desk.is-working .avatar, .live.on i, .desk.is-working .desk__action::before, .pcard.is-working, .my-turn.is-wiggle { animation: none; }
+  /* 社内タブ: 歩く・打つ・点滅を止める（人はすぐ目的の場所に置き、受け手が光るだけ。office.js 側でも止める） */
+  .screen.is-on, .owner-glow.is-on, .person .arm, .person .leg, .person .sprite { animation: none !important; }
+  .flash { animation: none; }
 }
