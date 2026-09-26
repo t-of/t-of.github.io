@@ -19,6 +19,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'lapbell',
+    name: 'LAPBELL',
+    title: '声とベルで知らせる運動タイマー',
+    desc: '運動の秒数・休みの秒数・セット数を入れて始めると、切り替わるたびにベルと声で知らせるインターバルタイマー。画面いっぱいの色で今が運動か休みかが遠くからでも分かり、画面を見なくても HIIT や筋トレを続けられる。',
+    category: 'tool',
+    tags: ['運動', 'タイマー'],
+    icon: '/lapbell/icons/icon-192.png',
+    color: '#ff6a3d',
+  },
+  {
     id: 'shihei-relay',
     name: '紙幣リレー',
     title: '記番号でお札の行方をたどる',
