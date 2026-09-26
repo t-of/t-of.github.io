@@ -21,6 +21,7 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 
 - 本部: `~/GitHub/tof/t-of.github.io/`（ポータル、ルール、道具）
 - 各アプリ: `~/GitHub/tof/apps/<id>/`（1 アプリ 1 リポジトリ。`<id>` はリポジトリ名で URL のパス）
+- 未公開の試作・昔のアプリ: `~/GitHub/tof/drafts/<名前>/`（公開したら apps/ へ移す）
 - アプリの一覧: [apps.js](apps.js)。ここに載っているものが T.OF... のアプリ
 - 道具: `npm run studio`（社内の様子を見る画面）、`tools/audit.mjs`（自動チェック。`--browser` で 360・390・1280 幅のはみ出し・オフライン再読み込みも見て、`.audit/<id>-sheet.png` に並べた 1 枚を作る）、`tools/board.mjs`（board.json の追加・更新、下の「ボード」）、`tools/release.sh <id>`（既存アプリの更新を audit → push → ビルド待ち → 反映確認まで進める。`--dry-run` あり）、`tools/export-icons.mjs <id>`（icon.svg から各サイズと並べた 1 枚を書き出す）、`tools/new-app.sh`（ひな形）、`npm run colors`（フォルダの色を段階に合わせる）、`tools/make-logo.py`・`tools/make-icons.py`（ロゴ・共有画像）
 - 共通部品: [webapp-kit/](webapp-kit/)（正本。直したら各アプリにコピーし直す）

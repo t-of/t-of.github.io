@@ -84,14 +84,14 @@
       "name": "SLOPE WRITER",
       "stage": "live",
       "created": "2026-09-25",
-      "note": "手元の試作から 0 から作り直す。元: ~/dev/plotfall。id は仮"
+      "note": "手元の試作から 0 から作り直す。元: ~/GitHub/tof/drafts/plotfall。id は仮"
     },
     {
       "id": "doorwise",
       "name": "DOORWISE",
       "stage": "live",
       "created": "2026-09-25",
-      "note": "手元の試作から 0 から作り直す。元: ~/dev/door-thief。id は仮"
+      "note": "手元の試作から 0 から作り直す。元: ~/GitHub/tof/drafts/door-thief。id は仮"
     },
     {
       "id": "pair-carry",
@@ -112,7 +112,7 @@
       "name": "ARNOLD'S CAT",
       "stage": "live",
       "created": "2026-09-25",
-      "note": "手元の試作から 0 から作り直す。元: ~/dev/arnold-cat-map。id は仮"
+      "note": "手元の試作から 0 から作り直す。元: ~/GitHub/tof/drafts/arnold-cat-map。id は仮"
     },
     {
       "id": "near-pin",
@@ -126,28 +126,28 @@
       "name": "ECHO REEF",
       "stage": "live",
       "created": "2026-09-25",
-      "note": "手元の試作から 0 から作り直す。元: ~/dev/minasoko。id は仮"
+      "note": "手元の試作から 0 から作り直す。元: ~/GitHub/tof/drafts/minasoko。id は仮"
     },
     {
       "id": "dawnward",
       "name": "DAWNWARD",
       "stage": "live",
       "created": "2026-09-25",
-      "note": "手元の試作から 0 から作り直す。元: ~/dev/lattice。id は仮"
+      "note": "手元の試作から 0 から作り直す。元: ~/GitHub/tof/drafts/lattice。id は仮"
     },
     {
       "id": "buyout",
       "name": "BUYOUT",
       "stage": "live",
       "created": "2026-09-25",
-      "note": "手元の試作から 0 から作り直す。元: ~/dev/zaraba。id は仮"
+      "note": "手元の試作から 0 から作り直す。元: ~/GitHub/tof/drafts/zaraba。id は仮"
     },
     {
       "id": "high-floor",
       "name": "HIGH FLOOR",
       "stage": "live",
       "created": "2026-09-25",
-      "note": "手元の試作から 0 から作り直す。元: ~/dev/wariate。id は仮"
+      "note": "手元の試作から 0 から作り直す。元: ~/GitHub/tof/drafts/wariate。id は仮"
     },
     {
       "id": "number-bench",
@@ -161,7 +161,7 @@
       "name": "ONE OFF",
       "stage": "live",
       "created": "2026-09-25",
-      "note": "~/dev/word-wolf を元に 0 から作り直す。きわどいお題の分類は外す。id は仮"
+      "note": "~/GitHub/tof/drafts/word-wolf を元に 0 から作り直す。きわどいお題の分類は外す。id は仮"
     },
     {
       "id": "sestet",
