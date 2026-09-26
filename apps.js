@@ -40,7 +40,7 @@ window.TOFO_APPS = [
     host: 'cloudflare',
     url: 'https://lone-deck.t-of.workers.dev/',
     icon: 'https://lone-deck.t-of.workers.dev/icons/icon-192.png',
-    color: '#202c52',
+    color: '#8fa3e8',
   },
   {
     id: 'ringgrain',
