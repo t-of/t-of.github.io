@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-26T01:08:59.353Z",
+  "updatedAt": "2026-09-26T03:14:56.221Z",
   "projects": [
     {
       "id": "note",
@@ -176,46 +176,6 @@
       "stage": "live",
       "created": "2026-09-25",
       "note": "オーナーのアイデア。2 つの扉のどちらかが正解。何回続けて当てられるかを記録する。テーマと演出が大事。id は仮"
-    },
-    {
-      "id": "rowbreak",
-      "name": "ROWBREAK",
-      "stage": "release",
-      "created": "2026-09-25",
-      "note": "置いて消す 8×8 ブロック",
-      "idea": "docs/private/ideas/2026-09-25-rowbreak.md"
-    },
-    {
-      "id": "lone-deck",
-      "name": "LONE DECK",
-      "stage": "release",
-      "created": "2026-09-25",
-      "note": "必ず解けるひとりトランプ",
-      "idea": "docs/private/ideas/2026-09-25-lone-deck.md"
-    },
-    {
-      "id": "ringgrain",
-      "name": "RINGGRAIN",
-      "stage": "release",
-      "created": "2026-09-25",
-      "note": "毎日の気分が年輪になる",
-      "idea": "docs/private/ideas/2026-09-25-ringgrain.md"
-    },
-    {
-      "id": "landing-day",
-      "name": "LANDING DAY",
-      "stage": "release",
-      "created": "2026-09-25",
-      "note": "試験日から逆算する暗記カード",
-      "idea": "docs/private/ideas/2026-09-25-runway-deck.md"
-    },
-    {
-      "id": "pencil-hour",
-      "name": "PENCIL HOUR",
-      "stage": "release",
-      "created": "2026-09-25",
-      "note": "大きな字の脳トレを毎日刷る",
-      "idea": "docs/private/ideas/2026-09-25-pencil-hour.md"
     }
   ],
   "tasks": [
@@ -3415,12 +3375,13 @@
     },
     {
       "id": "t270",
-      "status": "todo",
+      "status": "doing",
       "created": "2026-09-25",
       "doneAt": null,
       "project": null,
       "title": "自動チェック（tools/audit.mjs）に「maskable-512.png の絵柄が中心 80% の円に収まっているか」を足すか決める。いまはファイルがあるかだけを見ていて、PAIR CARRY・数の模様で品質担当が手で見つけた。ルールの変更なのでオーナーが決める",
-      "owner": "owner"
+      "owner": "owner",
+      "comment": "オーナー: ディレクターに任せる → 足すことにした"
     },
     {
       "id": "t271",
@@ -3558,12 +3519,13 @@
     },
     {
       "id": "t285",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-26",
       "project": "pentris",
-      "title": "QUINTILE の見た目がまだテトリスに近い（虹色のベベル付きブロック、HOLD 左・NEXT 右、1:2 の盤）。SESTET と同じ離し方（ひとつながりの形・少ない色・上の帯）を QUINTILE にも当てるか決める",
-      "owner": "owner"
+      "title": "QUINTILE の見た目がまだテトリスに近い（虹色のベベル付きブロック、HOLD 左・NEXT 右、1:2 の盤）。SESTET と同じ離し方（ひとつながりの形・少ない色・上の帯）を QUINTILE にも当てるか決める → 当てて公開した（区切り線なし・3 色・上の帯・独自の回転補正。盤は 12×24 のまま。アイコンも作り直し、色はシアン）",
+      "owner": "owner",
+      "comment": "オーナー: 当てる"
     },
     {
       "id": "t286",
@@ -3576,12 +3538,13 @@
     },
     {
       "id": "t287",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-26",
       "project": "sestet",
       "title": "SESTET を試遊して、人が 350 PIECES を最後まで打てそうか見る（AI は NEXT を読まないと 100 手ほどで詰む。難しすぎるなら 210 PIECES に）。公開のあとでよい",
-      "owner": "owner"
+      "owner": "owner",
+      "comment": "オーナー: 大丈夫、350 のままで"
     },
     {
       "id": "t288",
@@ -4150,27 +4113,101 @@
     },
     {
       "id": "t340",
-      "status": "todo",
+      "status": "skip",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-26",
       "project": "sestet",
       "title": "SESTET の AI をニューラルネットでもう一度試すか決める。新しい得点では線形より −5.4% で採用しなかった（前の得点の +42.6% はスピンの連続で稼いだ分だった）。試すなら自己対戦を増やす・測る種を増やすなど。仕組みと続きの状態は ~/.cache/sestet-train/ に残してある",
-      "owner": "owner"
+      "owner": "owner",
+      "comment": "オーナー: 試さなくていい"
     },
     {
       "id": "t341",
       "project": null,
       "title": "Cloudflare: 2 段階認証を入れ、workers.dev の名前（おすすめ t-of）を決めてディレクターに伝える",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-26",
-      "doneAt": null
+      "doneAt": "2026-09-26",
+      "comment": "GitHub で入って 2 段階認証は GitHub 側。workers.dev の名前は t-of"
     },
     {
       "id": "t342",
       "project": "sestet",
       "title": "SESTET を公開する（全承認の指示で承諾。色は #f2b544）",
       "owner": "release",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t343",
+      "project": "rowbreak",
+      "title": "ROWBREAK: Cloudflare に置く準備（wrangler.jsonc・_headers・.assetsignore、URL を rowbreak.t-of.workers.dev に）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t344",
+      "project": "lone-deck",
+      "title": "LONE DECK: Cloudflare に置く準備（wrangler.jsonc・_headers・.assetsignore、URL を lone-deck.t-of.workers.dev に）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t345",
+      "project": "ringgrain",
+      "title": "RINGGRAIN: Cloudflare に置く準備（wrangler.jsonc・_headers・.assetsignore、URL を ringgrain.t-of.workers.dev に）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t346",
+      "project": "landing-day",
+      "title": "LANDING DAY: Cloudflare に置く準備（wrangler.jsonc・_headers・.assetsignore、URL を landing-day.t-of.workers.dev に）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t347",
+      "project": "pencil-hour",
+      "title": "PENCIL HOUR: Cloudflare に置く準備（wrangler.jsonc・_headers・.assetsignore、URL を pencil-hour.t-of.workers.dev に）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t348",
+      "project": null,
+      "title": "GitHub App「Cloudflare Workers and Pages」を 5 本だけに入れ、ダッシュボードで 5 本を取り込む（リポジトリができたら）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t349",
+      "project": null,
+      "title": "トークンの使い方を見直す（モデル・effort の選び直し、board.mjs・release.sh・export-icons.mjs、audit の幅広チェック）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t350",
+      "project": null,
+      "title": "稼ぐための名前の決め方を調べる（検索・ストア・覚えやすさ・商標）。5 本の見直し案",
+      "owner": "researcher",
       "status": "done",
       "created": "2026-09-26",
       "doneAt": "2026-09-26"
