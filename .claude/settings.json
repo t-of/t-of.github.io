@@ -10,6 +10,7 @@
       "Bash(node tools/*)",
       "Bash(python3 tools/*)",
       "Bash(tools/new-app.sh:*)",
+      "Bash(tools/release.sh:*)",
       "Bash(git status:*)",
       "Bash(git diff:*)",
       "Bash(git log:*)",
