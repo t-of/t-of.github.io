@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-26T18:23:56.681Z",
+  "updatedAt": "2026-09-26T18:26:17.187Z",
   "projects": [
     {
       "id": "note",
@@ -224,7 +224,7 @@
     {
       "id": "ink-tally",
       "name": "INK TALLY",
-      "stage": "release",
+      "stage": "live",
       "created": "2026-09-27",
       "note": "毎日 1 問のノノグラム。オーナー就寝中にディレクターが選んだ",
       "idea": "docs/private/ideas/2026-09-27-fillclue.md"
@@ -5320,10 +5320,9 @@
       "project": "ink-tally",
       "title": "INK TALLY を公開する。公開の OK はオーナー就寝中の指示（リリースまで）による",
       "owner": "release",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-26",
-      "doneAt": null,
-      "no": 7
+      "doneAt": "2026-09-26"
     }
   ],
   "ideas": []
