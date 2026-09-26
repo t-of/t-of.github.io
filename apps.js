@@ -19,6 +19,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'super-marubatsu',
+    name: 'スーパーマルバツゲーム',
+    title: '9 つの三目並べで 3 つ並べる',
+    desc: '9 つの三目並べを 3×3 に並べた「スーパー三目並べ」（英語では Ultimate Tic-Tac-Toe）。打ったマスの位置で相手が次に打つ盤が決まるので、先を読んで送り込む。1 台の端末でふたり対戦。',
+    category: 'game',
+    tags: ['ボードゲーム', 'ふたり'],
+    icon: '/super-marubatsu/icons/icon-192.png',
+    color: '#f1cd6a',
+  },
+  {
     id: 'rowbreak',
     name: 'ROWBREAK',
     title: '置いて消す 8×8 ブロック',
