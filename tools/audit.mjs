@@ -517,15 +517,16 @@ async function auditBrowser(apps) {
     }
     add('オフラインで再読み込み', widthResults.every((r) => !r.opened || r.offlineOk), '再読み込みで真っ白（Service Worker がないなら普通）', true);
 
-    // maskable-512.png の絵柄が中央 80% に収まっているか（§2）
+    // maskable-512.png の絵柄が中央 80% に収まっているか（§2）。
+    // 端まで塗った景色や模様の背景も「絵柄」と数えてしまうので、落とさずに警告にする（人が丸で切り抜いて見る）。
     const maskCtx = await browser.newContext();
     const mask = await checkMaskable(await maskCtx.newPage(), base, app.id);
     await maskCtx.close();
     if (mask.ok) {
       add('maskable の絵柄が中央 80%', mask.maxR <= mask.limit,
-        `絵柄が中心から最大 ${mask.maxR.toFixed(1)}px（${mask.limit}px 以内。icons/maskable-512.png）`, false, '§2');
+        `背景と違う色が中心から最大 ${mask.maxR.toFixed(1)}px（${mask.limit}px 以内が目安。景色や模様の背景なら問題ない。主役が欠けないか丸で切り抜いて見る）`, true, '§2');
     } else {
-      add('maskable の絵柄が中央 80%', false, mask.error || 'icons/maskable-512.png を読めない', false, '§2');
+      add('maskable の絵柄が中央 80%', false, mask.error || 'icons/maskable-512.png を読めない', true, '§2');
     }
 
     await makeSheet(browser, app.id, widthResults, path.join(shots, `${app.id}-sheet.png`));

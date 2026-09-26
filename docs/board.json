@@ -3375,11 +3375,11 @@
     },
     {
       "id": "t270",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-26",
       "project": null,
-      "title": "自動チェック（tools/audit.mjs）に「maskable-512.png の絵柄が中心 80% の円に収まっているか」を足すか決める。いまはファイルがあるかだけを見ていて、PAIR CARRY・数の模様で品質担当が手で見つけた。ルールの変更なのでオーナーが決める",
+      "title": "自動チェック（tools/audit.mjs）に「maskable-512.png の絵柄が中心 80% の円に収まっているか」を足すか決める。いまはファイルがあるかだけを見ていて、PAIR CARRY・数の模様で品質担当が手で見つけた。ルールの変更なのでオーナーが決める → 足した。景色や模様の背景を誤って数えるので、落とさない警告にした（DECISIONS.md）",
       "owner": "owner",
       "comment": "オーナー: ディレクターに任せる → 足すことにした"
     },
