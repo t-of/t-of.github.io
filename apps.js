@@ -19,6 +19,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'sestet',
+    name: 'SESTET',
+    title: '6 マスのブロックで列を消す',
+    desc: '6 マスのブロック「ヘキサミノ」全 35 種を落として、横の列をそろえて消すパズル。6 列を一度に消す SESTET を狙う。機械学習で育てた AI のプレイも観戦できる。',
+    category: 'game',
+    tags: ['パズル', 'AI'],
+    icon: '/sestet/icons/icon-192.png',
+    color: '#f2b544',
+  },
+  {
     id: 'stay-asleep',
     name: 'STAY ASLEEP',
     title: '2 枚の扉で、夢を深く',
