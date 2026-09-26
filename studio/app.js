@@ -478,7 +478,7 @@ function renderStats() {
   const sessionsLive = state.agents.filter((s) => s.state === 'working').length;
   const open = state.board.tasks.filter((t) => !closed(t));
   const mine = open.filter((t) => t.owner === 'owner').length;
-  const building = projectList().filter((p) => p.stage && p.stage !== 'live').length;
+  const building = projectList().filter((p) => p.stage && p.stage !== 'live' && p.stage !== 'other').length;
   const failed = Object.values(state.audit.summary || {}).filter((a) => a.failed.length).length;
   const stats = $('stats');
   stats.replaceChildren();

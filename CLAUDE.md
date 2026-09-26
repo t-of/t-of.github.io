@@ -74,7 +74,7 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 }
 ```
 
-- `stage`: `idea` → `planning` → `design` → `build` → `qa` → `release` → `live`（公開済み。公開したら projects から消してよい）
+- `stage`: `idea` → `planning` → `design` → `build` → `qa` → `release` → `live`（公開済み。公開したら projects から消してよい）。アプリでないもの（note 運用部など）は `other`（段階の列に出さず、作っているアプリの数にも入れない）
 - `owner`: `researcher` / `planner` / `designer` / `engineer` / `qa` / `release` / `writer` / `owner`（オーナーが決める・操作するもの）
 - `status`: `todo`（未着手）/ `doing`（進行中）/ `waiting`（待ち。オーナーの返事など）/ `done`（完了。`doneAt` に日付）/ `skip`（しなくていい。やらないと決めたもの。`doneAt` に決めた日付）
 - `id` は `t` + 連番。今ある一番大きい番号の次にする。
