@@ -134,6 +134,7 @@ function auditFiles(app) {
 
   // §5 スマホ表示
   add('safe-area', /env\(safe-area-inset-/.test(code), '', '§5');
+  add('ダブルタップ拡大なし', /(^|[\s,}])html\s*(,[^{]*)?\{[^}]*touch-action:\s*manipulation/m.test(code), 'html に touch-action: manipulation', '§5');
   add('html の背景色', /(^|[\s,}])html\s*(,[^{]*)?\{[^}]*background/m.test(code), '', '§5');
 
   // §5 音（効果音は必須。Web Audio を使うなら、iPhone のマナーモードでも鳴るように）

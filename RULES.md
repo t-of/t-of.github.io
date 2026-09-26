@@ -183,7 +183,8 @@ keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE).map((k) => caches.delete
 - **必須** 高さは `100vh` ではなく `100dvh`。
 - **必須** 全画面のオーバーレイ・モーダルを隠すときは `opacity: 0` ではなく **`display: none`**（見えなくても Safari がバーの色を拾う）。
 - **必須** 縦画面のタッチ操作だけで最後まで遊べる。キーボード操作は PC 用の追加。
-- **推奨** 操作する領域に `touch-action: manipulation` と `user-select: none`（ダブルタップ拡大や長押し選択を防ぐ）。
+- **必須** `html { touch-action: manipulation; }`（スマホのダブルタップ拡大を止める。ピンチ拡大は残る。webapp-kit.css に入っている）。
+- **推奨** 操作する領域に `user-select: none`（長押し選択を防ぐ）。
 - **推奨** 押せるものは 44×44px 以上。
 - **推奨** `prefers-reduced-motion` で大きなアニメーションを弱める。
 

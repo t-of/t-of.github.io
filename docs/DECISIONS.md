@@ -160,3 +160,7 @@ Playwright で `channel: 'chrome'` を付けると、headless でも普段の Go
 - 同じ仕組みの「お札の旅」（https://osatsu-no-tabi.ayago.workers.dev/ 、2026-09-26 試験公開）より使いたくなる UI・UX を目指す。
 - 名前は紙幣リレー（shihei-relay）。お金はユーザーからは取らず、広告だけ。広告は最初の版に入れず、使う人が増えてから（例: 月 1,000 人）。手渡しリンクの呼び方は「リレーのリンク」。
 - Cloudflare のアカウントは、ほかの課金アプリと同じもの（オーナー 2026-09-26）。
+
+## ダブルタップ拡大を全アプリで止める（2026-09-26）
+
+- オーナーの指示で、RULES.md §5 の `touch-action: manipulation` を推奨から必須にした。`html` に付けて全体に効かせる（ピンチ拡大は残す）。webapp-kit.css に入れて全アプリに配り、kit を使わない Half-Cut・hue-hunter は各自の CSS に書いた（gear-align は前から入っていた）。audit.mjs §5「ダブルタップ拡大なし」で確かめる。
