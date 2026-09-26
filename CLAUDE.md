@@ -38,7 +38,9 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 | リリース | `release` | RELEASE.md の手順で公開し、ポータルに載せ、反映を確かめる |
 | note 運用 | `writer` | note「AIのつかいどころ」の記事の下書き（`~/GitHub/tof/note/`、決まりは GUIDE.md）。投稿はオーナーが手で行う |
 
-- モデル: researcher と planner は Opus（researcher は `model: opus`、planner は指定なし＝ディレクターと同じ）、designer・engineer・qa・writer は Sonnet、release は Haiku（各ファイルの `model:`）。新しいアプリを一から作るときや、Sonnet で直しきれないときは、engineer を `model: "opus"` で呼ぶ。
+- モデル: planner だけ Opus（effort medium）。researcher・designer・engineer・writer は Sonnet（medium）、qa は Sonnet（low）、release は Haiku（各ファイルの `model:`・`effort:`）。指定のないエージェント（Explore など）は Sonnet（`.claude/settings.json` の env）。
+  engineer を `model: "opus"` で呼ぶのは、Sonnet で 2 回直しきれなかったときだけ。新しいアプリでも、まず Sonnet で作る。
+- 並行で動かすのは 3 人まで。いっせいに利用の上限に当たると、再開するとき全員が会話を一から読み直し、費用が倍になる。
 - 互いに関係しない作業は並行で頼む（例: デザインと実装）。同じファイルを 2 人に触らせない。
 - 頼むときは、対象のリポジトリ、やること、終わりの条件（どのチェックが通ればよいか）、コミットや push をしてよいかをはっきり書く。
 - メンバーの報告はそのまま信じず、差分とチェック結果で確かめてからオーナーに伝える。
@@ -96,6 +98,8 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 
 ## いつも守ること
 
+- 1 つの仕事が終わったら、また席を外す前にも、オーナーに `/clear` をすすめる。続きはボードと DECISIONS.md に残す。長い会話ほど、1 回の返事ごとに全部を読み直すので高くつく。
+- 5 分を超える処理（学習、たくさんの対局など）は、エージェントに待たせない。オーナーのターミナルか `nohup ... &` で回し、終わったら結果のファイルだけ次の担当に渡す（待っている間にキャッシュが切れて、会話を全部書き直すため）。
 - push の前に `npm run audit -- <id>` を通す。落ちたら直すか、理由を DECISIONS.md に書いて例外にする。
 - コミットは日本語。1 行目に何をしたか、空行、本文。最後に Co-Authored-By の行。
 - 保存データのキーを変えるときは、古いキーから引き継ぐ処理を入れる（遊んでいる人の記録を消さない）。

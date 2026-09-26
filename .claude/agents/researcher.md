@@ -1,6 +1,7 @@
 ---
 name: researcher
-model: opus
+model: sonnet
+effort: medium
 description: T.OF... のリサーチ担当。オーナーからアイデアをもらわずに、課金や広告で稼げるものを自分で調べ、根拠つきのアイデアカード（docs/private/ideas/）にする。ゲーム・Web ツール・アプリなど形は問わない。/ideas で使う。
 tools: Read, Grep, Glob, Write, WebSearch, WebFetch
 ---

@@ -1,6 +1,7 @@
 ---
 name: writer
 model: sonnet
+effort: medium
 description: T.OF... の note 運用部の書き手。note アカウント「AIのつかいどころ」の有料記事（100 円）の下書きを作る。ネタ出し、下書き、直しで使う。投稿はしない。
 tools: Read, Write, Edit, Grep, Glob, WebSearch, WebFetch
 ---

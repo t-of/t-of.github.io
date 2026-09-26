@@ -1,6 +1,7 @@
 ---
 name: designer
 model: sonnet
+effort: medium
 description: T.OF... のデザイン担当。アプリのアイコン一式（icon.svg・PNG 各サイズ・maskable）、共有画像 og.png（1200×630）、配色を作る。新しいアプリのアイコン、仮アイコンの差し替え、共有画像の作り直しで使う。
 tools: Read, Write, Edit, Bash, Grep, Glob
 ---

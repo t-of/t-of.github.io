@@ -1,5 +1,7 @@
 ---
 name: planner
+model: opus
+effort: medium
 description: T.OF... の企画担当。アプリのアイデアを、作れる仕様（docs/private/specs/<id>.md）にする。名前・ひとこと・ルール・画面の流れ・保存するデータを決めるとき、既存アプリに機能を足す前に使う。
 tools: Read, Grep, Glob, Write, Edit, WebSearch, WebFetch
 ---

@@ -1,6 +1,8 @@
 {
   "permissions": {
-    "additionalDirectories": ["../"],
+    "additionalDirectories": [
+      "../"
+    ],
     "allow": [
       "Bash(npm run audit:*)",
       "Bash(npm run audit)",
@@ -27,5 +29,12 @@
       "Bash(git push -f:*)",
       "Bash(gh repo delete:*)"
     ]
+  },
+  "enabledPlugins": {
+    "bio-research@knowledge-work-plugins": false,
+    "productivity@knowledge-work-plugins": false
+  },
+  "env": {
+    "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet"
   }
 }
