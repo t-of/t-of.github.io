@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-26T03:14:56.221Z",
+  "updatedAt": "2026-09-26T04:49:37.260Z",
   "projects": [
     {
       "id": "note",
@@ -176,6 +176,13 @@
       "stage": "live",
       "created": "2026-09-25",
       "note": "オーナーのアイデア。2 つの扉のどちらかが正解。何回続けて当てられるかを記録する。テーマと演出が大事。id は仮"
+    },
+    {
+      "id": "super-marubatsu",
+      "name": "スーパーマルバツゲーム",
+      "stage": "live",
+      "created": "2026-09-26",
+      "note": "第 1 版（2 人対戦）を公開。第 2 版で AI（MCTS＋NN、手元の Mac で学習）"
     }
   ],
   "tasks": [
@@ -1434,7 +1441,7 @@
     {
       "id": "t100",
       "project": null,
-      "title": "収益化の前に、J-PlatPat の称呼検索で名前を手で引く（読みの一覧はディレクターが出す）。note の「AIのつかいどころ」も引く",
+      "title": "収益化の前に: 収益化してよいと決めた公開済みの 21 本の名前を、スタジオの商標チェックで引く（まず ★ の 2 つ）",
       "owner": "owner",
       "status": "todo",
       "created": "2026-09-24",
@@ -1922,7 +1929,7 @@
     {
       "id": "t142",
       "project": "note",
-      "title": "note の市場を調べる（売れているジャンル・値段、規約と AI 記事の扱い、世の中の需要）",
+      "title": "note の市場を調べる（売れているジャンル・値段、規約と AI ��事の扱い、世の中の需要）",
       "owner": "planner",
       "status": "done",
       "created": "2026-09-24",
@@ -3876,9 +3883,10 @@
       "project": null,
       "title": "収益化の前に: 5 本（ROWBREAK・LONE DECK・RINGGRAIN・LANDING DAY・PENCIL HOUR）の名前を J-PlatPat・USPTO・EUIPO で引く（語の一覧は各仕様の 9 章）",
       "owner": "owner",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-26",
+      "comment": "オーナーがスタジオの商標検索の道具で引いた"
     },
     {
       "id": "t317",
@@ -4211,6 +4219,161 @@
       "status": "done",
       "created": "2026-09-26",
       "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t351",
+      "project": null,
+      "title": "5 本のタイトル・説明に検索される言葉を足す（名前はそのまま）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t352",
+      "project": "t-of.github.io",
+      "title": "名前の決め方の決まりを BRAND.md と planner に足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t353",
+      "project": null,
+      "title": "スタジオに商標チェックのページを作る（語ごとに J-PlatPat・USPTO・EUIPO・TMview・WIPO を開く・コピー・結果を記録。本部の中だけ、公開しない）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t354",
+      "project": "super-marubatsu",
+      "title": "仕様を作る（名前・ルール・AI の学習の方法）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t355",
+      "project": "super-marubatsu",
+      "title": "名前を選ぶ（仕様 docs/private/specs/innergrid.md の 1 章。コメントに 2〜6 の答えも）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "choices": [
+        "INNERGRID",
+        "MANDATE",
+        "DEEP NOUGHT"
+      ],
+      "choiceLabels": {
+        "INNERGRID": "インナーグリッド（おすすめ・権利 問題なし）",
+        "MANDATE": "マンデート（権利 注意）",
+        "DEEP NOUGHT": "ディープノート（権利 注意）"
+      },
+      "choice": "スーパーマルバツゲーム（オーナーがチャットで）"
+    },
+    {
+      "id": "t356",
+      "project": "super-marubatsu",
+      "title": "権利の判定を選ぶ（INNERGRID なら問題なし。英語の Ultimate Tic-Tac-Toe はタイトルに入れない）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）"
+    },
+    {
+      "id": "t357",
+      "project": "super-marubatsu",
+      "title": "仕様をオーナーの決定に合わせる（名前・最初の版は AI なし）と名前の権利を見直す",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t358",
+      "project": "super-marubatsu",
+      "title": "第 1 版（2 人対戦だけ）を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t359",
+      "project": "super-marubatsu",
+      "title": "アイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t360",
+      "project": "super-marubatsu",
+      "title": "第 1 版を全体で確かめる",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t361",
+      "project": "super-marubatsu",
+      "title": "第 1 版（2 人対戦だけ）を公開してよいか（アイコンも見てください）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "images": [
+        ".audit/super-marubatsu-qa-play.png",
+        ".audit/super-marubatsu-qa-360-win.png",
+        ".audit/super-marubatsu-icons.png"
+      ],
+      "choices": [
+        "公開する",
+        "直してから"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t362",
+      "project": "super-marubatsu",
+      "title": "第 1 版を公開する（GitHub・Pages・apps.js・共有画像）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t363",
+      "project": "super-marubatsu",
+      "title": "第 2 版: 素の MCTS と NN の学習（手元の Mac）、強さ 5 段階、AI ボタンを押せるように",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-09-26",
+      "doneAt": null
+    },
+    {
+      "id": "t364",
+      "project": "super-marubatsu",
+      "title": "第 2 版の前に: 最強の合格を「同じ 1 手 1 秒で素の MCTS に 90% 以上」にしてよいか",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-09-26",
+      "doneAt": null
     }
   ],
   "ideas": []
