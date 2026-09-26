@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-26T06:53:56.493Z",
+  "updatedAt": "2026-09-26T10:23:12.616Z",
   "projects": [
     {
       "id": "note",
@@ -187,7 +187,7 @@
     {
       "id": "shihei-relay",
       "name": "紙幣リレー",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-26",
       "note": "お札の記番号と場所を登録し、同じ番号が来たらどこから移動したかわかる。Where's George? の日本円版。広告だけで収益化（課金なし）、Cloudflare に置く"
     },
@@ -4591,9 +4591,9 @@
       "project": "septet",
       "title": "SEPTET の最初の版を作る（SESTET を写して 7 マスに。盤の大きさを測って決め、得点を合わせ、線形 AI を学ばせ、ネットの学習を nohup で始める）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-26",
-      "doneAt": null
+      "doneAt": "2026-09-26"
     },
     {
       "id": "t381",
@@ -4618,15 +4618,173 @@
       "project": "shihei-relay",
       "title": "紙幣リレーの本体を作る（Cloudflare・Firebase・キーパッド・撮影読み取り）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-26",
-      "doneAt": null
+      "doneAt": "2026-09-26"
     },
     {
       "id": "t384",
       "project": "shihei-relay",
       "title": "紙幣リレーのアイコン一式と共有画像を作る",
       "owner": "designer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t385",
+      "project": "shihei-relay",
+      "title": "紙幣リレーの Firebase プロジェクトを作る（README「Firebase の準備」1〜5）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t386",
+      "project": "shihei-relay",
+      "title": "紙幣リレーを確かめる（audit・スマホ幅・使い勝手）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t387",
+      "project": "shihei-relay",
+      "title": "紙幣リレーの初回画面を 360×640 に収め、消すキーと記番号の枠を直す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t388",
+      "project": "septet",
+      "title": "SEPTET のネットを学ぶ（nohup、~/.cache/septet-train/net-work2、ログ log2.txt）。終わったら線形と比べ、観戦をどちらにするか決める",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-26",
+      "doneAt": null
+    },
+    {
+      "id": "t389",
+      "project": "shihei-relay",
+      "title": "紙幣リレーを公開してよいか・アイコンでよいか決める（Firestore のルールは公開済み）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "choice": "OK",
+      "comment": "チャットで OK。券種の表記は漢数字に"
+    },
+    {
+      "id": "t390",
+      "project": "shihei-relay",
+      "title": "紙幣リレーのアイコン案を 3 つ作る（お札と日本が分かるもの）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t391",
+      "project": "shihei-relay",
+      "title": "紙幣リレーのアイコンを選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "images": [
+        ".audit/shihei-relay-icon-choices.png"
+      ],
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceImages": {
+        "A": ".audit/shihei-relay-icon-A.svg",
+        "B": ".audit/shihei-relay-icon-B.svg",
+        "C": ".audit/shihei-relay-icon-C.svg"
+      },
+      "choiceLabels": {
+        "A": "日本列島＋¥",
+        "B": "¥＋手渡しの矢印",
+        "C": "記番号の紙＋朱印"
+      },
+      "choice": "B",
+      "comment": "チャットで回答。B に日本列島を薄く入れ（B2）、線の両端を丸に"
+    },
+    {
+      "id": "t392",
+      "project": null,
+      "title": "LOGIC JAM のプロトタイプ（1 ファイルの MVP）を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "comment": "オーナーが遊んで却下（ゲーム性が薄い）。試作は .audit/logic-jam/ に残してある"
+    },
+    {
+      "id": "t393",
+      "project": "shihei-relay",
+      "title": "紙幣リレーを Cloudflare に公開し、ポータルに載せる",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t394",
+      "project": "shihei-relay",
+      "title": "紙幣リレーを iPhone と本物のお札で試す（撮影の読み取り・登録・地図）",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-09-26",
+      "doneAt": null
+    },
+    {
+      "id": "t395",
+      "project": "shihei-relay",
+      "title": "紙幣リレーに「広めよう」の呼びかけを入れる（結果画面・みんな）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t396",
+      "project": "shihei-relay",
+      "title": "紙幣リレーに、記番号の確認画面・登録済みの確認・手元に戻ってきたときの対応を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t397",
+      "project": "shihei-relay",
+      "title": "紙幣リレーに登録したお札の一覧画面を作る（記番号が見える・券種ごと・並び替え・レアの印・お気に入り）。カメラの修正のあと",
+      "owner": "planner",
+      "status": "doing",
+      "created": "2026-09-26",
+      "doneAt": null
+    },
+    {
+      "id": "t398",
+      "project": "shihei-relay",
+      "title": "撮影の読み取りを直す（字の塊だけ残して読ませる。iPhone で確認待ち）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t399",
+      "project": "shihei-relay",
+      "title": "紙幣リレーで昔のお札（百円札・五百円札など）も登録できるようにする。券種の選択に「もっと見る」を置き、その中に出す。カメラの修正のあと",
+      "owner": "planner",
       "status": "doing",
       "created": "2026-09-26",
       "doneAt": null

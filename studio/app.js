@@ -117,7 +117,7 @@ function feedText(item) {
 const STALE_MS = 60 * 60 * 1000;   // 最後の計測がこれより前なら「古いかも」と分かるように薄くする
 const WARN_PCT = 20;               // 残りがこれ以下なら警告色
 
-// 見出しは「今日の体力」（5 時間で回復）「今週の勤務可能量」（週で回復）
+// 見出しは「5 時間の疲れ」（5 時間で回復）「今週の疲れ」（週で回復）
 function usageGauge(label, box, now) {
   if (!box) return null;
   const resetAt = (box.resets_at || 0) * 1000;
@@ -131,19 +131,19 @@ function renderUsage() {
   const box = $('usage');
   const u = state.usage;
   box.replaceChildren();
-  box.append(el('h2', 'panel-title', '社員の残り労働可能量'));
+  box.append(el('h2', 'panel-title', '社員の疲れ具合'));
   if (!u || (!u.five_hour && !u.seven_day)) { box.append(el('p', 'muted', 'まだ計測なし')); return; }
   const now = Date.now();
-  const rows = [['今日の体力', u.five_hour, '日'], ['今週の勤務可能量', u.seven_day, '週']];
+  const rows = [['5 時間の疲れ', u.five_hour, '日'], ['今週の疲れ', u.seven_day, '週']];
   for (const [label, data, kind] of rows) {
     const g = usageGauge(kind, data, now);
     if (!g) continue;
     const row = el('div', `usage__row${g.remain <= WARN_PCT ? ' is-warn' : ''}`);
     const head = el('div', 'usage__head');
-    head.append(el('span', 'usage__label', label), el('span', 'usage__pct', `残り ${Math.round(g.remain)}%`));
+    head.append(el('span', 'usage__label', label), el('span', 'usage__pct', `使用 ${Math.round(100 - g.remain)}%`));
     const bar = el('div', 'usage__bar');
     bar.append(el('span', 'usage__fill'));
-    bar.firstChild.style.width = `${g.remain}%`;
+    bar.firstChild.style.width = `${100 - g.remain}%`;   // 使った分が伸びていく
     row.append(head, bar);
     if (g.reset) row.append(el('p', 'usage__reset', g.reset));
     box.append(row);
