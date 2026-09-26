@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-25T12:51:06.979Z",
+  "updatedAt": "2026-09-26T01:08:59.353Z",
   "projects": [
     {
       "id": "note",
@@ -159,7 +159,7 @@
     {
       "id": "sestet",
       "name": "SESTET",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-25",
       "note": "QUINTILE の 6 マス版。AI は機械学習。id は仮"
     },
@@ -180,7 +180,7 @@
     {
       "id": "rowbreak",
       "name": "ROWBREAK",
-      "stage": "build",
+      "stage": "release",
       "created": "2026-09-25",
       "note": "置いて消す 8×8 ブロック",
       "idea": "docs/private/ideas/2026-09-25-rowbreak.md"
@@ -188,7 +188,7 @@
     {
       "id": "lone-deck",
       "name": "LONE DECK",
-      "stage": "build",
+      "stage": "release",
       "created": "2026-09-25",
       "note": "必ず解けるひとりトランプ",
       "idea": "docs/private/ideas/2026-09-25-lone-deck.md"
@@ -196,7 +196,7 @@
     {
       "id": "ringgrain",
       "name": "RINGGRAIN",
-      "stage": "build",
+      "stage": "release",
       "created": "2026-09-25",
       "note": "毎日の気分が年輪になる",
       "idea": "docs/private/ideas/2026-09-25-ringgrain.md"
@@ -204,7 +204,7 @@
     {
       "id": "landing-day",
       "name": "LANDING DAY",
-      "stage": "build",
+      "stage": "release",
       "created": "2026-09-25",
       "note": "試験日から逆算する暗記カード",
       "idea": "docs/private/ideas/2026-09-25-runway-deck.md"
@@ -212,7 +212,7 @@
     {
       "id": "pencil-hour",
       "name": "PENCIL HOUR",
-      "stage": "build",
+      "stage": "release",
       "created": "2026-09-25",
       "note": "大きな字の脳トレを毎日刷る",
       "idea": "docs/private/ideas/2026-09-25-pencil-hour.md"
@@ -2501,7 +2501,7 @@
     {
       "id": "t191",
       "project": "irowa",
-      "title": "いろわを公開してよいか選ぶ。品�������は合格（audit 30/30、テスト 5 件、390・360 幅と PC で最後まで遊べた）。3 つの輪を回して、崩れた玉の色を元に戻すパズル。やさしい・ふつう・むずかしい、色の印（色覚の違う人向け）つき",
+      "title": "いろわを公開してよいか選ぶ。品���������は合���（audit 30/30、テスト 5 件、390・360 幅と PC で最後まで遊べた）。3 つの輪を回して、崩れた玉の色を元に戻すパズル。やさしい・ふつう・むずかしい、色の印（色覚の違う人向け）つき",
       "owner": "owner",
       "status": "done",
       "created": "2026-09-25",
@@ -3549,11 +3549,11 @@
     },
     {
       "id": "t284",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null,
+      "doneAt": "2026-09-25",
       "project": "sestet",
-      "title": "SESTET の得点を直して AI を学び直す（オーナーの指示で一時停止中）。途中の変更はアプリのリポジトリの git stash（stash@{0}）、学習の状態は ~/.cache/sestet-train/net-work2（41 回目まで）。再開は git stash pop してから train-net.js を同じ --work で続ける",
+      "title": "SESTET の得点を直して AI を学び直す（スピンの点を下げる・スピンで B2B を続けない・SESTET の点を上げる）。学習の状態は ~/.cache/sestet-train/net-work2",
       "owner": "engineer"
     },
     {
@@ -3938,11 +3938,11 @@
     {
       "id": "t319",
       "project": "lone-deck",
-      "title": "LONE DECK: 仕様どおりに最初の版を作る（日英）（2026-09-26 中断。途中まで作ってある。続きから）",
+      "title": "LONE DECK: 仕様どおりに最初の版を作る（日英）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-26"
     },
     {
       "id": "t320",
@@ -3974,11 +3974,11 @@
     {
       "id": "t323",
       "project": "landing-day",
-      "title": "LANDING DAY: 仕様どおりに最初の版を作る（日英）（2026-09-26 中断。途中まで作ってある。続きから）",
+      "title": "LANDING DAY: 仕様どおりに最初の版を作る（日英）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-25",
-      "doneAt": null
+      "doneAt": "2026-09-26"
     },
     {
       "id": "t324",
@@ -4010,11 +4010,170 @@
     {
       "id": "t327",
       "project": "pencil-hour",
-      "title": "PENCIL HOUR: 390 幅の下の帯の文字の重なりと、計算の紙の 2 桁の番号の詰まりを直す（2026-09-26 中断）",
+      "title": "PENCIL HOUR: 390 幅の下の帯の文字の重なりと、計算の紙の 2 桁の番号の詰まりを直す",
       "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t328",
+      "project": "t-of.github.io",
+      "title": "RULES.md に §13（課金・広告）・§14（Cloudflare）を足し、audit.mjs と RELEASE.md を合わせる",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t329",
+      "project": "t-of.github.io",
+      "title": "Cloudflare のアカウントを作る（無料）。できたらディレクターに伝える",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t330",
+      "project": "rowbreak",
+      "title": "ROWBREAK: 公開前の確認（日英・スマホ幅・操作・オフライン）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t331",
+      "project": "lone-deck",
+      "title": "LONE DECK: 公開前の確認（日英・スマホ幅・操作・オフライン）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t332",
+      "project": "ringgrain",
+      "title": "RINGGRAIN: 公開前の確認（日英・スマホ幅・操作・オフライン）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t333",
+      "project": "landing-day",
+      "title": "LANDING DAY: 公開前の確認（日英・スマホ幅・操作・オフライン）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t334",
+      "project": "pencil-hour",
+      "title": "PENCIL HOUR: 公開前の確認（日英・スマホ幅・操作・オフライン）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t335",
+      "project": "landing-day",
+      "title": "LANDING DAY: 長い試験名で横にはみ出すのを直し、ホームの空白に今日の分の内訳を出す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t336",
+      "project": "lone-deck",
+      "title": "LONE DECK: PC 幅で場を中央に寄せる",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t337",
+      "project": null,
+      "title": "5 本（ROWBREAK・LONE DECK・RINGGRAIN・LANDING DAY・PENCIL HOUR）の画面を見て、公開するか決める（Cloudflare に出す。広告・課金はまだ入れない）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "images": [
+        ".audit/rowbreak-ja-390-clear.png",
+        ".audit/lone-deck-ja-390-mid.png",
+        ".audit/ringgrain-ja-390-months.png",
+        ".audit/landing-day/home-ja-390-few.png",
+        ".audit/pencil-hour/ja-390.png"
+      ],
+      "choices": [
+        "5 本とも公開する",
+        "直してから（コメントに）",
+        "まだ公開しない"
+      ],
+      "choice": "5 本とも公開する",
+      "comment": ""
+    },
+    {
+      "id": "t338",
+      "project": null,
+      "title": "Cloudflare に置くアプリのソースを公開するか決める（今のアプリはポータルに「ソース」のリンクがある）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "choices": [
+        "公開する（今のアプリと同じ）",
+        "非公開にする（ソースのリンクを出さない）"
+      ],
+      "choiceLabels": {
+        "公開する（今のアプリと同じ）": "秘密の値はもともと入れない決まり。作りをそろえられる",
+        "非公開にする（ソースのリンクを出さない）": "有料の機能の中身をまねされにくい"
+      },
+      "choice": "公開する（今のアプリと同じ）",
+      "comment": ""
+    },
+    {
+      "id": "t339",
+      "status": "done",
+      "created": "2026-09-25",
+      "doneAt": "2026-09-26",
+      "project": "sestet",
+      "title": "SESTET を確かめる（audit・スマホ幅・35 種・得点・AI の観戦・テトリスの見た目から離れているか）",
+      "owner": "qa"
+    },
+    {
+      "id": "t340",
       "status": "todo",
+      "created": "2026-09-25",
+      "doneAt": null,
+      "project": "sestet",
+      "title": "SESTET の AI をニューラルネットでもう一度試すか決める。新しい得点では線形より −5.4% で採用しなかった（前の得点の +42.6% はスピンの連続で稼いだ分だった）。試すなら自己対戦を増やす・測る種を増やすなど。仕組みと続きの状態は ~/.cache/sestet-train/ に残してある",
+      "owner": "owner"
+    },
+    {
+      "id": "t341",
+      "project": null,
+      "title": "Cloudflare: 2 段階認証を入れ、workers.dev の名前（おすすめ t-of）を決めてディレクターに伝える",
+      "owner": "owner",
+      "status": "waiting",
       "created": "2026-09-26",
       "doneAt": null
+    },
+    {
+      "id": "t342",
+      "project": "sestet",
+      "title": "SESTET を公開する（全承認の指示で承諾。色は #f2b544）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
     }
   ],
   "ideas": []
