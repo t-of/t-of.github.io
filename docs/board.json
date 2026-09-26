@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-26T13:02:34.699Z",
+  "updatedAt": "2026-09-26T13:28:03.048Z",
   "projects": [
     {
       "id": "note",
@@ -4989,6 +4989,33 @@
       "project": "sns",
       "title": "SNS 運用部を作る（sns エージェント、docs/private/sns/GUIDE.md、スタジオの部屋）",
       "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t419",
+      "project": "core-image-english",
+      "title": "演習で間違えた答えが別の意味の文になるとき、正解と並べて意味を出す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t420",
+      "project": "shihei-relay",
+      "title": "設定に画面の明るさ（スマホに合わせる・明るい・暗い）を足して公開",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t421",
+      "project": "core-image-english",
+      "title": "演習・単語の達成度を小さなドーナツグラフで出す",
+      "owner": "engineer",
       "status": "done",
       "created": "2026-09-26",
       "doneAt": "2026-09-26"
