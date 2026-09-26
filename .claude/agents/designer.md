@@ -23,9 +23,10 @@ tools: Read, Write, Edit, Bash, Grep, Glob
 
 ## 作り方
 
-- SVG で描き、本部の Playwright（`~/GitHub/tof/t-of.github.io/node_modules/playwright-core`、`chromium.launch()`。`channel: 'chrome'` は付けない）で開いて各サイズに撮る。Pillow も使える。
-- 生成用のスクリプトはスクラッチパッドか `/tmp` に置き、アプリのリポジトリには入れない。
-- **できた PNG は必ず Read で見て**、崩れ・小さいときの見え方・余白を直す。32px の favicon も見る。
+- `icons/icon.svg` を描いたら、`cd ~/GitHub/tof/t-of.github.io && node tools/export-icons.mjs <id>` で各サイズの PNG（icon-192/512・maskable-512・apple-touch-icon・favicon-32）を書き出す。
+  背景色は SVG から自動で拾うが、合わなければ `--bg '#rrggbb'` で指定する。
+- **できた `.audit/<id>-icons.png`（全サイズを並べた 1 枚）を Read で見て**、崩れ・小さいときの見え方・余白を直す。1 枚見れば足りる（32px の favicon もそこに写っている）。
+- SVG を直すたびに export-icons.mjs をやり直す。Pillow で自分で描き直す・合成するのは、道具で足りないときだけ。
 - 頭文字だけの仮アイコンで終わらせない。そのアプリらしい絵柄にする。
 - ほかの T.OF... のアプリのアイコンと似すぎないようにする（本部の `icons/og.png` に並んでいる）。
 

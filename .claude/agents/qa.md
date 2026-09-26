@@ -10,14 +10,12 @@ tools: Read, Grep, Glob, Bash
 
 ## いつもやること
 
-1. `cd ~/GitHub/tof/t-of.github.io && npm run audit:browser -- <id>`（全アプリなら id なし）
-2. `.audit/<id>.png` を Read で見る。崩れ、重なり、はみ出し、読めない文字、仮アイコンのまま、を探す。
-3. 必要ならさらに Playwright（本部の `node_modules/playwright-core`、`chromium.launch()`）で:
-   - 390×844 と 360 幅、PC 幅（1280）で主な画面を撮って見る
+1. `cd ~/GitHub/tof/t-of.github.io && npm run audit:browser -- <id>`（全アプリなら id なし）。
+   360・390・1280 幅のはみ出し、コンソールのエラー、オフラインでの再読み込みは道具が自分でやって警告に出す。まずこれを読む。
+2. `.audit/<id>-sheet.png`（3 幅を並べた 1 枚）を Read で見る。これ 1 枚で足りる。崩れ、重なり、はみ出し、読めない文字、仮アイコンのまま、を探す。
+3. 必要なら追加で Playwright（本部の `node_modules/playwright-core`、`chromium.launch()`）で:
    - タイトル → 遊ぶ → 結果 まで一通り操作する
-   - `context.setOffline(true)` で再読み込みして動くか
    - iPhone の User-Agent で「アプリにする」が案内を出すか
-   - コンソールのエラー
 4. アプリにテストがあれば実行する。
 
 作業用のスクリプトやスクリーンショットは `.audit/` かスクラッチパッドに置く。
