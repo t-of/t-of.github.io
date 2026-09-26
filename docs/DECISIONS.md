@@ -151,3 +151,12 @@ Playwright で `channel: 'chrome'` を付けると、headless でも普段の Go
 - 対象は、課金を予定している ROWBREAK・LONE DECK・RINGGRAIN・LANDING DAY・PENCIL HOUR。RINGGRAIN と LANDING DAY は個人の記録を持つので、最初の公開から Cloudflare に置く（あとで移すと記録が移らない）。
 - 公開済みの 30 本ほどは今までどおり GitHub Pages。独自ドメインは今は取らない（上の決まりのまま）。
 - 決まりは RULES.md §13（課金・広告）・§14（Cloudflare に置くアプリ）。入れる前のチェック表は docs/private/legal/checklist.md。調べの元は docs/private/legal/monetization-law.md・monetization-security.md。
+
+### 紙幣リレー（shihei-relay、お札の追跡）は日本語の名前で、最初から Cloudflare に置く（2026-09-26 オーナー）
+- 権利の選択は「作る（収益化できる）」。記録（登録）を持つので、最初の公開から Cloudflare に置く（上の決まり）。
+- 名前は英語・カタカナの決まり（BRAND.md「アプリの名前」）の例外で、日本語にする。日本向けのサービスのため。
+- 共有データは Firebase（hue-hunter とは別のプロジェクト）。コンソールの操作はオーナー。
+- 他人に見せる場所は地図上の点（市区町村）、時刻まで見せてよい。地図は同梱の日本の輪郭。
+- 同じ仕組みの「お札の旅」（https://osatsu-no-tabi.ayago.workers.dev/ 、2026-09-26 試験公開）より使いたくなる UI・UX を目指す。
+- 名前は紙幣リレー（shihei-relay）。お金はユーザーからは取らず、広告だけ。広告は最初の版に入れず、使う人が増えてから（例: 月 1,000 人）。手渡しリンクの呼び方は「リレーのリンク」。
+- Cloudflare のアカウントは、ほかの課金アプリと同じもの（オーナー 2026-09-26）。

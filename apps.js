@@ -19,6 +19,18 @@
 
 window.TOFO_APPS = [
   {
+    id: 'shihei-relay',
+    name: '紙幣リレー',
+    title: '記番号でお札の行方をたどる',
+    desc: 'お札の記番号と場所を登録して、紙幣の行方を追跡。同じお札をほかの人が登録すると、どこからどこへ何 km 移ったかが地図に出る。撮影で記番号を読み取れ、ゾロ目などのレア番号も判定。',
+    category: 'tool',
+    tags: ['お札', '地図'],
+    host: 'cloudflare',
+    url: 'https://shihei-relay.t-of.workers.dev/',
+    icon: 'https://shihei-relay.t-of.workers.dev/icons/icon-192.png',
+    color: '#8a2a1f',
+  },
+  {
     id: 'super-marubatsu',
     name: 'スーパーマルバツゲーム',
     title: '9 つの三目並べで 3 つ並べる',
