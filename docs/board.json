@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-26T10:23:12.616Z",
+  "updatedAt": "2026-09-26T13:02:34.699Z",
   "projects": [
     {
       "id": "note",
@@ -8,6 +8,13 @@
       "stage": "other",
       "created": "2026-09-24",
       "note": "アプリ制作とは別。100 円の有料記事を 1 日 1 本以上。テーマは生成 AI（平日 5 本: 実務での使い方、週末 2 本: 海外事例の紹介）。2〜4 週で売上を比べて配分を決める。フォルダは ~/GitHub/tof/note/（t-of/note）"
+    },
+    {
+      "id": "sns",
+      "name": "SNS 運用部",
+      "stage": "other",
+      "created": "2026-09-26",
+      "note": "X（@tof_label）の投稿の下書きと予定。担当は sns（Sonnet）、投稿はオーナーが手で行う。決まりと下書きは docs/private/sns/"
     },
     {
       "id": "last-three",
@@ -4724,7 +4731,7 @@
       "status": "done",
       "created": "2026-09-26",
       "doneAt": "2026-09-26",
-      "comment": "オーナーが遊んで却下（ゲーム性が薄い）。試作は .audit/logic-jam/ に残してある"
+      "comment": "オーナーが遊んで却下（ゲーム性が薄い）。試作は消した"
     },
     {
       "id": "t393",
@@ -4740,9 +4747,9 @@
       "project": "shihei-relay",
       "title": "紙幣リレーを iPhone と本物のお札で試す（撮影の読み取り・登録・地図）",
       "owner": "owner",
-      "status": "todo",
+      "status": "done",
       "created": "2026-09-26",
-      "doneAt": null
+      "doneAt": "2026-09-26"
     },
     {
       "id": "t395",
@@ -4766,10 +4773,10 @@
       "id": "t397",
       "project": "shihei-relay",
       "title": "紙幣リレーに登録したお札の一覧画面を作る（記番号が見える・券種ごと・並び替え・レアの印・お気に入り）。カメラの修正のあと",
-      "owner": "planner",
-      "status": "doing",
+      "owner": "engineer",
+      "status": "done",
       "created": "2026-09-26",
-      "doneAt": null
+      "doneAt": "2026-09-26"
     },
     {
       "id": "t398",
@@ -4784,10 +4791,207 @@
       "id": "t399",
       "project": "shihei-relay",
       "title": "紙幣リレーで昔のお札（百円札・五百円札など）も登録できるようにする。券種の選択に「もっと見る」を置き、その中に出す。カメラの修正のあと",
-      "owner": "planner",
-      "status": "doing",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t400",
+      "project": "super-marubatsu",
+      "title": "盤の線と、いま打てる盤を見分けやすくする（公開済み）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t401",
+      "project": "shihei-relay",
+      "title": "地図をピンチ・ドラッグ・＋－ボタンで拡大縮小できるようにする（未公開）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t402",
+      "project": "shihei-relay",
+      "title": "見た目の色を決める案を作る（ダークモード追従 / アイコン・地図の色に合わせる）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t403",
+      "project": "t-of.github.io",
+      "title": "全アプリのダブルタップ拡大を止める（webapp-kit.css・RULES §5 必須・audit）。push はオーナー待ち",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t404",
+      "project": "shihei-relay",
+      "title": "紙幣リレーの色を選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "images": [
+        ".audit/shihei-color-A-map.png",
+        ".audit/shihei-color-A2-map.png",
+        ".audit/shihei-color-B-map.png",
+        ".audit/shihei-color-C-map.png"
+      ],
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "choiceLabels": {
+        "A": "今の暗い色＋OSがライトなら明るく",
+        "B": "赤・生成りの明るい色で固定",
+        "C": "赤・黄の暗い色で固定",
+        "D": "B と C を OS に合わせて切り替え"
+      },
+      "choiceImages": {
+        "A": ".audit/shihei-color-A-map.png",
+        "B": ".audit/shihei-color-B-map.png",
+        "C": ".audit/shihei-color-C-map.png",
+        "D": ".audit/shihei-color-B-map.png"
+      },
+      "choice": "D",
+      "comment": ""
+    },
+    {
+      "id": "t405",
+      "project": "shihei-relay",
+      "title": "配色を D（明るい生成り・赤／ダークモードは赤・黄の暗い版）にし、地図の点を拡大に合わせた大きさにする（未公開）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t406",
+      "project": "shihei-relay",
+      "title": "利用規約を足し、プライバシーポリシーに紙幣リレーの項を足す（未公開）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t407",
+      "project": "t-of.github.io",
+      "title": "全アプリに「問い合わせ」のリンクを足す（ポータルの /contact/ へ）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t408",
+      "project": "t-of.github.io",
+      "title": "問い合わせ用の Google フォームを作り、URL を教える",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t409",
+      "project": "shihei-relay",
+      "title": "本格公開に向けて、広め方・利用者が増えたときの備え・法的責任を調べる",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t410",
+      "project": "shihei-relay",
+      "title": "公開前の直し: App Check・みんなの読み取りを減らす・上限時の案内・規約と注意書き",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t411",
+      "project": "t-of.github.io",
+      "title": "X のアカウントを T.OF... として作る（プロフィール文はディレクターが用意）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t412",
+      "project": "shihei-relay",
+      "title": "App Check: reCAPTCHA Classic は新規登録できず。公開後に Fraud Defense（旧 Enterprise）で入れ直す（請求先の登録が要るならオーナーが決める）",
+      "owner": "owner",
+      "status": "waiting",
       "created": "2026-09-26",
       "doneAt": null
+    },
+    {
+      "id": "t413",
+      "project": "shihei-relay",
+      "title": "本物のお札で撮影→読み取りを試す（オーナー確認: 大丈夫）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t414",
+      "project": "shihei-relay",
+      "title": "種まき: 数十枚を登録してから買い物で使う（身近な人にもリレーのリンク）",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-09-26",
+      "doneAt": null
+    },
+    {
+      "id": "t415",
+      "project": "shihei-relay",
+      "title": "再発見の共有画像（canvas で作り、Web Share で X に出せる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t416",
+      "project": "shihei-relay",
+      "title": "X 用の 15 秒の画面録画（playwright、お札は映さない）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t417",
+      "project": "t-of.github.io",
+      "title": "X のアカウントのアイコン（400×400）とヘッダー（1500×500）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t418",
+      "project": "sns",
+      "title": "SNS 運用部を作る（sns エージェント、docs/private/sns/GUIDE.md、スタジオの部屋）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
     }
   ],
   "ideas": []

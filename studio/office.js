@@ -12,6 +12,7 @@ export const ROLES = {
   qa: { person: '村上', name: '品質', color: '#36a075', icon: '✓' },
   release: { person: '藤井', name: 'リリース', color: '#e2582e', icon: '↑' },
   writer: { person: '岡本', name: 'note', color: '#41c9b4', icon: '✍' },
+  sns: { person: '村田', name: 'SNS', color: '#9fcf4a', icon: '#' },
   owner: { name: 'オーナー', color: '#eceef3', icon: '★' },
 };
 export const PEOPLE = {
@@ -23,8 +24,9 @@ export const PEOPLE = {
   qa: ['村上', '近藤', '石井', '斎藤', '坂本', '遠藤'],
   release: ['藤井', '青木', '西村', '福田', '太田', '三浦'],
   writer: ['岡本', '松田', '中川', '中野', '原田', '小川'],
+  sns: ['村田', '新井', '菅原', '武田', '上田', '杉山'],
 };
-const ROOM_ORDER = ['director', 'researcher', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer'];
+const ROOM_ORDER = ['director', 'researcher', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer', 'sns'];
 const hash = (s) => { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h; };
 export const leader = (role) => ROLES[role]?.person || ROLES[role]?.name || role;
 // id → 名前。同じ id には常に同じ名前を返す（フロアの札も #feed・成績・タスクの詳細も、この 1 つの名簿を見るので自然に揃う）
@@ -132,25 +134,27 @@ function buildLayout(caps) {
   const rooms = [];
   let W, H, corridor, entrance;
   if (!narrow) {
-    const top = ['director', 'researcher', 'planner', 'designer', 'owner'];
-    const bottom = ['engineer', 'qa', 'release', 'writer', 'break'];
-    const wOf = (i) => (i < 4 ? RW : OW), xOf = (i) => M + i * RW;
-    const h1 = Math.max(...top.map((k, i) => needHeight(k, wOf(i), caps)));
-    const h2 = Math.max(...bottom.map((k, i) => needHeight(k, wOf(i), caps)));
-    W = M * 2 + RW * 4 + OW; H = M * 2 + h1 + CW + h2;
-    top.forEach((k, i) => rooms.push({ key: k, x: xOf(i), y: M, w: wOf(i), h: h1, door: 'bottom', aisle: 'left' }));
-    bottom.forEach((k, i) => rooms.push({ key: k, x: xOf(i), y: M + h1 + CW, w: wOf(i), h: h2, door: 'top', aisle: 'left' }));
+    const top = ['director', 'researcher', 'planner', 'designer', 'engineer', 'owner'];
+    const bottom = ['qa', 'release', 'writer', 'sns', 'break'];
+    W = M * 2 + RW * (top.length - 1) + OW;
+    // 各列の最後の部屋（オーナー・休憩）が残りの幅を使う
+    const wOf = (row, i) => (i < row.length - 1 ? RW : W - M * 2 - RW * i), xOf = (i) => M + i * RW;
+    const h1 = Math.max(...top.map((k, i) => needHeight(k, wOf(top, i), caps)));
+    const h2 = Math.max(...bottom.map((k, i) => needHeight(k, wOf(bottom, i), caps)));
+    H = M * 2 + h1 + CW + h2;
+    top.forEach((k, i) => rooms.push({ key: k, x: xOf(i), y: M, w: wOf(top, i), h: h1, door: 'bottom', aisle: 'left' }));
+    bottom.forEach((k, i) => rooms.push({ key: k, x: xOf(i), y: M + h1 + CW, w: wOf(bottom, i), h: h2, door: 'top', aisle: 'left' }));
     corridor = { x: M, y: M + h1, w: W - M * 2, h: CW, horiz: true };
     const cy = corridor.y + CW / 2;
     entrance = { out: { x: 2, y: cy }, edge: { x: M + 6, y: cy }, end: { x: M + 30, y: cy } };
   } else {
-    const rows = [['director', 'owner'], ['researcher', 'planner'], ['designer', 'engineer'], ['qa', 'release'], ['writer', 'break']];
+    const rows = [['director', 'owner'], ['researcher', 'planner'], ['designer', 'engineer'], ['qa', 'release'], ['writer', 'sns'], ['break']];
     W = M * 2 + RW * 2 + CW;
     let y = M;
     for (const [l, r] of rows) {
-      const h = Math.max(needHeight(l, RW, caps), needHeight(r, RW, caps));
+      const h = Math.max(needHeight(l, RW, caps), r ? needHeight(r, RW, caps) : 0);
       rooms.push({ key: l, x: M, y, w: RW, h, door: 'right', aisle: 'right' });
-      rooms.push({ key: r, x: M + RW + CW, y, w: RW, h, door: 'left', aisle: 'left' });
+      if (r) rooms.push({ key: r, x: M + RW + CW, y, w: RW, h, door: 'left', aisle: 'left' });
       y += h;
     }
     H = y + M;

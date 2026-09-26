@@ -57,11 +57,12 @@ T.OF... スタジオ（`npm run studio` → http://localhost:4141）を大きく
 | qa | 品質（チェック・確認） | 村上 | #36a075 | ✓ |
 | release | リリース（公開・掲載） | 藤井 | #e2582e | ↑ |
 | writer | note（記事の下書き） | 岡本 | #41c9b4 | ✍ |
+| sns | SNS（X の投稿の下書き） | 村田 | #9fcf4a | # |
 | owner | オーナー（あなた） | — | #eceef3 | ★ |
 
 - 同じ係の人が何人も同時に動く。席に着いた人には `PEOPLE`（係ごとに 6〜12 人の名前）から、重ならない名前を付ける。先頭がリーダー。
 - 成績は一人ずつではなく係（チーム）ごとに出す（DECISIONS.md「スタジオの係の名前」）。
-- 上の `ROLES`/`PEOPLE`（日本の名字、漢字。係ごと 6 人、重ならない 48 個）は `studio/office.js` が持つ 1 か所だけの名簿。`app.js` は `import { ROLES, leader, nameOf } from './office.js'` して使うので、フロアの札も `#feed`・成績・プロジェクトの詳細も同じ名前になる。id → 名前は `nameOf(role, id)`（id から決まる、常に同じ）で決める。
+- 上の `ROLES`/`PEOPLE`（日本の名字、漢字。係ごと 6 人、重ならない 54 個）は `studio/office.js` が持つ 1 か所だけの名簿。`app.js` は `import { ROLES, leader, nameOf } from './office.js'` して使うので、フロアの札も `#feed`・成績・プロジェクトの詳細も同じ名前になる。id → 名前は `nameOf(role, id)`（id から決まる、常に同じ）で決める。
 
 ## データ
 

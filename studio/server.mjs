@@ -36,7 +36,7 @@ const PAUSE_MS = 10 * 60 * 1000;         // 台帳の時間: 記録の間がこ�
 // ---------- 役割 ----------
 
 // エージェントの種類 → 席。general-purpose などは頼んだ内容から推測する
-const ROLE_OF_TYPE = { researcher: 'researcher', planner: 'planner', designer: 'designer', engineer: 'engineer', qa: 'qa', release: 'release', writer: 'writer' };
+const ROLE_OF_TYPE = { researcher: 'researcher', planner: 'planner', designer: 'designer', engineer: 'engineer', qa: 'qa', release: 'release', writer: 'writer', sns: 'sns' };
 const ROLE_HINTS = [
   ['release', /公開|リリース|release|push|pages/i],
   ['qa', /品質|確認|チェック|audit|qa|verify|test/i],
@@ -48,7 +48,7 @@ const ROLE_HINTS = [
 function roleOf(agentType, description, prompt) {
   if (ROLE_OF_TYPE[agentType]) return ROLE_OF_TYPE[agentType];
   // 依頼文の頭に「T.OF... の engineer」のように役割が書いてあれば、それに従う
-  const named = (prompt || '').slice(0, 300).match(/\b(researcher|planner|designer|engineer|qa|release|writer)\b|(リサーチ|企画|デザイン|実装|品質|リリース)担当/i);
+  const named = (prompt || '').slice(0, 300).match(/\b(researcher|planner|designer|engineer|qa|release|writer|sns)\b|(リサーチ|企画|デザイン|実装|品質|リリース)担当/i);
   if (named) {
     const w = (named[1] || named[2]).toLowerCase();
     return { リサーチ: 'researcher', 企画: 'planner', デザイン: 'designer', 実装: 'engineer', 品質: 'qa', リリース: 'release' }[w] || w;

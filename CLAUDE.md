@@ -37,8 +37,9 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 | 品質 | `qa` | `npm run audit:browser`、画面を撮って見る、スマホ幅の確認。直さずに報告する |
 | リリース | `release` | RELEASE.md の手順で公開し、ポータルに載せ、反映を確かめる |
 | note 運用 | `writer` | note「AIのつかいどころ」の記事の下書き（`~/GitHub/tof/note/`、決まりは GUIDE.md）。投稿はオーナーが手で行う |
+| SNS 運用 | `sns` | X（@tof_label）の投稿の下書きと予定（`docs/private/sns/`、決まりは GUIDE.md）。投稿はオーナーが手で行う |
 
-- モデル: planner だけ Opus（effort medium）。researcher・designer・engineer・writer は Sonnet（medium）、qa は Sonnet（low）、release は Haiku（各ファイルの `model:`・`effort:`）。指定のないエージェント（Explore など）は Sonnet（`.claude/settings.json` の env）。
+- モデル: planner だけ Opus（effort medium）。researcher・designer・engineer・writer・sns は Sonnet（medium）、qa は Sonnet（low）、release は Haiku（各ファイルの `model:`・`effort:`）。指定のないエージェント（Explore など）は Sonnet（`.claude/settings.json` の env）。
   engineer を `model: "opus"` で呼ぶのは、Sonnet で 2 回直しきれなかったときだけ。新しいアプリでも、まず Sonnet で作る。
 - 並行で動かすのは 3 人まで。いっせいに利用の上限に当たると、再開するとき全員が会話を一から読み直し、費用が倍になる。
 - 互いに関係しない作業は並行で頼む（例: デザインと実装）。同じファイルを 2 人に触らせない。
@@ -74,8 +75,8 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 }
 ```
 
-- `stage`: `idea` → `planning` → `design` → `build` → `qa` → `release` → `live`（公開済み。公開したら projects から消してよい）。アプリでないもの（note 運用部など）は `other`（段階の列に出さず、作っているアプリの数にも入れない）
-- `owner`: `researcher` / `planner` / `designer` / `engineer` / `qa` / `release` / `writer` / `owner`（オーナーが決める・操作するもの）
+- `stage`: `idea` → `planning` → `design` → `build` → `qa` → `release` → `live`（公開済み。公開したら projects から消してよい）。アプリでないもの（note 運用部・SNS 運用部など）は `other`（段階の列に出さず、作っているアプリの数にも入れない）
+- `owner`: `researcher` / `planner` / `designer` / `engineer` / `qa` / `release` / `writer` / `sns` / `owner`（オーナーが決める・操作するもの）
 - `status`: `todo`（未着手）/ `doing`（進行中）/ `waiting`（待ち。オーナーの返事など）/ `done`（完了。`doneAt` に日付）/ `skip`（しなくていい。やらないと決めたもの。`doneAt` に決めた日付）
 - `id` は `t` + 連番。今ある一番大きい番号の次にする。
 - task の `project` は projects の `id`、apps.js の `id`、`t-of.github.io`（本部）、`null`（どれでもない）のどれか。アプリの名前を変えても古いタスクの `project` は直さない（記録として残す）。

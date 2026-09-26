@@ -11,7 +11,7 @@ const STAGES = [
 ];
 const STATUS = { todo: '未着手', doing: '進行中', waiting: '待ち', done: '完了', skip: "しなくていい" };
 const closed = (t) => t.status === "done" || t.status === "skip";   // 終わったもの（完了・しなくていい）
-const STATS_ROLES = ['researcher', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer'];   // 成績タブで見る係（ディレクター・オーナーは除く）
+const STATS_ROLES = ['researcher', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer', 'sns'];   // 成績タブで見る係（ディレクター・オーナーは除く）
 
 const state = { agents: [], board: { projects: [], tasks: [], ideas: [] }, apps: [], audit: { summary: {} },
   ledger: [], statsPeriod: 'month', filter: 'open', view: 'office', usage: null };
