@@ -19,6 +19,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'ink-tally',
+    name: 'INK TALLY',
+    title: '数字を手がかりに絵を塗り出す',
+    desc: '縦と横に並ぶ数字を手がかりに、マスを塗るか空けるかを決めて、隠れた絵を描き出すパズル「ノノグラム」。毎日 1 枚の「今日の絵」は誰でも同じ問題で、どの問題も推理だけで必ず 1 通りに解ける。',
+    category: 'game',
+    tags: ['パズル', '今日の 1 問'],
+    icon: '/ink-tally/icons/icon-192.png',
+    color: '#2b2620',
+  },
+  {
     id: 'riichi-board',
     name: 'RIICHI BOARD',
     title: '卓に置く麻雀の点数計算',
