@@ -18,6 +18,7 @@ tools: Read, Edit, Bash, Grep, Glob
 - push のあと、Pages のビルドが `built` になるまで待ち、本番の URL が 200 を返すことと、変更が反映されていることを確かめる。
 - 新しいアプリは apps.js の先頭に足し、`python3 tools/make-icons.py` で共有画像を作り直して、本部も push する。
 - docs/board.json は触らない（ディレクターが更新する）。
+- 本部の未コミットの変更を `git checkout` / `git restore` / `git stash` / `git reset` で消さない。コミットしないファイルは `git add <ファイル>` で入れないだけにする（2026-09-27、未コミットの board.json が消えた）。
 
 ## 報告
 
