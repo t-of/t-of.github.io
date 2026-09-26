@@ -13,7 +13,8 @@ export const ROLES = {
   release: { person: '藤井', name: 'リリース', color: '#e2582e', icon: '↑' },
   writer: { person: '岡本', name: 'note', color: '#41c9b4', icon: '✍' },
   sns: { person: '村田', name: 'SNS', color: '#9fcf4a', icon: '#' },
-  owner: { name: 'オーナー', color: '#eceef3', icon: '★' },
+  secretary: { person: '吉沢', name: '秘書', color: '#a8e05a', icon: '✉' },
+  owner: { person: '加瀬', name: 'オーナー', color: '#eceef3', icon: '★' },
 };
 export const PEOPLE = {
   director: ['佐藤', '鈴木', '高橋', '田中', '伊藤', '渡辺'],
@@ -255,7 +256,7 @@ function doorGap(p, horiz, color, size = 36) {
 }
 function roomLabel(r, people) {
   const x = r.door === 'top' && r.aisle === 'left' ? r.x + 44 : r.x + 14;
-  if (r.key === 'owner') return `<text class="room-name" x="${x}" y="${r.y + 24}" fill="#ffd35c">★ オーナー室</text><text class="room-sub" x="${x}" y="${r.y + 38}">あなたが決める机</text>`;
+  if (r.key === 'owner') return `<text class="room-name" x="${x}" y="${r.y + 24}" fill="#ffd35c">★ オーナー室</text><text class="room-sub" x="${x}" y="${r.y + 38}">加瀬の部屋 · 秘書 吉沢</text>`;
   if (r.key === 'break') return `<text class="room-name" x="${x}" y="${r.y + 24}" fill="#e8c9a0">☕ 休憩所</text><text class="room-sub" x="${x}" y="${r.y + 38}">仕事を終えた人がひと息</text>`;
   const role = ROLES[r.key];
   const list = people.rooms[r.key];
@@ -316,8 +317,12 @@ function ownerRoom(r) {
   for (let i = 0; i < shown; i++) s += `<rect x="${cx - 58 + (i % 2)}" y="${y + 44 - i * 2.4}" width="26" height="12" fill="${i === shown - 1 ? '#ffffff' : '#d8dbe2'}" stroke="#8a90a0" stroke-width=".8"/>`;
   if (n) s += `<rect x="${cx - 54}" y="${y + 46 - shown * 2.4}" width="18" height="1.5" fill="#9aa0ab"/>`;
   s += `<rect x="${cx + 28}" y="${y + 40}" width="30" height="10" fill="#1f232b"/>`;
-  s += `<rect x="${cx - 14}" y="${y + 60}" width="28" height="21" rx="3" fill="#6a5720"/><rect x="${cx - 16}" y="${y + 80}" width="32" height="6" rx="2" fill="#8a7128"/><text class="owner-star" x="${cx}" y="${y + 76}">★</text>`;
-  s += `<text class="owner-count" x="${cx}" y="${y + 104}">${n ? `あなたの番 ${n} 件` : 'あなたの番はありません'}</text>`;
+  s += `<rect x="${cx - 14}" y="${y + 60}" width="28" height="21" rx="3" fill="#6a5720"/><rect x="${cx - 16}" y="${y + 80}" width="32" height="6" rx="2" fill="#8a7128"/>`;
+  // オーナーの加瀬（自分の椅子に座って机に向かう。飾りなので押せない）
+  s += `<g class="person face-up pose-desk" pointer-events="none" transform="translate(${cx} ${y + 70})">${spriteSvg('owner', 'owner')}${tagSvg('owner', ROLES.owner.person)}</g>`;
+  s += `<text class="owner-count" x="${cx}" y="${y + 113}">${n ? `あなたの番 ${n} 件` : 'あなたの番はありません'}</text>`;
+  // 秘書の吉沢（机の右に立って控える。飾りなので押せない）
+  s += `<g pointer-events="none" transform="translate(${cx + 86} ${y + 62})">${secretarySvg()}${tagSvg('secretary', ROLES.secretary.person)}</g>`;
   s += plant(r.x + r.w - 30, r.y + 14);
   return s;
 }
@@ -360,6 +365,22 @@ function spriteSvg(role, id) {
 <g class="front"><rect x="-6" y="-21" width="12" height="4" fill="${hair}"/><rect x="-6" y="-17" width="2" height="4" fill="${hair}"/><rect x="4" y="-17" width="2" height="4" fill="${hair}"/><rect x="-3" y="-14" width="2" height="2" fill="#1a1a1a"/><rect x="1" y="-14" width="2" height="2" fill="#1a1a1a"/></g>
 <rect class="back" x="-6" y="-21" width="12" height="11" fill="${hair}"/>
 </g></g>`;
+}
+// 秘書の吉沢だけの絵。正面向きで立っているだけなので、歩き・向きの切り替えはない
+function secretarySvg() {
+  const c = ROLES.secretary.color, sh = mix(c, '#000000', 0.3), hair = '#5a3424', skin = '#f6d6b8';
+  return `<g transform="scale(1.2)">
+<rect x="-8" y="-20" width="16" height="16" fill="${hair}"/>
+<rect x="-4" y="4" width="3" height="5" fill="${skin}"/><rect x="1" y="4" width="3" height="5" fill="${skin}"/><rect x="-5" y="9" width="4" height="2" fill="#7a3b4a"/><rect x="1" y="9" width="4" height="2" fill="#7a3b4a"/>
+<rect x="-9" y="-1" width="18" height="6" fill="${c}"/><rect x="-9" y="3" width="18" height="2" fill="${sh}"/>
+<rect x="-6" y="-8" width="12" height="8" fill="${c}"/><rect x="-2" y="-8" width="4" height="3" fill="#ffffff"/><rect x="-1" y="-6" width="2" height="2" fill="#f07a9a"/>
+<rect x="-9" y="-7" width="3" height="7" fill="${sh}"/><rect x="6" y="-7" width="3" height="7" fill="${sh}"/><rect x="-9" y="0" width="3" height="2" fill="${skin}"/><rect x="6" y="0" width="3" height="2" fill="${skin}"/>
+<rect x="-6" y="-20" width="12" height="12" fill="${skin}"/>
+<rect x="-7" y="-22" width="14" height="4" fill="${hair}"/><rect x="-7" y="-18" width="2" height="8" fill="${hair}"/><rect x="5" y="-18" width="2" height="8" fill="${hair}"/><rect x="-2" y="-18" width="3" height="2" fill="${hair}"/>
+<rect x="3" y="-25" width="3" height="3" fill="#ff7aa8"/><rect x="7" y="-25" width="3" height="3" fill="#ff7aa8"/><rect x="5.5" y="-24" width="2" height="2" fill="#e0527f"/>
+<rect x="-4" y="-15" width="2" height="3" fill="#2a1a1a"/><rect x="2" y="-15" width="2" height="3" fill="#2a1a1a"/><rect x="-4" y="-15" width="1" height="1" fill="#ffffff"/><rect x="2" y="-15" width="1" height="1" fill="#ffffff"/>
+<rect x="-5" y="-12" width="2" height="1" fill="#f59ab0"/><rect x="3" y="-12" width="2" height="1" fill="#f59ab0"/><rect x="-1" y="-11" width="2" height="1" fill="#c0506a"/>
+</g>`;
 }
 function tagSvg(role, name) {
   const t = `${ROLES[role]?.icon || ''} ${name}`, w = em(t) * 9.5 + 8;

@@ -77,7 +77,6 @@ main { padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-
 .wb-empty { font-size: 8px; fill: #4b5260; text-anchor: middle; }
 .note-txt { font-size: 7.5px; fill: #1d2028; text-anchor: middle; font-weight: 700; }
 .note-more { font-size: 9px; fill: #1d2028; text-anchor: middle; font-weight: 700; }
-.owner-star { font-size: 14px; fill: #ffd35c; text-anchor: middle; }
 .owner-count { font-size: 11px; fill: #ffd35c; text-anchor: middle; font-weight: 700; }
 .owner-glow { fill: none; stroke: #ffd35c; stroke-width: 0; }
 .owner-glow.is-on { stroke-width: 2; animation: owner-glow 2s ease-in-out infinite; }
