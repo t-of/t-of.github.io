@@ -25,7 +25,7 @@ const BOARD = path.join(HUB, 'docs', 'board.json');
 const ARCHIVE = path.join(HUB, 'docs', 'board-archive.json');
 const LEDGER = path.join(HUB, 'docs', 'private', 'ledger.jsonl');
 const TRADEMARK = path.join(HUB, 'docs', 'private', 'trademark.json');
-const USAGE = path.join(os.homedir(), '.claude', 'tof-usage.json');   // Claude Code のステータスラインが書き出す残り枠。読むだけ
+const USAGE = path.join(os.homedir(), '.claude', 'tof-usage.json');   // 残り枠。ステータスラインと下の pollUsage が書く
 const PORT = Number(process.env.PORT) || 4141;
 const BACKFILL = process.argv.includes('--backfill');   // node server.mjs --backfill: 過去分を台帳に足して終了する
 
@@ -474,6 +474,32 @@ setInterval(() => {
     if (m !== usageMtime) { usageMtime = m; broadcast('usage', readUsage() || {}); }
   } catch { /* まだない */ }
 }, 1500);
+
+// ターミナルを開いていなくても残り枠が出るように、使用量 API に直接聞いて tof-usage.json を書く（形はステータスラインと同じ）。
+// ログイン情報は Claude Code がキーチェーンに置いたものを読むだけで、Anthropic 以外には送らない。
+// ponytail: 非公開の API。形が変わったり、トークンの期限が切れたり（Claude Code を使うと更新される）したら、何もせずステータスラインの値のまま
+const USAGE_POLL_MS = 5 * 60 * 1000;
+function pollUsage() {
+  execFile('security', ['find-generic-password', '-s', 'Claude Code-credentials', '-w'], async (err, out) => {
+    try {
+      if (err) return;
+      const token = JSON.parse(out).claudeAiOauth?.accessToken;
+      if (!token) return;
+      const r = await fetch('https://api.anthropic.com/api/oauth/usage', {
+        headers: { Authorization: `Bearer ${token}`, 'anthropic-beta': 'oauth-2025-04-20' }, signal: AbortSignal.timeout(10000) });
+      if (!r.ok) return;
+      const d = await r.json();
+      const box = (w) => (w && typeof w.utilization === 'number'
+        ? { used_percentage: w.utilization, resets_at: w.resets_at ? Math.floor(Date.parse(w.resets_at) / 1000) : null } : null);
+      const five_hour = box(d.five_hour), seven_day = box(d.seven_day);
+      if (!five_hour && !seven_day) return;
+      const tmp = `${USAGE}.${process.pid}.tmp`;
+      fs.writeFileSync(tmp, JSON.stringify({ at: Date.now(), five_hour, seven_day }));
+      fs.renameSync(tmp, USAGE);
+    } catch { /* 取れなければ前のまま */ }
+  });
+}
+if (!BACKFILL) { pollUsage(); setInterval(pollUsage, USAGE_POLL_MS); }
 
 // ---------- HTTP ----------
 
