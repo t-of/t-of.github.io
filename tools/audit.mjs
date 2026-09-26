@@ -150,6 +150,7 @@ function auditFiles(app) {
     (EXCEPTIONS[app.id] || []).includes('webapp-kit') ? '独自 UI（DECISIONS.md）' : '', '§6');
 
   // §7 制作元（Cloudflare のアプリは別のオリジンなので、§14 のチェックで見る）
+  add('問い合わせへのリンク', /href=["'](?:\/|https:\/\/t-of\.github\.io\/)contact\/["']/.test(code), '/contact/ へのリンクがない', '§7');
   if (!cloudflare) add('T.OF... へのリンク', /href=["']\/["']/.test(code) && /T\.OF\.\.\./.test(code), '', '§7');
 
   // §8 README

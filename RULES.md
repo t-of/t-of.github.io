@@ -226,6 +226,8 @@ function setAudioSession(soundOn) {
 - **必須** アプリのどこか（タイトル画面の下、設定、フッターなど）に **T.OF... へのリンク** を置く。
   `<a href="/">T.OF...</a>` でポータルに戻れる。ゲーム画面を邪魔しない場所でよい。
   Cloudflare に置くアプリは `href="https://t-of.github.io/"`（`/` だと自分のオリジンに飛ぶ）。
+- **必須** T.OF... のリンクの隣に **問い合わせ** へのリンクを置く。`<a href="https://t-of.github.io/contact/">問い合わせ</a>`（§1 の相対パスの決まりに当たらないよう、どのアプリも絶対 URL。Cloudflare のアプリは `target="_blank" rel="noopener"` も付ける）。英語のアプリは Contact。
+  問い合わせのページ（`contact/`）は、誰でも読める GitHub の Issues と、T.OF... だけが読むフォームの 2 つに分けてある。
 - **推奨** README の「リンク」に `制作: [T.OF...](https://t-of.github.io/)` を入れる。
 - 名前の表記は **T.OF...**（大文字。T の後にピリオド 1 つ、最後に半角ピリオド 3 つ）。
 - ロゴは [`logo/`](logo/) にある（作り直すときは `python3 tools/make-logo.py`）。

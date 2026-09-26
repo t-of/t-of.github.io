@@ -164,3 +164,8 @@ Playwright で `channel: 'chrome'` を付けると、headless でも普段の Go
 ## ダブルタップ拡大を全アプリで止める（2026-09-26）
 
 - オーナーの指示で、RULES.md §5 の `touch-action: manipulation` を推奨から必須にした。`html` に付けて全体に効かせる（ピンチ拡大は残す）。webapp-kit.css に入れて全アプリに配り、kit を使わない Half-Cut・hue-hunter は各自の CSS に書いた（gear-align は前から入っていた）。audit.mjs §5「ダブルタップ拡大なし」で確かめる。
+
+## 問い合わせ先（2026-09-26）
+
+- オーナーの指示で、全アプリに問い合わせへのリンクを置く（RULES.md §7 必須、audit.mjs §7）。行き先はポータルの `contact/` 1 枚にまとめ、窓口を変えるときはここだけ直す。
+- 受け付けは 2 つ（オーナーが選んだ）: 不具合・要望は GitHub の Issues（誰でも読める）、個人的なことや登録の削除は Google フォーム（オーナーだけが読む）。フォームはオーナーが作る。
