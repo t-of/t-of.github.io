@@ -38,7 +38,10 @@ function rowsFor(name) {
 function render() {
   const cards = document.getElementById('cards');
   cards.innerHTML = '';
-  for (const name of data.names) {
+  // 引き終わった名前（checked に日付がある）は出さない。記録は trademark.json に残る
+  const done = data.names.filter((n) => n.checked);
+  document.getElementById('done-count').textContent = done.length ? `引き終わった名前 ${done.length} 件（${done.map((n) => n.name).join('・')}）は一覧から外しています。` : '';
+  for (const name of data.names.filter((n) => !n.checked)) {
     const rows = rowsFor(name);
     const done = rows.filter((r) => data.results[`${name.id}|${r.office.id}|${r.word}`]?.status).length;
     const flags = rows.map((r) => data.results[`${name.id}|${r.office.id}|${r.word}`]?.status).filter(Boolean);
