@@ -9,6 +9,12 @@
 //   icon     : 192px のアイコン（このサイトと同じオリジンなので /<id>/... で参照できる）
 //   color    : アプリの theme_color（カードのアクセントに使う）
 //
+// 課金・広告のアプリだけ書くもの（書かなければ GitHub Pages・課金なし。RULES.md §13・§14）
+//   host     : 'github'（既定）/ 'cloudflare'（別のオリジンに置く）
+//   url      : host: 'cloudflare' のときの公開 URL（'https://<id>.<名前>.workers.dev/'）。ポータルのリンクはここへ飛ぶ
+//              icon もこのときは絶対 URL（'https://…/icons/icon-192.png'）で書く
+//   paid     : true なら課金・広告を入れるアプリ（audit が §13 を見る）
+//
 // 並び順がそのまま表示順。新しいものを上に足す。
 
 window.TOFO_APPS = [

@@ -133,3 +133,9 @@ Playwright で `channel: 'chrome'` を付けると、headless でも普段の Go
 画面で会社らしく見せるため、席に着いたメンバー一人ずつに名前を付ける（studio/app.js の PEOPLE。係ごとに 6〜12 人ぶん）。
 同じ係の人は決まりもモデルも同じなので、成績は一人ずつではなく係（チーム）ごとに出す。
 各係の先頭の名前がリーダーで、部屋の見出し・社員カード・MVP に出る: マルコ（ディレクター）、エマ（企画）、レア（デザイン）、ラヴィ（実装）、ハンナ（品質）、ディエゴ（リリース）、オリバー（note）。
+
+### 課金・広告のアプリは Cloudflare に置く（2026-09-26 オーナー）
+- 課金を入れるアプリは GitHub Pages ではなく Cloudflare（無料、`<id>.pages.dev` などの別オリジン）に置く。GitHub Pages の規約（商売・EC に使わない）と、全アプリが同じオリジンにあるため 1 本の XSS や広告のスクリプトがほかのアプリの記録・購入を読めることによる。
+- 対象は、課金を予定している ROWBREAK・LONE DECK・RINGGRAIN・LANDING DAY・PENCIL HOUR。RINGGRAIN と LANDING DAY は個人の記録を持つので、最初の公開から Cloudflare に置く（あとで移すと記録が移らない）。
+- 公開済みの 30 本ほどは今までどおり GitHub Pages。独自ドメインは今は取らない（上の決まりのまま）。
+- 決まりは RULES.md §13（課金・広告）・§14（Cloudflare に置くアプリ）。入れる前のチェック表は docs/private/legal/checklist.md。調べの元は docs/private/legal/monetization-law.md・monetization-security.md。

@@ -36,7 +36,7 @@ S, cell = 112, 128                      # 3×3 に並べる
 x0, y0 = 1200 - 64 - 3 * cell + (cell - S), (630 - 3 * cell + (cell - S)) // 2
 for i, path in enumerate(icons[:9]):
     try:
-        raw = urllib.request.urlopen('https://t-of.github.io' + path, timeout=10).read()
+        raw = urllib.request.urlopen(path if path.startswith('http') else 'https://t-of.github.io' + path, timeout=10).read()
     except Exception as e:
         print('skip', path, e)
         continue

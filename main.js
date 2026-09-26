@@ -17,12 +17,13 @@
   }
 
   function card(app) {
+    const href = app.url || `/${app.id}/`;   // Cloudflare に置くアプリ（host: 'cloudflare'）は url を持つ
     const li = el('li', 'card');
     li.dataset.category = app.category;
     li.style.setProperty('--c', app.color || '#8a8f9c');
 
     const a = el('a', 'card__main');
-    a.href = `/${app.id}/`;
+    a.href = href;
 
     const icon = el('div', 'card__icon');
     const img = new Image(96, 96);
@@ -45,7 +46,7 @@
 
     const actions = el('div', 'card__actions');
     const play = el('a', 'btn btn--play', app.category === 'game' ? '遊ぶ' : '開く');
-    play.href = `/${app.id}/`;
+    play.href = href;
     const src = el('a', 'btn btn--ghost', 'ソース');
     src.href = `https://github.com/t-of/${app.id}`;
     src.rel = 'noopener';
