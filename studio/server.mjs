@@ -25,6 +25,7 @@ const BOARD = path.join(HUB, 'docs', 'board.json');
 const ARCHIVE = path.join(HUB, 'docs', 'board-archive.json');
 const LEDGER = path.join(HUB, 'docs', 'private', 'ledger.jsonl');
 const TRADEMARK = path.join(HUB, 'docs', 'private', 'trademark.json');
+const USAGE = path.join(os.homedir(), '.claude', 'tof-usage.json');   // Claude Code のステータスラインが書き出す残り枠。読むだけ
 const PORT = Number(process.env.PORT) || 4141;
 const BACKFILL = process.argv.includes('--backfill');   // node server.mjs --backfill: 過去分を台帳に足して終了する
 
@@ -361,6 +362,12 @@ function writeBoard(board) {
   fs.writeFileSync(BOARD, JSON.stringify(toSave, null, 2) + '\n');
 }
 
+// ---------- 残り枠（~/.claude/tof-usage.json） ----------
+
+function readUsage() {
+  try { return JSON.parse(fs.readFileSync(USAGE, 'utf8')); } catch { return null; }
+}
+
 // ---------- 商標チェック（docs/private/trademark.json） ----------
 
 function readTrademark() {
@@ -459,6 +466,15 @@ setInterval(() => {
   } catch { /* 読めなければ前のまま */ }
 }, 1500);
 
+// tof-usage.json が書き換わったら知らせる（ファイル自体が rename で置き換わることがあるので、他と同じく mtime を見る）
+let usageMtime = 0;
+setInterval(() => {
+  try {
+    const m = fs.statSync(USAGE).mtimeMs;
+    if (m !== usageMtime) { usageMtime = m; broadcast('usage', readUsage() || {}); }
+  } catch { /* まだない */ }
+}, 1500);
+
 // ---------- HTTP ----------
 
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8',
@@ -486,6 +502,7 @@ const server = http.createServer(async (req, res) => {
       res.write(`event: agents\ndata: ${JSON.stringify(snapshotAgents())}\n\n`);
       res.write(`event: board\ndata: ${JSON.stringify(readBoard())}\n\n`);
       res.write(`event: audit\ndata: ${JSON.stringify(auditStatus())}\n\n`);
+      res.write(`event: usage\ndata: ${JSON.stringify(readUsage() || {})}\n\n`);
       clients.add(res);
       req.on('close', () => clients.delete(res));
       return;
@@ -500,6 +517,7 @@ const server = http.createServer(async (req, res) => {
       broadcast('board', readBoard());
       return send(res, 200, { ok: true });
     }
+    if (p === '/api/usage') return send(res, 200, readUsage() || {});
     if (p === '/api/trademark' && req.method === 'GET') return send(res, 200, readTrademark());
     if (p === '/api/trademark/result' && req.method === 'PUT') {
       const { key, status, note } = await readBody(req);

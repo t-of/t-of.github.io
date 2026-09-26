@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-26T06:32:17.881Z",
+  "updatedAt": "2026-09-26T06:48:00.279Z",
   "projects": [
     {
       "id": "note",
@@ -185,11 +185,18 @@
       "note": "第 1 版（2 人対戦）を公開。第 2 版で AI（MCTS＋NN、手元の Mac で学習）"
     },
     {
-      "id": "yen-trail",
-      "name": "YEN TRAIL（仮）",
+      "id": "shihei-relay",
+      "name": "紙幣リレー",
       "stage": "planning",
       "created": "2026-09-26",
-      "note": "お札の記番号と場所を登録し、同じ番号が来たらどこから移動したかわかる。Where's George? の日本円版。id は仮"
+      "note": "お札の記番号と場所を登録し、同じ番号が来たらどこから移動したかわかる。Where's George? の日本円版。広告だけで収益化（課金なし）、Cloudflare に置く"
+    },
+    {
+      "id": "septet",
+      "name": "SEPTET",
+      "stage": "build",
+      "created": "2026-09-26",
+      "note": "SESTET の 7 マス版（ヘプトミノ 107 種）。盤と得点を見直し、AI は機械学習"
     }
   ],
   "tasks": [
@@ -4516,7 +4523,7 @@
     },
     {
       "id": "t375",
-      "project": "yen-trail",
+      "project": "shihei-relay",
       "title": "お札の旅の仕様を作る（名前・権利・共有データの置き場所）",
       "owner": "planner",
       "status": "done",
@@ -4525,18 +4532,86 @@
     },
     {
       "id": "t376",
-      "project": "yen-trail",
+      "project": "shihei-relay",
       "title": "YEN TRAIL（お札の追跡）の権利の判定を選ぶ（企画の判定: 問題なし。おすすめは収益化しない）",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-26",
-      "doneAt": null,
+      "doneAt": "2026-09-26",
       "choices": [
         "作る（収益化できる）",
         "作る（収益化しない）",
         "変えて作る",
         "作らない"
-      ]
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": "チャットで回答。名前は日本語、Firebase 可、地図は点、時刻まで見せてよい、地図は同梱の輪郭。お札の旅より使いたくなる UI/UX を目指す"
+    },
+    {
+      "id": "t377",
+      "project": "shihei-relay",
+      "title": "仕様を直す（日本語の名前、収益化で Cloudflare、時刻まで表示、お札の旅より良い UI/UX）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t378",
+      "project": "t-of.github.io",
+      "title": "スタジオの社内に、プランの残り（5時間枠・週枠）を社員の労働可能量として出す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26"
+    },
+    {
+      "id": "t379",
+      "project": "shihei-relay",
+      "title": "お札の追跡の名前を選ぶ（A 紙幣リレー がおすすめ）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-26",
+      "doneAt": "2026-09-26",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "紙幣リレー",
+        "B": "めぐる円",
+        "C": "記番号ノート"
+      },
+      "choice": "A",
+      "comment": "チャットで回答。紙幣リレーで行く。課金なし・広告だけ。広告は使う人が増えてから、呼び方は「リレーのリンク」。撮影で記番号を読み取れるとよい"
+    },
+    {
+      "id": "t380",
+      "project": "septet",
+      "title": "SEPTET の最初の版を作る（SESTET を写して 7 マスに。盤の大きさを測って決め、得点を合わせ、線形 AI を学ばせ、ネットの学習を nohup で始める）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-26",
+      "doneAt": null
+    },
+    {
+      "id": "t381",
+      "project": "septet",
+      "title": "SEPTET のアイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "doing",
+      "created": "2026-09-26",
+      "doneAt": null
+    },
+    {
+      "id": "t382",
+      "project": "shihei-relay",
+      "title": "仕様を紙幣リレーに付け直し、撮影で記番号を読み取る機能を足す",
+      "owner": "planner",
+      "status": "doing",
+      "created": "2026-09-26",
+      "doneAt": null
     }
   ],
   "ideas": []

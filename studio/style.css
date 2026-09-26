@@ -148,6 +148,19 @@ main { padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-
 .feed { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 14px; flex: 1 1 auto; min-height: 0; overflow: auto; }
 .panel-title { margin: 0 0 10px; font-size: 15px; }
 
+/* 残り枠（Claude のプラン） */
+.usage { flex: none; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 14px; }
+.usage.is-stale { opacity: 0.55; }
+.usage__row + .usage__row { margin-top: 10px; }
+.usage__head { display: flex; justify-content: space-between; align-items: baseline; font-size: 12px; }
+.usage__label { color: var(--muted); }
+.usage__pct { font-weight: 700; }
+.usage__bar { height: 8px; margin-top: 4px; border-radius: 999px; overflow: hidden; background: var(--surface-2); }
+.usage__fill { display: block; height: 100%; background: var(--ok); border-radius: 999px; }
+.usage__reset { margin: 3px 0 0; font-size: 11px; color: var(--muted); }
+.usage__row.is-warn .usage__pct, .usage__row.is-warn .usage__reset { color: var(--ng); }
+.usage__row.is-warn .usage__fill { background: var(--ng); }
+
 /* 今日の日報 */
 .daily { flex: none; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 14px; }
 .daily__stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }

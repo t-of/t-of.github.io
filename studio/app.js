@@ -14,7 +14,7 @@ const closed = (t) => t.status === "done" || t.status === "skip";   // 終わっ
 const STATS_ROLES = ['researcher', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer'];   // 成績タブで見る係（ディレクター・オーナーは除く）
 
 const state = { agents: [], board: { projects: [], tasks: [], ideas: [] }, apps: [], audit: { summary: {} },
-  ledger: [], statsPeriod: 'month', filter: 'open', view: 'office' };
+  ledger: [], statsPeriod: 'month', filter: 'open', view: 'office', usage: null };
 
 const $ = (id) => document.getElementById(id);
 function el(tag, cls, text) {
@@ -43,6 +43,7 @@ function connect() {
   es.addEventListener('board', (e) => { state.board = JSON.parse(e.data); render(); });
   es.addEventListener('audit', (e) => { const a = JSON.parse(e.data); state.audit = a.summary ? a : { ...state.audit, running: a.running }; render(); });
   es.addEventListener('apps', (e) => { state.apps = JSON.parse(e.data); render(); });
+  es.addEventListener('usage', (e) => { state.usage = JSON.parse(e.data); if (state.view === 'office') renderUsage(); });
   es.addEventListener('ledger', (e) => {
     const row = JSON.parse(e.data);
     state.ledger.push(row);
@@ -109,6 +110,45 @@ function feedText(item) {
   if (item.kind === 'return') return `→ ${team(item.to)}に差し戻し`;
   if (item.kind === 'report') return `→ ディレクターに報告`;
   return item.text;
+}
+
+// ---------- 残り枠（Claude のプラン。~/.claude/tof-usage.json） ----------
+
+const STALE_MS = 60 * 60 * 1000;   // 最後の計測がこれより前なら「古いかも」と分かるように薄くする
+const WARN_PCT = 20;               // 残りがこれ以下なら警告色
+
+// 見出しは「今日の体力」（5 時間で回復）「今週の勤務可能量」（週で回復）
+function usageGauge(label, box, now) {
+  if (!box) return null;
+  const resetAt = (box.resets_at || 0) * 1000;
+  const recovered = resetAt && resetAt <= now;
+  const remain = recovered ? 100 : Math.max(0, Math.min(100, 100 - (box.used_percentage ?? 0)));
+  const reset = !resetAt ? '' : recovered ? '回復ずみ' : `${label === '週' ? `${'日月火水木金土'[new Date(resetAt).getDay()]} ` : ''}${new Date(resetAt).toLocaleTimeString('ja-JP', { hour: '2-digit', minute: '2-digit' })} に回復`;
+  return { remain, reset };
+}
+
+function renderUsage() {
+  const box = $('usage');
+  const u = state.usage;
+  box.replaceChildren();
+  box.append(el('h2', 'panel-title', '社員の残り労働可能量'));
+  if (!u || (!u.five_hour && !u.seven_day)) { box.append(el('p', 'muted', 'まだ計測なし')); return; }
+  const now = Date.now();
+  const rows = [['今日の体力', u.five_hour, '日'], ['今週の勤務可能量', u.seven_day, '週']];
+  for (const [label, data, kind] of rows) {
+    const g = usageGauge(kind, data, now);
+    if (!g) continue;
+    const row = el('div', `usage__row${g.remain <= WARN_PCT ? ' is-warn' : ''}`);
+    const head = el('div', 'usage__head');
+    head.append(el('span', 'usage__label', label), el('span', 'usage__pct', `残り ${Math.round(g.remain)}%`));
+    const bar = el('div', 'usage__bar');
+    bar.append(el('span', 'usage__fill'));
+    bar.firstChild.style.width = `${g.remain}%`;
+    row.append(head, bar);
+    if (g.reset) row.append(el('p', 'usage__reset', g.reset));
+    box.append(row);
+  }
+  if (u.at && now - u.at > STALE_MS) box.classList.add('is-stale'); else box.classList.remove('is-stale');
 }
 
 // ---------- 今日の日報 ----------
@@ -672,7 +712,7 @@ function renderStatsTab() {
 
 function render() {
   renderStats();
-  if (state.view === 'office') { officeAgents(state.agents); officeBoard(state.board); renderFeed(); renderDaily(); }
+  if (state.view === 'office') { officeAgents(state.agents); officeBoard(state.board); renderFeed(); renderDaily(); renderUsage(); }
   if (state.view === 'projects') renderProjects();
   if (state.view === 'tasks') renderTasks();
   if (state.view === 'stats') renderStatsTab();
@@ -725,7 +765,7 @@ $('lightbox').addEventListener('click', (e) => e.currentTarget.close());
 
 $('project-sheet').addEventListener('click', (e) => { if (e.target === e.currentTarget) e.currentTarget.close(); });
 
-setInterval(() => { if (state.view === 'office') { officeAgents(state.agents); officeBoard(state.board); renderFeed(); renderDaily(); } }, 15000);  // 「◯分前」を進める
+setInterval(() => { if (state.view === 'office') { officeAgents(state.agents); officeBoard(state.board); renderFeed(); renderDaily(); renderUsage(); } }, 15000);  // 「◯分前」を進める・計測の古さを更新
 
 (async () => {
   try { state.apps = await (await fetch('/api/apps')).json(); } catch { /* 空のまま */ }
