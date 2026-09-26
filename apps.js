@@ -19,6 +19,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'riichi-board',
+    name: 'RIICHI BOARD',
+    title: '卓に置く麻雀の点数計算',
+    desc: '麻雀の卓の真ん中に置く、点数計算と持ち点の表示盤。翻と符を押すと点数と「誰が誰にいくら払うか」が出て、確定すると 4 人の持ち点・本場・供託が自動で動く。',
+    category: 'tool',
+    tags: ['麻雀', '点数計算'],
+    icon: '/riichi-board/icons/icon-192.png',
+    color: '#0f3d2e',
+  },
+  {
     id: 'lapbell',
     name: 'LAPBELL',
     title: '声とベルで知らせる運動タイマー',
