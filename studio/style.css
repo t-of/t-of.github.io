@@ -231,6 +231,7 @@ main { padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-
 .task { --c: #888; display: grid; grid-template-columns: auto 1fr auto auto; gap: 10px; align-items: center; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 6px; box-shadow: inset 3px 0 0 var(--c); }
 .task input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--ok); }
 .task__title { margin: 0; font-size: 14px; }
+.task__id { margin-right: 6px; font: 600 11px ui-monospace, monospace; color: var(--muted); }
 .task.is-done .task__title { text-decoration: line-through; color: var(--muted); }
 .task.is-skip .task__title { color: var(--muted); }
 .task.is-skip { opacity: 0.6; }
@@ -239,6 +240,15 @@ main { padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-
 .task__status { background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 4px 8px; font-size: 12px; }
 .task__del { border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 18px; padding: 0 4px; }
 .task__del:hover { color: var(--ng); }
+.thread { margin-top: 6px; font-size: 13px; }
+.thread__sum { cursor: pointer; font-size: 11px; color: var(--muted); }
+.thread__sum.is-reply { color: var(--accent); font-weight: 700; }
+.msg { margin: 6px 0 0; padding: 6px 10px; border-radius: 10px; background: var(--surface-2); white-space: pre-wrap; }
+.msg.is-director { border-left: 3px solid var(--accent); }
+.msg__who { display: block; font-size: 11px; font-weight: 700; color: var(--muted); }
+.thread__form { display: flex; gap: 6px; margin-top: 6px; }
+.thread__input { flex: 1; min-width: 0; min-height: 34px; padding: 4px 10px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: inherit; font: inherit; }
+.thread__send { min-height: 34px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface-2); color: inherit; cursor: pointer; }
 .empty { color: var(--muted); padding: 30px 0; text-align: center; }
 
 /* 画像と選択 */

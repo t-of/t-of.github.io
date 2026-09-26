@@ -16,6 +16,7 @@ import os from 'node:os';
 import http from 'node:http';
 import { execFile } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { numberTasks } from '../tools/board.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const HUB = path.dirname(HERE);
@@ -356,10 +357,12 @@ function readBoard() {
   try { board = JSON.parse(fs.readFileSync(BOARD, 'utf8')); } catch { board = { projects: [], tasks: [], ideas: [] }; }
   const archived = readArchive();
   if (archived.length) board.tasks = [...archived, ...board.tasks];
+  numberTasks(board.tasks);
   return board;
 }
 function writeBoard(board) {
   board.updatedAt = new Date().toISOString();
+  numberTasks(board.tasks);
   const archivedIds = new Set(readArchive().map((t) => t.id));
   const toSave = { ...board, tasks: board.tasks.filter((t) => !archivedIds.has(t.id)) };
   fs.writeFileSync(BOARD, JSON.stringify(toSave, null, 2) + '\n');

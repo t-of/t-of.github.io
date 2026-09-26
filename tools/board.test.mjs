@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { add, set, stage, open, archive } from './board.mjs';
+import { add, set, stage, open, archive, numberTasks, reply, inbox } from './board.mjs';
 
 function sample() {
   return {
@@ -88,4 +88,31 @@ test('CLI: 一時ファイルに読み書きできる（rename で壊れない�
   const reread = JSON.parse(fs.readFileSync(file, 'utf8'));
   assert.equal(reread.tasks.length, 2);
   fs.rmSync(dir, { recursive: true, force: true });
+});
+
+test('numberTasks: 空いた番号を使い回し、終わったものからは外す', () => {
+  const tasks = [
+    { id: 't1', status: 'doing', no: 2 },
+    { id: 't2', status: 'done', no: 1 },
+    { id: 't3', status: 'todo' },
+    { id: 't4', status: 'todo', no: 2 },
+  ];
+  numberTasks(tasks);
+  assert.deepEqual(tasks.map((t) => t.no), [2, undefined, 1, 3]);
+});
+
+test('set: 番号（#3）でも指せる', () => {
+  const board = sample();
+  numberTasks(board.tasks);
+  set(board, '#1', ['status=done']);
+  assert.equal(board.tasks[0].status, 'done');
+});
+
+test('reply / inbox: オーナーのコメントに返すと inbox から消える', () => {
+  const board = sample();
+  board.tasks[0].thread = [{ by: 'owner', text: 'これどう？', at: '2026-09-27T00:00:00Z' }];
+  assert.equal(inbox(board).length, 1);
+  reply(board, 't1', 'こうします');
+  assert.equal(board.tasks[0].thread.at(-1).by, 'director');
+  assert.equal(inbox(board).length, 0);
 });

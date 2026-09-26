@@ -14,7 +14,8 @@ const closed = (t) => t.status === "done" || t.status === "skip";   // 終わっ
 const STATS_ROLES = ['researcher', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer', 'sns'];   // 成績タブで見る係（ディレクター・オーナーは除く）
 
 const state = { agents: [], board: { projects: [], tasks: [], ideas: [] }, apps: [], audit: { summary: {} },
-  ledger: [], statsPeriod: 'month', filter: 'open', view: 'office', usage: null };
+  ledger: [], statsPeriod: 'month', filter: 'open', view: 'office', usage: null,
+  openThreads: new Set(), drafts: {} };  // コメント欄の開き具合と書きかけ（画面を描き直しても消さない）
 
 const $ = (id) => document.getElementById(id);
 function el(tag, cls, text) {
@@ -369,12 +370,15 @@ function taskRow(t) {
     await saveBoard();
   });
   const text = el('div', 'task__text');
-  text.append(el('p', 'task__title', t.title));
+  const title = el('p', 'task__title');
+  if (t.no) title.append(el('span', 'task__id', `#${t.no}`));
+  title.append(t.title);
+  text.append(title);
   const meta = el('p', 'task__meta');
   meta.append(el('span', 'task__owner', owner.name));
   if (t.project) meta.append(el('span', 'app-tag', appName(t.project)));
   if (t.created) meta.append(el('span', null, t.created));
-  text.append(meta);
+  text.append(meta, thread(t));
   // 見てほしい画像（案の比較など）
   if (t.images?.length) {
     const thumbs = el('div', 'thumbs');
@@ -431,6 +435,40 @@ function taskRow(t) {
   });
   row.append(check, text, status, del);
   return row;
+}
+
+// タスクごとのコメント欄。オーナーが書き、ディレクターが tools/board.mjs reply で返す
+function thread(t) {
+  const msgs = t.thread || [];
+  const box = el('details', 'thread');
+  box.open = state.openThreads.has(t.id);
+  box.addEventListener('toggle', () => { box.open ? state.openThreads.add(t.id) : state.openThreads.delete(t.id); });
+  const last = msgs.at(-1);
+  const sum = el('summary', last?.by === 'director' ? 'thread__sum is-reply' : 'thread__sum',
+    msgs.length ? `コメント ${msgs.length}${last.by === 'director' ? '・返信あり' : '・返信待ち'}` : 'コメント');
+  box.append(sum);
+  for (const m of msgs) {
+    const p = el('p', `msg is-${m.by}`);
+    p.append(el('span', 'msg__who', m.by === 'director' ? 'ディレクター' : 'あなた'), m.text);
+    box.append(p);
+  }
+  const form = el('form', 'thread__form');
+  const input = el('input', 'thread__input');
+  input.placeholder = 'コメントを書く（Enter で送る）';
+  input.value = state.drafts[t.id] || '';
+  input.addEventListener('input', () => { state.drafts[t.id] = input.value; });
+  const send = el('button', 'thread__send', '送る');
+  form.append(input, send);
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text) return;
+    t.thread = [...msgs, { by: 'owner', text, at: new Date().toISOString() }];
+    delete state.drafts[t.id];
+    await saveBoard();
+  });
+  box.append(form);
+  return box;
 }
 
 function renderTasks() {

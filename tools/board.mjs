@@ -5,7 +5,10 @@
 //   node tools/board.mjs add --project <id|null> --owner <owner> --status <status> "<題>" [--json '<obj>']
 //   node tools/board.mjs set <tid> key=value [key=value ...]     status を done/skip にすると doneAt を今日にする
 //   node tools/board.mjs stage <project> <stage>
-//   node tools/board.mjs open                                     done/skip 以外を 1 行ずつ
+//   node tools/board.mjs open                                     done/skip 以外を 1 行ずつ（先頭は番号）
+//   node tools/board.mjs reply <tid> "<返事>"                      タスクのコメント欄にディレクターとして返す
+//   node tools/board.mjs inbox                                    オーナーのコメントに返していないタスク
+//   <tid> には t12 のほか、番号（3 や #3）も使える
 //   node tools/board.mjs archive                                  done/skip を docs/board-archive.json へ移す
 //   node --test tools/board.test.mjs                              このテスト
 
@@ -36,10 +39,31 @@ function nextTaskId(board) {
   return `t${Math.max(0, ...nums) + 1}`;
 }
 
+const isClosed = (t) => t.status === 'done' || t.status === 'skip';
+
+// 終わっていないタスクに、チャットで呼ぶための小さい番号 no を振る。
+// 終わったら no を外し、空いた番号は次のタスクが使う（id の t 番号はずっと増えるので別に持つ）
+export function numberTasks(tasks) {
+  const used = new Set();
+  const need = [];
+  for (const t of tasks) {
+    if (isClosed(t)) { delete t.no; continue; }
+    if (Number.isInteger(t.no) && t.no > 0 && !used.has(t.no)) used.add(t.no);
+    else need.push(t);
+  }
+  let n = 1;
+  for (const t of need) {
+    while (used.has(n)) n++;
+    t.no = n;
+    used.add(n);
+  }
+}
+
 // board にした（file, mutator）で読み直し→更新→書き込みを 1 セットにする
 function withBoard(file, fallback, mutate) {
   const board = readJson(file, fallback);
   const result = mutate(board);
+  if (Array.isArray(board.tasks)) numberTasks(board.tasks);
   writeJson(file, board);
   return result;
 }
@@ -76,7 +100,8 @@ export function add(board, { project, owner, status, title, json }) {
 }
 
 export function set(board, tid, pairs) {
-  const t = board.tasks.find((x) => x.id === tid);
+  const no = String(tid).match(/^#?(\d+)$/)?.[1];
+  const t = no ? board.tasks.find((x) => x.no === Number(no) && !isClosed(x)) : board.tasks.find((x) => x.id === tid);
   if (!t) throw new Error(`タスクが見つからない: ${tid}`);
   let statusChanged = false;
   let doneAtGiven = false;
@@ -95,6 +120,17 @@ export function set(board, tid, pairs) {
   return t;
 }
 
+export function reply(board, tid, text) {
+  const t = set(board, tid, []);
+  t.thread = [...(t.thread || []), { by: 'director', text, at: new Date().toISOString() }];
+  return t;
+}
+
+// 最後のコメントがオーナーのもの（まだ返していない）
+export function inbox(board) {
+  return board.tasks.filter((t) => t.thread?.at(-1)?.by === 'owner');
+}
+
 export function stage(board, projectId, stageName) {
   const p = board.projects.find((x) => x.id === projectId);
   if (!p) throw new Error(`プロジェクトが見つからない: ${projectId}`);
@@ -103,7 +139,7 @@ export function stage(board, projectId, stageName) {
 }
 
 export function open(board) {
-  return board.tasks.filter((t) => t.status !== 'done' && t.status !== 'skip');
+  return board.tasks.filter((t) => !isClosed(t));
 }
 
 // done/skip のタスクを board-archive.json に移す（今は archive コマンドから呼ばれたときだけ）
@@ -140,6 +176,21 @@ async function main() {
     return;
   }
 
+  if (cmd === 'reply') {
+    const [tid, ...words] = args;
+    if (!tid || words.length === 0) { console.error('使い方: board.mjs reply <tid> "<返事>"'); process.exitCode = 1; return; }
+    withBoard(BOARD, { projects: [], tasks: [], ideas: [] }, (board) => reply(board, tid, words.join(' ')));
+    console.log('ok');
+    return;
+  }
+
+  if (cmd === 'inbox') {
+    const board = readJson(BOARD, { projects: [], tasks: [], ideas: [] });
+    numberTasks(board.tasks);
+    for (const t of inbox(board)) console.log(`${t.no ? `#${t.no}` : '-'}\t${t.id}\t${t.title}\n  > ${t.thread.at(-1).text}`);
+    return;
+  }
+
   if (cmd === 'stage') {
     const [projectId, stageName] = args;
     if (!projectId || !stageName) { console.error('使い方: board.mjs stage <project> <stage>'); process.exitCode = 1; return; }
@@ -150,7 +201,8 @@ async function main() {
 
   if (cmd === 'open') {
     const board = readJson(BOARD, { projects: [], tasks: [], ideas: [] });
-    for (const t of open(board)) console.log(`${t.id}\t${t.project ?? '-'}\t${t.owner}\t${t.status}\t${t.title}`);
+    numberTasks(board.tasks);
+    for (const t of open(board).sort((a, b) => a.no - b.no)) console.log(`#${t.no}\t${t.id}\t${t.project ?? '-'}\t${t.owner}\t${t.status}\t${t.title}`);
     return;
   }
 
@@ -163,7 +215,7 @@ async function main() {
     return;
   }
 
-  console.error('使い方: board.mjs add|set|stage|open|archive ...');
+  console.error('使い方: board.mjs add|set|reply|inbox|stage|open|archive ...');
   process.exitCode = 1;
 }
 

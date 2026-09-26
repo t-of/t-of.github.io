@@ -80,13 +80,16 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 - `owner`: `researcher` / `planner` / `designer` / `engineer` / `qa` / `release` / `writer` / `sns` / `owner`（オーナーが決める・操作するもの）
 - `status`: `todo`（未着手）/ `doing`（進行中）/ `waiting`（待ち。オーナーの返事など）/ `done`（完了。`doneAt` に日付）/ `skip`（しなくていい。やらないと決めたもの。`doneAt` に決めた日付）
 - `id` は `t` + 連番。今ある一番大きい番号の次にする。
+- `no` はチャットで呼ぶための小さい番号（スタジオに `#3` と出る）。終わっていないタスクだけが持ち、終わると外れて、空いた番号を次のタスクが使う。board.mjs とスタジオが書くたびに自動で振るので手で付けない。オーナーが「3 番」と言ったら `no: 3` のタスク。board.mjs の `set` は `#3` でも指せる。
 - task の `project` は projects の `id`、apps.js の `id`、`t-of.github.io`（本部）、`null`（どれでもない）のどれか。アプリの名前を変えても古いタスクの `project` は直さない（記録として残す）。
-- 上の例にない項目: 一番上の `about`（説明）と `updatedAt`（書いた時刻。board.mjs とスタジオが入れる）、task の `images` / `choices` / `choiceImages` / `choiceLabels` / `choice` / `comment`（下）。項目を足したら、ここに書く。
+- 上の例にない項目: 一番上の `about`（説明）と `updatedAt`（書いた時刻。board.mjs とスタジオが入れる）、task の `no`・`thread` と `images` / `choices` / `choiceImages` / `choiceLabels` / `choice` / `comment`（下）。項目を足したら、ここに書く。
 - オーナーに見て選んでほしいときは、task に `images`（本部からの相対パス。例 `.audit/xxx.png`）と `choices`（例 `["A","B","C"]`）を付け、`owner: "owner"`・`status: "waiting"` にする。
   案ごとの画像は `choiceImages`（例 `{"A": ".audit/a.svg"}`）、短い名前は `choiceLabels` に入れると、スタジオで大きなカードとして並ぶ。
   オーナーがスタジオで選ぶと `choice` と `comment` が入り `done` になる。
   タスクを出したら **`node tools/wait-choice.mjs <id>` をバックグラウンドで動かす**。押されると終わって知らせが届くので、
   オーナーにチャットで「押した」と言ってもらう必要はない。知らせが来たら、選んだ内容で次へ進める。
+- `thread` はタスクのコメント欄（`[{ "by": "owner" | "director", "text", "at" }]`）。オーナーはスタジオで書き、ディレクターは `node tools/board.mjs reply <tid> "<返事>"` で返す。
+  **会話のはじめと返事をしたあとに `node tools/wait-comment.mjs` をバックグラウンドで動かす**。新しいコメントが来ると終わって知らせが届くので、返して、また動かす。返していないものは `node tools/board.mjs inbox` で見られる。
 - ディレクターの役目: 仕事を振るときに task を足して `doing` にし、段階が進んだら project の `stage` を進め、終わったら `done` にする。
 - メンバーにはボードを触らせない（同時に書き換えて壊さないように）。ボードはディレクターだけが更新する。
 
