@@ -158,6 +158,9 @@ function auditFiles(app) {
   const missingHeads = heads.filter((h) => !new RegExp(`^##\\s.*${h}`, 'm').test(readme));
   add('README の見出し', missingHeads.length === 0, missingHeads.join(', '), '§8');
   add('README に T.OF...', /T\.OF\.\.\./.test(readme), '', '§7');
+  if (exists(path.join(dir, 'firestore.rules')) || /firestore|entitlement/i.test(code)) {
+    add('README にデータの形', /^##\s.*データ/m.test(readme), '端末の外に保存するなら「## データ」に形を書く', '§3');
+  }
 
   results.push(...safetyChecks(app, repoFiles(dir), { tsc: () => runTsc(dir) }));
   return results;
