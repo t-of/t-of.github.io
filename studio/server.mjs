@@ -31,6 +31,7 @@ const BACKFILL = process.argv.includes('--backfill');   // node server.mjs --bac
 
 const RECENT_MS = 12 * 60 * 60 * 1000;   // これより前に止まったセッションは見ない（--backfill のときは効かせない）
 const IDLE_MS = 3 * 60 * 1000;           // 記録がこれだけ途絶えたら「止まっているかも」
+const PAUSE_MS = 10 * 60 * 1000;         // 台帳の時間: 記録の間がこれ以上あいたら止めていたとみなし、数えない
 
 // ---------- 役割 ----------
 
@@ -154,7 +155,7 @@ function session(id, project) {
 function agent(s, agentId) {
   if (!s.agents.has(agentId)) {
     s.agents.set(agentId, { id: agentId, type: '', description: '', role: 'engineer', startedAt: 0, lastAt: 0,
-      action: '', lastText: '', done: false, pending: 0, tools: 0, apps: new Set(), promptApps: new Set(),
+      action: '', lastText: '', done: false, pending: 0, tools: 0, apps: new Set(), promptApps: new Set(), activeMs: 0,
       // 台帳（docs/private/ledger.jsonl）向け: assistant メッセージから拾うモデルとトークン。message.id ごとに 1 回だけ数える
       models: {}, tokens: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 }, seenMsgIds: new Set() });
   }
@@ -171,6 +172,8 @@ function pushLog(s, entry) {
 function apply(s, a, d) {
   const t = Date.parse(d.timestamp || '') || 0;
   const who = a || s;
+  // 動いていた時間だけ足す（オーナーが止めていた間や、利用の上限で待った間は入れない）
+  if (a && t && a.lastAt && t > a.lastAt && t - a.lastAt < PAUSE_MS) a.activeMs += t - a.lastAt;
   if (t) { who.lastAt = Math.max(who.lastAt || 0, t); s.lastAt = Math.max(s.lastAt, t); }
   if (!a && d.cwd) s.cwd = d.cwd;
   if (d.type === 'ai-title' && d.aiTitle) s.title = d.aiTitle;
@@ -239,7 +242,7 @@ function ledgerRow(s, a, t) {
   return {
     id: a.id, session: s.id, role: a.role, type: a.type, model, description: a.description,
     apps: [...(a.apps.size ? a.apps : a.promptApps)],
-    startedAt: a.startedAt, endedAt: t, ms: Math.max(0, t - (a.startedAt || t)),
+    startedAt: a.startedAt, endedAt: t, ms: a.activeMs,
     tools: a.tools || 0, tokens: { ...a.tokens }, kind,
   };
 }
