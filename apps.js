@@ -23,6 +23,19 @@
 
 window.TOFO_APPS = [
   {
+    id: 'capgift',
+    name: 'CAPGIFT',
+    title: 'ふるさと納税の上限計算',
+    desc: '年収と家族を入れると、控除上限額の目安と、今年あといくら寄付できるかが分かる。',
+    category: 'tool',
+    tags: ['ツール', '計算'],
+    icon: 'https://capgift.t-of.workers.dev/icons/icon-192.png',
+    color: '#0b3d2e',
+    host: 'cloudflare',
+    url: 'https://capgift.t-of.workers.dev/',
+    paid: true,
+  },
+  {
     id: 'septet',
     name: 'SEPTET',
     title: '7 マスのブロックで列を消す',
