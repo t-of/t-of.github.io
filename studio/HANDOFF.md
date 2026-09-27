@@ -165,7 +165,7 @@ T.OF... スタジオ（`npm run studio` → http://localhost:4141）を大きく
 | `GET /api/events` | SSE。つないだ直後に `agents`・`board`・`audit` を 1 回ずつ送り、そのあと変わるたびに送る |
 | `GET /api/apps` | apps.js の中身 |
 | `GET /api/ledger` | 台帳の全行 |
-| `GET /api/board` / `PUT /api/board` | ボード全体を読む・書く（`projects` と `tasks` が配列でないと 400） |
+| `GET /api/board` / `PUT /api/board` | ボード全体を読む・書く（`projects` と `tasks` が配列でないと 400）。PUT は送った `updatedAt` が今のファイルと違うと 409 で今のボードを返す（下の「守ること」） |
 | `POST /api/audit?browser=1` | チェックを走らせる（結果は `audit` イベントで届く） |
 | `GET /api/trademark` / `PUT /api/trademark/result` | 商標の読み・1 件書き（`{key, status, note}`） |
 | `GET /shots/<名前>` | `.audit/` の画像 |
@@ -219,6 +219,7 @@ SSE のイベント: `agents`（上の配列）/ `board`（ボード全体）/ `
 - **外に公開しない**。127.0.0.1 だけで待ち受ける。外部のサービスに記録を送らない。
 - **作業記録には書き込まない**（Claude Code のもの）。
 - **board.json はオーナーとディレクターが同時に触る**。画面から書くときは、今の中身を読んでから全体を PUT する今のやり方を崩さない。JSON を壊さない。アーカイブ済みのタスクを board.json に戻さない。
+  PUT には読んだときの `updatedAt` を必ず添え、サーバーはそれが今のファイルとずれていたら（その間にディレクターが `tools/board.mjs` で足した等）409 を返して上書きしない（`saveBoard` が読み直して当て直す）。作り直すときもこの合いことばを外さない。
 - データの形（board.json・ledger.jsonl・API・SSE）を変えるなら、`tools/board.mjs`・`CLAUDE.md` の「ボード」も合わせて直す。変えずに済むなら変えない。
 - 依存を足さない（サーバーは Node の標準だけ、画面はビルドなし）。足すなら理由を DECISIONS.md に書く。
 - `prefers-reduced-motion` の代わりの見せ方を必ず用意する。色だけで意味を伝えない（文字かアイコンも添える）。

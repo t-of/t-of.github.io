@@ -22,7 +22,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const HUB = path.dirname(HERE);
 const WORKSPACE = path.join(path.dirname(HUB), 'apps');   // ~/GitHub/tof/apps
 const PROJECTS_DIR = path.join(os.homedir(), '.claude', 'projects');
-const BOARD = path.join(HUB, 'docs', 'board.json');
+const BOARD = process.env.TOF_TEST_BOARD || path.join(HUB, 'docs', 'board.json');   // テスト（server.test.mjs）は一時ファイルに差し替える
 const ARCHIVE = path.join(HUB, 'docs', 'board-archive.json');
 const LEDGER = path.join(HUB, 'docs', 'private', 'ledger.jsonl');
 const DIRECTOR_LEDGER = path.join(HUB, 'docs', 'private', 'director-ledger.jsonl');
@@ -599,6 +599,10 @@ const server = http.createServer(async (req, res) => {
     if (p === '/api/board' && req.method === 'PUT') {
       const board = await readBody(req);
       if (!Array.isArray(board.projects) || !Array.isArray(board.tasks)) return send(res, 400, { error: 'projects と tasks が要る' });
+      // 画面が読んだときの updatedAt と今のファイルがずれていたら、その間に誰か（ディレクターの board.mjs など）が
+      // 書いたということなので、丸ごと上書きせず 409 で今のボードを返す（画面はそれを読み直して当て直す）
+      const current = readBoard();
+      if (board.updatedAt !== current.updatedAt) return send(res, 409, current);
       writeBoard(board);
       broadcast('board', readBoard());
       return send(res, 200, { ok: true });

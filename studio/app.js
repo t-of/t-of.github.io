@@ -62,8 +62,23 @@ function connect() {
   });
 }
 
-async function saveBoard() {
-  await fetch('/api/board', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(state.board) });
+// board.mjs が裏で足したタスクを消さないよう、読んだときの updatedAt を一緒に送る。
+// サーバーがその間の書き込みに気づいたら 409 を返すので、最新のボードを読み直す。
+// reapply があれば（コメント・選択など、同じ変更を組み立て直せるもの）最新の上にもう一度当てて 1 回だけ送り直す。
+// なければ最新を読み込んだとだけ伝え、もう一度操作してもらう
+async function saveBoard(reapply) {
+  const put = () => fetch('/api/board', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(state.board) });
+  let res = await put();
+  if (res.status !== 409) return;
+  state.board = await res.json();
+  if (reapply) {
+    reapply(state.board);
+    render();
+    res = await put();
+    if (res.status !== 409) return;
+  }
+  render();
+  alert('ほかで更新されたので読み込み直しました。もう一度操作してください。');
 }
 
 // ---------- 社内（フロアそのものは office.js が描く。ここに残るのはほかのタブでも使う desk() と、日報・フィード） ----------
@@ -415,11 +430,12 @@ function taskRow(t) {
       b.type = 'button';
       b.setAttribute('aria-pressed', String(t.choice === c));
       b.addEventListener('click', async () => {
-        t.choice = c;
-        t.comment = note.value.trim();
-        t.status = 'done';
-        t.doneAt = today();
-        await saveBoard();
+        const choice = c, comment = note.value.trim(), doneAt = today();
+        t.choice = choice; t.comment = comment; t.status = 'done'; t.doneAt = doneAt;
+        await saveBoard((board) => {
+          const x = board.tasks.find((y) => y.id === t.id);
+          if (x) { x.choice = choice; x.comment = comment; x.status = 'done'; x.doneAt = doneAt; }
+        });
       });
       box.append(b);
     }
@@ -467,9 +483,13 @@ function thread(t) {
     e.preventDefault();
     const text = input.value.trim();
     if (!text) return;
-    t.thread = [...msgs, { by: 'owner', text, at: new Date().toISOString() }];
+    const entry = { by: 'owner', text, at: new Date().toISOString() };
+    t.thread = [...msgs, entry];
     delete state.drafts[t.id];
-    await saveBoard();
+    await saveBoard((board) => {
+      const x = board.tasks.find((y) => y.id === t.id);
+      if (x) x.thread = [...(x.thread || []), entry];
+    });
   });
   box.append(form);
   return box;
