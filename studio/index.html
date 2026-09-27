@@ -22,6 +22,7 @@
       <button role="tab" data-view="projects" aria-selected="false">プロジェクト</button>
       <button role="tab" data-view="tasks" aria-selected="false">タスク <span class="badge" id="task-badge"></span></button>
       <button role="tab" data-view="stats" aria-selected="false">成績</button>
+      <button role="tab" data-view="people" aria-selected="false">社員</button>
     </nav>
     <div class="status">
       <a class="btn btn--ghost" href="./trademark.html">商標チェック</a>
@@ -117,6 +118,12 @@
           <div id="stats-adoption"></div>
         </section>
       </div>
+    </section>
+
+    <!-- 社員 -->
+    <section class="view" data-view="people" hidden>
+      <p class="muted">係ごとの社員。名前は台帳の agent id から自動で割り振る（office.js の名簿）。給料は API で使ったときの単価による換算で、サブスクの実際の請求ではない。</p>
+      <div id="people-groups"></div>
     </section>
   </main>
 

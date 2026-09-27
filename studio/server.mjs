@@ -157,8 +157,10 @@ function agent(s, agentId) {
   if (!s.agents.has(agentId)) {
     s.agents.set(agentId, { id: agentId, type: '', description: '', role: 'engineer', startedAt: 0, lastAt: 0,
       action: '', lastText: '', done: false, pending: 0, tools: 0, apps: new Set(), promptApps: new Set(), activeMs: 0,
-      // 台帳（docs/private/ledger.jsonl）向け: assistant メッセージから拾うモデルとトークン。message.id ごとに 1 回だけ数える
-      models: {}, tokens: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 }, seenMsgIds: new Set() });
+      // 台帳（docs/private/ledger.jsonl）向け: assistant メッセージから拾うモデルとトークン。
+      // 同じ message.id が内容ブロックごとに複数行に分かれ、output_tokens は行を追うごとに増える（ストリーミングの途中値）ので、
+      // message.id ごとに最後に見た値で数える（usageByMsg に前回分を覚えておき、差し替える）
+      models: {}, tokens: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 }, seenMsgIds: new Set(), usageByMsg: new Map() });
   }
   return s.agents.get(agentId);
 }
@@ -187,16 +189,20 @@ function apply(s, a, d) {
     return;
   }
   // 台帳向け: このエージェントの assistant メッセージのモデルとトークンを拾う。
-  // 同じ message.id が内容ブロックごとに複数行に分かれて出てくるので、message.id ごとに 1 回だけ数える
-  if (a && msg.role === 'assistant' && msg.id && !a.seenMsgIds.has(msg.id)) {
-    a.seenMsgIds.add(msg.id);
-    if (msg.model) a.models[msg.model] = (a.models[msg.model] || 0) + 1;
+  // モデルは message.id ごとに 1 回だけ数える。トークンは同じ message.id の行が来るたび、前回分を引いて今回分を足す
+  // （最後に見た行の値が正しい合計。特に output_tokens は行を追うごとに増えるストリーミングの途中値）
+  if (a && msg.role === 'assistant' && msg.id) {
+    if (!a.seenMsgIds.has(msg.id)) {
+      a.seenMsgIds.add(msg.id);
+      if (msg.model) a.models[msg.model] = (a.models[msg.model] || 0) + 1;
+    }
     const u = msg.usage;
     if (u) {
-      a.tokens.input += u.input_tokens || 0;
-      a.tokens.output += u.output_tokens || 0;
-      a.tokens.cacheRead += u.cache_read_input_tokens || 0;
-      a.tokens.cacheWrite += u.cache_creation_input_tokens || 0;
+      const prev = a.usageByMsg.get(msg.id);
+      if (prev) { a.tokens.input -= prev.input; a.tokens.output -= prev.output; a.tokens.cacheRead -= prev.cacheRead; a.tokens.cacheWrite -= prev.cacheWrite; }
+      const cur = { input: u.input_tokens || 0, output: u.output_tokens || 0, cacheRead: u.cache_read_input_tokens || 0, cacheWrite: u.cache_creation_input_tokens || 0 };
+      a.tokens.input += cur.input; a.tokens.output += cur.output; a.tokens.cacheRead += cur.cacheRead; a.tokens.cacheWrite += cur.cacheWrite;
+      a.usageByMsg.set(msg.id, cur);
     }
   }
   for (const b of msg.content) {

@@ -34,8 +34,9 @@ main { padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-
 .brand { display: flex; align-items: center; gap: 10px; }
 .brand img { display: block; margin-left: -6px; }
 .brand__sub { font-size: 12px; letter-spacing: 0.35em; color: var(--muted); font-weight: 700; }
-.tabs { display: flex; gap: 4px; padding: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; }
-.tabs button { border: 0; background: none; color: var(--muted); padding: 6px 16px; border-radius: 999px; cursor: pointer; font-size: 14px; }
+.tabs { display: flex; gap: 4px; padding: 4px; max-width: 100%; overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; }
+.tabs button { border: 0; background: none; color: var(--muted); padding: 6px 16px; border-radius: 999px; cursor: pointer; font-size: 14px; white-space: nowrap; }
+@media (max-width: 480px) { .tabs button { padding: 6px 10px; } }
 .tabs button[aria-selected="true"] { background: var(--surface-2); color: var(--fg); }
 .badge { display: inline-block; min-width: 18px; padding: 0 6px; border-radius: 999px; background: var(--accent); color: #1a1400; font-size: 11px; font-weight: 700; }
 .badge:empty { display: none; }
@@ -289,6 +290,9 @@ main { padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-
 .badge-chip { font-size: 10px; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: color-mix(in srgb, var(--muted) 70%, transparent); border: 1px solid var(--line); }
 .badge-chip.is-on { background: color-mix(in srgb, var(--c) 22%, var(--surface-2)); color: var(--c); border-color: color-mix(in srgb, var(--c) 50%, transparent); font-weight: 700; }
 
+.people-role { margin-bottom: 14px; }
+.people-role .sheet__h { margin: 0 0 8px; }
+.people-role .table-wrap { margin-bottom: 0; }
 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); margin-bottom: 16px; }
 .stats-table__table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 13px; }
 .stats-table__table th, .stats-table__table td { padding: 8px 12px; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--line); }

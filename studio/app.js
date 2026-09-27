@@ -3,6 +3,7 @@
 // 社内タブのフロア（ドット絵のオフィス）は office.js が描く。ここからは状態を渡すだけ。
 // 係の名簿（ROLES・PEOPLE・名前の決め方）も office.js の 1 か所にまとめてあるので、ここでは import するだけ
 import { ROLES, leader, nameOf, officeAgents, officeBoard, officeLog } from './office.js';
+import { payForRows, fmtYen } from './pay.js';
 
 const team = (role) => `${ROLES[role]?.name || role}チーム`;
 const STAGES = [
@@ -49,6 +50,7 @@ function connect() {
     const row = JSON.parse(e.data);
     state.ledger.push(row);
     if (state.view === 'stats') renderStatsTab();
+    if (state.view === 'people') renderPeopleTab();
   });
   es.addEventListener('log', (e) => {
     const item = JSON.parse(e.data);
@@ -673,7 +675,7 @@ function renderStatsTable(period) {
   const table = el('table', 'stats-table__table');
   const thead = el('thead');
   const htr = el('tr');
-  for (const h of ['係', 'モデル', '件数', '平均時間', '平均トークン(出力)', '平均トークン(入力+キャッシュ)', '一発合格率']) htr.append(el('th', null, h));
+  for (const h of ['係', 'モデル', '件数', '平均時間', '平均トークン(出力)', '平均トークン(入力+キャッシュ)', '一発合格率', '給料(期間)']) htr.append(el('th', null, h));
   thead.append(htr);
   table.append(thead);
   const tbody = el('tbody');
@@ -688,7 +690,7 @@ function renderStatsTable(period) {
     if (!models.length) {
       const tr = el('tr', 'stats-row stats-row--empty');
       tr.style.setProperty('--c', ROLES[role].color);
-      tr.append(el('td', 'stats-role', ROLES[role].name), ...Array.from({ length: 6 }, () => el('td', null, '—')));
+      tr.append(el('td', 'stats-role', ROLES[role].name), ...Array.from({ length: 7 }, () => el('td', null, '—')));
       tbody.append(tr);
       continue;
     }
@@ -701,10 +703,11 @@ function renderStatsTable(period) {
       const avgOut = list.reduce((n, l) => n + (l.tokens?.output || 0), 0) / list.length;
       const avgIn = list.reduce((n, l) => n + (l.tokens?.input || 0) + (l.tokens?.cacheRead || 0) + (l.tokens?.cacheWrite || 0), 0) / list.length;
       const fp = firstPassRate(list);
+      const payText = payCell(payForRows(list), list.length);
       tr.append(
         el('td', 'stats-role', ROLES[role].name), el('td', null, model), el('td', null, String(list.length)),
         el('td', null, fmtMs(avgMs)), el('td', null, fmtTok(avgOut)), el('td', null, fmtTok(avgIn)),
-        el('td', null, fp == null ? '—' : `${Math.round(fp * 100)}%`),
+        el('td', null, fp == null ? '—' : `${Math.round(fp * 100)}%`), el('td', null, payText),
       );
       tbody.append(tr);
     }
@@ -746,6 +749,70 @@ function renderStatsTab() {
   renderStatsAdoption(state.statsPeriod);
 }
 
+// ---------- 社員 ----------
+
+// 係ごとに、台帳に出てきた名前（office.js の名簿から）だけをまとめる。一度も仕事をしていない名前は出さない
+function peopleOf(role) {
+  const byName = new Map();
+  for (const l of state.ledger) {
+    if (l.role !== role) continue;
+    const name = nameOf(role, l.id);
+    if (!byName.has(name)) byName.set(name, []);
+    byName.get(name).push(l);
+  }
+  return [...byName.entries()].map(([name, rows]) => {
+    const byModel = new Map();
+    for (const l of rows) byModel.set(l.model, (byModel.get(l.model) || 0) + 1);
+    const model = [...byModel.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] || '（不明）';
+    const month = rows.filter((l) => (l.startedAt || 0) >= periodStart('month'));
+    return {
+      name, rows: rows.length, ms: rows.reduce((n, l) => n + (l.ms || 0), 0), model,
+      payMonth: payCell(payForRows(month), month.length), payAll: payCell(payForRows(rows), rows.length),
+      payAllYen: payForRows(rows).yen,
+      lastAt: Math.max(...rows.map((l) => l.endedAt || l.startedAt || 0)),
+    };
+  }).sort((a, b) => b.payAllYen - a.payAllYen);
+}
+
+// 台帳の行の集まり（全部知らないモデルなら「不明」、一部だけなら金額＋「不明」を添える）
+function payCell(pay, total) {
+  if (!total) return '—';
+  if (pay.unknown === total) return '不明';
+  return fmtYen(pay.yen) + (pay.unknown ? '＋不明' : '');
+}
+
+function renderPeopleTab() {
+  const wrap = $('people-groups');
+  wrap.replaceChildren();
+  for (const role of STATS_ROLES) {
+    const people = peopleOf(role);
+    const section = el('section', 'panel people-role');
+    section.append(el('h3', 'sheet__h', `${team(role)}（リーダー ${leader(role)}）`));
+    if (!people.length) { section.append(el('p', 'muted', 'まだ台帳に記録がありません。')); wrap.append(section); continue; }
+    const table = el('table', 'stats-table__table');
+    const thead = el('thead');
+    const htr = el('tr');
+    for (const h of ['名前', 'いつものモデル', '件数', '働いた時間', '今月の給料', '累計の給料', '最後に働いた日']) htr.append(el('th', null, h));
+    thead.append(htr);
+    const tbody = el('tbody');
+    for (const p of people) {
+      const tr = el('tr', 'stats-row');
+      tr.style.setProperty('--c', ROLES[role].color);
+      tr.append(
+        el('td', 'stats-role', p.name), el('td', null, p.model), el('td', null, String(p.rows)),
+        el('td', null, fmtMs(p.ms)), el('td', null, p.payMonth), el('td', null, p.payAll),
+        el('td', null, p.lastAt ? new Date(p.lastAt).toLocaleDateString('ja-JP') : '—'),
+      );
+      tbody.append(tr);
+    }
+    table.append(thead, tbody);
+    const box = el('div', 'table-wrap');
+    box.append(table);
+    section.append(box);
+    wrap.append(section);
+  }
+}
+
 // ---------- 全体 ----------
 
 function render() {
@@ -754,6 +821,7 @@ function render() {
   if (state.view === 'projects') renderProjects();
   if (state.view === 'tasks') renderTasks();
   if (state.view === 'stats') renderStatsTab();
+  if (state.view === 'people') renderPeopleTab();
 }
 
 document.querySelectorAll('.tabs [data-view]').forEach((b) => b.addEventListener('click', () => {
