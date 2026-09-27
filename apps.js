@@ -23,6 +23,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'septet',
+    name: 'SEPTET',
+    title: '7 マスのブロックで列を消す',
+    desc: '7 マスのブロック「ヘプトミノ」全 107 種を落として、横の列をそろえて消すパズル。7 列を一度に消す SEPTET を狙う。機械学習で育てた AI のプレイも観戦できる。',
+    category: 'game',
+    tags: ['パズル', 'AI'],
+    icon: '/septet/icons/icon-192.png',
+    color: '#12100e',
+  },
+  {
     id: 'ink-tally',
     name: 'INK TALLY',
     title: '数字を手がかりに絵を塗り出す',
