@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-27T14:00:07.840Z",
+  "updatedAt": "2026-09-27T15:13:50.187Z",
   "projects": [
     {
       "id": "note",
@@ -201,7 +201,7 @@
     {
       "id": "septet",
       "name": "SEPTET",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-26",
       "note": "SESTET の 7 マス版（ヘプトミノ 107 種）。盤と得点を見直し、AI は機械学習"
     },
@@ -228,6 +228,14 @@
       "created": "2026-09-27",
       "note": "毎日 1 問のノノグラム。オーナー就寝中にディレクターが選んだ",
       "idea": "docs/private/ideas/2026-09-27-fillclue.md"
+    },
+    {
+      "id": "capgift",
+      "name": "CAPGIFT",
+      "stage": "live",
+      "created": "2026-09-27",
+      "note": "ふるさと納税の上限を出して、その額で選べる返礼品へ（楽天アフィリエイト）",
+      "idea": "docs/private/ideas/2026-09-27-capgift.md"
     }
   ],
   "tasks": [
@@ -5388,6 +5396,11 @@
           "by": "owner",
           "text": "公開する",
           "at": "2026-09-27T04:46:44.064Z"
+        },
+        {
+          "by": "director",
+          "text": "公開済みです（0cba32f 以降も反映しています）",
+          "at": "2026-09-27T15:02:01.051Z"
         }
       ]
     },
@@ -5532,7 +5545,154 @@
       "project": "septet",
       "title": "SEPTET を公開するか決める（Pages を入れてポータルに載せる。リポジトリ t-of/septet は push 済み）",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27",
+      "thread": [
+        {
+          "by": "owner",
+          "text": "公開していいよ",
+          "at": "2026-09-27T15:01:05.513Z"
+        },
+        {
+          "by": "director",
+          "text": "公開しました https://t-of.github.io/septet/",
+          "at": "2026-09-27T15:02:01.051Z"
+        }
+      ]
+    },
+    {
+      "id": "t469",
+      "project": null,
+      "title": "アイデアを探す（楽天で買う直前の人が使う道具・アフィリエイト前提）",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27"
+    },
+    {
+      "id": "t470",
+      "project": null,
+      "title": "楽天向けの道具で、どれを作るか選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27",
+      "choices": [
+        "CAPGIFT",
+        "SpuGap",
+        "GRAMPRICE",
+        "DRUMSIZE",
+        "SATCHELSCALE",
+        "今回は作らない"
+      ],
+      "choice": "CAPGIFT",
+      "comment": ""
+    },
+    {
+      "id": "t471",
+      "project": "capgift",
+      "title": "CAPGIFT の仕様を書く",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27"
+    },
+    {
+      "id": "t472",
+      "project": "capgift",
+      "title": "CAPGIFT の権利の判定を選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化できる）",
+      "comment": ""
+    },
+    {
+      "id": "t473",
+      "project": "capgift",
+      "title": "CAPGIFT を仕様どおり作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27"
+    },
+    {
+      "id": "t474",
+      "project": "capgift",
+      "title": "楽天アフィリエイトに登録し、ふるさと納税の料率を確かめて、リンクを 1 本作る",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27",
+      "thread": [
+        {
+          "by": "director",
+          "text": "登録済み。ID 57f7e139.6fdf465c.57f7e13a.83a71d1b、ふるさと納税の返礼品の料率 4%（2026-09-27 オーナーが管理画面で確認）",
+          "at": "2026-09-27T15:02:01.051Z"
+        }
+      ]
+    },
+    {
+      "id": "t475",
+      "project": "capgift",
+      "title": "CAPGIFT のアイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27"
+    },
+    {
+      "id": "t476",
+      "project": "capgift",
+      "title": "CAPGIFT を確かめる",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27"
+    },
+    {
+      "id": "t477",
+      "project": "capgift",
+      "title": "CAPGIFT を公開するか決める（画面とアイコン）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27",
+      "images": [
+        ".audit/capgift-check-full-390.png",
+        ".audit/capgift-icons.png"
+      ],
+      "choices": [
+        "公開する",
+        "直してから",
+        "やめる"
+      ],
+      "choice": "公開する",
+      "comment": ""
+    },
+    {
+      "id": "t478",
+      "project": "capgift",
+      "title": "CAPGIFT を Cloudflare につなぐ（GitHub App の対象に t-of/capgift を足し、ダッシュボードでインポート）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27"
+    },
+    {
+      "id": "t479",
+      "project": "capgift",
+      "title": "収益化の前に J-PlatPat で「キャップギフト」を称呼検索する（9・35・36・42 類）",
+      "owner": "owner",
+      "status": "todo",
       "created": "2026-09-27",
       "doneAt": null,
       "no": 2
