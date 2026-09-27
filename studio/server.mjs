@@ -25,6 +25,7 @@ const PROJECTS_DIR = path.join(os.homedir(), '.claude', 'projects');
 const BOARD = path.join(HUB, 'docs', 'board.json');
 const ARCHIVE = path.join(HUB, 'docs', 'board-archive.json');
 const LEDGER = path.join(HUB, 'docs', 'private', 'ledger.jsonl');
+const DIRECTOR_LEDGER = path.join(HUB, 'docs', 'private', 'director-ledger.jsonl');
 const TRADEMARK = path.join(HUB, 'docs', 'private', 'trademark.json');
 const USAGE = path.join(os.homedir(), '.claude', 'tof-usage.json');   // 残り枠。ステータスラインと下の pollUsage が書く
 const PORT = Number(process.env.PORT) || 4141;
@@ -149,7 +150,11 @@ let KNOWN = known();
 setInterval(() => { KNOWN = known(); }, 60 * 1000);
 
 function session(id, project) {
-  if (!sessions.has(id)) sessions.set(id, { id, project, title: '', cwd: '', lastAt: 0, action: '', lastText: '', agents: new Map(), apps: new Set(), log: [] });
+  if (!sessions.has(id)) sessions.set(id, { id, project, title: '', cwd: '', lastAt: 0, action: '', lastText: '', agents: new Map(), apps: new Set(), log: [],
+    tools: 0, activeMs: 0, startedAt: 0,
+    // 台帳（docs/private/director-ledger.jsonl）向け: ディレクター（メインの会話）自身のモデルとトークン。
+    // 仕組みは agent() と同じ（apply() の中で who = a || s として共通に数える）
+    models: {}, tokens: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 }, seenMsgIds: new Set(), usageByMsg: new Map() });
   return sessions.get(id);
 }
 
@@ -175,8 +180,9 @@ function pushLog(s, entry) {
 function apply(s, a, d) {
   const t = Date.parse(d.timestamp || '') || 0;
   const who = a || s;
-  // 動いていた時間だけ足す（オーナーが止めていた間や、利用の上限で待った間は入れない）
-  if (a && t && a.lastAt && t > a.lastAt && t - a.lastAt < PAUSE_MS) a.activeMs += t - a.lastAt;
+  // 動いていた時間だけ足す（オーナーが止めていた間や、利用の上限で待った間は入れない）。ディレクター（a なし）も同じ考え方で数える
+  if (t && who.lastAt && t > who.lastAt && t - who.lastAt < PAUSE_MS) who.activeMs += t - who.lastAt;
+  if (t && !who.startedAt) who.startedAt = t;
   if (t) { who.lastAt = Math.max(who.lastAt || 0, t); s.lastAt = Math.max(s.lastAt, t); }
   if (!a && d.cwd) s.cwd = d.cwd;
   if (d.type === 'ai-title' && d.aiTitle) s.title = d.aiTitle;
@@ -188,21 +194,21 @@ function apply(s, a, d) {
     if (a && d.type === 'user' && typeof msg?.content === 'string' && !a.description) a.description = msg.content.slice(0, 80);
     return;
   }
-  // 台帳向け: このエージェントの assistant メッセージのモデルとトークンを拾う。
+  // 台帳向け: この主体（エージェント、a がなければディレクター＝メインの会話自身）の assistant メッセージのモデルとトークンを拾う。
   // モデルは message.id ごとに 1 回だけ数える。トークンは同じ message.id の行が来るたび、前回分を引いて今回分を足す
   // （最後に見た行の値が正しい合計。特に output_tokens は行を追うごとに増えるストリーミングの途中値）
-  if (a && msg.role === 'assistant' && msg.id) {
-    if (!a.seenMsgIds.has(msg.id)) {
-      a.seenMsgIds.add(msg.id);
-      if (msg.model) a.models[msg.model] = (a.models[msg.model] || 0) + 1;
+  if (msg.role === 'assistant' && msg.id) {
+    if (!who.seenMsgIds.has(msg.id)) {
+      who.seenMsgIds.add(msg.id);
+      if (msg.model) who.models[msg.model] = (who.models[msg.model] || 0) + 1;
     }
     const u = msg.usage;
     if (u) {
-      const prev = a.usageByMsg.get(msg.id);
-      if (prev) { a.tokens.input -= prev.input; a.tokens.output -= prev.output; a.tokens.cacheRead -= prev.cacheRead; a.tokens.cacheWrite -= prev.cacheWrite; }
+      const prev = who.usageByMsg.get(msg.id);
+      if (prev) { who.tokens.input -= prev.input; who.tokens.output -= prev.output; who.tokens.cacheRead -= prev.cacheRead; who.tokens.cacheWrite -= prev.cacheWrite; }
       const cur = { input: u.input_tokens || 0, output: u.output_tokens || 0, cacheRead: u.cache_read_input_tokens || 0, cacheWrite: u.cache_creation_input_tokens || 0 };
-      a.tokens.input += cur.input; a.tokens.output += cur.output; a.tokens.cacheRead += cur.cacheRead; a.tokens.cacheWrite += cur.cacheWrite;
-      a.usageByMsg.set(msg.id, cur);
+      who.tokens.input += cur.input; who.tokens.output += cur.output; who.tokens.cacheRead += cur.cacheRead; who.tokens.cacheWrite += cur.cacheWrite;
+      who.usageByMsg.set(msg.id, cur);
     }
   }
   for (const b of msg.content) {
@@ -230,13 +236,18 @@ function apply(s, a, d) {
     }
   }
   // end_turn はそのターンで道具を呼んでいないということなので、pending の数え違いがあっても完了にする
-  if (a && msg.role === 'assistant' && msg.stop_reason === 'end_turn') {
-    a.pending = 0;
-    a.done = true;
-    a.action = '完了';
-    // エージェントの「完了」はディレクターへの報告として飛ばす（SubagentHandback 自体は文字だけのまま二重に飛ばさない）
-    pushLog(s, { at: t, agent: a.id, role: a.role, text: '完了', kind: 'report', to: 'director' });
-    appendLedger(ledgerRow(s, a, t));
+  if (msg.role === 'assistant' && msg.stop_reason === 'end_turn') {
+    if (a) {
+      a.pending = 0;
+      a.done = true;
+      a.action = '完了';
+      // エージェントの「完了」はディレクターへの報告として飛ばす（SubagentHandback 自体は文字だけのまま二重に飛ばさない）
+      pushLog(s, { at: t, agent: a.id, role: a.role, text: '完了', kind: 'report', to: 'director' });
+      appendLedger(ledgerRow(s, a, t));
+    } else {
+      // ディレクター（メインの会話）は終わりがはっきりしないので、1 セッション 1 行を上書きで持つ（docs/private/director-ledger.jsonl）
+      upsertDirectorLedger(directorRow(s, t));
+    }
   }
 }
 
@@ -278,6 +289,43 @@ function readLedger() {
   const out = [];
   for (const line of text.split('\n')) { if (line) try { out.push(JSON.parse(line)); } catch { /* 書きかけ */ } }
   return out;
+}
+
+// ---------- ディレクター台帳（docs/private/director-ledger.jsonl） ----------
+//
+// ディレクター（メインの会話。サブエージェントでない本体）はサブエージェントと違って「完了」がはっきりしないので、
+// 台帳（ledger.jsonl。追記のみ・id で二重書き防止）とは別のファイルに、セッション id ごとに 1 行を上書きで持つ。
+// こうすると既存の読み手（readLedger・loadLedgerIds・appendLedger の重複除け）に一切手を入れずに済む。
+// role: 'director' を付けて /api/ledger では合わせて返し、成績タブ（STATS_ROLES にディレクターを含めない）はそのまま素通りする。
+// 何日にもまたがるセッションは 1 行にまとめ、最後に働いた日（endedAt）で数える簡略化。
+
+// 1 行 = 1 件の仕事（ledgerRow と同じ形）。あとで「どの係にどのモデルを使うか」を数字で見るための記録
+function directorRow(s, t) {
+  const model = Object.entries(s.models).sort((x, y) => y[1] - x[1])[0]?.[0] || '';
+  return {
+    id: s.id, session: s.id, role: 'director', type: '', model, description: s.title || '',
+    apps: [...s.apps], startedAt: s.startedAt, endedAt: t, ms: s.activeMs,
+    tools: s.tools || 0, tokens: { ...s.tokens }, kind: 'job',
+  };
+}
+
+function readDirectorLedger() {
+  let text = '';
+  try { text = fs.readFileSync(DIRECTOR_LEDGER, 'utf8'); } catch { return []; }
+  const out = [];
+  for (const line of text.split('\n')) { if (line) try { out.push(JSON.parse(line)); } catch { /* 書きかけ */ } }
+  return out;
+}
+// セッション id が同じ行を差し替える（なければ足す）。ファイルは小さい（セッションの数だけ）ので、毎回丸ごと読み書きする
+function upsertDirectorLedger(row) {
+  const rows = readDirectorLedger();
+  const i = rows.findIndex((r) => r.id === row.id);
+  if (i >= 0) rows[i] = row; else rows.push(row);
+  fs.mkdirSync(path.dirname(DIRECTOR_LEDGER), { recursive: true });
+  const tmp = `${DIRECTOR_LEDGER}.${process.pid}.tmp`;
+  fs.writeFileSync(tmp, rows.map((r) => JSON.stringify(r)).join('\n') + '\n');
+  fs.renameSync(tmp, DIRECTOR_LEDGER);
+  broadcast('ledger', row);
 }
 
 function scan() {
@@ -546,7 +594,7 @@ const server = http.createServer(async (req, res) => {
       return;
     }
     if (p === '/api/apps') return send(res, 200, loadApps());
-    if (p === '/api/ledger') return send(res, 200, readLedger());
+    if (p === '/api/ledger') return send(res, 200, [...readLedger(), ...readDirectorLedger()]);
     if (p === '/api/board' && req.method === 'GET') return send(res, 200, readBoard());
     if (p === '/api/board' && req.method === 'PUT') {
       const board = await readBody(req);
@@ -583,9 +631,14 @@ const server = http.createServer(async (req, res) => {
 
 loadLedgerIds();
 const ledgerBefore = ledgerIds.size;
+if (BACKFILL) {
+  // 上書き前に、今の台帳をバックアップしておく（director-ledger.jsonl は新規なのでバックアップ不要）
+  try { fs.copyFileSync(LEDGER, `${LEDGER}.bak-${Date.now()}`); } catch { /* まだない */ }
+}
 scan();
 if (BACKFILL) {
   console.log(`台帳: ${ledgerIds.size} 件（今回 ${ledgerIds.size - ledgerBefore} 件を追加）`);
+  console.log(`ディレクター台帳: ${readDirectorLedger().length} 件`);
   process.exit(0);
 }
 setInterval(tick, 1000);

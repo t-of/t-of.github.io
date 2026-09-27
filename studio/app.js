@@ -48,7 +48,9 @@ function connect() {
   es.addEventListener('usage', (e) => { state.usage = JSON.parse(e.data); if (state.view === 'office') renderUsage(); });
   es.addEventListener('ledger', (e) => {
     const row = JSON.parse(e.data);
-    state.ledger.push(row);
+    // ディレクターの行は同じ id（セッション id）を上書きで送ってくる。それ以外（エージェント）は常に新規
+    const i = state.ledger.findIndex((r) => r.id === row.id);
+    if (i >= 0) state.ledger[i] = row; else state.ledger.push(row);
     if (state.view === 'stats') renderStatsTab();
     if (state.view === 'people') renderPeopleTab();
   });
@@ -628,7 +630,7 @@ function renderStatsMVP() {
   const from = periodStart('month');
   const byRole = {};
   for (const l of state.ledger) {
-    if (l.kind !== 'job' || l.startedAt < from || !l.apps.length) continue;
+    if (!STATS_ROLES.includes(l.role) || l.kind !== 'job' || l.startedAt < from || !l.apps.length) continue;
     if (hasReturnWithin24h(l.role, l.apps, l.endedAt || l.startedAt)) continue;
     byRole[l.role] = (byRole[l.role] || 0) + 1;
   }
@@ -781,36 +783,39 @@ function payCell(pay, total) {
   return fmtYen(pay.yen) + (pay.unknown ? '＋不明' : '');
 }
 
+function renderPeopleSection(role) {
+  const people = peopleOf(role);
+  const section = el('section', 'panel people-role');
+  section.append(el('h3', 'sheet__h', `${team(role)}（リーダー ${leader(role)}）`));
+  if (!people.length) { section.append(el('p', 'muted', 'まだ台帳に記録がありません。')); return section; }
+  const table = el('table', 'stats-table__table');
+  const thead = el('thead');
+  const htr = el('tr');
+  for (const h of ['名前', 'いつものモデル', '件数', '働いた時間', '今月の給料', '累計の給料', '最後に働いた日']) htr.append(el('th', null, h));
+  thead.append(htr);
+  const tbody = el('tbody');
+  for (const p of people) {
+    const tr = el('tr', 'stats-row');
+    tr.style.setProperty('--c', ROLES[role].color);
+    tr.append(
+      el('td', 'stats-role', p.name), el('td', null, p.model), el('td', null, String(p.rows)),
+      el('td', null, fmtMs(p.ms)), el('td', null, p.payMonth), el('td', null, p.payAll),
+      el('td', null, p.lastAt ? new Date(p.lastAt).toLocaleDateString('ja-JP') : '—'),
+    );
+    tbody.append(tr);
+  }
+  table.append(thead, tbody);
+  const box = el('div', 'table-wrap');
+  box.append(table);
+  section.append(box);
+  return section;
+}
 function renderPeopleTab() {
   const wrap = $('people-groups');
   wrap.replaceChildren();
-  for (const role of STATS_ROLES) {
-    const people = peopleOf(role);
-    const section = el('section', 'panel people-role');
-    section.append(el('h3', 'sheet__h', `${team(role)}（リーダー ${leader(role)}）`));
-    if (!people.length) { section.append(el('p', 'muted', 'まだ台帳に記録がありません。')); wrap.append(section); continue; }
-    const table = el('table', 'stats-table__table');
-    const thead = el('thead');
-    const htr = el('tr');
-    for (const h of ['名前', 'いつものモデル', '件数', '働いた時間', '今月の給料', '累計の給料', '最後に働いた日']) htr.append(el('th', null, h));
-    thead.append(htr);
-    const tbody = el('tbody');
-    for (const p of people) {
-      const tr = el('tr', 'stats-row');
-      tr.style.setProperty('--c', ROLES[role].color);
-      tr.append(
-        el('td', 'stats-role', p.name), el('td', null, p.model), el('td', null, String(p.rows)),
-        el('td', null, fmtMs(p.ms)), el('td', null, p.payMonth), el('td', null, p.payAll),
-        el('td', null, p.lastAt ? new Date(p.lastAt).toLocaleDateString('ja-JP') : '—'),
-      );
-      tbody.append(tr);
-    }
-    table.append(thead, tbody);
-    const box = el('div', 'table-wrap');
-    box.append(table);
-    section.append(box);
-    wrap.append(section);
-  }
+  // ディレクター（メインの会話。サブエージェントではない）を一番上に。成績タブの STATS_ROLES には含めない
+  wrap.append(renderPeopleSection('director'));
+  for (const role of STATS_ROLES) wrap.append(renderPeopleSection(role));
 }
 
 // ---------- 全体 ----------
