@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-27T13:00:35.626Z",
+  "updatedAt": "2026-09-27T14:00:07.840Z",
   "projects": [
     {
       "id": "note",
@@ -5523,10 +5523,9 @@
       "project": "swaystone",
       "title": "二人対戦（同じ端末・オンライン合言葉 PeerJS）を足す",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-27",
-      "doneAt": null,
-      "no": 7
+      "doneAt": "2026-09-27"
     },
     {
       "id": "t467",
