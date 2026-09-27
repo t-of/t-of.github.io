@@ -319,7 +319,7 @@ function ownerRoom(r) {
   s += `<rect x="${cx + 28}" y="${y + 40}" width="30" height="10" fill="#1f232b"/>`;
   s += `<rect x="${cx - 14}" y="${y + 60}" width="28" height="21" rx="3" fill="#6a5720"/><rect x="${cx - 16}" y="${y + 80}" width="32" height="6" rx="2" fill="#8a7128"/>`;
   // オーナーの加瀬（自分の椅子に座って机に向かう。飾りなので押せない）
-  s += `<g class="person face-up pose-desk" pointer-events="none" transform="translate(${cx} ${y + 70})">${spriteSvg('owner', 'owner')}${tagSvg('owner', ROLES.owner.person)}</g>`;
+  s += `<g class="person face-up pose-desk is-type" pointer-events="none" transform="translate(${cx} ${y + 70})">${spriteSvg('owner', 'owner')}${tagSvg('owner', ROLES.owner.person)}</g>`;
   s += `<text class="owner-count" x="${cx}" y="${y + 113}">${n ? `あなたの番 ${n} 件` : 'あなたの番はありません'}</text>`;
   // 秘書の吉沢（机の右に立って控える。飾りなので押せない）
   s += `<g pointer-events="none" transform="translate(${cx + 86} ${y + 62})">${secretarySvg()}${tagSvg('secretary', ROLES.secretary.person)}</g>`;
@@ -366,10 +366,10 @@ function spriteSvg(role, id) {
 <rect class="back" x="-6" y="-21" width="12" height="11" fill="${hair}"/>
 </g></g>`;
 }
-// 秘書の吉沢だけの絵。正面向きで立っているだけなので、歩き・向きの切り替えはない
+// 秘書の吉沢だけの絵。正面向きで立って、その場で小さく揺れる（歩き・向きの切り替えはない）
 function secretarySvg() {
   const c = ROLES.secretary.color, sh = mix(c, '#000000', 0.3), hair = '#5a3424', skin = '#f6d6b8';
-  return `<g transform="scale(1.2)">
+  return `<g transform="scale(1.2)"><g class="sec-idle">
 <rect x="-8" y="-20" width="16" height="16" fill="${hair}"/>
 <rect x="-4" y="4" width="3" height="5" fill="${skin}"/><rect x="1" y="4" width="3" height="5" fill="${skin}"/><rect x="-5" y="9" width="4" height="2" fill="#7a3b4a"/><rect x="1" y="9" width="4" height="2" fill="#7a3b4a"/>
 <rect x="-9" y="-1" width="18" height="6" fill="${c}"/><rect x="-9" y="3" width="18" height="2" fill="${sh}"/>
@@ -380,7 +380,7 @@ function secretarySvg() {
 <rect x="3" y="-25" width="3" height="3" fill="#ff7aa8"/><rect x="7" y="-25" width="3" height="3" fill="#ff7aa8"/><rect x="5.5" y="-24" width="2" height="2" fill="#e0527f"/>
 <rect x="-4" y="-15" width="2" height="3" fill="#2a1a1a"/><rect x="2" y="-15" width="2" height="3" fill="#2a1a1a"/><rect x="-4" y="-15" width="1" height="1" fill="#ffffff"/><rect x="2" y="-15" width="1" height="1" fill="#ffffff"/>
 <rect x="-5" y="-12" width="2" height="1" fill="#f59ab0"/><rect x="3" y="-12" width="2" height="1" fill="#f59ab0"/><rect x="-1" y="-11" width="2" height="1" fill="#c0506a"/>
-</g>`;
+</g></g>`;
 }
 function tagSvg(role, name) {
   const t = `${ROLES[role]?.icon || ''} ${name}`, w = em(t) * 9.5 + 8;

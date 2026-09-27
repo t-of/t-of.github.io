@@ -105,6 +105,8 @@ main { padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-
 @keyframes sprite-bob { 50% { transform: translateY(-1px); } }
 @keyframes stride { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
 .person.is-walk .bubble { display: none; }
+.sec-idle { transform-box: view-box; animation: sec-idle 1.8s steps(1) infinite; }
+@keyframes sec-idle { 50% { transform: translateY(-1px); } }
 .tag-txt { font-size: 9.5px; fill: #eceef3; text-anchor: middle; font-weight: 500; }
 .bubble-txt { font-size: 9.5px; fill: #15171d; text-anchor: middle; font-weight: 500; }
 .bubble-txt.is-stall { fill: #eceef3; font-weight: 700; }
@@ -333,6 +335,6 @@ main { padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-
 @media (prefers-reduced-motion: reduce) {
   .desk.is-working .avatar, .live.on i, .desk.is-working .desk__action::before, .pcard.is-working, .my-turn.is-wiggle { animation: none; }
   /* 社内タブ: 歩く・打つ・点滅を止める（人はすぐ目的の場所に置き、受け手が光るだけ。office.js 側でも止める） */
-  .screen.is-on, .owner-glow.is-on, .person .arm, .person .leg, .person .sprite { animation: none !important; }
+  .screen.is-on, .owner-glow.is-on, .person .arm, .person .leg, .person .sprite, .sec-idle { animation: none !important; }
   .flash { animation: none; }
 }
