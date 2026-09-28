@@ -86,6 +86,13 @@
         <ul class="features" id="features"></ul>
       </section>
 
+      <section class="shelf" id="videos" aria-labelledby="videos-title" hidden>
+        <div class="shelf__head">
+          <h2 id="videos-title" class="section-title">動画で見る</h2>
+        </div>
+        <ul class="videos" id="video-list"></ul>
+      </section>
+
       <section id="apps" class="apps" aria-labelledby="apps-title">
         <div class="apps__head">
           <h2 id="apps-title" class="section-title">すべてのアプリ</h2>
@@ -139,6 +146,14 @@
         </div>
       </section>
     </main>
+
+    <dialog class="player" id="player" aria-label="紹介動画">
+      <video id="player-video" playsinline controls loop preload="none"></video>
+      <div class="player__bar">
+        <a class="btn btn--primary" id="player-play" href="/">遊ぶ</a>
+        <button class="btn btn--ghost" type="button" id="player-close">閉じる</button>
+      </div>
+    </dialog>
 
     <footer class="foot">
       <span>© <span id="year">2026</span> T.OF...</span>

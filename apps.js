@@ -9,6 +9,8 @@
 //   icon     : 192px のアイコン（このサイトと同じオリジンなので /<id>/... で参照できる）
 //   color    : アプリの theme_color（カードのアクセントに使う）
 //   og       : （書かなくてよい）新着に出す共有画像。書かなければ icon の icon-192.png を og.png に変えたもの
+//   video    : （書かなくてよい）紹介動画（縦 9:16 の mp4、videos/<id>.mp4）。書くと「動画で見る」に並ぶ。
+//              表紙は同じ名前の .jpg（videos/<id>.jpg）
 //
 // category に新しい種類を使うときは、main.js の CATEGORY に表示名を足す（足さなくても id のまま出る）。
 // 種類の絞り込み・件数・タグ・新着（先頭の 3 件）・アイコンの帯は、ここから自動で出る。
@@ -576,6 +578,7 @@ window.TOFO_APPS = [
     tags: ['パズル'],
     icon: '/glyph-shift/icons/icon-192.png',
     color: '#b3a2ff',
+    video: '/videos/glyph-shift.mp4',
   },
   {
     id: 'hue-hunter',

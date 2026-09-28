@@ -498,8 +498,70 @@ button.tag:hover { color: var(--fg); border-color: var(--line-2); }
   .sort { flex: none; }
 }
 
+/* ---------- 動画で見る ---------- */
+.videos {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 4px;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.videos::-webkit-scrollbar { display: none; }
+.video {
+  position: relative;
+  display: block;
+  width: 168px;
+  aspect-ratio: 9 / 16;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface-2);
+  color: var(--fg);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.video:hover { border-color: color-mix(in srgb, var(--ct) 50%, transparent); transform: translateY(-3px); }
+.video img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video__play {
+  position: absolute; right: 10px; bottom: 12px; z-index: 1; width: 40px; height: 40px;
+  border-radius: 50%; background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.video__play::after {
+  content: ""; position: absolute; left: 15px; top: 11px;
+  border-style: solid; border-width: 8px 0 8px 13px; border-color: transparent transparent transparent #fff;
+}
+.video__cap {
+  position: absolute; inset: auto 0 0 0; display: grid; gap: 2px; padding: 28px 56px 12px 12px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+}
+.video__name { font-size: 15px; font-weight: 700; }
+.video__title { font-size: 12px; color: var(--ct); }
+
+.player {
+  padding: 0;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--fg);
+  width: min(420px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow: hidden;
+}
+.player::backdrop { background: rgba(0, 0, 0, 0.75); }
+.player video {
+  display: block; width: 100%; aspect-ratio: 9 / 16; max-height: calc(100dvh - 120px);
+  background: #000; object-fit: contain;
+}
+.player__bar { display: flex; gap: 10px; padding: 12px; }
+.player__bar .btn { flex: 1; justify-content: center; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
-  .card:hover, .feature__link:hover, .marquee__item:hover { transform: none; }
+  .card:hover, .feature__link:hover, .marquee__item:hover, .video:hover { transform: none; }
   .marquee { overflow-x: auto; scrollbar-width: none; }
 }

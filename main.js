@@ -295,6 +295,44 @@
   $('features').replaceChildren(...APPS.slice(0, NEW_COUNT).map(feature));
   $('new').hidden = APPS.length === 0;
 
+  // ---------- 動画で見る（apps.js に video があるものだけ） ----------
+  // 表紙は動画と同じ名前の .jpg。押したら大きく開いて再生する（通信量を抑えるため、それまで読まない）
+  const player = $('player');
+  const pv = $('player-video');
+  function openVideo(app) {
+    pv.src = app.video;
+    pv.poster = app.video.replace(/\.mp4$/, '.jpg');
+    const play = $('player-play');
+    play.href = hrefOf(app);
+    play.dataset.app = app.id;
+    play.textContent = `${app.name} で遊ぶ`;
+    player.showModal();
+    pv.play().catch(() => { /* 自動で始まらなくても、再生ボタンで見られる */ });
+  }
+  player.addEventListener('close', () => { pv.pause(); pv.removeAttribute('src'); pv.load(); });
+  $('player-close').addEventListener('click', () => player.close());
+  player.addEventListener('click', (e) => { if (e.target === player) player.close(); });   // 外側を押したら閉じる
+  const withVideo = APPS.filter((a) => a.video);
+  $('videos').hidden = withVideo.length === 0;
+  $('video-list').replaceChildren(...withVideo.map((app) => {
+    const li = el('li');
+    const b = el('button', 'video');
+    b.type = 'button';
+    b.setAttribute('aria-label', `${app.name} の紹介動画を見る`);
+    paint(b, app);
+    const img = new Image(360, 640);
+    img.src = app.video.replace(/\.mp4$/, '.jpg');
+    img.alt = '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    const cap = el('span', 'video__cap');
+    cap.append(el('span', 'video__name', app.name), el('span', 'video__title', app.title));
+    b.append(img, el('span', 'video__play'), cap);
+    b.addEventListener('click', () => openVideo(app));
+    li.append(b);
+    return li;
+  }));
+
   // ---------- アイコンの帯（全アプリ。アプリが増えれば帯も伸びる） ----------
   function marquee() {
     const box = $('marquee');
