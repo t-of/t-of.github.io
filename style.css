@@ -369,7 +369,7 @@ button, input, select { font: inherit; color: inherit; }
   --ct: #b8bcc5;
   position: relative;
   display: flex;
-  gap: 16px;
+  flex-direction: column;
   padding: 18px;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -388,7 +388,8 @@ button, input, select { font: inherit; color: inherit; }
 }
 .card:hover { border-color: color-mix(in srgb, var(--ct) 40%, transparent); transform: translateY(-2px); background: color-mix(in srgb, var(--surface) 92%, var(--c)); }
 .card:focus-within { border-color: color-mix(in srgb, var(--ct) 60%, transparent); }
-.card .icon { position: relative; }
+.card__head { position: relative; display: flex; align-items: center; gap: 14px; }
+.card .icon { position: relative; width: 64px; height: 64px; border-radius: 16px; }
 .card__body { position: relative; min-width: 0; flex: 1; }
 .card__name { margin: 2px 0 0; font-size: 18px; line-height: 1.3; }
 .card__link { text-decoration: none; outline: none; }
@@ -396,8 +397,14 @@ button, input, select { font: inherit; color: inherit; }
 .card__link::after { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
 .card:has(.card__link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
 .card__title { margin: 2px 0 0; font-size: 13px; color: var(--ct); font-weight: 500; }
-.card__desc { margin: 8px 0 0; font-size: 14px; color: var(--muted); line-height: 1.65; }
-.card__tags { position: relative; z-index: 2; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.card__desc { position: relative; margin: 12px 0 0; font-size: 13px; color: var(--muted); line-height: 1.6;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.card__get {
+  flex: none; align-self: center; padding: 6px 18px; border-radius: 999px; font-size: 14px; font-weight: 700;
+  background: color-mix(in srgb, var(--ct) 18%, var(--surface-2)); color: var(--ct);
+}
+.card:hover .card__get { background: var(--ct); color: var(--bg); }
+.card__tags { position: relative; z-index: 2; margin: 6px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
 @keyframes card-in { from { opacity: 0; transform: translateY(6px); } }
 
 .tag {
@@ -488,9 +495,8 @@ button.tag:hover { color: var(--fg); border-color: var(--line-2); }
 @media (max-width: 520px) {
   .top__nav a { display: none; }
   .hero__actions .btn { flex: 1; }
-  .card { gap: 14px; padding: 16px; }
-  .card .icon { width: 60px; height: 60px; border-radius: 15px; }
-  .card__desc { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .card { padding: 16px; }
+  .card .icon { width: 56px; height: 56px; border-radius: 14px; }
   .search__key { display: none; }
   .filter { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .filter::-webkit-scrollbar { display: none; }
@@ -498,49 +504,22 @@ button.tag:hover { color: var(--fg); border-color: var(--line-2); }
   .sort { flex: none; }
 }
 
-/* ---------- 動画で見る ---------- */
-.videos {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 4px;
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  scrollbar-width: none;
+/* ---------- カードの画面（App Store の一覧のように 3 枚） ---------- */
+.shots { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
+.shot {
+  position: relative; display: block; aspect-ratio: 390 / 844; overflow: hidden; padding: 0;
+  border: 1px solid var(--line); border-radius: 14px; background: var(--surface-2);
 }
-.videos::-webkit-scrollbar { display: none; }
-.video {
-  position: relative;
-  display: block;
-  width: 168px;
-  aspect-ratio: 9 / 16;
-  padding: 0;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--surface-2);
-  color: var(--fg);
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
-  transition: border-color 0.2s, transform 0.2s;
+.shot img, .shot video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shot--video { z-index: 2; cursor: pointer; font: inherit; }
+.shot__play {
+  position: absolute; right: 8px; bottom: 8px; width: 30px; height: 30px;
+  border-radius: 50%; background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.35);
 }
-.video:hover { border-color: color-mix(in srgb, var(--ct) 50%, transparent); transform: translateY(-3px); }
-.video img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.video__play {
-  position: absolute; right: 10px; bottom: 12px; z-index: 1; width: 40px; height: 40px;
-  border-radius: 50%; background: rgba(0, 0, 0, 0.55); border: 1px solid rgba(255, 255, 255, 0.35);
+.shot__play::after {
+  content: ""; position: absolute; left: 11px; top: 8px;
+  border-style: solid; border-width: 6px 0 6px 10px; border-color: transparent transparent transparent #fff;
 }
-.video__play::after {
-  content: ""; position: absolute; left: 15px; top: 11px;
-  border-style: solid; border-width: 8px 0 8px 13px; border-color: transparent transparent transparent #fff;
-}
-.video__cap {
-  position: absolute; inset: auto 0 0 0; display: grid; gap: 2px; padding: 28px 56px 12px 12px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
-}
-.video__name { font-size: 15px; font-weight: 700; }
-.video__title { font-size: 12px; color: var(--ct); }
 
 .player {
   padding: 0;
@@ -562,6 +541,6 @@ button.tag:hover { color: var(--fg); border-color: var(--line-2); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
-  .card:hover, .feature__link:hover, .marquee__item:hover, .video:hover { transform: none; }
+  .card:hover, .feature__link:hover, .marquee__item:hover { transform: none; }
   .marquee { overflow-x: auto; scrollbar-width: none; }
 }

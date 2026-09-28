@@ -85,18 +85,55 @@
   const haystack = new Map(APPS.map((a) => [a.id,
     norm([a.name, a.id, a.title, a.desc, catLabel(a.category), ...(a.tags || [])].join(' '))]));
 
-  // ---------- カード ----------
+  // ---------- カード（App Store の一覧のように、名前の下に縦長の画面を 3 枚） ----------
+  // 画面は shots/<id>-1〜3.jpg（tools/shots.mjs で撮る）。動画（apps.js の video）があれば 1 枚目を動画にする。
+  const SHOTS = 3;
+  function shotImg(src) {
+    const img = new Image(390, 844);
+    img.src = src;
+    img.alt = '';
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.onerror = () => { const box = img.closest('.shots'); img.parentElement.remove(); if (box && !box.children.length) box.remove(); };
+    return img;
+  }
+  function shots(app) {
+    const box = el('div', 'shots');
+    if (app.video) {
+      const b = el('button', 'shot shot--video');
+      b.type = 'button';
+      b.setAttribute('aria-label', `${app.name} の紹介動画を見る`);
+      const v = document.createElement('video');
+      v.muted = true;
+      v.loop = true;
+      v.playsInline = true;
+      v.preload = 'none';
+      v.poster = app.video.replace(/\.mp4$/, '.jpg');
+      v.dataset.src = app.video;   // 見えるまで読まない（autoplay を見て入れる）
+      b.append(v, el('span', 'shot__play'));
+      b.addEventListener('click', () => openVideo(app));
+      box.append(b);
+    }
+    for (let n = 1; box.children.length < SHOTS; n++) {
+      const s = el('span', 'shot');
+      s.append(shotImg(`/shots/${app.id}-${n}.jpg`));
+      box.append(s);
+    }
+    return box;
+  }
+
   function card(app) {
     const li = el('li', 'card');
     paint(li, app);
 
-    li.append(iconImg(app, 72));
+    const head = el('div', 'card__head');
+    head.append(iconImg(app, 64));
     const body = el('div', 'card__body');
     const name = el('h3', 'card__name');
     const link = appLink(app, 'card__link');
     link.textContent = app.name;
     name.append(link);
-    body.append(name, el('p', 'card__title', app.title), el('p', 'card__desc', app.desc));
+    body.append(name, el('p', 'card__title', app.title));
 
     const tags = el('p', 'card__tags');
     const catBtn = el('button', 'tag tag--cat', catLabel(app.category));
@@ -110,10 +147,42 @@
       tags.append(b);
     });
     body.append(tags);
-    li.append(body);
+    const get = el('span', 'card__get', '遊ぶ');
+    get.setAttribute('aria-hidden', 'true');   // カード全体がリンクなので、見た目だけのボタン
+    head.append(body, get);
+    li.append(head, el('p', 'card__desc', app.desc), shots(app));
     return li;
   }
   const cards = new Map(APPS.map((a) => [a.id, card(a)]));
+
+  // ---------- 紹介動画（カードの 1 枚目。見えているあいだ音なしで流し、押すと大きく開く） ----------
+  const player = $('player');
+  const pv = $('player-video');
+  function openVideo(app) {
+    if (!player) { location.href = app.video; return; }   // 覚えていた古い index.html のとき
+    pv.src = app.video;
+    pv.poster = app.video.replace(/\.mp4$/, '.jpg');
+    const play = $('player-play');
+    play.href = hrefOf(app);
+    play.dataset.app = app.id;
+    play.textContent = `${app.name} で遊ぶ`;
+    player.showModal();
+    pv.play().catch(() => { /* 自動で始まらなくても、再生ボタンで見られる */ });
+  }
+  if (player) {
+    player.addEventListener('close', () => { pv.pause(); pv.removeAttribute('src'); pv.load(); });
+    $('player-close').addEventListener('click', () => player.close());
+    player.addEventListener('click', (e) => { if (e.target === player) player.close(); });   // 外側を押したら閉じる
+  }
+  const autoplay = 'IntersectionObserver' in window && new IntersectionObserver((entries) => {
+    entries.forEach(({ target: v, isIntersecting }) => {
+      if (isIntersecting && !reduceMotion.matches) {
+        if (!v.src) v.src = v.dataset.src;
+        v.play().catch(() => { /* 省電力などで止められたら表紙のまま */ });
+      } else v.pause();
+    });
+  }, { threshold: 0.6 });
+  if (autoplay) cards.forEach((c) => c.querySelectorAll('video').forEach((v) => autoplay.observe(v)));
 
   // ---------- 絞り込みの状態（URL の ?q=&c=&tag=&sort= と同じ） ----------
   const cats = [...new Set([...Object.keys(CATEGORY), ...APPS.map((a) => a.category)])]
@@ -294,47 +363,6 @@
   }
   $('features').replaceChildren(...APPS.slice(0, NEW_COUNT).map(feature));
   $('new').hidden = APPS.length === 0;
-
-  // ---------- 動画で見る（apps.js に video があるものだけ） ----------
-  // 表紙は動画と同じ名前の .jpg。押したら大きく開いて再生する（通信量を抑えるため、それまで読まない）
-  // 覚えていた古い index.html と新しい main.js が混ざっても、ほかの表示を止めない
-  if ($('videos') && $('player')) {
-    const player = $('player');
-    const pv = $('player-video');
-    function openVideo(app) {
-      pv.src = app.video;
-      pv.poster = app.video.replace(/\.mp4$/, '.jpg');
-      const play = $('player-play');
-      play.href = hrefOf(app);
-      play.dataset.app = app.id;
-      play.textContent = `${app.name} で遊ぶ`;
-      player.showModal();
-      pv.play().catch(() => { /* 自動で始まらなくても、再生ボタンで見られる */ });
-    }
-    player.addEventListener('close', () => { pv.pause(); pv.removeAttribute('src'); pv.load(); });
-    $('player-close').addEventListener('click', () => player.close());
-    player.addEventListener('click', (e) => { if (e.target === player) player.close(); });   // 外側を押したら閉じる
-    const withVideo = APPS.filter((a) => a.video);
-    $('videos').hidden = withVideo.length === 0;
-    $('video-list').replaceChildren(...withVideo.map((app) => {
-      const li = el('li');
-      const b = el('button', 'video');
-      b.type = 'button';
-      b.setAttribute('aria-label', `${app.name} の紹介動画を見る`);
-      paint(b, app);
-      const img = new Image(360, 640);
-      img.src = app.video.replace(/\.mp4$/, '.jpg');
-      img.alt = '';
-      img.loading = 'lazy';
-      img.decoding = 'async';
-      const cap = el('span', 'video__cap');
-      cap.append(el('span', 'video__name', app.name), el('span', 'video__title', app.title));
-      b.append(img, el('span', 'video__play'), cap);
-      b.addEventListener('click', () => openVideo(app));
-      li.append(b);
-      return li;
-    }));
-  }
 
   // ---------- アイコンの帯（全アプリ。アプリが増えれば帯も伸びる） ----------
   function marquee() {

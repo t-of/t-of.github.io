@@ -43,7 +43,9 @@ curl -s -o /dev/null -w "%{http_code}\n" https://t-of.github.io/<id>/
 
 1. [`apps.js`](../apps.js) の **先頭** に 1 件足す（書き方はファイルの頭のコメント）。
 2. `python3 tools/make-icons.py` で共有画像（`icons/og.png`）を作り直す。
-3. 本部をコミットして push し、ポータルにカードが出ることを確かめる。
+3. 公開した後に `node tools/shots.mjs <id>` でカードに並べるスマホ画面（`shots/<id>-1〜3.jpg`）を撮り、`.audit/shots-sheet-*.png` で見る。
+   うまく進まないアプリは `tools/shots.mjs` の `CUSTOM` に手順を書く。紹介動画があれば `videos/<id>.mp4`・`.jpg` を置き、apps.js に `video` を書く。
+4. 本部をコミットして push し、ポータルにカードが出ることを確かめる。
 
 ## 6. 記録
 
