@@ -85,8 +85,21 @@ async function clickUntil(page, clickRe, untilRe, tries = 4) {
   return (await seen()) > 0;
 }
 
+async function setSlider(page, v) {
+  await page.evaluate((v) => {
+    const s = document.querySelector('input[type="range"]');
+    s.value = v; s.dispatchEvent(new Event('input', { bubbles: true }));
+  }, v);
+  await page.waitForTimeout(1200);
+}
+
 // アプリごとの手順（id → { play(page), further(page) }）。汎用で崩れるものだけここに足す。
 const CUSTOM = {
+  'disassembly': {
+    // スライダーを動かして、分解図とノーリングを撮る
+    async play(page) { await setSlider(page, 45); },
+    async further(page) { await setSlider(page, 100); },
+  },
   'capgift': {
     async play(page) {
       await page.locator('input').first().fill('500').catch(() => {});
