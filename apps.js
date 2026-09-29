@@ -42,7 +42,7 @@ window.TOFO_APPS = [
     category: 'game',
     tags: ['ボードゲーム', '1 台で'],
     icon: '/dropturn/icons/icon-192.png',
-    color: '#101626',
+    color: '#16182B',
   },
   {
     id: 'capgift',
