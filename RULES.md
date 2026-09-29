@@ -309,7 +309,7 @@ tools/new-app.sh <id> "<アプリ名>" "<ひとこと>" "<説明>" "<背景色>"
 
 `~/GitHub/tof/apps/<id>/` に、上のルールを満たしたひな形（`<head>`、manifest、sw.js、webapp-kit、仮アイコン、README）ができる。
 あとは本体を書き、アイコンを差し替え、`npm run audit -- <id>` が通るまで直す。
-Claude Code では本部で `/new-app` を使うと、企画からリリースまで役割を分けて進められる（[CLAUDE.md](CLAUDE.md)）。
+Claude Code では本部で `/new-app` を使うと、試作を作って GitHub Pages に出すまで進められる（[CLAUDE.md](CLAUDE.md)）。
 
 GitHub への公開:
 
