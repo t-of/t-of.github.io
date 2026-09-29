@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-29T22:33:10.033Z",
+  "updatedAt": "2026-09-29T22:48:04.872Z",
   "projects": [
     {
       "id": "note",
@@ -6239,10 +6239,9 @@
       "project": "dropturn",
       "title": "エクストラルール（27 マス・縦にも回す・5 方向に倒す）を足す",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-29",
-      "doneAt": null,
-      "no": 7
+      "doneAt": "2026-09-29"
     },
     {
       "id": "t528",
