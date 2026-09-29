@@ -25,6 +25,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'disassembly',
+    name: 'DISASSEMBLY',
+    title: 'トースター分解 立体の分解図とノーリング',
+    desc: 'スライダーを動かすと、トースター 1 台が部品ごとに宙へ離れて分解図になり、そのまま台の上へ降りて直角にきれいに並ぶ。指で回して、ネジ 1 本まで好きな向きから見られる。',
+    category: 'tool',
+    tags: ['3D', '分解図'],
+    icon: '/disassembly/icons/icon-192.png',
+    color: '#e6e7e9',
+  },
+  {
     id: 'dropturn',
     name: 'DROPTURN',
     title: '落として回す立体三目並べ',
