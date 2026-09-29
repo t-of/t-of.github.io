@@ -96,8 +96,12 @@ async function setSlider(page, v) {
 // アプリごとの手順（id → { play(page), further(page) }）。汎用で崩れるものだけここに足す。
 const CUSTOM = {
   'disassembly': {
-    // スライダーを動かして、分解図とノーリングを撮る
-    async play(page) { await setSlider(page, 45); },
+    // 1 枚目はトースター、2・3 枚目は車の分解図とノーリング
+    async play(page) {
+      await page.click('#itemCar');
+      await page.waitForTimeout(1500);
+      await setSlider(page, 45);
+    },
     async further(page) { await setSlider(page, 100); },
   },
   'capgift': {
