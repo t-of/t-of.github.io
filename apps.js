@@ -25,6 +25,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'dropturn',
+    name: 'DROPTURN',
+    title: '落として回す立体三目並べ',
+    desc: '3×3×3 のかごに色の箱を落とし、段を回すか全体をひっくり返して、同じ色を 3 つ並べる立体の三目並べ。回すと箱が落ち直して、相手の並びも自分の並びも崩れる。1 台で 2〜4 人。',
+    category: 'game',
+    tags: ['ボードゲーム', '1 台で'],
+    icon: '/dropturn/icons/icon-192.png',
+    color: '#101626',
+  },
+  {
     id: 'capgift',
     name: 'CAPGIFT',
     title: 'ふるさと納税の上限計算',
