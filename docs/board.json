@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-29T23:22:00.951Z",
+  "updatedAt": "2026-09-29T23:23:48.233Z",
   "projects": [
     {
       "id": "note",
@@ -6274,6 +6274,15 @@
       "id": "t531",
       "project": "geo-gacha",
       "title": "サイト全体の背景を白基調の美術館にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t532",
+      "project": "dropturn",
+      "title": "エクストラの回すをルービックキューブ式のスワイプにする（縦回転が効かなかったのを直す）",
       "owner": "engineer",
       "status": "done",
       "created": "2026-09-29",
