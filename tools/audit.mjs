@@ -130,6 +130,7 @@ function auditFiles(app) {
   if (sw) {
     const deletes = /caches\.delete/.test(sw);
     add('他アプリのキャッシュを消さない', !deletes || /startsWith\(|\.test\(k|\.test\(key/.test(sw), '古いキャッシュの削除が自分の接頭辞に限られていない', '§4');
+    add('HTTP キャッシュを通さない', /cache:\s*['"]no-cache['"]/.test(sw) && /cache:\s*['"]reload['"]/.test(sw), 'fetch に no-cache、install に reload がない', '§4');
   }
 
   // §5 スマホ表示

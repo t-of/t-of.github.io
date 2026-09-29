@@ -172,6 +172,9 @@ keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE).map((k) => caches.delete
 
 - **推奨** 自分のファイルは network-first（つながっていれば常に最新、圏外なら保存版）。
   こうしておけば更新のたびにバージョンを上げ忘れても古い画面が残らない。Google Fonts は cache-first。
+- **必須** 自分のファイルを取るときは、ブラウザの HTTP キャッシュを通さない（install の `addAll` は `new Request(u, { cache: 'reload' })`、
+  fetch は `{ cache: 'no-cache' }`）。通すと、公開直後の 10 分ほど（Pages のキャッシュ時間）新しい index.html と古い main.js が混ざり、
+  なくなった要素を探して止まる（2026-09-30 DROPTURN でタイトルから進めなくなった）。
 - **推奨** 更新してもキャッシュに残る「どうも古いまま」のときの最終手段として `VERSION` を上げる。
 - ひな形: [`template/sw.js`](template/sw.js)
 
@@ -287,7 +290,7 @@ function setAudioSession(soundOn) {
 - [ ] icons/: icon.svg, favicon-32, apple-touch-icon(180, 透過なし), icon-192, icon-512, maskable-512, og.png
 - [ ] localStorage のキーが <アプリ名>. で始まる、try/catch で囲んである
 - [ ] 端末の外に保存するなら、README の「## データ」に形を書いた（ルールと合っている）
-- [ ] sw.js（置くなら）: キャッシュ名が <id>- 始まり、古いキャッシュは自分のものだけ消す
+- [ ] sw.js（置くなら）: キャッシュ名が <id>- 始まり、古いキャッシュは自分のものだけ消す、HTTP キャッシュを通さない（reload / no-cache）
 - [ ] 機内モードで再読み込みしても動く
 - [ ] iPhone でホーム画面に追加 → 上部が隠れない、下端のボタンが押せる
 - [ ] Android / PC Chrome で「アプリにする」が出る、インストール後は消える
