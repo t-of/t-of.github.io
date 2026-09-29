@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-27T15:13:50.187Z",
+  "updatedAt": "2026-09-29T11:06:19.509Z",
   "projects": [
     {
       "id": "note",
@@ -187,7 +187,7 @@
     {
       "id": "super-marubatsu",
       "name": "スーパーマルバツゲーム",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-26",
       "note": "第 1 版（2 人対戦）を公開。第 2 版で AI（MCTS＋NN、手元の Mac で学習）"
     },
@@ -236,6 +236,20 @@
       "created": "2026-09-27",
       "note": "ふるさと納税の上限を出して、その額で選べる返礼品へ（楽天アフィリエイト）",
       "idea": "docs/private/ideas/2026-09-27-capgift.md"
+    },
+    {
+      "id": "disassembly",
+      "name": "Disassembly",
+      "stage": "live",
+      "created": "2026-09-29",
+      "note": "トースターが分解図→ノーリングへ整列する 3D ビューア"
+    },
+    {
+      "id": "dropturn",
+      "name": "DROPTURN",
+      "stage": "build",
+      "created": "2026-09-29",
+      "note": "3×3×3 のケージで同色 3 つ並べ。段を回す・天地を返す。2〜4 人。収益化しない"
     }
   ],
   "tasks": [
@@ -5690,12 +5704,301 @@
     {
       "id": "t479",
       "project": "capgift",
-      "title": "収益化の前に J-PlatPat で「キャップギフト」を称呼検索する（9・35・36・42 類）",
+      "title": "収益化の前に、スタジオの商標チェックで CAPGIFT を引く（9・35・36・42 類）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27"
+    },
+    {
+      "id": "t480",
+      "project": "capgift",
+      "title": "CAPGIFT の公開のお知らせを X に出す下書き",
+      "owner": "sns",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27"
+    },
+    {
+      "id": "t481",
+      "project": "t-of.github.io",
+      "title": "スタジオが古い中身でボードを上書きしないようにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-27",
+      "doneAt": "2026-09-27"
+    },
+    {
+      "id": "t482",
+      "project": "capgift",
+      "title": "CAPGIFT の公開のお知らせを X に投稿する（docs/private/sns/drafts/2026-09-29-capgift.md）",
       "owner": "owner",
       "status": "todo",
       "created": "2026-09-27",
       "doneAt": null,
       "no": 2
+    },
+    {
+      "id": "t483",
+      "project": "core-image-english",
+      "title": "単語テスト: say の絵を描き直し、品詞・動詞の変化表・例文の動詞の色分けを足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-28",
+      "doneAt": "2026-09-28"
+    },
+    {
+      "id": "t484",
+      "project": "core-image-english",
+      "title": "教科書の目次で読んだページを色づけする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-28",
+      "doneAt": "2026-09-28"
+    },
+    {
+      "id": "t485",
+      "project": "t-of.github.io",
+      "title": "全アプリのスマホ画面を 3 枚ずつ撮る（ポータルの App Store 風一覧用）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-28",
+      "doneAt": "2026-09-28"
+    },
+    {
+      "id": "t486",
+      "project": "t-of.github.io",
+      "title": "ポータルの一覧を App Store 風にする（アイコン・遊ぶ・縦長の画面 3 枚、動画は自動再生）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-28",
+      "doneAt": "2026-09-28"
+    },
+    {
+      "id": "t487",
+      "project": "capgift",
+      "title": "（止めている）楽天 API を使う版（返礼品の画像を並べる）。やるなら「再開して」と言われてから、楽天ウェブサービスの登録から",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-09-28",
+      "doneAt": null,
+      "no": 5
+    },
+    {
+      "id": "t488",
+      "project": "core-image-english",
+      "title": "単語タブに単語あてミニゲーム（Word500 風、3 文字以上の 960 語）を足して公開",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-28",
+      "doneAt": "2026-09-28"
+    },
+    {
+      "id": "t489",
+      "project": "disassembly",
+      "title": "Disassembly の仕様と権利の調べ",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t490",
+      "project": "disassembly",
+      "title": "Disassembly の権利の判定を選ぶ（名前 DISASSEMBLY は同名の人気作あり→収益化しないが妥当。PARTWISE / UNBUILT なら収益化可）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化しない）",
+      "comment": "チャットで回答: 名前は仮で DISASSEMBLY のまま。副題 A、種類 tool"
+    },
+    {
+      "id": "t491",
+      "project": "disassembly",
+      "title": "Disassembly のひな形と本体を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t492",
+      "project": "dropturn",
+      "title": "仕様を書く（名前・ルール・画面・権利）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t493",
+      "project": "dropturn",
+      "title": "権利の判定を選ぶ（おすすめ: 作る・収益化しない）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29",
+      "choices": [
+        "作る（収益化できる）",
+        "作る（収益化しない）",
+        "変えて作る",
+        "作らない"
+      ],
+      "choice": "作る（収益化しない）",
+      "comment": "チャットで回答"
+    },
+    {
+      "id": "t494",
+      "project": "dropturn",
+      "title": "ひな形から本体を作る（第 1 版）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t495",
+      "project": "dropturn",
+      "title": "アイコン一式と共有画像を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t496",
+      "project": "dropturn",
+      "title": "全体の品質確認（スマホ幅・遊びの流れ）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t497",
+      "project": "dropturn",
+      "title": "公開してよいか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29",
+      "images": [
+        ".audit/dropturn-play.png",
+        ".audit/dropturn-after-moves.png"
+      ],
+      "choices": [
+        "このまま公開",
+        "直してから公開",
+        "まだ出さない"
+      ],
+      "choice": "このまま公開",
+      "comment": "チャットで回答"
+    },
+    {
+      "id": "t498",
+      "project": "dropturn",
+      "title": "公開する（GitHub・Pages・ポータル）",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t499",
+      "project": "dropturn",
+      "title": "第 2 版を考える（斜めの図を大きく・下の余白、遊び方の図、CPU 対戦）",
+      "owner": "owner",
+      "status": "skip",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t500",
+      "project": "dropturn",
+      "title": "画面を Three.js の本物の 3D に作り直す",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-29",
+      "doneAt": null,
+      "no": 7
+    },
+    {
+      "id": "t501",
+      "project": "disassembly",
+      "title": "Disassembly のアイコン一式と共有画像",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t502",
+      "project": "disassembly",
+      "title": "Disassembly のアイコンと画面を見て、直したいところを決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29",
+      "images": [
+        ".audit/disassembly-icons.png",
+        ".audit/disassembly-v2-390.png",
+        ".audit/disassembly-v2-1280.png"
+      ],
+      "comment": "アイコンはこのまま。画面の小さな 3 点は直す"
+    },
+    {
+      "id": "t503",
+      "project": "disassembly",
+      "title": "Disassembly の見た目の小直し（トレイ・左の影・ネジ）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t504",
+      "project": "disassembly",
+      "title": "Disassembly の公開前の確認",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t505",
+      "project": "disassembly",
+      "title": "Disassembly を公開するか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29",
+      "images": [
+        ".audit/disassembly-v3-390.png",
+        ".audit/disassembly-v3-1280.png",
+        ".audit/disassembly-icons.png"
+      ],
+      "choices": [
+        "公開する",
+        "まだ直す"
+      ],
+      "choice": "公開する",
+      "comment": "チャットで回答"
+    },
+    {
+      "id": "t506",
+      "project": "disassembly",
+      "title": "Disassembly を公開する",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
     }
   ],
   "ideas": []
