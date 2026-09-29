@@ -11,20 +11,21 @@ description: T.OF... の新しいアプリの試作を作り、GitHub Pages に�
 
 ## 0. ボードに載せる
 
-- docs/board.json の projects に足す（`stage: "planning"`、`note: "試作"`）。以後、段階が進むたびに `stage` を進め、振った仕事は tasks に足して `doing` / `done` にする。
+- docs/board.json の projects に足す（`stage: "build"`、`note: "試作"`）。以後、段階が進むたびに `stage` を進め、振った仕事は tasks に足して `doing` / `done` にする。
 - 複数のアプリを同時に進めてよい。アプリごとに別のメンバーを並行で動かす。
 
-## 1. 企画（planner、短く）
+## 1. 要点をまとめる（ディレクター）
 
-- オーナーのアイデアを `planner` に渡し、`docs/private/specs/<id>.md` を作らせる。中身はルール・画面の流れ・保存するデータ・権利だけ。**名前の候補やひとことは考えさせない。**
-- `<id>` は内容がわかる仮の英字（例 `stack-puzzle`）でよい。表示名もひとまず `<id>` のまま。
-- 権利（RULES.md §1）の判定が「危険」のときだけ、オーナーに見せて止まる。それ以外はチャットで一言伝えて進める。
+- planner は呼ばない。権利の評価もしない（正式に公開するときにする）。
+- オーナーの言葉から、遊び方・画面・操作を数行にまとめて engineer に渡す。分からない点は聞かずに一番素直な形にする（オーナーが触って直す）。
+- `<id>` は内容がわかる仮の英字（例 `stack-puzzle`）。表示名もひとまず `<id>` のまま。
 
-## 2. 実装（engineer）
+## 2. 最小の版を作る（engineer）
 
-- `engineer` に: `tools/new-app.sh <id> "<id>"` でひな形を作り、仕様どおりに本体を書く。アイコンはひな形の仮アイコンのまま。
-- 終わりの条件は `npm run audit:browser -- <id>` の合格（アイコン関係を除く）と、アプリのテスト。コミットはしてよい、push はしない。
-- designer は呼ばない。
+- `engineer` に: `tools/new-app.sh <id> "<id>"` でひな形を作り、**遊べる芯だけ**を書く。設定・効果音・共有・記録・演出は、オーナーが言うまで足さない。アイコンは仮のまま。designer は呼ばない。
+- 終わりの条件は `npm run audit -- <id>`（ブラウザなし。アイコン関係を除く）の合格だけ。`audit:browser`、画面の撮影、テストの追加はしない。
+- コミットはしてよい、push はしない。
+- 出来の良し悪しはオーナーが触って決める。
 
 ## 3. GitHub に出す（ディレクター）
 
@@ -39,11 +40,12 @@ curl -s -o /dev/null -w "%{http_code}\n" https://t-of.github.io/<id>/
 ```
 
 - `https://t-of.github.io/<id>/` と遊び方の要約をオーナーに伝える。project の `stage` を `qa`（オーナーが試す段階）にする。
-- 直しの要望が来たら engineer に直させ、`git push` する（`tools/release.sh <id>` でもよい）。
+- 直しの要望が来たら engineer に直させ（終わりの条件は同じく `npm run audit -- <id>`）、`git push` する。
 
 ## 正式に公開する（オーナーが言ったとき）
 
 1. 名前: planner に候補と権利を出させ、オーナーに選んでもらう（`choices` のタスク ＋ `node tools/wait-choice.mjs <id>`）。id が変わるならリポジトリの名前を変える（`gh repo rename`）。
 2. `designer` にアイコン一式と共有画像を作らせる。触るのは `icons/` だけ。表示名・説明は engineer に直させる。
-3. `qa` に全体を確かめさせ、合格したらスクリーンショットを見せて **ポータルに載せる OK をもらう**。
-4. `release` に docs/RELEASE.md の 5・6（apps.js・共有画像・記録）を進めさせる。project を `live` にし、タスクを `done` にする。
+3. planner に権利を調べさせる（RULES.md §1）。engineer に `npm run audit:browser -- <id>` を通させ、遊ぶ部分のテストを足させる。
+4. `qa` に全体を確かめさせ、合格したらスクリーンショットを見せて **ポータルに載せる OK をもらう**。
+5. `release` に docs/RELEASE.md の 5・6（apps.js・共有画像・記録）を進めさせる。project を `live` にし、タスクを `done` にする。

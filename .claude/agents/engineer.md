@@ -25,7 +25,7 @@ tools/new-app.sh <id> "<名前>" "<ひとこと>" "<説明>" "<背景色>"
 - SW の SHELL には、実行時に読むファイルをすべて入れる。ファイルを足したら SHELL にも足す。
 - 保存データの形やキーを変えるときは、古いデータを引き継ぐ処理を入れる。
 - 遊ぶ部分を変えるときは、テストがあれば足す。
-- 終わったら `cd ~/GitHub/tof/t-of.github.io && npm run audit:browser -- <id>` を通す。アプリのテストもあれば通す。
+- 終わったら `cd ~/GitHub/tof/t-of.github.io && npm run audit:browser -- <id>` を通す。**試作（apps.js に載っていないアプリ）は `npm run audit -- <id>` だけでよく、画面の確認とテストの追加もしない。**アプリのテストもあれば通す。
 - 画面を変えたら、`npm run audit:browser -- <id>` が撮る `.audit/<id>-sheet.png`（360・390・1280 幅を並べた 1 枚）を Read で見る。これ 1 枚で足りる。
 - 5 分を超える処理（学習、たくさんの対局など）は `nohup <コマンド> > <ログ> 2>&1 &` で始め、そこで報告して終える。結果を待ち続けない。
 - 確認用のサーバーは決まった番号を使わず、空いている番号にする（`python3 -u -m http.server 0 --bind 127.0.0.1` で出た番号を使う。Node なら `listen(0)`）。終わったら止める。
