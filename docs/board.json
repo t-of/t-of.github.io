@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-29T22:23:35.092Z",
+  "updatedAt": "2026-09-29T22:33:10.033Z",
   "projects": [
     {
       "id": "note",
@@ -6243,6 +6243,15 @@
       "created": "2026-09-29",
       "doneAt": null,
       "no": 7
+    },
+    {
+      "id": "t528",
+      "project": "geo-gacha",
+      "title": "絵を 3×3 から固定位置の自由配置に変える",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
     }
   ],
   "ideas": []
