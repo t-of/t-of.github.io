@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-29T22:48:04.872Z",
+  "updatedAt": "2026-09-29T22:57:09.006Z",
   "projects": [
     {
       "id": "note",
@@ -6251,6 +6251,25 @@
       "status": "done",
       "created": "2026-09-29",
       "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t529",
+      "project": "geo-gacha",
+      "title": "ガチャの演出・ひく前の確認・美術館のようなデザイン",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t530",
+      "project": "dropturn",
+      "title": "エクストラ: 倒すを面タップにし、3×3×3 の檻を出す",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-29",
+      "doneAt": null,
+      "no": 7
     }
   ],
   "ideas": []
