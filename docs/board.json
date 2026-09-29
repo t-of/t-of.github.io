@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-29T11:06:19.509Z",
+  "updatedAt": "2026-09-29T21:52:37.710Z",
   "projects": [
     {
       "id": "note",
@@ -242,12 +242,12 @@
       "name": "Disassembly",
       "stage": "live",
       "created": "2026-09-29",
-      "note": "トースターが分解図→ノーリングへ整列する 3D ビューア"
+      "note": "車（乗用車、中身まで約 70 部品）を足す"
     },
     {
       "id": "dropturn",
       "name": "DROPTURN",
-      "stage": "build",
+      "stage": "live",
       "created": "2026-09-29",
       "note": "3×3×3 のケージで同色 3 つ並べ。段を回す・天地を返す。2〜4 人。収益化しない"
     }
@@ -2456,7 +2456,7 @@
     {
       "id": "t182",
       "project": "hirakibako",
-      "title": "ひらきばこ のアイコン一式と共有画像を作る（配色も見る）",
+      "title": "ひらきばこ のアイコン一式と共有画�����を作る（配色も見る）",
       "owner": "designer",
       "status": "done",
       "created": "2026-09-25",
@@ -4999,7 +4999,7 @@
     {
       "id": "t414",
       "project": "shihei-relay",
-      "title": "種まき: 数十枚を登録してから買い物で使う（身近な人にもリレーのリンク）",
+      "title": "種まき: 数十枚を登録してから買い物で使う（身近な人���も���レーのリンク）",
       "owner": "owner",
       "status": "todo",
       "created": "2026-09-26",
@@ -5733,10 +5733,21 @@
       "project": "capgift",
       "title": "CAPGIFT の公開のお知らせを X に投稿する（docs/private/sns/drafts/2026-09-29-capgift.md）",
       "owner": "owner",
-      "status": "todo",
+      "status": "skip",
       "created": "2026-09-27",
-      "doneAt": null,
-      "no": 2
+      "doneAt": "2026-09-29",
+      "thread": [
+        {
+          "by": "owner",
+          "text": "一旦この話はなしで。",
+          "at": "2026-09-29T16:21:18.201Z"
+        },
+        {
+          "by": "director",
+          "text": "了解です。この投稿はなしにして、タスクは「しない」にしました。下書きのファイルは残してあります。",
+          "at": "2026-09-29T16:21:28.720Z"
+        }
+      ]
     },
     {
       "id": "t483",
@@ -5779,10 +5790,26 @@
       "project": "capgift",
       "title": "（止めている）楽天 API を使う版（返礼品の画像を並べる）。やるなら「再開して」と言われてから、楽天ウェブサービスの登録から",
       "owner": "owner",
-      "status": "todo",
+      "status": "skip",
       "created": "2026-09-28",
-      "doneAt": null,
-      "no": 5
+      "doneAt": "2026-09-29",
+      "thread": [
+        {
+          "by": "owner",
+          "text": "一旦この話はなしで",
+          "at": "2026-09-29T16:21:02.901Z"
+        },
+        {
+          "by": "director",
+          "text": "了解です。この話はなしにして、タスクは「しない」にしました。",
+          "at": "2026-09-29T16:21:14.487Z"
+        },
+        {
+          "by": "director",
+          "text": "わかりました。楽天 API の版はやめにして、このタスクは「しなくていい」にしました。",
+          "at": "2026-09-29T16:21:18.262Z"
+        }
+      ]
     },
     {
       "id": "t488",
@@ -5924,10 +5951,9 @@
       "project": "dropturn",
       "title": "画面を Three.js の本物の 3D に作り直す",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-29",
-      "doneAt": null,
-      "no": 7
+      "doneAt": "2026-09-29"
     },
     {
       "id": "t501",
@@ -5999,6 +6025,198 @@
       "status": "done",
       "created": "2026-09-29",
       "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t507",
+      "project": "disassembly",
+      "title": "DISASSEMBLY に車を足す仕様",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t508",
+      "project": "disassembly",
+      "title": "DISASSEMBLY に車（70 部品）と切り替えを足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t509",
+      "project": "dropturn",
+      "title": "UI をかっこよく作り直す（タイトル・対局・結果）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t510",
+      "project": "dropturn",
+      "title": "操作を直感的に（落とすはドラッグ、回すは段の左右タップ、戻るボタン、返すに確認、動きを物理に）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t511",
+      "project": "t-of.github.io",
+      "title": "全アプリの sw.js を HTTP キャッシュを通さない形にする（DROPTURN の起動不具合の再発防止）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t512",
+      "project": "disassembly",
+      "title": "DISASSEMBLY の車の外形をセダンに作り直す（Opus）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t513",
+      "project": "dropturn",
+      "title": "操作の作り直しを公開する",
+      "owner": "release",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t514",
+      "project": "dropturn",
+      "title": "ドラッグを離しても箱が残る不具合を直し、箱を隙間なく大きくして公開",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t515",
+      "project": "dropturn",
+      "title": "回す段の柵も一緒に回す（ルービックキューブのように）して公開",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t516",
+      "project": "dropturn",
+      "title": "DROPTURN の研究（先手・後手の有利、最強 AI、論文の下書き）。~/GitHub/tof/research/dropturn/",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-09-29",
+      "doneAt": null,
+      "no": 2,
+      "thread": [
+        {
+          "by": "director",
+          "text": "夜の分の結果: 17 手以内に必勝なし（証明）、強い AI どうしで先手が決着局の 67〜77%、各色 5 個なら先手 11 手勝ち。論文の下書き research/dropturn/paper/main.pdf、まとめ RESULTS.md。先手の手を絞った探索（dt-attack 2 本）はまだ動いている",
+          "at": "2026-09-29T21:21:06.710Z"
+        }
+      ]
+    },
+    {
+      "id": "t517",
+      "project": "dropturn",
+      "title": "DROPTURN: 箱のマークを消し、UI を幾何学的なデザインにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t518",
+      "project": "disassembly",
+      "title": "DISASSEMBLY の突き抜け（トースター 18 組・車 39 組）をなくす",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t519",
+      "project": "dropturn",
+      "title": "DROPTURN: 画面と 3D を geo（バウハウス風）デザインに作り直す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t520",
+      "project": "dropturn",
+      "title": "DROPTURN: アイコンを geo（バウハウス風）デザインに作り直す",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t521",
+      "project": "disassembly",
+      "title": "DISASSEMBLY（車つき）の公開前の確認",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t522",
+      "project": "disassembly",
+      "title": "DISASSEMBLY の共有画像に車を入れる",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t523",
+      "project": "disassembly",
+      "title": "DISASSEMBLY（車つき）を公開するか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29",
+      "images": [
+        ".audit/disassembly-car-side-v0.png",
+        ".audit/disassembly-qa-car-390-100.png",
+        "../apps/disassembly/icons/og.png"
+      ],
+      "choices": [
+        "公開する",
+        "まだ直す"
+      ],
+      "choice": "公開する",
+      "comment": "チャットで回答"
+    },
+    {
+      "id": "t524",
+      "project": "dropturn",
+      "title": "CPU と対戦（試作、apps/dropturn の cpu ブランチ・未 push）を公開するか決める",
+      "owner": "owner",
+      "status": "skip",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29",
+      "comment": "オーナー: 公開しなくていい（cpu ブランチは残す）"
+    },
+    {
+      "id": "t525",
+      "project": "dropturn",
+      "title": "DROPTURN の研究: 3 人の場合（連合に勝てるか・席順の有利さ）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-29",
+      "doneAt": null,
+      "no": 6
     }
   ],
   "ideas": []
