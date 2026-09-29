@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-29T21:52:37.710Z",
+  "updatedAt": "2026-09-29T22:23:35.092Z",
   "projects": [
     {
       "id": "note",
@@ -250,6 +250,13 @@
       "stage": "live",
       "created": "2026-09-29",
       "note": "3×3×3 のケージで同色 3 つ並べ。段を回す・天地を返す。2〜4 人。収益化しない"
+    },
+    {
+      "id": "geo-gacha",
+      "name": "geo-gacha",
+      "stage": "qa",
+      "created": "2026-09-30",
+      "note": "試作"
     }
   ],
   "tasks": [
@@ -6217,6 +6224,25 @@
       "created": "2026-09-29",
       "doneAt": null,
       "no": 6
+    },
+    {
+      "id": "t526",
+      "project": "geo-gacha",
+      "title": "試作の最小版を作る（1日1回ガチャで幾何学アート）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-29",
+      "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t527",
+      "project": "dropturn",
+      "title": "エクストラルール（27 マス・縦にも回す・5 方向に倒す）を足す",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-29",
+      "doneAt": null,
+      "no": 7
     }
   ],
   "ideas": []
