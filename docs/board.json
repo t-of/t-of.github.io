@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-30T01:24:38.003Z",
+  "updatedAt": "2026-09-30T05:23:43.505Z",
   "projects": [
     {
       "id": "note",
@@ -254,9 +254,16 @@
     {
       "id": "geo-gacha",
       "name": "geo-gacha",
-      "stage": "qa",
+      "stage": "design",
       "created": "2026-09-30",
       "note": "試作"
+    },
+    {
+      "id": "carcassonne",
+      "name": "carcassonne",
+      "stage": "qa",
+      "created": "2026-09-30",
+      "note": "試作（基本セット・1台交代・草原あり・超シンプル表示）"
     }
   ],
   "tasks": [
@@ -6380,6 +6387,166 @@
       "project": "dropturn",
       "title": "真ん中の直方体を台と同じ生成り色にする（枠が見えるように）",
       "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t543",
+      "project": "glyph-shift",
+      "title": "ホームを、サイズ×ブロック数ごとのステージ一覧（ゴールの図・星）にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t544",
+      "project": "kazukakushi",
+      "title": "名前を D-SLIDE に変え、画面のデザインを作り直し、数字の見える普通の15パズルのモードを足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t545",
+      "project": "dropturn",
+      "title": "エクストラの研究: 3 色×4 個は先手 9 手必勝、持ち数だけでは釣り合わない（research/dropturn/RESULTS-extra.md）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t546",
+      "project": "dropturn",
+      "title": "エクストラの直し方を決める（4 色×3 個にする／勝ちの線を減らす等の規則を試す）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30",
+      "comment": "4 色 × 3 個にする"
+    },
+    {
+      "id": "t547",
+      "project": "kazukakushi",
+      "title": "D-SLIDE を触って確かめる（https://t-of.github.io/kazukakushi/）。あわせて URL を d-slide に変えるか・アイコンと共有画像を作り直すかを決める",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-09-30",
+      "doneAt": null,
+      "no": 7
+    },
+    {
+      "id": "t548",
+      "project": "glyph-shift",
+      "title": "ステージ一覧のゴールの図を、ゲームと同じタイル・絵柄の盤にし、サイズごとに横スクロールにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t549",
+      "project": "dropturn",
+      "title": "エクストラ（2 人）を 1 人 4 色 × 3 個にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t550",
+      "project": "glyph-shift",
+      "title": "プレイ画面の設定ボタンを外し、ホームのプレビューのずれ・PC 横長対応を直す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t551",
+      "project": "glyph-shift",
+      "title": "プレイ画面にホームへ戻るボタンを足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t552",
+      "project": "glyph-shift",
+      "title": "プレイ途中の盤を残し、ホームに「続きから」を出す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t553",
+      "project": "glyph-shift",
+      "title": "スタート画面を足し、遊び方をホーム用に作り直す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t554",
+      "project": "carcassonne",
+      "title": "カルカソンヌの試作の最小版を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t555",
+      "project": "geo-gacha",
+      "title": "アイコン候補（額縁入りの幾何学アート）を作る",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t556",
+      "project": "geo-gacha",
+      "title": "geo-gacha のアイコンにする絵を選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30",
+      "images": [
+        ".audit/geo-gacha-icon-candidates.png"
+      ],
+      "choices": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "choiceImages": {
+        "A": ".audit/geo-gacha-icon-A.svg",
+        "B": ".audit/geo-gacha-icon-B.svg",
+        "C": ".audit/geo-gacha-icon-C.svg",
+        "D": ".audit/geo-gacha-icon-D.svg"
+      },
+      "choiceLabels": {
+        "A": "緑",
+        "B": "クリーム",
+        "C": "紺",
+        "D": "紫"
+      },
+      "choice": "C",
+      "comment": "外の白枠なし。アイコンの縁自体を金の額縁に"
+    },
+    {
+      "id": "t557",
+      "project": "geo-gacha",
+      "title": "C 案でアイコン一式と og.png を作る",
+      "owner": "designer",
       "status": "done",
       "created": "2026-09-30",
       "doneAt": "2026-09-30"
