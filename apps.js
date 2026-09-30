@@ -560,6 +560,7 @@ window.TOFO_APPS = [
     tags: ['パズル', '落ち物'],
     icon: '/pentris/icons/icon-192.png',
     color: '#2fc4e6',
+    approved: true,
   },
   {
     id: 'coord-maze',
@@ -570,6 +571,7 @@ window.TOFO_APPS = [
     tags: ['パズル', '迷路'],
     icon: '/coord-maze/icons/icon-192.png',
     color: '#9d7bff',
+    approved: true,
   },
   {
     id: 'gear-align',
@@ -580,6 +582,7 @@ window.TOFO_APPS = [
     tags: ['パズル'],
     icon: '/gear-align/icons/icon-192.png',
     color: '#d6a64c',
+    approved: true,
   },
   {
     id: 'Half-Cut',
@@ -590,6 +593,7 @@ window.TOFO_APPS = [
     tags: ['パズル', 'デイリー'],
     icon: '/Half-Cut/icons/icon-192.png',
     color: '#e2582e',
+    approved: true,
   },
   {
     id: 'glyph-shift',
@@ -601,6 +605,7 @@ window.TOFO_APPS = [
     icon: '/glyph-shift/icons/icon-192.png',
     color: '#b3a2ff',
     video: '/videos/glyph-shift.mp4',
+    approved: true,
   },
   {
     id: 'hue-hunter',
@@ -611,6 +616,7 @@ window.TOFO_APPS = [
     tags: ['テスト', '色覚'],
     icon: '/hue-hunter/icons/icon-192.png',
     color: '#e24bc6',
+    approved: true,
   },
   {
     id: 'core-image-english',
@@ -621,5 +627,6 @@ window.TOFO_APPS = [
     tags: ['学習', '英語'],
     icon: '/core-image-english/icons/icon-192.png',
     color: '#d0662a',
+    approved: true,
   },
 ];
