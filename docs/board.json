@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-30T05:23:43.505Z",
+  "updatedAt": "2026-09-30T17:27:30.727Z",
   "projects": [
     {
       "id": "note",
@@ -254,7 +254,7 @@
     {
       "id": "geo-gacha",
       "name": "geo-gacha",
-      "stage": "design",
+      "stage": "qa",
       "created": "2026-09-30",
       "note": "試作"
     },
@@ -264,6 +264,13 @@
       "stage": "qa",
       "created": "2026-09-30",
       "note": "試作（基本セット・1台交代・草原あり・超シンプル表示）"
+    },
+    {
+      "id": "deck-builder",
+      "name": "deck-builder",
+      "stage": "build",
+      "created": "2026-09-30",
+      "note": "試作（ドミニオン風・はじめてのゲーム10種・1台交代・CPUなし）"
     }
   ],
   "tasks": [
@@ -6550,6 +6557,171 @@
       "status": "done",
       "created": "2026-09-30",
       "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t558",
+      "project": "carcassonne",
+      "title": "ドット絵（RPG風）のタイルを作り、オーナーと直す",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t559",
+      "project": "carcassonne",
+      "title": "ゲーム内でシンプル／ドット絵のデザインを切り替えられるようにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t560",
+      "project": "carcassonne",
+      "title": "CPU学習の下ごしらえ: ゲームのロジックを画面なしのエンジン（engine.js）に分け、Node で自己対局できるようにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t561",
+      "project": "carcassonne",
+      "title": "シンプル表示を、シンプルなまま幾何学的にかっこよくする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t562",
+      "project": "t-of.github.io",
+      "title": "公開中の 6 本の紹介動画を作る（pentris・coord-maze・gear-align・Half-Cut・hue-hunter・core-image-english）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t563",
+      "project": "carcassonne",
+      "title": "CPU学習1: エンジンを速くする（自己対局 1 局の時間を大きく縮める）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t564",
+      "project": "deck-builder",
+      "title": "デッキ構築ゲームの試作を作る（はじめてのゲーム10種・1台交代）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t565",
+      "project": "deck-builder",
+      "title": "見た目をシンプルとドット絵で切り替えられるようにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t566",
+      "project": "deck-builder",
+      "title": "3 つめの見た目：トレーディングカード風のカードデザイン",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t567",
+      "project": "carcassonne",
+      "title": "ゲームに CPU（貪欲）を入れ、席ごとに人/CPU を選べるようにし、CPU 同士の観戦を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t568",
+      "project": "carcassonne",
+      "title": "得点で駒が1マスずつ進む動きと、最後の採点を1つずつ地図で見せる演出",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t569",
+      "project": "deck-builder",
+      "title": "カード16枚のドット絵デザインを見て決める（Claude デザイン）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t570",
+      "project": "deck-builder",
+      "title": "「カード」の見た目を新しいドット絵デザインに作り替える",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t571",
+      "project": "deck-builder",
+      "title": "基本セットの全カード（26種＋呪い）と、遊ぶカードの組を選ぶ画面を入れる",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t572",
+      "project": "deck-builder",
+      "title": "拡張のカードの絵（339 枚済み、帝国〜プロモを作成中）",
+      "owner": "designer",
+      "status": "doing",
+      "created": "2026-09-30",
+      "doneAt": null,
+      "no": 8
+    },
+    {
+      "id": "t573",
+      "project": "deck-builder",
+      "title": "拡張のカードを足す（陰謀〜旭日まで全拡張のルール。いくつかの効果は未実装で DECISIONS に記録）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t574",
+      "project": "deck-builder",
+      "title": "同盟・略奪・旭日の画面対応（影の札・好意・特性・予言・戦利品）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-30",
+      "doneAt": null,
+      "no": 5
+    },
+    {
+      "id": "t575",
+      "project": "deck-builder",
+      "title": "CPU を足す（弱い〜強い）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-30",
+      "doneAt": null,
+      "no": 9
     }
   ],
   "ideas": []
