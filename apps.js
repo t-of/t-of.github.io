@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'deck-builder',
+    name: 'deck-builder',
+    title: '試作 デッキ構築のカードゲーム',
+    desc: 'ドミニオン風のデッキ構築を 1 台で交代して遊ぶ試作。2〜4 人、はじめてのゲームの 10 種。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/deck-builder/icons/icon-192.png',
+    color: '#2b2320',
+  },
+  {
     id: 'geo-gacha',
     name: 'geo-gacha',
     title: '試作 幾何学アートのガチャ',
