@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-30T17:27:30.727Z",
+  "updatedAt": "2026-09-30T18:11:17.195Z",
   "projects": [
     {
       "id": "note",
@@ -268,7 +268,7 @@
     {
       "id": "deck-builder",
       "name": "deck-builder",
-      "stage": "build",
+      "stage": "qa",
       "created": "2026-09-30",
       "note": "試作（ドミニオン風・はじめてのゲーム10種・1台交代・CPUなし）"
     }
@@ -6687,12 +6687,11 @@
     {
       "id": "t572",
       "project": "deck-builder",
-      "title": "拡張のカードの絵（339 枚済み、帝国〜プロモを作成中）",
+      "title": "拡張のカードの絵（全 787 枚）",
       "owner": "designer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-30",
-      "doneAt": null,
-      "no": 8
+      "doneAt": "2026-09-30"
     },
     {
       "id": "t573",
@@ -6708,20 +6707,27 @@
       "project": "deck-builder",
       "title": "同盟・略奪・旭日の画面対応（影の札・好意・特性・予言・戦利品）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-30",
-      "doneAt": null,
-      "no": 5
+      "doneAt": "2026-09-30"
     },
     {
       "id": "t575",
       "project": "deck-builder",
-      "title": "CPU を足す（弱い〜強い）",
+      "title": "CPU を足す（よわい・ふつう・つよい・さいきょう。席ごとに人/CPU、CPU どうしの観戦）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-30",
-      "doneAt": null,
-      "no": 9
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t576",
+      "project": "deck-builder",
+      "title": "カードの効果を本家の効果文と突き合わせる（前半・後半の 2 人）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
     }
   ],
   "ideas": []
