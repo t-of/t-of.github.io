@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'carcassonne',
+    name: 'carcassonne',
+    title: '試作 タイルをつなぐボードゲーム',
+    desc: 'カルカソンヌの基本セットを 1 台で交代して遊ぶ試作。2〜5 人、草原の点あり。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/carcassonne/icons/icon-192.png',
+    color: '#2c2620',
+  },
+  {
     id: 'disassembly',
     name: 'DISASSEMBLY',
     title: '車とトースターを分解 立体の分解図とノーリング',
