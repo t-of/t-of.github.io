@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-29T23:23:48.233Z",
+  "updatedAt": "2026-09-30T00:33:11.817Z",
   "projects": [
     {
       "id": "note",
@@ -6287,6 +6287,50 @@
       "status": "done",
       "created": "2026-09-29",
       "doneAt": "2026-09-29"
+    },
+    {
+      "id": "t533",
+      "project": "dropturn",
+      "title": "CPU と対戦・CPU どうしの観戦を入れて公開する（研究の AI を使う）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-30",
+      "doneAt": null,
+      "no": 5
+    },
+    {
+      "id": "t534",
+      "project": "dropturn",
+      "title": "規則に「一度出たかごの形には戻せない」を足す（標準・エクストラ。オーナーが決めた）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-09-30",
+      "doneAt": null,
+      "no": 7
+    },
+    {
+      "id": "t535",
+      "project": "geo-gacha",
+      "title": "サイト全体の背景の案（A 腰壁と木の床／B 大理石の回廊／C 光の展示室）から選ぶ",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-09-30",
+      "doneAt": null,
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "no": 8
+    },
+    {
+      "id": "t536",
+      "project": "geo-gacha",
+      "title": "背景を案 A（腰壁と木の床）にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
     }
   ],
   "ideas": []
