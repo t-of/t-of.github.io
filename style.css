@@ -420,6 +420,7 @@ button, input, select { font: inherit; color: inherit; }
 button.tag { cursor: pointer; transition: color 0.2s, border-color 0.2s; }
 button.tag:hover { color: var(--fg); border-color: var(--line-2); }
 .tag--cat { color: var(--ct); border-color: color-mix(in srgb, var(--ct) 30%, transparent); }
+.tag--live { color: var(--fg); border-color: var(--line-2); font-weight: 700; }
 .tag--active { background: var(--surface-3); border-color: var(--line-2); color: var(--fg); }
 
 .empty { padding: 48px 0; text-align: center; color: var(--muted); }

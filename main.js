@@ -144,6 +144,7 @@
     catBtn.type = 'button';
     catBtn.dataset.cat = app.category;
     tags.append(catBtn);
+    if (window.TOFO_DEMO && app.approved) tags.append(el('span', 'tag tag--live', '公開中'));
     (app.tags || []).forEach((t) => {
       const b = el('button', 'tag', t);
       b.type = 'button';

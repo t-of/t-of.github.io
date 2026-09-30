@@ -2,6 +2,7 @@
 //   node tools/make-demo.mjs
 // 見た目・動き・一覧（main.js・style.css・apps.js）は本物と同じで、approved の付いていないアプリも出す。
 // index.html を直したら、これを流して demo/index.html を合わせる。
+// main.js・style.css・apps.js を直したら index.html の ?v= を上げてから流す（上げないとブラウザに古いものが最大 10 分残る）。
 import fs from 'node:fs';
 import path from 'node:path';
 
