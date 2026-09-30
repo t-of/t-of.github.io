@@ -3,7 +3,8 @@
 (function () {
   'use strict';
 
-  const APPS = (window.TOFO_APPS || []).filter((a) => a && a.id && a.name);
+  // 本物のポータルはオーナーが「公開していい」と言ったもの（approved: true）だけ。デモ（/demo/）は全部
+  const APPS = (window.TOFO_APPS || []).filter((a) => a && a.id && a.name && (window.TOFO_DEMO || a.approved));
 
   // 種類の表示名。新しい種類を apps.js で使うときは、ここに名前を足す（足さなくても id のまま出る）
   const CATEGORY = { game: 'ゲーム', tool: '学び・ツール' };
@@ -397,6 +398,7 @@
       return li;
     }));
   }
+  $('lucky').hidden = APPS.length === 0;
   $('lucky').addEventListener('click', () => {
     const pool = APPS.filter(matches).length ? APPS.filter(matches) : APPS;
     const app = pool[Math.floor(Math.random() * pool.length)];

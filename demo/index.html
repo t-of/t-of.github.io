@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0c10">
+  <meta name="description" content="T.OF... が作っている、ブラウザで遊べる小さなゲームとアプリの一覧。パズル・ボードゲーム・学び・ツール。どれもインストールなしで開けて、ホーム画面に追加するとアプリのように使えます。">
+  <title>T.OF... DEMO</title>
+
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="T.OF...">
+  <link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../webapp-kit/webapp-kit.css">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="portal">
+  <a class="skip" href="#apps">一覧へ移る</a>
+
+  <div class="page">
+    <header class="top">
+      <a class="brand" href="./">
+        <img class="brand__logo" src="../logo/tof-wordmark.svg" alt="T.OF..." width="107" height="44">
+      </a>
+      <nav class="top__nav" aria-label="ページ内">
+        <a href="#apps">アプリ</a>
+        <a href="#about">T.OF... について</a>
+        <button class="chip" data-wak="install" hidden>アプリにする</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="hero__eyebrow">T.OF... DEMO <span class="hero__eyebrow-sub" id="hero-count"></span></p>
+        <h1 id="hero-title" class="hero__title">試作中のアプリ。</h1>
+        <p class="hero__lead">
+          どれも無料で、インストールもアカウントもいりません。
+          気に入ったものはホーム画面に追加すると、アプリのように起動します。
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#apps">一覧を見る</a>
+          <button class="btn btn--ghost" type="button" id="lucky">おまかせで 1 本</button>
+        </div>
+        <ul class="stats" id="stats"></ul>
+      </section>
+
+      <!-- 全アプリのアイコンが流れる帯。飾りなので読み上げない -->
+      <div class="marquee" id="marquee" aria-hidden="true"></div>
+
+      <section class="shelf" id="recent" aria-labelledby="recent-title" hidden>
+        <div class="shelf__head">
+          <h2 id="recent-title" class="section-title">最近開いた</h2>
+          <button class="linklike" type="button" id="recent-clear">消す</button>
+        </div>
+        <ul class="recent" id="recent-list"></ul>
+      </section>
+
+      <section class="shelf" id="new" aria-labelledby="new-title">
+        <div class="shelf__head">
+          <h2 id="new-title" class="section-title">新着</h2>
+        </div>
+        <ul class="features" id="features"></ul>
+      </section>
+
+      <section id="apps" class="apps" aria-labelledby="apps-title">
+        <div class="apps__head">
+          <h2 id="apps-title" class="section-title">すべてのアプリ</h2>
+        </div>
+
+        <div class="toolbar" id="toolbar">
+          <div class="search">
+            <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input id="q" type="search" placeholder="さがす（パズル、麻雀、タイマー…）" aria-label="アプリをさがす" autocomplete="off" enterkeyhint="search">
+            <kbd class="search__key" aria-hidden="true">/</kbd>
+          </div>
+          <div class="filter" id="filter" role="group" aria-label="種類で絞り込む"></div>
+        </div>
+
+        <div class="status-row">
+          <p class="status" id="status" aria-live="polite"></p>
+          <label class="sort">
+            <span class="visually-hidden">並び順</span>
+            <select id="sort">
+              <option value="new">新しい順</option>
+              <option value="name">名前順</option>
+            </select>
+          </label>
+        </div>
+        <ul class="grid" id="grid"></ul>
+        <div class="empty" id="empty" hidden>
+          <p>条件に合うアプリはありません。</p>
+          <button class="btn btn--ghost" type="button" data-clear>条件をクリア</button>
+        </div>
+        <noscript><p class="muted">一覧の表示には JavaScript が必要です。</p></noscript>
+      </section>
+
+      <section id="about" class="about" aria-labelledby="about-title">
+        <h2 id="about-title" class="section-title">T.OF... について</h2>
+        <div class="about__body">
+          <p>
+            T.OF... は、個人でゲームや Web アプリを作っている制作レーベルです。
+            パズルを中心に、ちょっとした発見のあるものを作っています。
+            名前は円周率 3.14...（<b>T</b>hree . <b>O</b>ne <b>F</b>our ...）から。終わりなく育ち続けるように、少しずつ増やしていきます。
+          </p>
+          <ul class="facts">
+            <li><strong>スマホで遊べる</strong>どのアプリも縦画面のタッチ操作を基本にしています。</li>
+            <li><strong>アプリにできる</strong>ホーム画面に追加すると全画面で起動します。</li>
+            <li><strong>データは端末の中</strong>記録や設定は基本的にブラウザ内に保存します。送るものがあるアプリは<a href="../privacy/">プライバシーポリシー</a>に書いています。</li>
+          </ul>
+          <p class="about__links">
+            <a href="https://x.com/tof_label" rel="noopener">X（@tof_label）</a>
+            <a href="https://github.com/t-of" rel="noopener">GitHub</a>
+            <button class="linklike" type="button" data-wak="share" data-wak-text="T.OF... のゲームとアプリ">このページを共有</button>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="player" id="player" aria-label="紹介動画">
+      <video id="player-video" playsinline controls loop preload="none"></video>
+      <div class="player__bar">
+        <a class="btn btn--primary" id="player-play" href="/">遊ぶ</a>
+        <button class="btn btn--ghost" type="button" id="player-close">閉じる</button>
+      </div>
+    </dialog>
+
+    <footer class="foot">
+      <span>© <span id="year">2026</span> T.OF...</span>
+      <a href="../privacy/">プライバシーポリシー</a>
+      <a href="../contact/">問い合わせ</a>
+      <a href="https://x.com/tof_label" rel="noopener">X（@tof_label）</a>
+    </footer>
+  </div>
+
+  <script src="../webapp-kit/webapp-kit.js"></script>
+  <script>window.TOFO_DEMO = true;</script>
+  <script src="../apps.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>
