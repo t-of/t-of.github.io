@@ -31,7 +31,8 @@ function guessBg(svg) {
 }
 
 function html(bodyStyle, inner) {
-  return `<!doctype html><html><body style="margin:0;${bodyStyle}">${inner}</body></html>`;
+  // icon.svg に width/height 属性があっても枠いっぱいに縮める（ないと小さいサイズで切れる）
+  return `<!doctype html><html><head><style>div>svg{display:block;width:100%;height:100%}</style></head><body style="margin:0;${bodyStyle}">${inner}</body></html>`;
 }
 
 async function shoot(page, size, bodyStyle, inner) {
