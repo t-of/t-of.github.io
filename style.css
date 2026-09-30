@@ -393,6 +393,7 @@ button, input, select { font: inherit; color: inherit; }
 .card__body { position: relative; min-width: 0; flex: 1; }
 .card__name { margin: 2px 0 0; font-size: 18px; line-height: 1.3; }
 .card__link { text-decoration: none; outline: none; }
+.card__no { color: var(--muted); font-variant-numeric: tabular-nums; }
 /* カード全体を押せるようにする（タグのボタンだけは上に出す） */
 .card__link::after { content: ''; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
 .card:has(.card__link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }

@@ -5,6 +5,8 @@
 
   // 本物のポータルはオーナーが「公開していい」と言ったもの（approved: true）だけ。デモ（/demo/）は全部
   const APPS = (window.TOFO_APPS || []).filter((a) => a && a.id && a.name && (window.TOFO_DEMO || a.approved));
+  // デモではカードに番号を出す（公開の指示を「3 番」で言えるように）。古い順に 1 から。新しいアプリを上に足しても番号は変わらない
+  const demoNo = (a) => APPS.length - APPS.indexOf(a);
 
   // 種類の表示名。新しい種類を apps.js で使うときは、ここに名前を足す（足さなくても id のまま出る）
   const CATEGORY = { game: 'ゲーム', tool: '学び・ツール' };
@@ -133,6 +135,7 @@
     const name = el('h3', 'card__name');
     const link = appLink(app, 'card__link');
     link.textContent = app.name;
+    if (window.TOFO_DEMO) name.append(el('span', 'card__no', `${demoNo(app)}. `));
     name.append(link);
     body.append(name, el('p', 'card__title', app.title));
 
