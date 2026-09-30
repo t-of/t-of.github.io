@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-30T00:40:30.428Z",
+  "updatedAt": "2026-09-30T00:50:16.160Z",
   "projects": [
     {
       "id": "note",
@@ -6336,6 +6336,15 @@
       "id": "t537",
       "project": "geo-gacha",
       "title": "アートを PNG で保存できるようにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t538",
+      "project": "geo-gacha",
+      "title": "大きく見る画面で絵が小さくなるのを直す",
       "owner": "engineer",
       "status": "done",
       "created": "2026-09-30",
