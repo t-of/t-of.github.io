@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-30T00:50:16.160Z",
+  "updatedAt": "2026-09-30T01:22:20.970Z",
   "projects": [
     {
       "id": "note",
@@ -6293,20 +6293,18 @@
       "project": "dropturn",
       "title": "CPU と対戦・CPU どうしの観戦を入れて公開する（研究の AI を使う）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-30",
-      "doneAt": null,
-      "no": 5
+      "doneAt": "2026-09-30"
     },
     {
       "id": "t534",
       "project": "dropturn",
       "title": "規則に「一度出たかごの形には戻せない」を足す（標準・エクストラ。オーナーが決めた）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-30",
-      "doneAt": null,
-      "no": 7
+      "doneAt": "2026-09-30"
     },
     {
       "id": "t535",
@@ -6345,6 +6343,33 @@
       "id": "t538",
       "project": "geo-gacha",
       "title": "大きく見る画面で絵が小さくなるのを直す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t539",
+      "project": "dropturn",
+      "title": "檻を細い格子にそろえ回転で一緒に動かす・立方体の角丸をやめる・視点ボタン廃止",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t540",
+      "project": "dropturn",
+      "title": "エクストラの回すを長押しで出る矢印にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t541",
+      "project": "dropturn",
+      "title": "通常ルールの真ん中の軸を枠と同じ色の直方体にする",
       "owner": "engineer",
       "status": "done",
       "created": "2026-09-30",
