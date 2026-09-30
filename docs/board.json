@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-30T18:11:17.195Z",
+  "updatedAt": "2026-09-30T21:41:55.719Z",
   "projects": [
     {
       "id": "note",
@@ -271,6 +271,13 @@
       "stage": "qa",
       "created": "2026-09-30",
       "note": "試作（ドミニオン風・はじめてのゲーム10種・1台交代・CPUなし）"
+    },
+    {
+      "id": "catan",
+      "name": "catan",
+      "stage": "qa",
+      "created": "2026-10-01",
+      "note": "試作（カタン風・基本ルール・1台交代）"
     }
   ],
   "tasks": [
@@ -6725,6 +6732,24 @@
       "project": "deck-builder",
       "title": "カードの効果を本家の効果文と突き合わせる（前半・後半の 2 人）",
       "owner": "qa",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t577",
+      "project": "deck-builder",
+      "title": "UI・UX を洗練し、カードの絵以外もカッコよくワクワクするデザインにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t578",
+      "project": "catan",
+      "title": "カタン風の試作の最小版を作る",
+      "owner": "engineer",
       "status": "done",
       "created": "2026-09-30",
       "doneAt": "2026-09-30"

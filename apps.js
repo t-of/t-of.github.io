@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'catan',
+    name: 'catan',
+    title: '試作 開拓と交易のボードゲーム',
+    desc: 'カタン風の陣取りを 1 台で交代して遊ぶ試作。3〜4 人、基本ルール。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/catan/icons/icon-192.png',
+    color: '#2c6e3f',
+  },
+  {
     id: 'deck-builder',
     name: 'deck-builder',
     title: '試作 デッキ構築のカードゲーム',
