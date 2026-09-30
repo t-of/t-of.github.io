@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-30T01:22:20.970Z",
+  "updatedAt": "2026-09-30T01:24:38.003Z",
   "projects": [
     {
       "id": "note",
@@ -6370,6 +6370,15 @@
       "id": "t541",
       "project": "dropturn",
       "title": "通常ルールの真ん中の軸を枠と同じ色の直方体にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t542",
+      "project": "dropturn",
+      "title": "真ん中の直方体を台と同じ生成り色にする（枠が見えるように）",
       "owner": "engineer",
       "status": "done",
       "created": "2026-09-30",
