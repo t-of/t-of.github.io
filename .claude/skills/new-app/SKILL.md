@@ -6,7 +6,7 @@ description: T.OF... の新しいアプリの試作を作り、GitHub Pages に�
 # 新しいアプリを作る（試作）
 
 まずアプリ本体だけを作り、GitHub Pages に出してオーナーがすぐ触れるようにする。
-**名前・アイコン・共有画像・ポータル（apps.js）への掲載はしない。** それは下の「正式に公開する」でオーナーが言ったときに行う。
+**名前・アイコン・共有画像・本物のポータルへの掲載（`approved: true`）はしない。** デモのポータル（/demo/）には出す（下の 3）。 それは下の「正式に公開する」でオーナーが言ったときに行う。
 各段階の終わりでオーナーに短く報告する。
 
 ## 0. ボードに載せる
@@ -39,8 +39,9 @@ gh api repos/t-of/<id>/pages/builds/latest --jq .status   # built になるま�
 curl -s -o /dev/null -w "%{http_code}\n" https://t-of.github.io/<id>/
 ```
 
+- デモのポータルに出す（オーナーの指示、2026-09-30）: apps.js の先頭に `approved` なしで 1 件足す（name は `<id>`、tags に `'試作'`、icon は仮の `/<id>/icons/icon-192.png`、color は manifest の theme_color）。index.html の `?v=` を上げて `node tools/make-demo.mjs` を流し、本部をコミットして push する（確認なしでよい）。
 - `https://t-of.github.io/<id>/` と遊び方の要約をオーナーに伝える。project の `stage` を `qa`（オーナーが試す段階）にする。
-- 直しの要望が来たら engineer に直させ（終わりの条件は同じく `npm run audit -- <id>`）、`git push` する。
+- 直しの要望が来たら engineer に直させ（終わりの条件は同じく `npm run audit -- <id>`）、差分と audit を確かめて確認なしで `git push` する（試作の push はオーナーの OK 済み、2026-09-30）。
 
 ## 正式に公開する（オーナーが言ったとき）
 

@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'geo-gacha',
+    name: 'geo-gacha',
+    title: '試作 幾何学アートのガチャ',
+    desc: '1 日 1 回、幾何学アートを 1 枚ひいて集める。組み合わせがとても多く、同じ絵にはまず出会わない。',
+    category: 'game',
+    tags: ['試作', 'ガチャ', 'アート'],
+    icon: '/geo-gacha/icons/icon-192.png',
+    color: '#16182B',
+  },
+  {
     id: 'carcassonne',
     name: 'carcassonne',
     title: '試作 タイルをつなぐボードゲーム',
