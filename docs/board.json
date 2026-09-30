@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-30T00:33:11.817Z",
+  "updatedAt": "2026-09-30T00:33:19.773Z",
   "projects": [
     {
       "id": "note",
@@ -6313,15 +6313,15 @@
       "project": "geo-gacha",
       "title": "サイト全体の背景の案（A 腰壁と木の床／B 大理石の回廊／C 光の展示室）から選ぶ",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-30",
-      "doneAt": null,
+      "doneAt": "2026-09-30",
       "choices": [
         "A",
         "B",
         "C"
       ],
-      "no": 8
+      "choice": "A"
     },
     {
       "id": "t536",
