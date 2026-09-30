@@ -17,7 +17,7 @@ html = html
   .replace(/<title>[^<]*<\/title>/, '<title>T.OF... DEMO</title>')
   .replace(/(href|src)="\.\//g, '$1="../')
   .replace('<a class="brand" href="../">', '<a class="brand" href="./">')
-  .replace('<script src="../apps.js">', '<script>window.TOFO_DEMO = true;</script>\n  <script src="../apps.js">')
+  .replace('<script src="../apps.js', '<script>window.TOFO_DEMO = true;</script>\n  <script src="../apps.js')
   .replace('<p class="hero__eyebrow">T.OF... ', '<p class="hero__eyebrow">T.OF... DEMO ')
   .replace(/<h1 id="hero-title" class="hero__title">[\s\S]*?<\/h1>/,
     '<h1 id="hero-title" class="hero__title">試作中のアプリ。</h1>');
