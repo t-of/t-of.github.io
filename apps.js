@@ -580,6 +580,7 @@ window.TOFO_APPS = [
     tags: ['パズル', '落ち物'],
     icon: '/pentris/icons/icon-192.png',
     color: '#2fc4e6',
+    video: '/videos/pentris.mp4',
     approved: true,
   },
   {
@@ -591,6 +592,7 @@ window.TOFO_APPS = [
     tags: ['パズル', '迷路'],
     icon: '/coord-maze/icons/icon-192.png',
     color: '#9d7bff',
+    video: '/videos/coord-maze.mp4',
     approved: true,
   },
   {
@@ -602,6 +604,7 @@ window.TOFO_APPS = [
     tags: ['パズル'],
     icon: '/gear-align/icons/icon-192.png',
     color: '#d6a64c',
+    video: '/videos/gear-align.mp4',
     approved: true,
   },
   {
@@ -613,6 +616,7 @@ window.TOFO_APPS = [
     tags: ['パズル', 'デイリー'],
     icon: '/Half-Cut/icons/icon-192.png',
     color: '#e2582e',
+    video: '/videos/Half-Cut.mp4',
     approved: true,
   },
   {
@@ -636,6 +640,7 @@ window.TOFO_APPS = [
     tags: ['テスト', '色覚'],
     icon: '/hue-hunter/icons/icon-192.png',
     color: '#e24bc6',
+    video: '/videos/hue-hunter.mp4',
     approved: true,
   },
   {
@@ -647,6 +652,7 @@ window.TOFO_APPS = [
     tags: ['学習', '英語'],
     icon: '/core-image-english/icons/icon-192.png',
     color: '#d0662a',
+    video: '/videos/core-image-english.mp4',
     approved: true,
   },
 ];
