@@ -29,6 +29,7 @@ const EXCEPTIONS = {
   'gear-align': ['webapp-kit'],
   'hue-hunter': ['webapp-kit'],
   'Half-Cut': ['webapp-kit'],
+  'gem-trade': ['sound'],
 };
 
 // 外から読んでよいスクリプトのホスト（§1）。版を URL に入れる（10.7.1、/v3、@1.2 など）。

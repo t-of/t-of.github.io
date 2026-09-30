@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'gem-trade',
+    name: 'gem-trade',
+    title: '試作 宝石商のカードゲーム',
+    desc: 'スプレンダー風の宝石集めを 1 台で交代して遊ぶ試作。2〜4 人、公式ルール。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/gem-trade/icons/icon-192.png',
+    color: '#1c2333',
+  },
+  {
     id: 'catan',
     name: 'catan',
     title: '試作 開拓と交易のボードゲーム',
