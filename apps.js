@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'spi-drill',
+    name: 'spi-drill',
+    title: '試作 SPI 対策ドリル',
+    desc: 'SPI の非言語・言語・英語・構造把握 28 単元を、解き方・例題・練習問題で一通りさらえる試作。',
+    category: 'tool',
+    tags: ['試作', '学び'],
+    icon: '/spi-drill/icons/icon-192.png',
+    color: '#1f2937',
+  },
+  {
     id: 'gem-trade',
     name: 'gem-trade',
     title: '試作 宝石商のカードゲーム',
