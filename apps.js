@@ -442,13 +442,13 @@ window.TOFO_APPS = [
     color: '#7ee0c3',
   },
   {
-    id: 'kazukakushi',
+    id: 'd-slide',
     name: 'D-SLIDE',
     title: '15パズル（スライドパズル）',
     desc: '普通の数字の 15 パズルと、番号の見えない手がかりモード（ずれ・ビット・合計）で遊べるスライドパズル。',
     category: 'game',
     tags: ['パズル', '15パズル', 'スライドパズル'],
-    icon: '/kazukakushi/icons/icon-192.png',
+    icon: '/d-slide/icons/icon-192.png',
     color: '#e8e3d4',
   },
   {

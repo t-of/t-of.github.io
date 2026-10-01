@@ -15,6 +15,7 @@
     arimichi: 'langtons-ant',
     pitaori: 'shuttle-stop',
     soroekko: 'sort-visualizer',
+    kazukakushi: 'd-slide',
   };
   const [, first, ...rest] = location.pathname.split('/');
   if (MOVED[first]) location.replace(`/${MOVED[first]}/${rest.join('/')}${location.search}${location.hash}`);
