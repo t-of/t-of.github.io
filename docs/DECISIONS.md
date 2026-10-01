@@ -241,3 +241,4 @@ Playwright で `channel: 'chrome'` を付けると、headless でも普段の Go
 
 - オーナーの指示。名前（D-SLIDE）はすでに表示名として付いていたが、リポジトリ名・URL・保存キー・SW のキャッシュ名は公開直後の仮の名前 `kazukakushi` のままだったので、合わせて変えた。アイコン・共有画像・アプリ名は変えない。
 - リポジトリを `t-of/kazukakushi` から `t-of/d-slide` に改名。記録は旧キー（`kazukakushi.`）から引き継ぎ、新しい Service Worker が旧キャッシュ（`kazukakushi-`）を消す。旧 URL は本部の `404.html` が新 URL へ送る。
+- 2026-10-01 kazukakushi → d-slide に URL を変更。古い URL は転送用リポジトリ（`t-of/kazukakushi`、index.html・404.html で新 URL へ転送し、自分の Service Worker とキャッシュを消す）を残す。
