@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'pixel-sort',
+    name: 'pixel-sort',
+    title: '試作 ピクセル並び替え',
+    desc: '画像のピクセルを明るさ・R・G・B・色相の順に並び替えて、別の絵に変える試作。画像は端末の中だけで処理します。',
+    category: 'tool',
+    tags: ['試作', '画像'],
+    icon: '/pixel-sort/icons/icon-192.png',
+    color: '#0b0c10',
+  },
+  {
     id: 'mushikui',
     name: 'mushikui',
     title: '試作 虫食い算',
