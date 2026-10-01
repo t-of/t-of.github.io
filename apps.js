@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'mushikui',
+    name: 'mushikui',
+    title: '試作 虫食い算',
+    desc: '見えている数字は 1 つだけ、答えは 1 通り。かけ算・わり算の筆算を中心に 3000 問以上の虫食い算を解く試作。',
+    category: 'game',
+    tags: ['試作', 'パズル'],
+    icon: '/mushikui/icons/icon-192.png',
+    color: '#2f6f4f',
+  },
+  {
     id: 'spi-drill',
     name: 'spi-drill',
     title: '試作 SPI 対策ドリル',
