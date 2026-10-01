@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'spirit-forest',
+    name: 'spirit-forest',
+    title: '試作 精霊の森のタイル取り',
+    desc: '森の端から精霊のタイルを取り合い、種類ごとの多数派を競うボードゲームの試作。2〜4 人で 1 台を回して遊びます。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/spirit-forest/icons/icon-192.png',
+    color: '#1c2b20',
+  },
+  {
     id: 'word-trie',
     name: 'word-trie',
     title: '試作 英単語の 3D トライ木',

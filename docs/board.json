@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-09-30T21:41:55.719Z",
+  "updatedAt": "2026-10-01T16:49:49.405Z",
   "projects": [
     {
       "id": "note",
@@ -278,6 +278,48 @@
       "stage": "qa",
       "created": "2026-10-01",
       "note": "試作（カタン風・基本ルール・1台交代）"
+    },
+    {
+      "id": "gem-trade",
+      "name": "gem-trade",
+      "stage": "qa",
+      "created": "2026-10-01",
+      "note": "試作（スプレンダー風、2〜4人ホットシート）"
+    },
+    {
+      "id": "mushikui",
+      "name": "虫食い算（仮）",
+      "stage": "qa",
+      "created": "2026-10-01",
+      "note": "見えている数字1つ・唯一解の虫食い算を全探索して問題集にする"
+    },
+    {
+      "id": "spi-drill",
+      "name": "spi-drill",
+      "stage": "qa",
+      "created": "2026-10-01",
+      "note": "試作"
+    },
+    {
+      "id": "pixel-sort",
+      "name": "pixel-sort",
+      "stage": "qa",
+      "created": "2026-10-01",
+      "note": "試作（画像のピクセルを RGB で並び替える）"
+    },
+    {
+      "id": "word-trie",
+      "name": "word-trie",
+      "stage": "qa",
+      "created": "2026-10-01",
+      "note": "試作"
+    },
+    {
+      "id": "spirit-forest",
+      "name": "spirit-forest",
+      "stage": "qa",
+      "created": "2026-10-02",
+      "note": "試作"
     }
   ],
   "tasks": [
@@ -2452,7 +2494,7 @@
     {
       "id": "t180",
       "project": "cross-take",
-      "title": "CROSS TAKE は先手（よこ）がかなり有利（CPU どうし 1000 局で 66% 対 27%、平均 2.6 点差。始めのマスをランダムにしても変わらない）。どう直すかを選ぶ。A はおすすめ（囲碁のコミと同じ考え方。点数は CPU どうしで試して決める）",
+      "title": "CROSS TAKE は先手（よこ）がかなり有利（CPU どうし 1000 局で 66% 対 27%、平均 2.6 点差。始めのマスをランダムにしても変わらない）。どう直すかを選ぶ。A はおすすめ（囲碁のコミと同じ�����え方。点数は CPU どうしで試して決める）",
       "owner": "owner",
       "status": "done",
       "created": "2026-09-25",
@@ -4999,7 +5041,7 @@
     {
       "id": "t411",
       "project": "t-of.github.io",
-      "title": "X のアカウントを T.OF... として作る（プロフィール文はディレクターが用意）",
+      "title": "X のアカウントを T.OF... として作る（プロフィール文はディレクターが用����",
       "owner": "owner",
       "status": "done",
       "created": "2026-09-26",
@@ -6447,10 +6489,31 @@
       "project": "kazukakushi",
       "title": "D-SLIDE を触って確かめる（https://t-of.github.io/kazukakushi/）。あわせて URL を d-slide に変えるか・アイコンと共有画像を作り直すかを決める",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-30",
-      "doneAt": null,
-      "no": 7
+      "doneAt": "2026-10-01",
+      "thread": [
+        {
+          "by": "owner",
+          "text": "URL変える",
+          "at": "2026-10-01T04:09:04.208Z"
+        },
+        {
+          "by": "director",
+          "text": "了解です。URL を /d-slide/ に変えます。古い /kazukakushi/ は新しい URL へ飛ぶようにし、記録も引き継ぎます。アイコンと共有画像はどうしますか（今のままでよければそのままにします）",
+          "at": "2026-10-01T04:09:32.765Z"
+        },
+        {
+          "by": "director",
+          "text": "了解。URL を /d-slide/ に変えます（旧 URL は新しい方へ飛ぶようにし、記録も引き継ぎます）。アイコンと共有画像は今のままにします。作り直すなら書いてください。",
+          "at": "2026-10-01T04:09:42.382Z"
+        },
+        {
+          "by": "director",
+          "text": "URL を /d-slide/ に変えました。古い /kazukakushi/ は新しい URL へ転送し、記録も引き継ぎます。残りはアイコンと共有画像を作り直すかどうかです",
+          "at": "2026-10-01T04:16:25.704Z"
+        }
+      ]
     },
     {
       "id": "t548",
@@ -6753,6 +6816,470 @@
       "status": "done",
       "created": "2026-09-30",
       "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t579",
+      "project": "catan",
+      "title": "ドット絵 UI のデザイン案（Claude Design）を見て直すところを決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30",
+      "comment": "https://claude.ai/artifact/JrKToamwUc84t284yZkiRB"
+    },
+    {
+      "id": "t580",
+      "project": "catan",
+      "title": "ドット絵 UI をアプリに入れる（まず PC 版）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t581",
+      "project": "carcassonne",
+      "title": "最後の採点を「次へ」で1件ずつ進める（自動で進めるボタンつき）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t582",
+      "project": "carcassonne",
+      "title": "見た目をドット絵だけにし、シンプルを廃止する（控えは drafts/carcassonne-simple-theme）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t583",
+      "project": "deck-builder",
+      "title": "手札の右に山札・捨て札、1 枚ずつ引く演出と捨て札からの補充の演出",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t584",
+      "project": "catan",
+      "title": "ドットの細かさを選ぶ（いまのまま・2倍・4倍、キャンバスの下の段）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30",
+      "choices": [
+        "いまのまま",
+        "2倍",
+        "4倍"
+      ],
+      "choice": "2倍"
+    },
+    {
+      "id": "t585",
+      "project": "catan",
+      "title": "ドットを2倍細かくする（盤・アイコン）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t586",
+      "project": "deck-builder",
+      "title": "手札を横スクロールさせず下の段へ折り返す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t587",
+      "project": "deck-builder",
+      "title": "スマホでも遊べるように対局画面の UI を直す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30",
+      "thread": [
+        {
+          "by": "director",
+          "text": "スマホ幅でフェイズ欄と手番ボタンを画面下に固定（c96cd75、push 待ち）",
+          "at": "2026-09-30T23:09:26.738Z"
+        }
+      ]
+    },
+    {
+      "id": "t588",
+      "project": "catan",
+      "title": "イラスト版（ドット絵でない）のデザイン案を見て、どちらでいくか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30",
+      "choices": [
+        "ドット絵（2倍）のまま",
+        "イラスト版にする"
+      ],
+      "choice": "イラスト版にする"
+    },
+    {
+      "id": "t589",
+      "project": "catan",
+      "title": "イラスト版の見た目に入れ替える（まず PC 版）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t590",
+      "project": "gem-trade",
+      "title": "スプレンダー風の最小版を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-09-30"
+    },
+    {
+      "id": "t591",
+      "project": "gem-trade",
+      "title": "gem-trade を触って直したい点を出す",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-09-30",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t592",
+      "project": "catan",
+      "title": "CPU を作る（強さを選べる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t593",
+      "project": "deck-builder",
+      "title": "CPU に「エンジン」を足して、さいきょうより強くする",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-01",
+      "doneAt": null,
+      "no": 9,
+      "thread": [
+        {
+          "by": "director",
+          "text": "CPU の変更は a47a1ec でコミット済み。push は絵の作業のあとに、まとめて出す。強さを続けるかは返事待ち。",
+          "at": "2026-10-01T04:16:34.007Z"
+        },
+        {
+          "by": "director",
+          "text": "進める: ①廃棄で山を薄くする狙い ②お金も生むエンジン を足し、今のさいきょうに 200 局で 60% 以上を目指す。届かなければ ③打ち方 ④終わり方 へ。",
+          "at": "2026-10-01T08:48:56.668Z"
+        },
+        {
+          "by": "director",
+          "text": "engineer が自己対局で勝率を測っている途中（2026-10-01）。終わるとコミットし、DECISIONS.md の CPU の節に結果を書く。push はまだ。確かめて push するのは次の会話のディレクター（cpu.js の差分・勝率・npm run audit -- deck-builder）。",
+          "at": "2026-10-01T11:14:33.094Z"
+        }
+      ]
+    },
+    {
+      "id": "t594",
+      "project": "gem-trade",
+      "title": "テスト用の雑な CPU を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t595",
+      "project": "gem-trade",
+      "title": "見た目の刷新（ルネサンス宝飾店）: まず宝石6種とカード1枚の見本",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t596",
+      "project": "catan",
+      "title": "人から CPU への交易（CPU が損得で受ける・断る）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t597",
+      "project": "gem-trade",
+      "title": "見た目の刷新: 見本を本体に展開（背景・全カード・貴族・トークン）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t598",
+      "project": "deck-builder",
+      "title": "カードの絵 787 枚を生成スクリプトで描き直す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t599",
+      "project": "deck-builder",
+      "title": "見た目を「夜の古い城の作戦卓」に全面的に作り直す（カード・ボタン・背景・フォント・動き）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t600",
+      "project": "kazukakushi",
+      "title": "URL を kazukakushi → d-slide に変える（記録の引き継ぎ・旧 URL の転送つき）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t601",
+      "project": "deck-builder",
+      "title": "deck-builder のカードの絵: 基本セットの新しい絵（左が旧、右が新）を見て、この決まりで拡張 738 枚へ進めるか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01",
+      "images": [
+        ".audit/deck-art-base-1.png",
+        ".audit/deck-art-base-2.png",
+        ".audit/deck-art-base-3.png",
+        ".audit/deck-art-base-4.png"
+      ],
+      "choices": [
+        "この決まりで拡張へ進める",
+        "直してから進める（コメントに書く）",
+        "やめる（旧の絵に戻す）"
+      ],
+      "choice": "この決まりで拡張へ進める",
+      "comment": ""
+    },
+    {
+      "id": "t602",
+      "project": "mushikui",
+      "title": "四則の虫食い算（見える数字1つ・唯一解）を全探索する",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t603",
+      "project": "spi-drill",
+      "title": "SPI 対策の試作を作る（解法まとめ＋例題＋練習）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t604",
+      "project": "mushikui",
+      "title": "虫食い算の試作を作る（掛け算・割り算中心、探索済みの問題集を使う）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t605",
+      "project": "mushikui",
+      "title": "一覧を PC 幅でたくさん並べ、虫食いの数で難易度に分ける",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t606",
+      "project": "mushikui",
+      "title": "筆算を画面に収まる大きさにし、1 桁のかけ算・1 桁で割る割り算を消す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t607",
+      "project": "mushikui",
+      "title": "もっと難しい虫食い算を探す（かけ算・わり算の範囲を 8100 万組まで広げて全探索）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t608",
+      "project": "catan",
+      "title": "拡張: 5〜6人",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t609",
+      "project": "catan",
+      "title": "拡張: 航海者版",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t610",
+      "project": "catan",
+      "title": "拡張: 都市と騎士",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t611",
+      "project": "catan",
+      "title": "拡張: 交易と略奪",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t612",
+      "project": "pixel-sort",
+      "title": "pixel-sort の最小版を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t613",
+      "project": "pixel-sort",
+      "title": "再生ボタンでピクセルが移動するアニメーション",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t614",
+      "project": "pixel-sort",
+      "title": "再生を「左の元画像から右へピクセルが飛んで新しい画像ができる」形にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t615",
+      "project": "pixel-sort",
+      "title": "2枚モード: 1枚目のピクセルを並べ替えて2枚目の絵にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t616",
+      "project": "mushikui",
+      "title": "わり算に「割り切れる（余りは 0）」と書く（余りを許すと 4191/4931 問で別解）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t617",
+      "project": "mushikui",
+      "title": "余りで別解ができるわり算 4191 問は、余りのマスに 0 を見せる",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t618",
+      "project": "catan",
+      "title": "サイコロで当たったタイルを光らせ、ほかを暗くし、手札に +1 を出す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t619",
+      "project": "word-trie",
+      "title": "単語のトライ木を宇宙の 3D で見せる試作を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t620",
+      "project": "mushikui",
+      "title": "かけ算・わり算の問題を厳選する（640→17・4931→52）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t621",
+      "project": "word-trie",
+      "title": "NGSL 1000 語を入れ、光る道を見やすくする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t622",
+      "project": "mushikui",
+      "title": "虫食いの数ごとに 2 問・見えている数字の数ごとに 1 問は載せる",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t623",
+      "project": "word-trie",
+      "title": "2D 表示への切り替えを足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t624",
+      "project": "spirit-forest",
+      "title": "試作の最小版を作る（Spirits of the Forest の形だけ）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
     }
   ],
   "ideas": []
