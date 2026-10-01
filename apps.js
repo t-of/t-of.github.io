@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'word-trie',
+    name: 'word-trie',
+    title: '試作 英単語の 3D トライ木',
+    desc: '英単語帳を、宇宙に浮かぶ文字の木として 3D で見る試作。検索した文字ごとに道が光り、その先の単語が並びます。',
+    category: 'tool',
+    tags: ['試作', '英単語'],
+    icon: '/word-trie/icons/icon-192.png',
+    color: '#05060d',
+  },
+  {
     id: 'pixel-sort',
     name: 'pixel-sort',
     title: '試作 ピクセル並び替え',
