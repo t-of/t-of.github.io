@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-02T03:22:08.781Z",
+  "updatedAt": "2026-10-02T07:00:01.114Z",
   "projects": [
     {
       "id": "note",
@@ -317,6 +317,13 @@
     {
       "id": "spirit-forest",
       "name": "spirit-forest",
+      "stage": "qa",
+      "created": "2026-10-02",
+      "note": "試作"
+    },
+    {
+      "id": "coloro",
+      "name": "coloro",
       "stage": "qa",
       "created": "2026-10-02",
       "note": "試作"
@@ -6182,10 +6189,9 @@
       "project": "dropturn",
       "title": "DROPTURN の研究（先手・後手の有利、最強 AI、論文の下書き）。~/GitHub/tof/research/dropturn/",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-09-29",
-      "doneAt": null,
-      "no": 2,
+      "doneAt": "2026-10-02",
       "thread": [
         {
           "by": "director",
@@ -6283,10 +6289,9 @@
       "project": "dropturn",
       "title": "DROPTURN の研究: 3 人の場合（連合に勝てるか・席順の有利さ）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-09-29",
-      "doneAt": null,
-      "no": 6
+      "doneAt": "2026-10-02"
     },
     {
       "id": "t526",
@@ -6967,10 +6972,9 @@
       "project": "deck-builder",
       "title": "CPU に「エンジン」を足して、さいきょうより強くする",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-01",
-      "doneAt": null,
-      "no": 9,
+      "doneAt": "2026-10-02",
       "thread": [
         {
           "by": "director",
@@ -7331,10 +7335,9 @@
       "project": "gem-trade",
       "title": "2人戦の新 CPU と対戦して強さを見る",
       "owner": "owner",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-02",
-      "doneAt": null,
-      "no": 7
+      "doneAt": "2026-10-02"
     },
     {
       "id": "t631",
@@ -7394,6 +7397,134 @@
       "id": "t637",
       "project": "gem-trade",
       "title": "プレイヤー名を入力できるようにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t638",
+      "project": "gem-trade",
+      "title": "CPU 段階3: 簡易版を本式の ISMCTS（木を共有）にする",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02",
+      "thread": [
+        {
+          "by": "owner",
+          "text": "いいよ",
+          "at": "2026-10-02T06:30:06.781Z"
+        },
+        {
+          "by": "director",
+          "text": "了解。本式の木は見送り、評価関数の重みを自己対戦で調整します（t639）。",
+          "at": "2026-10-02T06:30:25.952Z"
+        },
+        {
+          "by": "director",
+          "text": "（訂正）タスク番号は t641 です。",
+          "at": "2026-10-02T06:30:29.876Z"
+        },
+        {
+          "by": "director",
+          "text": "了解。手元の本式 ISMCTS を旧版と対戦させて確かめてから push します",
+          "at": "2026-10-02T06:35:57.226Z"
+        }
+      ],
+      "no": 6
+    },
+    {
+      "id": "t639",
+      "project": "spirit-forest",
+      "title": "強い CPU 段 3: ISMCTS を Worker で動かす（打ち切りは貪欲、3〜4 人は順位を報酬）",
+      "owner": "engineer",
+      "status": "waiting",
+      "created": "2026-10-02",
+      "doneAt": null,
+      "no": 5
+    },
+    {
+      "id": "t640",
+      "project": "spirit-forest",
+      "title": "実物に忠実な見た目のデザイン一式を作る（色・記号・地紋・札・宝石・画面構成・動き）",
+      "owner": "designer",
+      "status": "skip",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02",
+      "thread": [
+        {
+          "by": "director",
+          "text": "見本帳を https://t-of.github.io/spirit-forest/design/real.html に公開",
+          "at": "2026-10-02T06:29:57.228Z"
+        },
+        {
+          "by": "director",
+          "text": "依頼の取り消しにより取り下げ。design/ は消して push 済み",
+          "at": "2026-10-02T06:37:38.785Z"
+        }
+      ]
+    },
+    {
+      "id": "t641",
+      "project": "gem-trade",
+      "title": "CPU: 評価関数の重みを自己対戦で調整する",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t642",
+      "project": "coloro",
+      "title": "COLORO の試作（2人対戦の芯）を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t643",
+      "project": "coloro",
+      "title": "COLORO の試作を触って直す点を決める",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-02",
+      "doneAt": null,
+      "no": 7
+    },
+    {
+      "id": "t644",
+      "project": "coloro",
+      "title": "ホーム画面・遊び方・ホームに戻るボタンを作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t645",
+      "project": "gem-trade",
+      "title": "CPU をさらに強くする方針を決める（強さの頭打ち）",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-02",
+      "doneAt": null,
+      "no": 2
+    },
+    {
+      "id": "t646",
+      "project": "coloro",
+      "title": "最強 CPU を作る（αβ 探索・終盤読み切り）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t647",
+      "project": "coloro",
+      "title": "CPU 戦で先手・後手を選べるようにする",
       "owner": "engineer",
       "status": "done",
       "created": "2026-10-02",
