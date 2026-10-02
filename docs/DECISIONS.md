@@ -250,3 +250,8 @@ Playwright で `channel: 'chrome'` を付けると、headless でも普段の Go
 - オーナーの指示。名前（D-SLIDE）はすでに表示名として付いていたが、リポジトリ名・URL・保存キー・SW のキャッシュ名は公開直後の仮の名前 `kazukakushi` のままだったので、合わせて変えた。アイコン・共有画像・アプリ名は変えない。
 - リポジトリを `t-of/kazukakushi` から `t-of/d-slide` に改名。記録は旧キー（`kazukakushi.`）から引き継ぎ、新しい Service Worker が旧キャッシュ（`kazukakushi-`）を消す。旧 URL は本部の `404.html` が新 URL へ送る。
 - 2026-10-01 kazukakushi → d-slide に URL を変更。古い URL は転送用リポジトリ（`t-of/kazukakushi`、index.html・404.html で新 URL へ転送し、自分の Service Worker とキャッシュを消す）を残す。
+
+## 詳細設計書は大きいシステムのときだけ書く（2026-10-03）
+
+- オーナーの判断。ふだんは今のまま、試作は要点（数行）→ 遊べる芯だけを実装 → オーナーが触って直す。仕様のあとに詳細設計の段階は置かない。
+- 大きいシステム（画面やデータが多い、複数の部品にまたがる など）のときだけ、実装の前に engineer に設計メモを書かせ、ディレクターが確かめてから作る。
