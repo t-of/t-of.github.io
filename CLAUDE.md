@@ -45,6 +45,7 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 - モデル: planner だけ Opus（effort medium）。researcher・designer・engineer・writer・sns は Sonnet（medium）、qa は Sonnet（low）、release は Haiku（各ファイルの `model:`・`effort:`）。指定のないエージェント（Explore など）は Sonnet（`.claude/settings.json` の env）。
   engineer を `model: "opus"` で呼ぶのは、Sonnet で 2 回直しきれなかったときだけ。新しいアプリでも、まず Sonnet で作る。
 - 並行で動かすのは 3 人まで。いっせいに利用の上限に当たると、再開するとき全員が会話を一から読み直し、費用が倍になる。
+- engineer・designer には 1 回に 1 つの機能（拡張 1 つ、画面 1 つ）を頼む。大きい仕事は分け、1 つ終わるごとに新しいエージェントで次を頼む（SendMessage で続けない）。文脈が 30 万トークンを超えた呼び出しが、費用の 3 分の 1 を占めていた（2026-10 の集計）。
 - 互いに関係しない作業は並行で頼む（例: デザインと実装）。同じファイルを 2 人に触らせない。
 - 頼むときは、対象のリポジトリ、やること、終わりの条件（どのチェックが通ればよいか）、コミットや push をしてよいかをはっきり書く。
 - メンバーの報告はそのまま信じず、差分とチェック結果で確かめてからオーナーに伝える。
