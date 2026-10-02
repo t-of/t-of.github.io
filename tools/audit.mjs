@@ -31,6 +31,7 @@ const EXCEPTIONS = {
   'Half-Cut': ['webapp-kit'],
   'gem-trade': ['sound'],
   'word-trie': ['sound'],
+  'coloro': ['sound'],
 };
 
 // 外から読んでよいスクリプトのホスト（§1）。版を URL に入れる（10.7.1、/v3、@1.2 など）。

@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'coloro',
+    name: 'coloro',
+    title: '試作 色の山を取り合うボードゲーム',
+    desc: '矢印コマを縦横交互に動かし、止まったマスの駒を取って同じ色の山を高くする 2 人用ボードゲームの試作。1 台を交代で遊びます。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/coloro/icons/icon-192.png',
+    color: '#f2f2f2',
+  },
+  {
     id: 'spirit-forest',
     name: 'spirit-forest',
     title: '試作 精霊の森のタイル取り',
