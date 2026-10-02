@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-01T16:49:49.405Z",
+  "updatedAt": "2026-10-02T03:22:08.781Z",
   "projects": [
     {
       "id": "note",
@@ -7280,6 +7280,124 @@
       "status": "done",
       "created": "2026-10-01",
       "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t625",
+      "project": "spirit-forest",
+      "title": "実物に寄せた見た目にする（葉の地紋の札・記号・宝石・フェルト）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-01",
+      "doneAt": "2026-10-01"
+    },
+    {
+      "id": "t626",
+      "project": "spirit-forest",
+      "title": "見た目をヴィンテージ版画風に作り直す（くすみ色・植物の地紋・アイボリーの紋章コイン・紙の質感）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t627",
+      "project": "spirit-forest",
+      "title": "見本（Claude Design）の札・紋章を入れ、背景とスタート画面を森の中風に。戻るボタンを足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t628",
+      "project": "gem-trade",
+      "title": "CPU の速さ選択・効果音・カード購入とコインの移動演出",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t629",
+      "project": "gem-trade",
+      "title": "2人戦の最強 CPU（エンジン分離・評価関数・ISMCTS 2 秒）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t630",
+      "project": "gem-trade",
+      "title": "2人戦の新 CPU と対戦して強さを見る",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-10-02",
+      "doneAt": null,
+      "no": 7
+    },
+    {
+      "id": "t631",
+      "project": "spirit-forest",
+      "title": "幾何デザインを足し、森と切り替える",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t632",
+      "project": "gem-trade",
+      "title": "強い CPU どうしの 2 人戦モードを足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t633",
+      "project": "spirit-forest",
+      "title": "強い CPU の土台: ルールを rules.js に切り出し、CPU 対戦の arena と評価関数つき貪欲 CPU を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t634",
+      "project": "carcassonne",
+      "title": "プレイヤー名を入力できるようにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t635",
+      "project": "catan",
+      "title": "プレイヤー名を入力できるようにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t636",
+      "project": "deck-builder",
+      "title": "プレイヤー名を入力できるようにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t637",
+      "project": "gem-trade",
+      "title": "プレイヤー名を入力できるようにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
     }
   ],
   "ideas": []
