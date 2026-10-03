@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T10:59:37.542Z",
+  "updatedAt": "2026-10-03T11:46:43.509Z",
   "projects": [
     {
       "id": "note",
@@ -7859,6 +7859,34 @@
       "status": "done",
       "created": "2026-10-03",
       "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t681",
+      "project": "catan-starfarers",
+      "title": "宇宙開拓者 作業3a: 友好カード20枚（4種族）と効き目・交易所を建てたときの選ぶ画面",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t682",
+      "project": "catan-starfarers",
+      "title": "宇宙開拓者 作業3b: 相手との交易（catan の画面を流用）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t683",
+      "project": "catan-starfarers",
+      "title": "宇宙開拓者 作業4: CPU ふつう・つよい（cpu.js）。あわせて、よわい同士だと300局に1局ほど誰も15点に届かず止まる（作業2からある。test.mjs の数十局テストが時々落ちる）のを直す",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-03",
+      "doneAt": null,
+      "no": 9
     }
   ],
   "ideas": []
