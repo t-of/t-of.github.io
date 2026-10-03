@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T15:48:16.958Z",
+  "updatedAt": "2026-10-03T15:55:35.415Z",
   "projects": [
     {
       "id": "note",
@@ -338,7 +338,7 @@
     {
       "id": "catan-starfarers",
       "name": "catan-starfarers",
-      "stage": "design",
+      "stage": "build",
       "created": "2026-10-03",
       "note": "試作（カタン 宇宙開拓者版風）"
     }
@@ -7909,11 +7909,41 @@
       "project": "catan-starfarers",
       "title": "宇宙開拓のデザイン案（Claude Design）を見て、直すところを決める",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03",
+      "comment": "https://claude.ai/artifact/XfiboXdLb3ga4PdzzyF3MZ",
+      "choice": "採用"
+    },
+    {
+      "id": "t687",
+      "project": "catan-starfarers",
+      "title": "デザイン案を反映 1: 配色・フォント・盤面と駒（ゲーム画面）",
+      "owner": "engineer",
+      "status": "doing",
       "created": "2026-10-03",
       "doneAt": null,
-      "comment": "https://claude.ai/artifact/XfiboXdLb3ga4PdzzyF3MZ",
       "no": 8
+    },
+    {
+      "id": "t688",
+      "project": "catan-starfarers",
+      "title": "デザイン案を反映 2: タイトル・席の設定画面",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-03",
+      "doneAt": null,
+      "no": 9
+    },
+    {
+      "id": "t689",
+      "project": "catan-starfarers",
+      "title": "デザイン案を反映 3: 母船を振る・遭遇の画面",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-03",
+      "doneAt": null,
+      "no": 10
     }
   ],
   "ideas": []
