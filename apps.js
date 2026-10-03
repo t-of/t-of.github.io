@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'catan-starfarers',
+    name: 'catan-starfarers',
+    title: '試作 宇宙を開拓するボードゲーム',
+    desc: '母船を振って宇宙船を飛ばし、惑星に植民地を建て、異星人の前哨基地に交易所を開く 3〜4 人のボードゲームの試作。先に 15 点を取った人の勝ち。CPU と遊べます。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/catan-starfarers/icons/icon-192.png',
+    color: '#0b0c10',
+  },
+  {
     id: 'catan-energy',
     name: 'catan-energy',
     title: '試作 発電所と汚染の開拓ボードゲーム',
