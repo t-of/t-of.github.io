@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T07:28:19.945Z",
+  "updatedAt": "2026-10-03T09:55:29.262Z",
   "projects": [
     {
       "id": "note",
@@ -334,6 +334,13 @@
       "stage": "qa",
       "created": "2026-10-03",
       "note": "試作（カタン エネルギー版風）"
+    },
+    {
+      "id": "catan-starfarers",
+      "name": "catan-starfarers",
+      "stage": "planning",
+      "created": "2026-10-03",
+      "note": "試作（カタン 宇宙開拓者版風）"
     }
   ],
   "tasks": [
@@ -7730,20 +7737,18 @@
       "project": "catan",
       "title": "探検家と海賊版を足す",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-03",
-      "doneAt": null,
-      "no": 9
+      "doneAt": "2026-10-03"
     },
     {
       "id": "t668",
       "project": "catan",
       "title": "航海者・都市と騎士・交易と略奪・探検家と海賊の5〜6人対応",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-03",
-      "doneAt": null,
-      "no": 10
+      "doneAt": "2026-10-03"
     },
     {
       "id": "t669",
@@ -7763,6 +7768,71 @@
       "created": "2026-10-03",
       "doneAt": null,
       "no": 12
+    },
+    {
+      "id": "t671",
+      "project": "catan-energy",
+      "title": "New Energies の公式ルールを調べてまとめる",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t672",
+      "project": "catan-energy",
+      "title": "公式ルールに合わせて作り直す（作業1〜6）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t673",
+      "project": "catan-energy",
+      "title": "公式ルールブックから作り直しの仕様と作業の分け方を書く",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t674",
+      "project": "catan-energy",
+      "title": "作り直しの方針（公式から外す点・古い保存・公開範囲）を決める",
+      "owner": "owner",
+      "status": "skip",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t675",
+      "project": "catan-energy",
+      "title": "CPU（ふつう）をもう少し強くする（袋切れで勝者なしが多い。テストの最高点平均の基準は 7 の予定を 6 に下げた）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-03",
+      "doneAt": null,
+      "no": 8
+    },
+    {
+      "id": "t676",
+      "project": "deck-builder",
+      "title": "カード名・ゲーム名を公式（ドミニオン）と同じにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t677",
+      "project": "catan-starfarers",
+      "title": "宇宙開拓者版の公式ルールを調べ、仕様と作業の分け方を書く",
+      "owner": "planner",
+      "status": "doing",
+      "created": "2026-10-03",
+      "doneAt": null,
+      "no": 9
     }
   ],
   "ideas": []
