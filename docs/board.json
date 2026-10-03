@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T16:12:27.551Z",
+  "updatedAt": "2026-10-03T16:35:05.698Z",
   "projects": [
     {
       "id": "note",
@@ -7947,10 +7947,9 @@
       "project": "catan-starfarers",
       "title": "デザイン案を反映 4: 植民船・交易船を見分ける形にする（engine に船の種類を持たせる）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-03",
-      "doneAt": null,
-      "no": 8
+      "doneAt": "2026-10-03"
     },
     {
       "id": "t691",
@@ -7961,6 +7960,15 @@
       "created": "2026-10-03",
       "doneAt": null,
       "no": 9
+    },
+    {
+      "id": "t692",
+      "project": "catan-starfarers",
+      "title": "遭遇の選択肢に結果の一言を添える",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
     }
   ],
   "ideas": []
