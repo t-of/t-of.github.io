@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T16:03:55.341Z",
+  "updatedAt": "2026-10-03T16:12:27.551Z",
   "projects": [
     {
       "id": "note",
@@ -338,7 +338,7 @@
     {
       "id": "catan-starfarers",
       "name": "catan-starfarers",
-      "stage": "build",
+      "stage": "qa",
       "created": "2026-10-03",
       "note": "試作（カタン 宇宙開拓者版風）"
     }
@@ -7938,10 +7938,9 @@
       "project": "catan-starfarers",
       "title": "デザイン案を反映 3: 母船を振る・遭遇の画面",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-03",
-      "doneAt": null,
-      "no": 10
+      "doneAt": "2026-10-03"
     },
     {
       "id": "t690",
@@ -7952,6 +7951,16 @@
       "created": "2026-10-03",
       "doneAt": null,
       "no": 8
+    },
+    {
+      "id": "t691",
+      "project": "catan-starfarers",
+      "title": "デザインを反映した宇宙開拓を触って確かめる",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-03",
+      "doneAt": null,
+      "no": 9
     }
   ],
   "ideas": []
