@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T11:46:43.509Z",
+  "updatedAt": "2026-10-03T12:10:45.046Z",
   "projects": [
     {
       "id": "note",
@@ -7881,12 +7881,30 @@
     {
       "id": "t683",
       "project": "catan-starfarers",
-      "title": "宇宙開拓者 作業4: CPU ふつう・つよい（cpu.js）。あわせて、よわい同士だと300局に1局ほど誰も15点に届かず止まる（作業2からある。test.mjs の数十局テストが時々落ちる）のを直す",
+      "title": "宇宙開拓者: よわい同士だと300局に1局ほど誰も15点に届かず止まるのを直す（test.mjs の数十局テストが時々落ちる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t684",
+      "project": "catan-starfarers",
+      "title": "宇宙開拓者 作業4: CPU ふつう・つよい（cpu.js）。カタン系の CPU 改良は保留中のため後回し",
       "owner": "engineer",
       "status": "todo",
       "created": "2026-10-03",
       "doneAt": null,
-      "no": 9
+      "no": 10
+    },
+    {
+      "id": "t685",
+      "project": "catan-starfarers",
+      "title": "宇宙開拓者 作業5: 仕上げ（遊び方の説明・効果音・README の公式との違いと自前の遭遇）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
     }
   ],
   "ideas": []
