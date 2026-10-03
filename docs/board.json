@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-02T07:00:01.114Z",
+  "updatedAt": "2026-10-03T07:28:19.945Z",
   "projects": [
     {
       "id": "note",
@@ -327,6 +327,13 @@
       "stage": "qa",
       "created": "2026-10-02",
       "note": "試作"
+    },
+    {
+      "id": "catan-energy",
+      "name": "catan-energy",
+      "stage": "qa",
+      "created": "2026-10-03",
+      "note": "試作（カタン エネルギー版風）"
     }
   ],
   "tasks": [
@@ -7529,6 +7536,233 @@
       "status": "done",
       "created": "2026-10-02",
       "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t648",
+      "project": "coloro",
+      "title": "CPU 同士の対戦観戦を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t649",
+      "project": "mushikui",
+      "title": "mushikui に「n 進数」（5〜16 進数・同じ数字を 2 回使わない 53 問）を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t650",
+      "project": "word-trie",
+      "title": "ノードの球を文字数目が進むほど小さくする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t651",
+      "project": "word-trie",
+      "title": "2D で球の大きさをそろえ、円の半径を重ならない大きさに広げる",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t652",
+      "project": "word-trie",
+      "title": "2D/3D の切り替えに「格子」モードを足す（深さごとに x・y 交互に並べる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t653",
+      "project": "word-trie",
+      "title": "地球儀モードを足す（奇数文字目=緯度・偶数文字目=経度）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t654",
+      "project": "mushikui",
+      "title": "n 進数の全部虫食い（各数字 2 回・答え 1 通り）7 問を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t655",
+      "project": "word-trie",
+      "title": "26 分木の表示の見本から、作るものを選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02",
+      "choices": [
+        "1",
+        "2",
+        "4"
+      ],
+      "choiceLabels": {
+        "1": "サンバースト",
+        "2": "つらら",
+        "4": "文字固定の輪"
+      },
+      "choiceImages": {
+        "1": ".audit/word-trie-sunburst.svg",
+        "2": ".audit/word-trie-icicle.svg",
+        "4": ".audit/word-trie-fixed.svg"
+      },
+      "choice": "1",
+      "comment": ""
+    },
+    {
+      "id": "t656",
+      "project": "word-trie",
+      "title": "サンバースト表示モードを足す（角度＝その先の単語の数）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t657",
+      "project": "word-trie",
+      "title": "3×3×3 入れ子配置（26 方向の立方体）の表示モードを足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-02",
+      "doneAt": "2026-10-02"
+    },
+    {
+      "id": "t658",
+      "project": "mushikui",
+      "title": "虫食い算: あまりあり（64問）と「1が1個」n進数全部虫食い（5問）を探して載せる（記録は drafts/mushikui/blank/NOTES.md）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t659",
+      "project": "note",
+      "title": "売れる note の書き方を調べる（方針の練り直し）",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t660",
+      "project": "note",
+      "title": "note を広げる SNS の工夫を調べる",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t661",
+      "project": "note",
+      "title": "10/5 からの下書きを新しい方針で作り直す",
+      "owner": "writer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t662",
+      "project": "note",
+      "title": "10/5〜10/11 の下書きの口調を明るく直す",
+      "owner": "writer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t663",
+      "project": "catan",
+      "title": "カタンのバグ探し（画面とルール処理）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t664",
+      "project": "catan",
+      "title": "カタン: 初期資源が銀行から減らない・最長交易路が移った人の勝利判定・銀行不足で1人なら残りを渡す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t665",
+      "project": "catan",
+      "title": "都市と騎士: 開拓地の駒がないとき蛮族に負けた都市をなくす",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t666",
+      "project": "catan",
+      "title": "サッカー拡張（Fußballfieber）を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t667",
+      "project": "catan",
+      "title": "探検家と海賊版を足す",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-03",
+      "doneAt": null,
+      "no": 9
+    },
+    {
+      "id": "t668",
+      "project": "catan",
+      "title": "航海者・都市と騎士・交易と略奪・探検家と海賊の5〜6人対応",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-03",
+      "doneAt": null,
+      "no": 10
+    },
+    {
+      "id": "t669",
+      "project": "catan-energy",
+      "title": "エネルギー版（New Energies）風の試作を別アプリで作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t670",
+      "project": null,
+      "title": "宇宙開拓者版風の試作を別アプリで作る",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-03",
+      "doneAt": null,
+      "no": 12
     }
   ],
   "ideas": []

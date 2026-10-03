@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'catan-energy',
+    name: 'catan-energy',
+    title: '試作 発電所と汚染の陣取りボードゲーム',
+    desc: '町に化石燃料か再生可能の発電所を建て、エネルギーを使って広げる陣取りボードゲームの試作。汚染が 20 に達すると、再生可能発電所の多い人の勝ち。CPU と遊べます。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/catan-energy/icons/icon-192.png',
+    color: '#0f1320',
+  },
+  {
     id: 'coloro',
     name: 'coloro',
     title: '試作 色の山を取り合うボードゲーム',
