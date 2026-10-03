@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T12:10:45.046Z",
+  "updatedAt": "2026-10-03T12:55:57.555Z",
   "projects": [
     {
       "id": "note",
@@ -7810,10 +7810,9 @@
       "project": "catan-energy",
       "title": "CPU（ふつう）をもう少し強くする（袋切れで勝者なしが多い。テストの最高点平均の基準は 7 の予定を 6 に下げた）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-03",
-      "doneAt": null,
-      "no": 8
+      "doneAt": "2026-10-03"
     },
     {
       "id": "t676",
@@ -7892,10 +7891,9 @@
       "project": "catan-starfarers",
       "title": "宇宙開拓者 作業4: CPU ふつう・つよい（cpu.js）。カタン系の CPU 改良は保留中のため後回し",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-03",
-      "doneAt": null,
-      "no": 10
+      "doneAt": "2026-10-03"
     },
     {
       "id": "t685",
