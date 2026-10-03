@@ -29,8 +29,8 @@ window.TOFO_APPS = [
   {
     id: 'catan-energy',
     name: 'catan-energy',
-    title: '試作 発電所と汚染の陣取りボードゲーム',
-    desc: '町に化石燃料か再生可能の発電所を建て、エネルギーを使って広げる陣取りボードゲームの試作。汚染が 20 に達すると、再生可能発電所の多い人の勝ち。CPU と遊べます。',
+    title: '試作 発電所と汚染の開拓ボードゲーム',
+    desc: '町や都市に化石燃料か再生可能の発電所を建て、エネルギーと科学で島を広げる 3〜4 人のボードゲームの試作。汚染が増えるほど災害のディスクを多く引き、袋が尽きたら再生可能を多く建てた人しか勝てません。CPU と遊べます。',
     category: 'game',
     tags: ['試作', 'ボードゲーム'],
     icon: '/catan-energy/icons/icon-192.png',
@@ -118,9 +118,9 @@ window.TOFO_APPS = [
   },
   {
     id: 'deck-builder',
-    name: 'deck-builder',
+    name: 'ドミニオン',
     title: '試作 デッキ構築のカードゲーム',
-    desc: 'ドミニオン風のデッキ構築を 1 台で交代して遊ぶ試作。2〜4 人、はじめてのゲームの 10 種。',
+    desc: 'ドミニオンのデッキ構築を 1 台で交代して遊ぶ試作。2〜4 人、はじめてのゲームの 10 種。',
     category: 'game',
     tags: ['試作', 'ボードゲーム'],
     icon: '/deck-builder/icons/icon-192.png',
