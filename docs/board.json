@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T15:55:35.415Z",
+  "updatedAt": "2026-10-03T16:00:05.332Z",
   "projects": [
     {
       "id": "note",
@@ -7920,17 +7920,16 @@
       "project": "catan-starfarers",
       "title": "デザイン案を反映 1: 配色・フォント・盤面と駒（ゲーム画面）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-03",
-      "doneAt": null,
-      "no": 8
+      "doneAt": "2026-10-03"
     },
     {
       "id": "t688",
       "project": "catan-starfarers",
       "title": "デザイン案を反映 2: タイトル・席の設定画面",
       "owner": "engineer",
-      "status": "todo",
+      "status": "doing",
       "created": "2026-10-03",
       "doneAt": null,
       "no": 9
@@ -7944,6 +7943,16 @@
       "created": "2026-10-03",
       "doneAt": null,
       "no": 10
+    },
+    {
+      "id": "t690",
+      "project": "catan-starfarers",
+      "title": "デザイン案を反映 4: 植民船・交易船を見分ける形にする（engine に船の種類を持たせる）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-03",
+      "doneAt": null,
+      "no": 8
     }
   ],
   "ideas": []
