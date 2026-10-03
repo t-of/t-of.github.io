@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T16:00:05.332Z",
+  "updatedAt": "2026-10-03T16:03:55.341Z",
   "projects": [
     {
       "id": "note",
@@ -7929,17 +7929,16 @@
       "project": "catan-starfarers",
       "title": "デザイン案を反映 2: タイトル・席の設定画面",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-03",
-      "doneAt": null,
-      "no": 9
+      "doneAt": "2026-10-03"
     },
     {
       "id": "t689",
       "project": "catan-starfarers",
       "title": "デザイン案を反映 3: 母船を振る・遭遇の画面",
       "owner": "engineer",
-      "status": "todo",
+      "status": "doing",
       "created": "2026-10-03",
       "doneAt": null,
       "no": 10
