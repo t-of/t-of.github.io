@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T09:55:29.262Z",
+  "updatedAt": "2026-10-03T10:59:37.542Z",
   "projects": [
     {
       "id": "note",
@@ -338,7 +338,7 @@
     {
       "id": "catan-starfarers",
       "name": "catan-starfarers",
-      "stage": "planning",
+      "stage": "qa",
       "created": "2026-10-03",
       "note": "試作（カタン 宇宙開拓者版風）"
     }
@@ -7829,10 +7829,36 @@
       "project": "catan-starfarers",
       "title": "宇宙開拓者版の公式ルールを調べ、仕様と作業の分け方を書く",
       "owner": "planner",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-03",
-      "doneAt": null,
-      "no": 9
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t678",
+      "project": "catan-starfarers",
+      "title": "宇宙開拓者 作業1a: engine とテスト（盤・準備・産出・建設・飛行・植民地・交易所・海賊と氷・15点）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t679",
+      "project": "catan-starfarers",
+      "title": "宇宙開拓者 作業1b: 画面（盤の絵・操作・席の設定・結果）で人1・CPU2〜3が最後まで遊べる",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t680",
+      "project": "catan-starfarers",
+      "title": "宇宙開拓者 作業2: 遭遇の山（自前20枚）と名声メダル・摩耗・宇宙ジャンプ・交易船マーカー",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-03",
+      "doneAt": "2026-10-03"
     }
   ],
   "ideas": []
