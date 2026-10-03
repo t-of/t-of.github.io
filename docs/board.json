@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T16:43:02.793Z",
+  "updatedAt": "2026-10-03T16:51:35.846Z",
   "projects": [
     {
       "id": "note",
@@ -7975,17 +7975,16 @@
       "project": "catan-starfarers",
       "title": "デザイン案を反映 5: 盤を惑星の絵にし、枠いっぱいに大きく描く",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-03",
-      "doneAt": null,
-      "no": 8
+      "doneAt": "2026-10-03"
     },
     {
       "id": "t694",
       "project": "catan-starfarers",
       "title": "デザイン案を反映 6: ゲーム画面のつくり（得点チップ・手番の段階・アイコンボタン・PC幅の配置）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "doing",
       "created": "2026-10-03",
       "doneAt": null,
       "no": 10
