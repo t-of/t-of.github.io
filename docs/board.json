@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T12:55:57.555Z",
+  "updatedAt": "2026-10-03T15:48:16.958Z",
   "projects": [
     {
       "id": "note",
@@ -338,7 +338,7 @@
     {
       "id": "catan-starfarers",
       "name": "catan-starfarers",
-      "stage": "qa",
+      "stage": "design",
       "created": "2026-10-03",
       "note": "試作（カタン 宇宙開拓者版風）"
     }
@@ -7903,6 +7903,17 @@
       "status": "done",
       "created": "2026-10-03",
       "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t686",
+      "project": "catan-starfarers",
+      "title": "宇宙開拓のデザイン案（Claude Design）を見て、直すところを決める",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-03",
+      "doneAt": null,
+      "comment": "https://claude.ai/artifact/XfiboXdLb3ga4PdzzyF3MZ",
+      "no": 8
     }
   ],
   "ideas": []
