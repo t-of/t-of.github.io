@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T16:04:51.942Z",
+  "updatedAt": "2026-10-04T16:19:36.932Z",
   "projects": [
     {
       "id": "note",
@@ -8737,10 +8737,9 @@
       "project": "deck-builder",
       "title": "ドミニオン スマホの対局画面を1画面に収める",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 13
+      "doneAt": "2026-10-04"
     }
   ],
   "ideas": []
