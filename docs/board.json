@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T10:30:31.794Z",
+  "updatedAt": "2026-10-04T12:26:37.216Z",
   "projects": [
     {
       "id": "note",
@@ -8334,12 +8334,11 @@
     {
       "id": "t728",
       "project": "catan",
-      "title": "通信対戦 段階10: 隠し情報を分けた（コミット済み・未push）。新しい database.rules.json を Firebase に貼って公開したら push する",
+      "title": "通信対戦 段階10: 隠し情報を分けた（rules 公開・push 済み）",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 7
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t729",
