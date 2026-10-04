@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T05:39:03.863Z",
+  "updatedAt": "2026-10-04T05:50:22.588Z",
   "projects": [
     {
       "id": "note",
@@ -8215,6 +8215,34 @@
       "status": "done",
       "created": "2026-10-04",
       "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t717",
+      "project": "kyopro-steps",
+      "title": "背景を白にし、例題を AtCoder 風の見出しで出す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t718",
+      "project": "kyopro-steps",
+      "title": "例題を AtCoder 風に書き直す（全章 約 90 問）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t719",
+      "project": "catan",
+      "title": "通信対戦 段階5: 対局の同期（act の通信版・ホストでの確かめ・自分の席の手札・捨て札の同時操作・盗む相手・ゲストの演出）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 13
     }
   ],
   "ideas": []
