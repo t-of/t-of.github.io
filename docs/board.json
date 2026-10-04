@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T05:50:22.588Z",
+  "updatedAt": "2026-10-04T06:18:49.372Z",
   "projects": [
     {
       "id": "note",
@@ -8239,10 +8239,9 @@
       "project": "catan",
       "title": "通信対戦 段階5: 対局の同期（act の通信版・ホストでの確かめ・自分の席の手札・捨て札の同時操作・盗む相手・ゲストの演出）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 13
+      "doneAt": "2026-10-04"
     }
   ],
   "ideas": []
