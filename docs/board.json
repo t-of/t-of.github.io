@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T15:57:29.750Z",
+  "updatedAt": "2026-10-04T15:59:38.035Z",
   "projects": [
     {
       "id": "note",
@@ -8709,6 +8709,15 @@
       "id": "t769",
       "project": "deck-builder",
       "title": "属州・金貨のカットインを消す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t770",
+      "project": "deck-builder",
+      "title": "サプライの札を横にコスト順で並べる",
       "owner": "engineer",
       "status": "done",
       "created": "2026-10-04",
