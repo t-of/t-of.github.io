@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T09:51:41.007Z",
+  "updatedAt": "2026-10-04T10:30:31.794Z",
   "projects": [
     {
       "id": "note",
@@ -8327,17 +8327,16 @@
       "project": "catan",
       "title": "通信対戦 段階9-4: 交易と略奪を通信で開ける（camelVote・barbarianSteal の他人の画面に出る不具合も）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 2
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t728",
       "project": "catan",
-      "title": "通信対戦 段階10（任意）: 隠し情報を分ける（pub/priv/hostState）",
-      "owner": "engineer",
-      "status": "todo",
+      "title": "通信対戦 段階10: 隠し情報を分けた（コミット済み・未push）。新しい database.rules.json を Firebase に貼って公開したら push する",
+      "owner": "owner",
+      "status": "waiting",
       "created": "2026-10-04",
       "doneAt": null,
       "no": 7
@@ -8365,20 +8364,18 @@
       "project": "catan",
       "title": "通信対戦 段階9-5: 探検家と海賊を通信で開ける",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 9
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t732",
       "project": "catan",
       "title": "通信対戦 段階9-6: サッカーを通信で開ける（renderSoccer の他人の画面に出る不具合も）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 11
+      "doneAt": "2026-10-04"
     }
   ],
   "ideas": []
