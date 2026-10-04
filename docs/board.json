@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T14:23:02.909Z",
+  "updatedAt": "2026-10-04T14:27:02.323Z",
   "projects": [
     {
       "id": "note",
@@ -8673,6 +8673,15 @@
       "id": "t765",
       "project": "catan",
       "title": "BGM・波・効果音7つを音源ファイルに置き換える（VSQ plus+）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t766",
+      "project": "deck-builder",
+      "title": "設定で効果音・BGM の音量を調整できるようにする",
       "owner": "engineer",
       "status": "done",
       "created": "2026-10-04",
