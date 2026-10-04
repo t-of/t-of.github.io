@@ -136,9 +136,9 @@ class Room {
     return unsub;
   }
 
-  // cb(json文字列, seq)。seq が進んだときだけゲーム側で置きかえる
-  onState(cb) {
-    const unsub = this.fb.dbMod.onValue(this._ref('state'), (snap) => {
+  // 全員: 参加者なら誰でも読める状態（隠し情報を抜いたもの）。cb(json文字列, seq)
+  onPub(cb) {
+    const unsub = this.fb.dbMod.onValue(this._ref('state/pub'), (snap) => {
       const v = snap.val();
       if (v && typeof v.json === 'string') cb(v.json, v.seq || 0);
     });
@@ -146,20 +146,51 @@ class Room {
     return unsub;
   }
 
+  // 自分の席ぶん: 自分だけが読める状態（自分の手札はそのまま、他人は枚数だけ）。cb(json文字列, seq)
+  onPriv(cb) {
+    const unsub = this.fb.dbMod.onValue(this._ref(`state/priv/${this.uid}`), (snap) => {
+      const v = snap.val();
+      if (v && typeof v.json === 'string') cb(v.json, v.seq || 0);
+    });
+    this._unsubs.push(unsub);
+    return unsub;
+  }
+
+  // ホスト: 今のホストの uid だけが読める全部入り（引き継ぎ用）。cb(json文字列, seq)
+  onHostState(cb) {
+    const unsub = this.fb.dbMod.onValue(this._ref('state/hostState'), (snap) => {
+      const v = snap.val();
+      if (v && typeof v.json === 'string') cb(v.json, v.seq || 0);
+    });
+    this._unsubs.push(unsub);
+    return unsub;
+  }
+
+  // 引き継いだ直後、1回だけ全部入りを読んで続きから動けるようにする（権限はrulesが確かめる）
+  async fetchHostState() {
+    const snap = await this.fb.dbMod.get(this._ref('state/hostState'));
+    const v = snap.val();
+    return v && typeof v.json === 'string' ? v.json : null;
+  }
+
   // ホスト: 待合の設定・はじめる・もう一度など
   async setMeta(patch) {
     await this.fb.dbMod.update(this._ref('meta'), patch);
   }
 
-  // ホスト: 状態をまるごと書く（seq を +1）
-  async publish(stateString) {
+  // ホスト: 状態を書く（pub・priv/各uid・hostStateをまとめて1回で。seqは3つとも揃って+1）。
+  // priv は { uid: json文字列 } で、席に座っている人のぶんだけ渡す
+  async publish({ pub, priv, host }) {
     const { dbMod } = this.fb;
-    const result = await dbMod.runTransaction(this._ref('state'), (cur) => ({
-      seq: (cur && cur.seq ? cur.seq : 0) + 1,
-      json: stateString,
-      at: Date.now(),
-    }));
-    return result.committed;
+    this._seq = (this._seq || 0) + 1;
+    const at = Date.now();
+    const updates = {};
+    updates['state/pub'] = { seq: this._seq, json: pub, at };
+    Object.entries(priv || {}).forEach(([uid, json]) => {
+      updates[`state/priv/${uid}`] = { seq: this._seq, json, at };
+    });
+    updates['state/hostState'] = { seq: this._seq, json: host, at };
+    await dbMod.update(this._ref(), updates);
   }
 
   // 全員: 操作をお願いする（ホストは自分の操作ならこれを通さず engine を直接呼んでよい）

@@ -34,12 +34,32 @@
         },
 
         "state": {
-          ".read": "auth != null && root.child('rooms/' + $code + '/members/' + auth.uid).exists()",
-          ".write": "auth != null && root.child('rooms/' + $code + '/meta/hostUid').val() == auth.uid",
-          "seq": { ".validate": "newData.isNumber()" },
-          "json": { ".validate": "newData.isString() && newData.val().length <= 200000" },
-          "at": { ".validate": "newData.isNumber()" },
-          "$other": { ".validate": false }
+          "pub": {
+            ".read": "auth != null && root.child('rooms/' + $code + '/members/' + auth.uid).exists()",
+            ".write": "auth != null && root.child('rooms/' + $code + '/meta/hostUid').val() == auth.uid",
+            "seq": { ".validate": "newData.isNumber()" },
+            "json": { ".validate": "newData.isString() && newData.val().length <= 200000" },
+            "at": { ".validate": "newData.isNumber()" },
+            "$other": { ".validate": false }
+          },
+          "priv": {
+            "$uid": {
+              ".read": "auth != null && $uid == auth.uid",
+              ".write": "auth != null && root.child('rooms/' + $code + '/meta/hostUid').val() == auth.uid",
+              "seq": { ".validate": "newData.isNumber()" },
+              "json": { ".validate": "newData.isString() && newData.val().length <= 200000" },
+              "at": { ".validate": "newData.isNumber()" },
+              "$other": { ".validate": false }
+            }
+          },
+          "hostState": {
+            ".read": "auth != null && root.child('rooms/' + $code + '/meta/hostUid').val() == auth.uid",
+            ".write": "auth != null && root.child('rooms/' + $code + '/meta/hostUid').val() == auth.uid",
+            "seq": { ".validate": "newData.isNumber()" },
+            "json": { ".validate": "newData.isString() && newData.val().length <= 200000" },
+            "at": { ".validate": "newData.isNumber()" },
+            "$other": { ".validate": false }
+          }
         },
 
         "actions": {
