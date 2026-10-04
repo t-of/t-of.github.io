@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T09:38:29.068Z",
+  "updatedAt": "2026-10-04T09:51:41.007Z",
   "projects": [
     {
       "id": "note",
@@ -8325,9 +8325,9 @@
     {
       "id": "t727",
       "project": "catan",
-      "title": "通信対戦 段階9-4〜: 拡張を1つずつ通信で開ける（交易と略奪・探検家と海賊・サッカー）。9-2 航海者・9-3 都市と騎士は済み。交易と略奪の camelVote・barbarianSteal、サッカーの renderSoccer に「他人の画面に出る」不具合が残る",
+      "title": "通信対戦 段階9-4: 交易と略奪を通信で開ける（camelVote・barbarianSteal の他人の画面に出る不具合も）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "doing",
       "created": "2026-10-04",
       "doneAt": null,
       "no": 2
@@ -8359,6 +8359,26 @@
       "status": "done",
       "created": "2026-10-04",
       "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t731",
+      "project": "catan",
+      "title": "通信対戦 段階9-5: 探検家と海賊を通信で開ける",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 9
+    },
+    {
+      "id": "t732",
+      "project": "catan",
+      "title": "通信対戦 段階9-6: サッカーを通信で開ける（renderSoccer の他人の画面に出る不具合も）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 11
     }
   ],
   "ideas": []
