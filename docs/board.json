@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T14:28:45.244Z",
+  "updatedAt": "2026-10-04T15:53:46.352Z",
   "projects": [
     {
       "id": "note",
@@ -8691,6 +8691,15 @@
       "id": "t767",
       "project": "catan",
       "title": "盗賊（7 の目）の効果音を消す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t768",
+      "project": "deck-builder",
+      "title": "ドミニオン 購入フェイズからアクションフェイズに戻るボタン",
       "owner": "engineer",
       "status": "done",
       "created": "2026-10-04",
