@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T12:26:37.216Z",
+  "updatedAt": "2026-10-04T12:55:09.693Z",
   "projects": [
     {
       "id": "note",
@@ -261,7 +261,7 @@
     {
       "id": "carcassonne",
       "name": "carcassonne",
-      "stage": "qa",
+      "stage": "build",
       "created": "2026-09-30",
       "note": "試作: タイルをつなぐボードゲーム。デモに掲載（アイコン済み）"
     },
@@ -8375,6 +8375,169 @@
       "status": "done",
       "created": "2026-10-04",
       "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t733",
+      "project": "carcassonne",
+      "title": "通信対戦 段階1: 操作を act() に集め、配る状態（山札は引いた所まで）と組み直しを作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t734",
+      "project": "carcassonne",
+      "title": "通信対戦 段階2: タイトル→名前→部屋→待合（QR）→対局の同期・CPU 席",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t735",
+      "project": "carcassonne",
+      "title": "通信対戦 段階3: 切断・つなぎ直し・CPU に代わる・ホスト引き継ぎ・もう一度",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 9
+    },
+    {
+      "id": "t736",
+      "project": "deck-builder",
+      "title": "操作: やることを1つの大きいボタンにまとめる＋財宝の自動出し",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t737",
+      "project": "deck-builder",
+      "title": "操作: 同じ札をまとめて×N で出す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t738",
+      "project": "deck-builder",
+      "title": "表示: 終わりの近さのゲージ（属州の残り・空の山）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t739",
+      "project": "deck-builder",
+      "title": "演出: 数字がメダルへ飛ぶ加算演出・8金で光る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t740",
+      "project": "deck-builder",
+      "title": "表示: 山札・捨て札の中身とデッキ構成の一覧",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 16
+    },
+    {
+      "id": "t741",
+      "project": "deck-builder",
+      "title": "表示: 相手の手番のまとめ（札の絵つき）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 17
+    },
+    {
+      "id": "t742",
+      "project": "deck-builder",
+      "title": "演出: 属州・高コストを買ったときのカットイン",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 18
+    },
+    {
+      "id": "t743",
+      "project": "deck-builder",
+      "title": "演出: おまかせの組をパック開封で見せる",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 19
+    },
+    {
+      "id": "t744",
+      "project": "deck-builder",
+      "title": "演出: 図鑑と記録",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 20
+    },
+    {
+      "id": "t745",
+      "project": "deck-builder",
+      "title": "演出: 結果画面の点数の推移と活躍した札",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 21
+    },
+    {
+      "id": "t746",
+      "project": "deck-builder",
+      "title": "演出: 効果音を足す（WebAudio）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 22
+    },
+    {
+      "id": "t747",
+      "project": "carcassonne",
+      "title": "最後の 1 手で完成した点が、最後の採点の内訳(events)に入らないことがある（ai/test.mjs が 12 回に 1 回ほど落ちる。前から）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 2
+    },
+    {
+      "id": "t748",
+      "project": "catan-starfarers",
+      "title": "盤を大きくする（下・左右の隙間を詰める）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t749",
+      "project": "deck-builder",
+      "title": "ドミニオン まずやる4つ（ボタン1つ・札まとめ・終了ゲージ・加算演出）をブラウザで確認",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 7
     }
   ],
   "ideas": []
