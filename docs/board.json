@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T13:46:05.575Z",
+  "updatedAt": "2026-10-04T13:54:17.670Z",
   "projects": [
     {
       "id": "note",
@@ -8599,20 +8599,18 @@
       "project": "catan",
       "title": "演出3: 大きな出来事のカットイン（最長路・騎士団・あと1点・蛮族）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 11
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t758",
       "project": "catan",
       "title": "演出4: 出来事の流れ（アイコン付きのログ）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 13
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t759",
@@ -8622,6 +8620,36 @@
       "status": "done",
       "created": "2026-10-04",
       "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t760",
+      "project": "catan",
+      "title": "test.mjs の「交易と略奪・蛮族の襲撃: CPUだけで4人」が30回に2回ほど落ちる（決着せず止まる。t729 の後も残る）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 7
+    },
+    {
+      "id": "t761",
+      "project": "catan",
+      "title": "演出4つ（音・サイコロの溜め・カットイン・出来事の流れ）を本番で触って確かめる",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 9
+    },
+    {
+      "id": "t762",
+      "project": "catan",
+      "title": "出来事の流れ: engine が建設・銀行交易・発展カード購入をログに残していないので足す",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 11
     }
   ],
   "ideas": []
