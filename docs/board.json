@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-03T17:05:21.579Z",
+  "updatedAt": "2026-10-04T03:53:35.275Z",
   "projects": [
     {
       "id": "note",
@@ -275,7 +275,7 @@
     {
       "id": "catan",
       "name": "catan",
-      "stage": "qa",
+      "stage": "design",
       "created": "2026-10-01",
       "note": "試作（カタン風・基本ルール・1台交代）"
     },
@@ -7987,6 +7987,74 @@
       "status": "done",
       "created": "2026-10-03",
       "doneAt": "2026-10-03"
+    },
+    {
+      "id": "t695",
+      "project": "sns",
+      "title": "楽天アフィリエイトの SNS の決まりを確かめる（Threads・X に載せてよいか、商品画像、PR 表示、投稿の数）",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t696",
+      "project": "sns",
+      "title": "楽天アフィリエイト用の SNS アカウントを新しく作る（@tof_label とは別）。ジャンルを決める",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 10,
+      "thread": [
+        {
+          "by": "director",
+          "text": "Threads・X の両方。ジャンルはファッション（おしゃれ系）とガジェット（2026-10-04 オーナー）。アカウントを作るのと名前はオーナー",
+          "at": "2026-10-04T02:29:37.740Z"
+        }
+      ]
+    },
+    {
+      "id": "t697",
+      "project": "sns",
+      "title": "楽天アフィ用アカウントの運用の決まり・名前の候補・最初の下書き 10 本（ファッション・ガジェット）",
+      "owner": "sns",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t698",
+      "project": "sns",
+      "title": "楽天アフィ用アカウントの名前を選ぶ（候補は docs/private/sns/rakuten/names.md。ほかの名前ならコメントに）",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "choiceLabels": {
+        "1": "見つけもの帖 @mitsuke_cho",
+        "2": "机と服のメモ @desk_to_closet",
+        "3": "いいもの控え @ii_mono_hikae",
+        "4": "持ち物の棚卸し @motimono_tanaoroshi",
+        "5": "KIJI & GEAR @kiji_and_gear"
+      },
+      "no": 8
+    },
+    {
+      "id": "t699",
+      "project": "catan",
+      "title": "カタン: アイコンと共有画像を作った（公開待ち）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
     }
   ],
   "ideas": []
