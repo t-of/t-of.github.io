@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T13:54:17.670Z",
+  "updatedAt": "2026-10-04T14:18:14.359Z",
   "projects": [
     {
       "id": "note",
@@ -8650,6 +8650,25 @@
       "created": "2026-10-04",
       "doneAt": null,
       "no": 11
+    },
+    {
+      "id": "t763",
+      "project": "catan",
+      "title": "BGM・効果音の候補を試聴して選ぶ（~/Downloads/catan-sounds/試聴.html）",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 13
+    },
+    {
+      "id": "t764",
+      "project": "deck-builder",
+      "title": "効果音と BGM を VSQ plus+ の素材に差し替える（公開済み）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
     }
   ],
   "ideas": []
