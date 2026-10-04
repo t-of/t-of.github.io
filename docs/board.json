@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T04:40:37.910Z",
+  "updatedAt": "2026-10-04T05:06:18.178Z",
   "projects": [
     {
       "id": "note",
@@ -345,7 +345,7 @@
     {
       "id": "kyopro-steps",
       "name": "kyopro-steps",
-      "stage": "build",
+      "stage": "qa",
       "created": "2026-10-04",
       "note": "試作（競プロの技法を図とステップ実行で学ぶ）"
     }
@@ -8086,10 +8086,9 @@
       "project": "catan",
       "title": "通信対戦用の Firebase プロジェクト tof-online を作り、設定値を渡す（段階 0）",
       "owner": "owner",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 14
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t703",
@@ -8141,20 +8140,72 @@
       "project": "kyopro-steps",
       "title": "試作: 6章 考察テクニック の中身",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 11
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t709",
       "project": "kyopro-steps",
       "title": "試作: 7章 ヒューリスティック の中身",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 15
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t710",
+      "project": "kyopro-steps",
+      "title": "試作: 8章 データ構造とクエリ処理の中身",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t711",
+      "project": "kyopro-steps",
+      "title": "試作: ステップ図にグラフ（頂点と辺）の描画を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t712",
+      "project": "kyopro-steps",
+      "title": "試作: 10章 総合問題の中身",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t713",
+      "project": "kyopro-steps",
+      "title": "試作: 9章 グラフ前半（9.1〜9.5・用語）の中身",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t714",
+      "project": "catan",
+      "title": "通信対戦 段階3: online-kit（room.js・database.rules.json・README）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t715",
+      "project": "kyopro-steps",
+      "title": "試作: 9章 グラフ後半（9.6〜9.10・BF・WF）の中身",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
     }
   ],
   "ideas": []
