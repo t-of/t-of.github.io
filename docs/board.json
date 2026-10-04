@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T12:55:09.693Z",
+  "updatedAt": "2026-10-04T13:15:51.110Z",
   "projects": [
     {
       "id": "note",
@@ -261,14 +261,14 @@
     {
       "id": "carcassonne",
       "name": "carcassonne",
-      "stage": "build",
+      "stage": "qa",
       "created": "2026-09-30",
       "note": "試作: タイルをつなぐボードゲーム。デモに掲載（アイコン済み）"
     },
     {
       "id": "deck-builder",
       "name": "ドミニオン",
-      "stage": "qa",
+      "stage": "build",
       "created": "2026-09-30",
       "note": "試作: デッキ構築のカードゲーム。デモに掲載（アイコン済み）"
     },
@@ -8399,10 +8399,9 @@
       "project": "carcassonne",
       "title": "通信対戦 段階3: 切断・つなぎ直し・CPU に代わる・ホスト引き継ぎ・もう一度",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 9
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t736",
@@ -8445,27 +8444,25 @@
       "project": "deck-builder",
       "title": "表示: 山札・捨て札の中身とデッキ構成の一覧",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 16
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t741",
       "project": "deck-builder",
       "title": "表示: 相手の手番のまとめ（札の絵つき）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 17
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t742",
       "project": "deck-builder",
       "title": "演出: 属州・高コストを買ったときのカットイン",
       "owner": "engineer",
-      "status": "todo",
+      "status": "doing",
       "created": "2026-10-04",
       "doneAt": null,
       "no": 18
@@ -8534,7 +8531,54 @@
       "project": "deck-builder",
       "title": "ドミニオン まずやる4つ（ボタン1つ・札まとめ・終了ゲージ・加算演出）をブラウザで確認",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04",
+      "comment": "札まとめ（×N）は見分けにくいので戻す"
+    },
+    {
+      "id": "t750",
+      "project": "deck-builder",
+      "title": "同じ札の×Nまとめをやめて1枚ずつの表示に戻す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t751",
+      "project": "catan-starfarers",
+      "title": "宇宙開拓 盤の見た目を立体的・リアルにする（傾けた盤・惑星の陰影と大気・奥行きのある星空・船と基地の絵）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t752",
+      "project": "catan-starfarers",
+      "title": "宇宙開拓 盤に動きを付ける（船の移動・建設・ディスクをめくる演出）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 11
+    },
+    {
+      "id": "t753",
+      "project": "kyopro-steps",
+      "title": "C++ の文法リストの章を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t754",
+      "project": "carcassonne",
+      "title": "通信対戦をスマホ 2 台で触って確かめる（最後まで打って、終わりの画面のボタンも）",
+      "owner": "owner",
+      "status": "todo",
       "created": "2026-10-04",
       "doneAt": null,
       "no": 7
