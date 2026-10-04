@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T07:43:44.633Z",
+  "updatedAt": "2026-10-04T08:01:53.530Z",
   "projects": [
     {
       "id": "note",
@@ -8309,10 +8309,9 @@
       "project": "catan",
       "title": "通信対戦 段階9-1: 5〜6人（特別建設フェイズ）と待合の拡張選び",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 2
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t726",
@@ -8322,6 +8321,26 @@
       "status": "done",
       "created": "2026-10-04",
       "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t727",
+      "project": "catan",
+      "title": "通信対戦 段階9-2〜: 拡張を1つずつ通信で開ける（航海者版・都市と騎士・交易と略奪・探検家と海賊・サッカー）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 2
+    },
+    {
+      "id": "t728",
+      "project": "catan",
+      "title": "通信対戦 段階10（任意）: 隠し情報を分ける（pub/priv/hostState）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 7
     }
   ],
   "ideas": []
