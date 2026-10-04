@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'wish-board',
+    name: 'wish-board',
+    title: '試作 やらなきゃ×やりたいで並べるTODO',
+    desc: 'ホワイトボードに付箋のタスクを置いて、やらなきゃ度とやりたい度の 2 軸で整理する TODO リストの試作。期限やメモも付けられる。',
+    category: 'tool',
+    tags: ['試作', 'ツール'],
+    icon: '/wish-board/icons/icon-192.png',
+    color: '#2f8f6f',
+  },
+  {
     id: 'kyopro-steps',
     name: 'kyopro-steps',
     title: '試作 競プロの技法を図で学ぶ',

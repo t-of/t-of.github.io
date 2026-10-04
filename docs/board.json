@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T07:36:32.095Z",
+  "updatedAt": "2026-10-04T07:43:44.633Z",
   "projects": [
     {
       "id": "note",
@@ -348,6 +348,13 @@
       "stage": "qa",
       "created": "2026-10-04",
       "note": "試作: 競プロの技法を図で学ぶ。デモに掲載（アイコン済み）"
+    },
+    {
+      "id": "wish-board",
+      "name": "wish-board",
+      "stage": "qa",
+      "created": "2026-10-04",
+      "note": "試作（やらなきゃ×やりたいの2軸ホワイトボードTODO）"
     }
   ],
   "tasks": [
@@ -8306,6 +8313,15 @@
       "created": "2026-10-04",
       "doneAt": null,
       "no": 2
+    },
+    {
+      "id": "t726",
+      "project": "wish-board",
+      "title": "試作の最小版を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
     }
   ],
   "ideas": []
