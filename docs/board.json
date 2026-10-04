@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T05:06:18.178Z",
+  "updatedAt": "2026-10-04T05:39:03.863Z",
   "projects": [
     {
       "id": "note",
@@ -8202,6 +8202,15 @@
       "id": "t715",
       "project": "kyopro-steps",
       "title": "試作: 9章 グラフ後半（9.6〜9.10・BF・WF）の中身",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t716",
+      "project": "catan",
+      "title": "通信対戦 段階4: タイトル→名前→部屋を作る/入る→待合",
       "owner": "engineer",
       "status": "done",
       "created": "2026-10-04",
