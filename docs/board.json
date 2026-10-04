@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T06:18:49.372Z",
+  "updatedAt": "2026-10-04T07:36:32.095Z",
   "projects": [
     {
       "id": "note",
@@ -256,98 +256,98 @@
       "name": "geo-gacha",
       "stage": "qa",
       "created": "2026-09-30",
-      "note": "試作"
+      "note": "試作: 幾何学アートのガチャ。デモに掲載（アイコン済み）"
     },
     {
       "id": "carcassonne",
       "name": "carcassonne",
       "stage": "qa",
       "created": "2026-09-30",
-      "note": "試作（基本セット・1台交代・草原あり・超シンプル表示）"
+      "note": "試作: タイルをつなぐボードゲーム。デモに掲載（アイコン済み）"
     },
     {
       "id": "deck-builder",
-      "name": "deck-builder",
+      "name": "ドミニオン",
       "stage": "qa",
       "created": "2026-09-30",
-      "note": "試作（ドミニオン風・はじめてのゲーム10種・1台交代・CPUなし）"
+      "note": "試作: デッキ構築のカードゲーム。デモに掲載（アイコン済み）"
     },
     {
       "id": "catan",
       "name": "catan",
-      "stage": "design",
+      "stage": "build",
       "created": "2026-10-01",
-      "note": "試作（カタン風・基本ルール・1台交代）"
+      "note": "試作: 開拓と交易のボードゲーム。デモに掲載（アイコン済み）。通信対戦を作っている"
     },
     {
       "id": "gem-trade",
       "name": "gem-trade",
       "stage": "qa",
       "created": "2026-10-01",
-      "note": "試作（スプレンダー風、2〜4人ホットシート）"
+      "note": "試作: 宝石商のカードゲーム。デモに掲載（アイコン済み）"
     },
     {
       "id": "mushikui",
-      "name": "虫食い算（仮）",
+      "name": "mushikui",
       "stage": "qa",
       "created": "2026-10-01",
-      "note": "見えている数字1つ・唯一解の虫食い算を全探索して問題集にする"
+      "note": "試作: 虫食い算。デモに掲載（アイコン済み）"
     },
     {
       "id": "spi-drill",
       "name": "spi-drill",
       "stage": "qa",
       "created": "2026-10-01",
-      "note": "試作"
+      "note": "試作: SPI 対策ドリル。デモに掲載（アイコン済み）"
     },
     {
       "id": "pixel-sort",
       "name": "pixel-sort",
       "stage": "qa",
       "created": "2026-10-01",
-      "note": "試作（画像のピクセルを RGB で並び替える）"
+      "note": "試作: ピクセル並び替え。デモに掲載（アイコン済み）"
     },
     {
       "id": "word-trie",
       "name": "word-trie",
       "stage": "qa",
       "created": "2026-10-01",
-      "note": "試作"
+      "note": "試作: 英単語の 3D トライ木。デモに掲載（アイコン済み）"
     },
     {
       "id": "spirit-forest",
       "name": "spirit-forest",
       "stage": "qa",
       "created": "2026-10-02",
-      "note": "試作"
+      "note": "試作: 精霊の森のタイル取り。デモに掲載（アイコン済み）"
     },
     {
       "id": "coloro",
       "name": "coloro",
       "stage": "qa",
       "created": "2026-10-02",
-      "note": "試作"
+      "note": "試作: 色の山を取り合うボードゲーム。デモに掲載（アイコン済み）"
     },
     {
       "id": "catan-energy",
       "name": "catan-energy",
       "stage": "qa",
       "created": "2026-10-03",
-      "note": "試作（カタン エネルギー版風）"
+      "note": "試作: 発電所と汚染の開拓ボードゲーム。デモに掲載（アイコン済み）"
     },
     {
       "id": "catan-starfarers",
       "name": "catan-starfarers",
       "stage": "qa",
       "created": "2026-10-03",
-      "note": "試作（カタン 宇宙開拓者版風）"
+      "note": "試作: 宇宙を開拓するボードゲーム。デモに掲載（アイコン済み）"
     },
     {
       "id": "kyopro-steps",
       "name": "kyopro-steps",
       "stage": "qa",
       "created": "2026-10-04",
-      "note": "試作（競プロの技法を図とステップ実行で学ぶ）"
+      "note": "試作: 競プロの技法を図で学ぶ。デモに掲載（アイコン済み）"
     }
   ],
   "tasks": [
@@ -7509,10 +7509,9 @@
       "project": "coloro",
       "title": "COLORO の試作を触って直す点を決める",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-10-02",
-      "doneAt": null,
-      "no": 7
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t644",
@@ -7528,10 +7527,21 @@
       "project": "gem-trade",
       "title": "CPU をさらに強くする方針を決める（強さの頭打ち）",
       "owner": "owner",
-      "status": "waiting",
+      "status": "skip",
       "created": "2026-10-02",
-      "doneAt": null,
-      "no": 2
+      "doneAt": "2026-10-04",
+      "thread": [
+        {
+          "by": "owner",
+          "text": "今はしなくていい",
+          "at": "2026-10-04T07:26:27.840Z"
+        },
+        {
+          "by": "director",
+          "text": "了解です。いまは見送りにします。",
+          "at": "2026-10-04T07:26:40.569Z"
+        }
+      ]
     },
     {
       "id": "t646",
@@ -7963,10 +7973,9 @@
       "project": "catan-starfarers",
       "title": "デザインを反映した宇宙開拓を触って確かめる",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-10-03",
-      "doneAt": null,
-      "no": 9
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t692",
@@ -8242,6 +8251,61 @@
       "status": "done",
       "created": "2026-10-04",
       "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t720",
+      "project": "catan",
+      "title": "通信対戦 段階6: 交換の申し込み・返事・とりさげ",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t721",
+      "project": "catan",
+      "title": "通信対戦 段階7: 切断・つなぎ直し・CPU に代わってもらう・ホストの引き継ぎ・部屋に戻る・後片付け",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t722",
+      "project": "catan",
+      "title": "通信対戦 段階8: 待合に QR コード",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t723",
+      "project": "catan",
+      "title": "通信対戦: 終了後「もう一度（同じ顔ぶれ）」で待合へ戻す・待合を 360px でスクロールなしに",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t724",
+      "project": null,
+      "title": "品質段階の試作 12 本のアイコンを作る（仮アイコンの差し替え）→ デモに出す",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t725",
+      "project": "catan",
+      "title": "通信対戦 段階9-1: 5〜6人（特別建設フェイズ）と待合の拡張選び",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 2
     }
   ],
   "ideas": []
