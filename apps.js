@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'kyopro-steps',
+    name: 'kyopro-steps',
+    title: '試作 競プロの技法を図で学ぶ',
+    desc: '計算量・全探索・累積和などの競技プログラミングの技法を、C++ のコードを 1 行ずつ追うステップ図と例題・解答で学ぶ試作。',
+    category: 'tool',
+    tags: ['試作', '学び'],
+    icon: '/kyopro-steps/icons/icon-192.png',
+    color: '#1b1f27',
+  },
+  {
     id: 'catan-starfarers',
     name: 'catan-starfarers',
     title: '試作 宇宙を開拓するボードゲーム',
