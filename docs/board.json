@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T03:53:35.275Z",
+  "updatedAt": "2026-10-04T04:40:37.910Z",
   "projects": [
     {
       "id": "note",
@@ -341,6 +341,13 @@
       "stage": "qa",
       "created": "2026-10-03",
       "note": "試作（カタン 宇宙開拓者版風）"
+    },
+    {
+      "id": "kyopro-steps",
+      "name": "kyopro-steps",
+      "stage": "build",
+      "created": "2026-10-04",
+      "note": "試作（競プロの技法を図とステップ実行で学ぶ）"
     }
   ],
   "tasks": [
@@ -8055,6 +8062,99 @@
       "status": "done",
       "created": "2026-10-04",
       "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t700",
+      "project": "kyopro-steps",
+      "title": "試作: 枠組み＋1〜2章（競プロ学習サイト）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t701",
+      "project": "catan",
+      "title": "1人1台の通信対戦（Firebase の部屋）の仕様",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t702",
+      "project": "catan",
+      "title": "通信対戦用の Firebase プロジェクト tof-online を作り、設定値を渡す（段階 0）",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 14
+    },
+    {
+      "id": "t703",
+      "project": "kyopro-steps",
+      "title": "試作: 3章 二分探索 の中身",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t704",
+      "project": "kyopro-steps",
+      "title": "試作: 4章 動的計画法 の中身",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t705",
+      "project": "kyopro-steps",
+      "title": "試作: 5章 数学的問題 の中身",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t706",
+      "project": "catan",
+      "title": "通信対戦 段階1: 盤の Set を配列にし、JSON 往復で落ちないようにする（つづきからも直る）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t707",
+      "project": "catan",
+      "title": "通信対戦 段階2: engine を書き換える呼び出しを act() 1 か所に集める",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t708",
+      "project": "kyopro-steps",
+      "title": "試作: 6章 考察テクニック の中身",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 11
+    },
+    {
+      "id": "t709",
+      "project": "kyopro-steps",
+      "title": "試作: 7章 ヒューリスティック の中身",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 15
     }
   ],
   "ideas": []
