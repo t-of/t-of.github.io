@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T13:15:51.110Z",
+  "updatedAt": "2026-10-04T13:46:05.575Z",
   "projects": [
     {
       "id": "note",
@@ -5007,7 +5007,7 @@
       "choiceLabels": {
         "A": "今の暗い色＋OSがライトなら明るく",
         "B": "赤・生成りの明るい色で固定",
-        "C": "赤・黄の暗い色で固定",
+        "C": "��・黄の暗い色で固定",
         "D": "B と C を OS に合わせて切り替え"
       },
       "choiceImages": {
@@ -7823,7 +7823,7 @@
     {
       "id": "t674",
       "project": "catan-energy",
-      "title": "作り直しの方針（公式から外す点・古い保存・公開範囲）を決める",
+      "title": "作り直しの方針（公式から外す点・古い保存・公開範��）を決める",
       "owner": "owner",
       "status": "skip",
       "created": "2026-10-03",
@@ -8462,50 +8462,45 @@
       "project": "deck-builder",
       "title": "演出: 属州・高コストを買ったときのカットイン",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 18
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t743",
       "project": "deck-builder",
       "title": "演出: おまかせの組をパック開封で見せる",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 19
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t744",
       "project": "deck-builder",
       "title": "演出: 図鑑と記録",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 20
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t745",
       "project": "deck-builder",
       "title": "演出: 結果画面の点数の推移と活躍した札",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 21
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t746",
       "project": "deck-builder",
       "title": "演出: 効果音を足す（WebAudio）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 22
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t747",
@@ -8559,10 +8554,9 @@
       "project": "catan-starfarers",
       "title": "宇宙開拓 盤に動きを付ける（船の移動・建設・ディスクをめくる演出）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 11
+      "doneAt": "2026-10-04"
     },
     {
       "id": "t753",
@@ -8578,10 +8572,56 @@
       "project": "carcassonne",
       "title": "通信対戦をスマホ 2 台で触って確かめる（最後まで打って、終わりの画面のボタンも）",
       "owner": "owner",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t755",
+      "project": "catan",
+      "title": "演出1: 効果音をビープから生活の音（WebAudio 合成）に変える",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t756",
+      "project": "catan",
+      "title": "演出2: サイコロの溜め（2つめを遅らせる・6/8は派手に・7は赤）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t757",
+      "project": "catan",
+      "title": "演出3: 大きな出来事のカットイン（最長路・騎士団・あと1点・蛮族）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-04",
+      "doneAt": null,
+      "no": 11
+    },
+    {
+      "id": "t758",
+      "project": "catan",
+      "title": "演出4: 出来事の流れ（アイコン付きのログ）",
+      "owner": "engineer",
       "status": "todo",
       "created": "2026-10-04",
       "doneAt": null,
-      "no": 7
+      "no": 13
+    },
+    {
+      "id": "t759",
+      "project": "catan",
+      "title": "演出1b: 音のオン/オフ設定（RULES 必須・環境音も）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-04",
+      "doneAt": "2026-10-04"
     }
   ],
   "ideas": []
