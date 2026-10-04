@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T08:21:26.488Z",
+  "updatedAt": "2026-10-04T08:46:16.181Z",
   "projects": [
     {
       "id": "note",
@@ -8347,10 +8347,9 @@
       "project": "catan",
       "title": "test.mjs の「CPUだけで決着」系のテストが15回に1〜2回落ちる（乱数しだい。9-2 の前から）。種を固定するか上限を見直す",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 9
+      "doneAt": "2026-10-04"
     }
   ],
   "ideas": []
