@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'quixo',
+    name: 'quixo',
+    title: '試作 クイキシオ（ボードゲーム）',
+    desc: '5×5 の盤の外周からキューブを取り、端から押し込んで自分の印を 5 つ並べる 2 人用ボードゲームの試作。CPU 対戦と 2 人対戦。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/quixo/icons/icon-192.png',
+    color: '#241f1a',
+  },
+  {
     id: 'quoridor',
     name: 'quoridor',
     title: '試作 コリドール（ボードゲーム）',

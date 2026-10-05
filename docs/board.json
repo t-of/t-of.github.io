@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-05T03:41:26.001Z",
+  "updatedAt": "2026-10-05T04:36:35.478Z",
   "projects": [
     {
       "id": "note",
@@ -359,7 +359,7 @@
     {
       "id": "quoridor",
       "name": "quoridor",
-      "stage": "build",
+      "stage": "qa",
       "created": "2026-10-05",
       "note": "試作"
     },
@@ -367,6 +367,41 @@
       "id": "quarto",
       "name": "quarto",
       "stage": "qa",
+      "created": "2026-10-05",
+      "note": "試作"
+    },
+    {
+      "id": "quixo",
+      "name": "quixo",
+      "stage": "qa",
+      "created": "2026-10-05",
+      "note": "試作"
+    },
+    {
+      "id": "pylos",
+      "name": "pylos",
+      "stage": "build",
+      "created": "2026-10-05",
+      "note": "試作"
+    },
+    {
+      "id": "squadro",
+      "name": "squadro",
+      "stage": "build",
+      "created": "2026-10-05",
+      "note": "試作（スクアドロ・最強CPUまで）"
+    },
+    {
+      "id": "quantik",
+      "name": "quantik",
+      "stage": "build",
+      "created": "2026-10-05",
+      "note": "試作"
+    },
+    {
+      "id": "qawale",
+      "name": "qawale",
+      "stage": "build",
       "created": "2026-10-05",
       "note": "試作"
     }
@@ -8798,17 +8833,16 @@
       "project": "deck-builder",
       "title": "さいきょう CPU に庭園ラッシュ型を足す",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 13
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t778",
       "project": "deck-builder",
       "title": "さいきょう CPU に礼拝堂（圧縮）型を足す",
       "owner": "engineer",
-      "status": "todo",
+      "status": "doing",
       "created": "2026-10-05",
       "doneAt": null,
       "no": 15
@@ -8818,10 +8852,9 @@
       "project": "quoridor",
       "title": "コリドールの試作を作る",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 16
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t780",
@@ -8841,6 +8874,130 @@
       "created": "2026-10-05",
       "doneAt": null,
       "no": 17
+    },
+    {
+      "id": "t782",
+      "project": "quoridor",
+      "title": "コリドールの試作を触って確かめる",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 16
+    },
+    {
+      "id": "t783",
+      "project": "quoridor",
+      "title": "コリドール 壁をタップで置く（交点→向き→2回タップ）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t784",
+      "project": "quarto",
+      "title": "クアルト 最強のCPUにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t785",
+      "project": "quarto",
+      "title": "クアルト CPU同士の対戦",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t786",
+      "project": "quoridor",
+      "title": "コリドール 壁は隣り合う溝を2つタップで置く",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t787",
+      "project": "quoridor",
+      "title": "コリドール 最強のCPUにする",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 13
+    },
+    {
+      "id": "t788",
+      "project": "quixo",
+      "title": "クイキシオ 試作（最強CPUつき）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t789",
+      "project": "pylos",
+      "title": "ピロスの試作を作る（CPU 対戦・さいきょう CPU まで）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 19
+    },
+    {
+      "id": "t790",
+      "project": "squadro",
+      "title": "スクアドロの遊べる芯（2人対戦・簡単なCPU）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t791",
+      "project": "squadro",
+      "title": "スクアドロの最強CPU（探索）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 21
+    },
+    {
+      "id": "t792",
+      "project": "quantik",
+      "title": "Quantik の試作（最強 CPU つき）を作る",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 22
+    },
+    {
+      "id": "t793",
+      "project": "qawale",
+      "title": "カワレの試作（最強CPU つき）を作る",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 23
+    },
+    {
+      "id": "t794",
+      "project": "quixo",
+      "title": "クイキシオの試作を触って確かめる",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 18
     }
   ],
   "ideas": []
