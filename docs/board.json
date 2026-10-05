@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-05T09:46:17.080Z",
+  "updatedAt": "2026-10-05T14:06:43.446Z",
   "projects": [
     {
       "id": "note",
@@ -415,6 +415,13 @@
     {
       "id": "nocca-nocca",
       "name": "nocca-nocca",
+      "stage": "qa",
+      "created": "2026-10-05",
+      "note": "試作"
+    },
+    {
+      "id": "cattle",
+      "name": "cattle",
       "stage": "qa",
       "created": "2026-10-05",
       "note": "試作"
@@ -5032,7 +5039,7 @@
     {
       "id": "t402",
       "project": "shihei-relay",
-      "title": "見た目の色を決める案を作る（ダークモード追従 / アイコン・地図の色に合わせる）",
+      "title": "見た目の色を決める案を作る（ダークモード追従 / アイ�����ン・地図の色に合わせる）",
       "owner": "designer",
       "status": "done",
       "created": "2026-09-26",
@@ -7848,7 +7855,7 @@
     {
       "id": "t670",
       "project": null,
-      "title": "宇宙開拓者版風の試作を別アプリで作る",
+      "title": "宇宙開拓者版風の試作を別ア��������る",
       "owner": "engineer",
       "status": "todo",
       "created": "2026-10-03",
@@ -9030,12 +9037,11 @@
     {
       "id": "t798",
       "project": "deck-builder",
-      "title": "さいきょう CPU の型選び（自己対局）のぶれを減らす",
+      "title": "さいきょう CPU の型選び（自己対局）のぶれを減らす（途中を git stash に退避。オンライン化のあと）",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 13
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t799",
@@ -9204,30 +9210,27 @@
       "project": "catan-3d",
       "title": "盤を空撮写真風に③植生と小物",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 10
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t818",
       "project": "catan-3d",
       "title": "盤を空撮写真風に④建物・道・持ち主の色",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 15
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t819",
       "project": "catan-3d",
-      "title": "盤を空撮写真風に⑤数字チップと強調表示",
-      "owner": "engineer",
-      "status": "todo",
+      "title": "盤を空撮写真風に⑤数字チップと強調表示（公開済み。オーナーが触って確認）",
+      "owner": "owner",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 16
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t820",
@@ -9279,6 +9282,153 @@
       "project": null,
       "title": "木の盤の 7 本: ホームの盤を止めて机を消し、宙に浮かべる",
       "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t826",
+      "project": "deck-builder",
+      "title": "通信対戦の設計メモ（段階0）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t827",
+      "project": "deck-builder",
+      "title": "通信対戦 段階1: 種つきの乱数",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t828",
+      "project": "deck-builder",
+      "title": "通信対戦 段階2: 操作を act() に集める",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t829",
+      "project": "deck-builder",
+      "title": "通信対戦 段階3: viewFor と引き継ぎ用の控え",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t830",
+      "project": "deck-builder",
+      "title": "通信対戦 段階4: 部屋と待合",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t831",
+      "project": "deck-builder",
+      "title": "通信対戦 段階5: 対局の同期",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t832",
+      "project": "deck-builder",
+      "title": "ドミニオン 通信対戦: スマホ 2〜3 台でホストの引き継ぎと終局→もう一度を確かめる",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05",
+      "thread": [
+        {
+          "by": "director",
+          "text": "一旦停止（2026-10-05）。3611036 までコミット済み・未 push。残り: (1) ホスト引き継ぎ後に新ホストの game の他人の手札が {length:n} になり beginTurn で落ちる（実機でほぼ毎回）。(2) 終局→「もう一度」の実機確認。切断代打・再読み込みで復帰・min/重複の直しは済み。",
+          "at": "2026-10-05T12:39:41.695Z"
+        },
+        {
+          "by": "director",
+          "text": "引き継ぎの直後に伏せた盤（他人の手札が枚数だけ）で操作・代打CPUが手を進めていたのが原因でした。作り直すまで盤を外し、操作の受付もそのあとにしました（3f1e311、push 済み）。実機で確かめてください。",
+          "at": "2026-10-05T13:35:56.387Z"
+        }
+      ]
+    },
+    {
+      "id": "t833",
+      "project": "cattle",
+      "title": "試作の最小版を作る（羊 vs 飛行物体、2 人対戦）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t834",
+      "project": "cattle",
+      "title": "最強の CPU を入れる（羊・飛行物体どちらも、Worker で探索）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t835",
+      "project": "cattle",
+      "title": "CPU 同士の対戦を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t836",
+      "project": "deck-builder",
+      "title": "通信対戦 段階7: 全拡張を通信で遊べるか確かめて直す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t837",
+      "project": "deck-builder",
+      "title": "ドミニオン 通信対戦: 拡張（冒険・帝国・ルネサンス・移動動物園・同盟・略奪・旭日など）を人2＋CPUで遊び、トークン・マット・ランドスケープがゲスト画面に出るか見る",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t838",
+      "project": "catan-3d",
+      "title": "蛮族の襲撃で勝ったあとに点が勝利点を下回ることがある不具合を直す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t839",
+      "project": "catan-3d",
+      "title": "3D の盤（board3d.js）の不具合を点検して直す（メモリ・描画・タップ判定など）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t840",
+      "project": "catan-3d",
+      "title": "catan-3d と catan の直しを公開する（push の許可待ち）",
+      "owner": "owner",
       "status": "done",
       "created": "2026-10-05",
       "doneAt": "2026-10-05"
