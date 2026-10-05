@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-05T05:01:26.326Z",
+  "updatedAt": "2026-10-05T05:13:39.064Z",
   "projects": [
     {
       "id": "note",
@@ -8842,10 +8842,9 @@
       "project": "deck-builder",
       "title": "さいきょう CPU に礼拝堂（圧縮）型を足す",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 15
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t779",
@@ -9021,6 +9020,16 @@
       "status": "done",
       "created": "2026-10-05",
       "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t798",
+      "project": "deck-builder",
+      "title": "さいきょう CPU の型選び（自己対局）のぶれを減らす",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 13
     }
   ],
   "ideas": []
