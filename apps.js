@@ -34,7 +34,7 @@ window.TOFO_APPS = [
     category: 'game',
     tags: ['試作', 'ボードゲーム'],
     icon: '/quantik/icons/icon-192.png',
-    color: '#20242c',
+    color: '#2d2a26',
   },
   {
     id: 'pylos',

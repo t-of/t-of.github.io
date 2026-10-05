@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-05T05:13:39.064Z",
+  "updatedAt": "2026-10-05T05:23:06.771Z",
   "projects": [
     {
       "id": "note",
@@ -9030,6 +9030,54 @@
       "created": "2026-10-05",
       "doneAt": null,
       "no": 13
+    },
+    {
+      "id": "t799",
+      "project": "quantik",
+      "title": "Quantik の見た目をクアルトに合わせる",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t800",
+      "project": "pylos",
+      "title": "ピロスに図つきのルール説明を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t801",
+      "project": "quixo",
+      "title": "ルールに盤の図を入れる",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 19
+    },
+    {
+      "id": "t802",
+      "project": "quixo",
+      "title": "チュートリアルを足す",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 20
+    },
+    {
+      "id": "t803",
+      "project": "pylos",
+      "title": "ピロスにチュートリアルを足す",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 21
     }
   ],
   "ideas": []
