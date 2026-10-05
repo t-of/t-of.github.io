@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'catan-3d',
+    name: 'catan-3d',
+    title: '試作 立体の盤で遊ぶ開拓と交易のボードゲーム',
+    desc: 'catan の盤を three.js で立体にした試作。森の木や岩山が建ち、回して拡大できる。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/catan-3d/icons/icon-192.png',
+    color: '#0f1320',
+  },
+  {
     id: 'qawale',
     name: 'qawale',
     title: '試作 カワレ（ボードゲーム）',
