@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'nocca-nocca',
+    name: 'nocca-nocca',
+    title: '試作 ノッカノッカ（ボードゲーム）',
+    desc: '5×6 の盤で駒を 8 方向に 1 マスずつ動かし、相手の駒に乗って押さえながら奥のゴールを目指す 2 人用ボードゲームの試作。CPU 対戦と 2 人対戦。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/nocca-nocca/icons/icon-192.png',
+    color: '#2d2a26',
+  },
+  {
     id: 'catan-3d',
     name: 'catan-3d',
     title: '試作 立体の盤で遊ぶ開拓と交易のボードゲーム',
