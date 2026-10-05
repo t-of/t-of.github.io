@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'cattle',
+    name: 'cattle',
+    title: '試作 キャトル（ボードゲーム）',
+    desc: '羊と飛行物体に分かれる 2 人用ボードゲームの試作。羊は飛行物体を囲んで動けなくし、飛行物体は牽引光線で羊を 3 匹さらう。2 人対戦。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/cattle/icons/icon-192.png',
+    color: '#2b2320',
+  },
+  {
     id: 'nocca-nocca',
     name: 'nocca-nocca',
     title: '試作 ノッカノッカ（ボードゲーム）',
