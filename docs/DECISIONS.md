@@ -293,3 +293,9 @@ Playwright で `channel: 'chrome'` を付けると、headless でも普段の Go
 
 - 試作の指示どおり、CPU の強さ（4段階・Worker での探索）とルールの芯だけを作った。
 - `tools/audit.mjs` の `EXCEPTIONS` に `pylos: ['sound']` を足した。
+
+## planner は Opus のまま（2026-10-06）
+
+- Sonnet 5.5 で capgift・lone-deck の仕様を書かせ、前に Opus で書いたものと比べた（既存の仕様は見せずに）。
+- Sonnet は形はそろうが浅い。権利は商標の記録まで引かず「未確認」が残る（FreeCell など）。capgift は税の数値を engineer に任せ、確かめ用の値を手で出さず、調整控除の式を誤った。lone-deck は解けるかの判定を画面で探索する案で、手元で解いて一覧にする Opus 案より危うい。
+- 仕様の誤りは実装の手戻りで高くつくので、planner は Opus のまま。
