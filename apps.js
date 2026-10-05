@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'quarto',
+    name: 'quarto',
+    title: '試作 クアルト（ボードゲーム）',
+    desc: '4 つの特徴を持つ 16 個のコマを、相手に渡して置かせる 2 人用ボードゲームの試作。どれか 1 つの特徴が 1 列に揃えば勝ち。CPU 対戦と 2 人対戦。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/quarto/icons/icon-192.png',
+    color: '#2d2a26',
+  },
+  {
     id: 'wish-board',
     name: 'wish-board',
     title: '試作 やらなきゃ×やりたいで並べるTODO',

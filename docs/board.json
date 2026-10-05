@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-04T16:46:00.248Z",
+  "updatedAt": "2026-10-05T03:41:26.001Z",
   "projects": [
     {
       "id": "note",
@@ -355,6 +355,20 @@
       "stage": "qa",
       "created": "2026-10-04",
       "note": "試作（やらなきゃ×やりたいの2軸ホワイトボードTODO）"
+    },
+    {
+      "id": "quoridor",
+      "name": "quoridor",
+      "stage": "build",
+      "created": "2026-10-05",
+      "note": "試作"
+    },
+    {
+      "id": "quarto",
+      "name": "quarto",
+      "stage": "qa",
+      "created": "2026-10-05",
+      "note": "試作"
     }
   ],
   "tasks": [
@@ -8758,6 +8772,75 @@
       "status": "done",
       "created": "2026-10-04",
       "doneAt": "2026-10-04"
+    },
+    {
+      "id": "t775",
+      "project": "deck-builder",
+      "title": "ドミニオンの定石を調べる（CPU 用）",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t776",
+      "project": "deck-builder",
+      "title": "定石に沿った最強 CPU を作る",
+      "owner": "engineer",
+      "status": "waiting",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 14,
+      "note": "一旦停止。594b99a（未push）で旧版に52.6%（250局、差は誤差の範囲）。PPR点差案42.9%・エンジン判定案49.0%・持続割増50.4%は不採用。目標58%未達"
+    },
+    {
+      "id": "t777",
+      "project": "deck-builder",
+      "title": "さいきょう CPU に庭園ラッシュ型を足す",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 13
+    },
+    {
+      "id": "t778",
+      "project": "deck-builder",
+      "title": "さいきょう CPU に礼拝堂（圧縮）型を足す",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 15
+    },
+    {
+      "id": "t779",
+      "project": "quoridor",
+      "title": "コリドールの試作を作る",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 16
+    },
+    {
+      "id": "t780",
+      "project": "quarto",
+      "title": "クアルトの試作を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t781",
+      "project": "quarto",
+      "title": "クアルトの試作を触って確かめる",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 17
     }
   ],
   "ideas": []
