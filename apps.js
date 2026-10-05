@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'pylos',
+    name: 'pylos',
+    title: '試作 ピロス（ボードゲーム）',
+    desc: '玉を積んでピラミッドを作る 2 人用ボードゲームの試作。同じ色の 2×2 を作ると玉を取り戻せる。最後まで玉を残した方が勝ち。CPU 対戦（4 段階）と 2 人対戦。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/pylos/icons/icon-192.png',
+    color: '#2b2420',
+  },
+  {
     id: 'squadro',
     name: 'squadro',
     title: '試作 スクアドロ（ボードゲーム）',

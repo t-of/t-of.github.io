@@ -37,6 +37,7 @@ const EXCEPTIONS = {
   'quarto': ['sound'],
   'squadro': ['sound'],
   'quixo': ['sound'],
+  'pylos': ['sound'],
 };
 
 // 外から読んでよいスクリプトのホスト（§1）。版を URL に入れる（10.7.1、/v3、@1.2 など）。

@@ -284,3 +284,8 @@ Playwright で `channel: 'chrome'` を付けると、headless でも普段の Go
 - catan と同じ online-kit（ホスト方式・Firebase `tof-online`）を使う。rules はゲーム名を絞っていないので変えない。
 - 隠し情報は山札の並びだけ。pub には引いた所までの山札（捨てた札も含む）と残り枚数を載せ、ゲストはそれと log から盤を組み直す。priv は使わない。
 - 1 台で遊ぶ・CPU 戦は残す。通信中は「1 手戻す」を出さない。
+
+## pylos は効果音・設定・共有・記録・演出を付けない（2026-10-05）
+
+- 試作の指示どおり、CPU の強さ（4段階・Worker での探索）とルールの芯だけを作った。
+- `tools/audit.mjs` の `EXCEPTIONS` に `pylos: ['sound']` を足した。
