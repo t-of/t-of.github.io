@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'quoridor',
+    name: 'quoridor',
+    title: '試作 コリドール（ボードゲーム）',
+    desc: '9×9 の盤で、コマを進めるか壁を置いて相手の道をふさぐ 2 人用ボードゲームの試作。先に向こう側の端に着いたら勝ち。CPU 対戦と 2 人対戦。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/quoridor/icons/icon-192.png',
+    color: '#2b2420',
+  },
+  {
     id: 'quarto',
     name: 'quarto',
     title: '試作 クアルト（ボードゲーム）',
