@@ -34,7 +34,7 @@ window.TOFO_APPS = [
     category: 'game',
     tags: ['試作', 'ボードゲーム'],
     icon: '/nocca-nocca/icons/icon-192.png',
-    color: '#2d2a26',
+    color: '#1e2023',
   },
   {
     id: 'catan-3d',
