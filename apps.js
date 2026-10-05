@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'qawale',
+    name: 'qawale',
+    title: '試作 カワレ（ボードゲーム）',
+    desc: '4×4 の盤で、石の山に自分の石を積んでから隣へ 1 個ずつ配り直し、上から見て自分の色を 4 つ並べる 2 人用ボードゲームの試作。CPU 対戦（最強あり）と 2 人対戦。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/qawale/icons/icon-192.png',
+    color: '#2d2a26',
+  },
+  {
     id: 'quantik',
     name: 'quantik',
     title: '試作 クアンティック（ボードゲーム）',
