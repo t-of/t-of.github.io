@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'squadro',
+    name: 'squadro',
+    title: '試作 スクアドロ（ボードゲーム）',
+    desc: '自分の 5 駒を盤の向こうまで往復させる 2 人用ボードゲームの試作。相手の駒を跳び越えて押し戻す。強さ 3 段階の CPU（最強は先読み探索）と 2 人対戦。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/squadro/icons/icon-192.png',
+    color: '#1c2b3a',
+  },
+  {
     id: 'quixo',
     name: 'quixo',
     title: '試作 クイキシオ（ボードゲーム）',
