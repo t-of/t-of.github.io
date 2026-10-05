@@ -574,6 +574,7 @@ function send(res, code, body, type = 'application/json; charset=utf-8') {
 function readBody(req) {
   return new Promise((resolve, reject) => {
     let s = '';
+    req.setEncoding('utf8'); // Buffer のまま足すと、かたまりの境目で日本語の文字が割れて化ける
     req.on('data', (c) => { s += c; if (s.length > 1e6) reject(new Error('too large')); });
     req.on('end', () => { try { resolve(s ? JSON.parse(s) : {}); } catch (e) { reject(e); } });
   });

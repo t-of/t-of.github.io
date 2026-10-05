@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-05T05:23:06.771Z",
+  "updatedAt": "2026-10-05T09:46:17.080Z",
   "projects": [
     {
       "id": "note",
@@ -401,7 +401,21 @@
     {
       "id": "qawale",
       "name": "qawale",
+      "stage": "qa",
+      "created": "2026-10-05",
+      "note": "試作"
+    },
+    {
+      "id": "catan-3d",
+      "name": "catan-3d",
       "stage": "build",
+      "created": "2026-10-05",
+      "note": "試作（catan の 3D 版）"
+    },
+    {
+      "id": "nocca-nocca",
+      "name": "nocca-nocca",
+      "stage": "qa",
       "created": "2026-10-05",
       "note": "試作"
     }
@@ -964,7 +978,7 @@
     {
       "id": "t58",
       "project": "hineri",
-      "title": "QA の指摘を直す（端のマス���違う層が回る、小さい画面・横画面の崩れ ほか）",
+      "title": "QA の指摘を直す（端のマスで違う層が回る、小さい画面・横画面の崩れ ほか）",
       "owner": "engineer",
       "status": "done",
       "created": "2026-09-24",
@@ -2152,7 +2166,7 @@
     {
       "id": "t142",
       "project": "note",
-      "title": "note の市場を調べる（売れているジャンル・値段、規約と AI ��事の扱い、世の中の需要）",
+      "title": "note の市場を調べる（売れているジャンル・値段、規約と AI 記事の扱い、世の中の需要）",
       "owner": "planner",
       "status": "done",
       "created": "2026-09-24",
@@ -2578,7 +2592,7 @@
     {
       "id": "t180",
       "project": "cross-take",
-      "title": "CROSS TAKE は先手（よこ）がかなり有利（CPU どうし 1000 局で 66% 対 27%、平均 2.6 点差。始めのマスをランダムにしても変わらない）。どう直すかを選ぶ。A はおすすめ（囲碁のコミと同じ�����え方。点数は CPU どうしで試して決める）",
+      "title": "CROSS TAKE は先手（よこ）がかなり有利（CPU どうし 1000 局で 66% 対 27%、平均 2.6 点差。始めのマスをランダムにしても変わらない）。どう直すかを選ぶ。A はおすすめ（囲碁のコミと同じ考え方。点数は CPU どうしで試して決める）",
       "owner": "owner",
       "status": "done",
       "created": "2026-09-25",
@@ -2610,7 +2624,7 @@
     {
       "id": "t182",
       "project": "hirakibako",
-      "title": "ひらきばこ のアイコン一式と共有画�����を作る（配色も見る）",
+      "title": "ひらきばこ のアイコン一式と共有画像を作る（配色も見る）",
       "owner": "designer",
       "status": "done",
       "created": "2026-09-25",
@@ -2637,7 +2651,7 @@
     {
       "id": "t185",
       "project": "yotsumawashi",
-      "title": "よつま�����しのアイコン一式と共有画像を作る",
+      "title": "よつまわしのアイコン一式と共有画像を作る",
       "owner": "designer",
       "status": "done",
       "created": "2026-09-25",
@@ -2664,7 +2678,7 @@
     {
       "id": "t188",
       "project": "kazukakushi",
-      "title": "���ずかくしを確かめる（audit・スマホ幅・遊びの流れ）",
+      "title": "かずかくしを確かめる（audit・スマホ幅・遊びの流れ）",
       "owner": "qa",
       "status": "done",
       "created": "2026-09-25",
@@ -2691,7 +2705,7 @@
     {
       "id": "t191",
       "project": "irowa",
-      "title": "いろわを公開してよいか選ぶ。品���������は合���（audit 30/30、テスト 5 件、390・360 幅と PC で最後まで遊べた）。3 つの輪を回して、崩れた玉の色を元に戻すパズル。やさしい・ふつう・むずかしい、色の印（色覚の違う人向け）つき",
+      "title": "いろわを公開してよいか選ぶ。品質は合格（audit 30/30、テスト 5 件、390・360 幅と PC で最後まで遊べた）。3 つの輪を回して、崩れた玉の色を元に戻すパズル。やさしい・ふつう・むずかしい、色の印（色覚の違う人向け）つき",
       "owner": "owner",
       "status": "done",
       "created": "2026-09-25",
@@ -2712,7 +2726,7 @@
     {
       "id": "t192",
       "project": "cross-take",
-      "title": "CROSS TAKE を確かめる（audit・スマホ幅・CPU 戦���ふた��対戦・コミ）",
+      "title": "CROSS TAKE を確かめる（audit・スマホ幅・CPU 戦とふたり対戦・コミ）",
       "owner": "qa",
       "status": "done",
       "created": "2026-09-25",
@@ -3317,7 +3331,7 @@
       "created": "2026-09-25",
       "doneAt": "2026-09-25",
       "project": "buyout",
-      "title": "���利を選ぶ: BUYOUT（判定 問題なし・条件つき）",
+      "title": "権利を選ぶ: BUYOUT（判定 問題なし・条件つき）",
       "owner": "owner",
       "choices": [
         "作る（収益化できる）",
@@ -5056,7 +5070,7 @@
       "choiceLabels": {
         "A": "今の暗い色＋OSがライトなら明るく",
         "B": "赤・生成りの明るい色で固定",
-        "C": "��・黄の暗い色で固定",
+        "C": "赤・黄の暗い色で固定",
         "D": "B と C を OS に合わせて切り替え"
       },
       "choiceImages": {
@@ -5125,7 +5139,7 @@
     {
       "id": "t411",
       "project": "t-of.github.io",
-      "title": "X のアカウントを T.OF... として作る（プロフィール文はディレクターが用����",
+      "title": "X のアカウントを T.OF... として作る（プロフィール文はディレクターが用意）",
       "owner": "owner",
       "status": "done",
       "created": "2026-09-26",
@@ -5153,7 +5167,7 @@
     {
       "id": "t414",
       "project": "shihei-relay",
-      "title": "種まき: 数十枚を登録してから買い物で使う（身近な人���も���レーのリンク）",
+      "title": "種まき: 数十枚を登録してから買い物で使う（身近な人にもリレーのリンク）",
       "owner": "owner",
       "status": "todo",
       "created": "2026-09-26",
@@ -5181,7 +5195,7 @@
     {
       "id": "t417",
       "project": "t-of.github.io",
-      "title": "X のアカウントのアイコン（400×400）とヘッ���ー（1500×500）",
+      "title": "X のアカウントのアイコン（400×400）とヘッダー（1500×500）",
       "owner": "designer",
       "status": "done",
       "created": "2026-09-26",
@@ -7484,9 +7498,9 @@
       "project": "gem-trade",
       "title": "CPU 段階3: 簡易版を本式の ISMCTS（木を共有）にする",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-02",
-      "doneAt": "2026-10-02",
+      "doneAt": "2026-10-05",
       "thread": [
         {
           "by": "owner",
@@ -7508,8 +7522,7 @@
           "text": "了解。手元の本式 ISMCTS を旧版と対戦させて確かめてから push します",
           "at": "2026-10-02T06:35:57.226Z"
         }
-      ],
-      "no": 6
+      ]
     },
     {
       "id": "t639",
@@ -7872,7 +7885,7 @@
     {
       "id": "t674",
       "project": "catan-energy",
-      "title": "作り直しの方針（公式から外す点・古い保存・公開範��）を決める",
+      "title": "作り直しの方針（公式から外す点・古い保存・公開範囲）を決める",
       "owner": "owner",
       "status": "skip",
       "created": "2026-10-03",
@@ -8074,10 +8087,9 @@
       "project": "sns",
       "title": "楽天アフィリエイト用の SNS アカウントを新しく作る（@tof_label とは別）。ジャンルを決める",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 10,
+      "doneAt": "2026-10-05",
       "thread": [
         {
           "by": "director",
@@ -8100,9 +8112,9 @@
       "project": "sns",
       "title": "楽天アフィ用アカウントの名前を選ぶ（候補は docs/private/sns/rakuten/names.md。ほかの名前ならコメントに）",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
+      "doneAt": "2026-10-05",
       "choices": [
         "1",
         "2",
@@ -8116,8 +8128,7 @@
         "3": "いいもの控え @ii_mono_hikae",
         "4": "持ち物の棚卸し @motimono_tanaoroshi",
         "5": "KIJI & GEAR @kiji_and_gear"
-      },
-      "no": 8
+      }
     },
     {
       "id": "t699",
@@ -8685,10 +8696,9 @@
       "project": "catan",
       "title": "演出4つ（音・サイコロの溜め・カットイン・出来事の流れ）を本番で触って確かめる",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-10-04",
-      "doneAt": null,
-      "no": 9
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t762",
@@ -8869,20 +8879,18 @@
       "project": "quarto",
       "title": "クアルトの試作を触って確かめる",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 17
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t782",
       "project": "quoridor",
       "title": "コリドールの試作を触って確かめる",
       "owner": "owner",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 16
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t783",
@@ -8979,20 +8987,18 @@
       "project": "qawale",
       "title": "カワレの試作（最強CPU つき）を作る",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 23
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t794",
       "project": "quixo",
       "title": "クイキシオの試作を触って確かめる",
       "owner": "owner",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 18
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t795",
@@ -9054,30 +9060,228 @@
       "project": "quixo",
       "title": "ルールに盤の図を入れる",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 19
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t802",
       "project": "quixo",
       "title": "チュートリアルを足す",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 20
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t803",
       "project": "pylos",
       "title": "ピロスにチュートリアルを足す",
       "owner": "engineer",
+      "status": "skip",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t804",
+      "project": "qawale",
+      "title": "カワレの試作を触って確かめる",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t805",
+      "project": "quoridor",
+      "title": "盤をクアルトと同じ木の3Dデザインにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t806",
+      "project": "qawale",
+      "title": "盤をクアルトと同じ木の3Dデザインにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t807",
+      "project": "quantik",
+      "title": "図つきのルール説明とチュートリアルを足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t808",
+      "project": "pylos",
+      "title": "ピロスに CPU 同士の対戦（観戦モード）を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t809",
+      "project": "quoridor",
+      "title": "CPU 同士の対戦・ホームに戻るボタン・ホームの盤面を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t810",
+      "project": "pylos",
+      "title": "ホームに戻るボタンと、ホーム画面に盤の見本を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t811",
+      "project": "catan-3d",
+      "title": "catan を写して盤を three.js の 3D にする（木・山などを立体で）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t812",
+      "project": "catan-3d",
+      "title": "3D の盤をリアルにする 1 段目（光・模様・形を Claude だけで）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t813",
+      "project": "catan-3d",
+      "title": "3D の盤をリアルにする 2 段目（CC0 の写真テクスチャ・HDRI を入れる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t814",
+      "project": "catan-3d",
+      "title": "3D の盤をリアルにする 3 段目（木・家・道などの小物を作り直す）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t815",
+      "project": "catan-3d",
+      "title": "盤を空撮写真風に①地形と海",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t816",
+      "project": "catan-3d",
+      "title": "盤を空撮写真風に②光と後処理",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t817",
+      "project": "catan-3d",
+      "title": "盤を空撮写真風に③植生と小物",
+      "owner": "engineer",
       "status": "doing",
       "created": "2026-10-05",
       "doneAt": null,
-      "no": 21
+      "no": 10
+    },
+    {
+      "id": "t818",
+      "project": "catan-3d",
+      "title": "盤を空撮写真風に④建物・道・持ち主の色",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 15
+    },
+    {
+      "id": "t819",
+      "project": "catan-3d",
+      "title": "盤を空撮写真風に⑤数字チップと強調表示",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-05",
+      "doneAt": null,
+      "no": 16
+    },
+    {
+      "id": "t820",
+      "project": "nocca-nocca",
+      "title": "試作の最小版を作る（木製の 3D 盤）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t821",
+      "project": "t-of.github.io",
+      "title": "木製3Dの7本の背景・ホームを机とランプの明かりに（quarto/quantik/quixo/pylos/squadro/quoridor/qawale）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t822",
+      "project": "nocca-nocca",
+      "title": "CPU 同士の観戦とホームに戻るボタン",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t823",
+      "project": "nocca-nocca",
+      "title": "図つきのルール説明",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t824",
+      "project": "nocca-nocca",
+      "title": "最強 CPU（Worker・反復深化・置換表）と強さの選択",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t825",
+      "project": null,
+      "title": "木の盤の 7 本: ホームの盤を止めて机を消し、宙に浮かべる",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
     }
   ],
   "ideas": []
