@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'quantik',
+    name: 'quantik',
+    title: '試作 クアンティック（ボードゲーム）',
+    desc: '4×4 の盤に 4 種の形を置き、行・列・区画のどれかで 4 種そろえたら勝ちの 2 人用ボードゲームの試作。相手の形と同じ形は、同じ行・列・区画に置けない。CPU は最後まで読み切る最強の 1 段階と、2 人対戦。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/quantik/icons/icon-192.png',
+    color: '#20242c',
+  },
+  {
     id: 'pylos',
     name: 'pylos',
     title: '試作 ピロス（ボードゲーム）',

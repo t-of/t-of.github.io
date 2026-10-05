@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-05T04:36:35.478Z",
+  "updatedAt": "2026-10-05T05:01:26.326Z",
   "projects": [
     {
       "id": "note",
@@ -380,21 +380,21 @@
     {
       "id": "pylos",
       "name": "pylos",
-      "stage": "build",
+      "stage": "qa",
       "created": "2026-10-05",
       "note": "試作"
     },
     {
       "id": "squadro",
       "name": "squadro",
-      "stage": "build",
+      "stage": "qa",
       "created": "2026-10-05",
       "note": "試作（スクアドロ・最強CPUまで）"
     },
     {
       "id": "quantik",
       "name": "quantik",
-      "stage": "build",
+      "stage": "qa",
       "created": "2026-10-05",
       "note": "試作"
     },
@@ -8926,10 +8926,9 @@
       "project": "quoridor",
       "title": "コリドール 最強のCPUにする",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 13
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t788",
@@ -8945,10 +8944,9 @@
       "project": "pylos",
       "title": "ピロスの試作を作る（CPU 対戦・さいきょう CPU まで）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 19
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t790",
@@ -8964,20 +8962,18 @@
       "project": "squadro",
       "title": "スクアドロの最強CPU（探索）",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 21
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t792",
       "project": "quantik",
       "title": "Quantik の試作（最強 CPU つき）を作る",
       "owner": "engineer",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 22
+      "doneAt": "2026-10-05"
     },
     {
       "id": "t793",
@@ -8998,6 +8994,33 @@
       "created": "2026-10-05",
       "doneAt": null,
       "no": 18
+    },
+    {
+      "id": "t795",
+      "project": "quixo",
+      "title": "クイキシオの見た目をクアルトと同じ 3D・木の質感にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t796",
+      "project": "pylos",
+      "title": "盤と玉を quarto と同じ three.js の木の3Dにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t797",
+      "project": "squadro",
+      "title": "見た目をクアルトと同じ木の3D盤にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
     }
   ],
   "ideas": []

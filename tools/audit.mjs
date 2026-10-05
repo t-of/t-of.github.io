@@ -37,6 +37,7 @@ const EXCEPTIONS = {
   'quarto': ['sound'],
   'squadro': ['sound'],
   'quixo': ['sound'],
+  'quantik': ['sound'],
   'pylos': ['sound'],
 };
 
