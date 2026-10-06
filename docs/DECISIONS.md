@@ -299,3 +299,8 @@ Playwright で `channel: 'chrome'` を付けると、headless でも普段の Go
 - Sonnet 5.5 で capgift・lone-deck の仕様を書かせ、前に Opus で書いたものと比べた（既存の仕様は見せずに）。
 - Sonnet は形はそろうが浅い。権利は商標の記録まで引かず「未確認」が残る（FreeCell など）。capgift は税の数値を engineer に任せ、確かめ用の値を手で出さず、調整控除の式を誤った。lone-deck は解けるかの判定を画面で探索する案で、手元で解いて一覧にする Opus 案より危うい。
 - 仕様の誤りは実装の手戻りで高くつくので、planner は Opus のまま。
+
+## color-flip は効果音・設定・共有・記録・演出を付けない（2026-10-06）
+
+- 試作の指示どおり、Mystery Nyaseum のルールを色だけのカードで遊べる芯と簡単な CPU だけを作った。
+- `tools/audit.mjs` の `EXCEPTIONS` に `'color-flip': ['sound']` を足した。公開する段になったら音を付ける。

@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'color-flip',
+    name: 'color-flip',
+    title: '試作 色めくりカードゲーム',
+    desc: '裏向きに置いたカードをめくり、隣と色がそろえば得点、外れると体力が減るカードゲームの試作。CPU と 2〜5 人で 3 ラウンド。',
+    category: 'game',
+    tags: ['試作', 'カードゲーム'],
+    icon: '/color-flip/icons/icon-192.png',
+    color: '#14161f',
+  },
+  {
     id: 'cattle',
     name: 'cattle',
     title: '試作 キャトル（ボードゲーム）',
