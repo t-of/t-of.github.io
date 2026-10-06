@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'national-economy',
+    name: 'national-economy',
+    title: '試作 ナショナルエコノミー風',
+    desc: '労働者を職場に置き、手札を捨てて建物を建てる経済ワーカープレイスメントの試作。CPU と 2〜4 人で 9 ラウンド。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/national-economy/icons/icon-192.png',
+    color: '#1a2a1f',
+  },
+  {
     id: 'sphere-catan',
     name: 'sphere-catan',
     title: '試作 球体カタン',
