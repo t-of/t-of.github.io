@@ -331,3 +331,9 @@ Playwright で `channel: 'chrome'` を付けると、headless でも普段の Go
 - オーナーの指示。deck-builder・catan・carcassonne の学習 AI を、別々のチャットでなく 1 つのチャットでまとめて進める。いまの状態は docs/learning-ai.md に 1 枚でまとめ、進んだら書き直す。
 - HAKUSAN のジョブは 3 本とも `-p DEF -n 64`・各アプリ直下の jobs/・README_hakusan.md にそろえる。
 - 続き（同日）: Mac のチャットが本体（設計・コード・ボード・push）、HAKUSAN の上のチャットがジョブ係（git pull・sbatch・ログのまとめ）に分ける。ジョブ係はオーナーが「流して」と言ったジョブを投入してよい（それまでの「投入はオーナーの手」を置き換える）。ログインノードで重い計算はしない。役目は docs/learning-ai.md の「ジョブ係」。
+
+## national-economy: ルールも建物も原作どおり（2026-10-06）
+
+- オーナーの指示。建物 24 種の名前・費用・資産価値も原作のまま作る（仕様書 docs/private/specs/national-economy.md §1）。
+- 賃金が払えないときに売る建物は人が選ぶ。CPU は 3 段（よわい・ふつう・つよい）。
+- 今の名前は原作の題名そのもの。デモのポータルに置くだけならこのまま。本物のポータルに出すときに名前と権利を決め直す。
