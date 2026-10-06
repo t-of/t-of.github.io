@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-06T07:11:39.667Z",
+  "updatedAt": "2026-10-06T09:17:17.525Z",
   "projects": [
     {
       "id": "note",
@@ -453,6 +453,13 @@
       "stage": "qa",
       "created": "2026-10-06",
       "note": "試作。Mystery Nyaseum のルールを色だけで"
+    },
+    {
+      "id": "sphere-catan",
+      "name": "sphere-catan",
+      "stage": "qa",
+      "created": "2026-10-06",
+      "note": "試作"
     }
   ],
   "tasks": [
@@ -9898,6 +9905,15 @@
       "created": "2026-10-06",
       "doneAt": null,
       "no": 14
+    },
+    {
+      "id": "t885",
+      "project": "sphere-catan",
+      "title": "サッカーボール型の球面盤で遊べる最小版を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
     }
   ],
   "ideas": []

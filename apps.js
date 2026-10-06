@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'sphere-catan',
+    name: 'sphere-catan',
+    title: '試作 球体カタン',
+    desc: 'サッカーボール型（六角形 20・五角形 12）の球面の盤で、資源を集めて道・開拓地・都市を建てるボードゲームの試作。1 台で 3 人の交代プレイ。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/sphere-catan/icons/icon-192.png',
+    color: '#0b0c10',
+  },
+  {
     id: 'color-flip',
     name: 'color-flip',
     title: '試作 色めくりカードゲーム',
