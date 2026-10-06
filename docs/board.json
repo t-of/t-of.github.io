@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-05T14:06:43.446Z",
+  "updatedAt": "2026-10-06T07:11:39.667Z",
   "projects": [
     {
       "id": "note",
@@ -15,6 +15,27 @@
       "stage": "other",
       "created": "2026-09-26",
       "note": "X（@tof_label）の投稿の下書きと予定。担当は sns（Sonnet）、投稿はオーナーが手で行う。決まりと下書きは docs/private/sns/。今は週 1 本（アプリの直しを優先。紹介するのは直しが済んだものだけ）"
+    },
+    {
+      "id": "research",
+      "name": "研究部",
+      "stage": "other",
+      "created": "2026-10-05",
+      "note": "修論の研究（上原研究室、共通展開図と多重折り）。フォルダは ~/dev/展開図の研究/（ここで起動すると研究部のディレクター。決まりは 研究部.md）。担当は surveyor・experimenter・paper-writer（Sonnet）、reviewer（Opus）。サブ研究は research-<テーマ>（~/GitHub/tof/research/）"
+    },
+    {
+      "id": "research-dropturn",
+      "name": "サブ研究: DROPTURN",
+      "stage": "other",
+      "created": "2026-10-05",
+      "note": "DROPTURN のゲーム情報学的研究（理論値・AI・規則の性質）。~/GitHub/tof/research/dropturn/。論文の下書きは paper/main.pdf"
+    },
+    {
+      "id": "research-similar-rect-tiling",
+      "name": "サブ研究: 相似長方形分割",
+      "stage": "other",
+      "created": "2026-10-06",
+      "note": "長方形を相似な長方形で敷き詰める問題（正方形分割の一般化）。~/GitHub/tof/research/similar-rect-tiling/。文献調査は notes/related-work.md"
     },
     {
       "id": "last-three",
@@ -425,6 +446,13 @@
       "stage": "qa",
       "created": "2026-10-05",
       "note": "試作"
+    },
+    {
+      "id": "color-flip",
+      "name": "color-flip",
+      "stage": "qa",
+      "created": "2026-10-06",
+      "note": "試作。Mystery Nyaseum のルールを色だけで"
     }
   ],
   "tasks": [
@@ -8837,13 +8865,19 @@
     {
       "id": "t776",
       "project": "deck-builder",
-      "title": "定石に沿った最強 CPU を作る",
+      "title": "最強 CPU（手番ごとの先読み探索）を作り、さいきょうの上に足す",
       "owner": "engineer",
-      "status": "waiting",
+      "status": "skip",
       "created": "2026-10-05",
-      "doneAt": null,
-      "no": 14,
-      "note": "一旦停止。594b99a（未push）で旧版に52.6%（250局、差は誤差の範囲）。PPR点差案42.9%・エンジン判定案49.0%・持続割増50.4%は不採用。目標58%未達"
+      "doneAt": "2026-10-06",
+      "note": "2026-10-06 オーナー: CPU と AI は別物。先読み CPU は作らず止めた（変更なし）。学習 AI へ",
+      "thread": [
+        {
+          "by": "director",
+          "text": "オーナーの指示で再開（2026-10-06）。手番ごとの先読み探索で『最強』を足し、さいきょうに 200 局 60% 以上を目指す。",
+          "at": "2026-10-06T06:10:54.334Z"
+        }
+      ]
     },
     {
       "id": "t777",
@@ -9432,6 +9466,438 @@
       "status": "done",
       "created": "2026-10-05",
       "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t841",
+      "project": "research",
+      "title": "先行研究の調査（2023〜2026）と新規性のある候補の洗い出し（正三角形の共通展開図ほか）",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t842",
+      "project": "research",
+      "title": "三角格子（ポリアモンド）版の折り探索器を作り、デルタ多面体の展開図・多重折り・共通展開図を数える（~/dev/展開図の研究/デルタ多面体/）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t843",
+      "project": "research",
+      "title": "格子多面体（面が正四面体の 4 方向）の共通展開図と多重折りを面積の小さい順に完全列挙",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t844",
+      "project": "research",
+      "title": "格子多面体の共通展開図の先行研究と、J17 の辺展開図の数（13,014 か 13,041 か）の出典確認",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t845",
+      "project": "research",
+      "title": "正三角形で分割できる凸多面体すべて（次数≤6 の三角形分割）の共通展開図を面積 20 まで完全列挙",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t846",
+      "project": "research",
+      "title": "正三角形分割の凸多面体の共通展開図・ポリアモンドの折り（Demaine–O'Rourke ほか）の先行研究",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t847",
+      "project": "research",
+      "title": "共通展開図の探し方の仮説 8 つ（~/dev/展開図の研究/アイデア/共通展開図の探し方_仮説_2026-10-06.md）から、次に確かめるものを選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-06",
+      "comment": "1 を実行。6.4GB は gzip。8 はやらない"
+    },
+    {
+      "id": "t848",
+      "project": "research",
+      "title": "仮説 1：面積 30 の 3 箱 9 個は巨大な族の外（小さな族に固まる）。分析 §18",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t849",
+      "project": "t-of.github.io",
+      "title": "planner を Sonnet 5.5 で試し、Opus の仕様書と見比べる（capgift・lone-deck）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t850",
+      "project": "research",
+      "title": "仮説 3：2 箱の共通展開図のうち Conway の条件を満たすもの（＝等面四面体にも折れる）を面積 22・30・34 で数える。分析 §19",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t851",
+      "project": "research",
+      "title": "fold-viewer（~/dev/展開図の研究/アプリ）に等面四面体にも折れる共通展開図を足す（面積 22 の箱 2＋四面体，面積 34 の箱 2＋四面体 6 種）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t852",
+      "project": "research",
+      "title": "仮説 7：何かに折れる割合は n=10 の 100% から 87.4%（n=18）へ減る。いちばん多く折れる紙は凸でなかった（耳が多い形）。デルタ多面体/results.md",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t853",
+      "project": "research",
+      "title": "stacked net で 4 箱共通展開図を探す探索器（面積 106 の 15 個で検証）",
+      "owner": "experimenter",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t854",
+      "project": "research",
+      "title": "仮説 7b'：上位は内部の頂点 0〜1 個・耳 6〜9 個（ほぼ当たり）。耳が最多の形は 1 つにしか折れない。デルタ多面体/results.md",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t855",
+      "project": "research",
+      "title": "面積 20（V=12、6-net 77 個）の集計を再開（04:54 に 15 個で止まっていた）→ 仮説 7a に 1 点足す",
+      "owner": "researcher",
+      "status": "skip",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t856",
+      "project": "research",
+      "title": "耳が最多の形（芯がまっすぐな帯のムカデ形）は周の貼り方 16,796 通りのうち 1 通りしか 360° 以内に収まらない。デルタ多面体/results.md・figures/hypothesis7_max_ears.png",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t857",
+      "project": "research",
+      "title": "耳が最多の形はどの n でも 1 種類にしか折れないかを、n=14〜22 の数え上げと証明の骨組みで固める",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t858",
+      "project": "research",
+      "title": "何にも折れない紙（n=12 の 7 個ほか）の形を描き、なぜ折れないか（周の貼り方で落ちる理由）を見る",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t859",
+      "project": "research",
+      "title": "いちばん多く折れる紙が多い理由を、周の角の並びと折れる数の関係で説明する",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-05",
+      "doneAt": "2026-10-05"
+    },
+    {
+      "id": "t860",
+      "project": "research",
+      "title": "HAKUSAN で stacked の 4 箱探索（面積 70〜118、ジョブ 782622〜782628）。0 個なら 126・138",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t861",
+      "project": "research",
+      "title": "面積 38・42・46 の 2 箱共通展開図に Conway 判定（SAT 列挙を HAKUSAN で）。次: 面積 38 の列挙ジョブ(qsat)が終わったら job_qian_post.sh で復元し 4,468/4,469 を確認→42・46 へ。手順は ~/dev/展開図の研究/スパコンHAKUSAN/README_hakusan.md 末尾、結果は分析/分析_共通展開図の特徴.md §20",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-06",
+      "doneAt": null,
+      "no": 8
+    },
+    {
+      "id": "t862",
+      "project": "research",
+      "title": "simple-phase で 4 箱を探す。70〜82 は 0 個。HAKUSAN で 94（783624）・102（783625）・110（783626）・118（783627）を実行中。結果は 箱の共通展開図/stacked/results_simple_phase.md",
+      "owner": "experimenter",
+      "status": "doing",
+      "created": "2026-10-06",
+      "doneAt": null,
+      "no": 9
+    },
+    {
+      "id": "t863",
+      "project": "research",
+      "title": "面積 106 より小さい 3 箱の共通展開図を探す。stacked・simple-phase とも 62〜90 は 0 個。simple-phase の 94（783954）・102（783955）を HAKUSAN で実行中",
+      "owner": "experimenter",
+      "status": "doing",
+      "created": "2026-10-06",
+      "doneAt": null,
+      "no": 10
+    },
+    {
+      "id": "t864",
+      "project": "color-flip",
+      "title": "色めくりゲームの試作を作る（CPU 対戦）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t865",
+      "project": "color-flip",
+      "title": "カードをトレカ比率・geo の幾何学デザインにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t866",
+      "project": "color-flip",
+      "title": "ルール説明の画面を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t867",
+      "project": "carcassonne",
+      "title": "最強 CPU 段階1: 探索の CPU（ISMCTS）を ai/ に作り、貪欲に勝ち越すか Node で測る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06",
+      "note": "db16bb3。0.2秒×30局で貪欲に87%。200局の測定は他の作業とCPUを取り合い数字が狂うため打ち切り（学習のあとに測り直す）"
+    },
+    {
+      "id": "t868",
+      "project": "carcassonne",
+      "title": "最強 CPU 段階3: 画面に強さの選択と Worker（学習したモデルを読む）を入れる",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-06",
+      "doneAt": null,
+      "no": 15
+    },
+    {
+      "id": "t869",
+      "project": "carcassonne",
+      "title": "最強 CPU 段階2: 学習する AI（局面の特徴・小さな NN・自己対局の学習を nohup で一晩）",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-06",
+      "doneAt": null,
+      "no": 16,
+      "note": "HAKUSAN 用ジョブ一式コミット済み（apps/carcassonne/README_hakusan.md）。オーナーが probe → 本番を投入。結果の log を貼ってもらう"
+    },
+    {
+      "id": "t870",
+      "project": "deck-builder",
+      "title": "学習 AI（自己対局＋ニューラルネット、CPU とは別の相手）の設計メモ",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06",
+      "thread": [
+        {
+          "by": "director",
+          "text": "2026-10-06 オーナー: 次の段階もどんどん進めてよい（席を外す）。問いはおすすめで決め、HAKUSAN の投入の手前まで進める。",
+          "at": "2026-10-06T06:14:51.308Z"
+        }
+      ]
+    },
+    {
+      "id": "t871",
+      "project": "color-flip",
+      "title": "盤面を three.js の3Dにし、置く・めくるに動きをつける",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t872",
+      "project": "catan",
+      "title": "学習 AI（自己対局＋ニューラルネット、CPU とは別の相手）の設計メモ",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t873",
+      "project": "deck-builder",
+      "title": "AI 段階0-A: 特徴量・推論（JS）・自己対局の記録・隠れ情報のテスト",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t874",
+      "project": "deck-builder",
+      "title": "持続の効果が残る局面で structuredClone が落ちるのを直す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t875",
+      "project": "deck-builder",
+      "title": "AI 段階0-B: Python の学習・書き出し・JS と同値の確認・HAKUSAN のジョブ",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t876",
+      "project": "deck-builder",
+      "title": "HAKUSAN に Node と CPU 版 PyTorch を入れ、sinfo を貼る（手順は deck-builder の docs/ai-design.md §4）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06",
+      "thread": [
+        {
+          "by": "director",
+          "text": "2026-10-06 下調べ: x86_64・glibc 2.39・Python 3.12.3。GPU は A40（GPU-1/S/L）と A100（GPU-1A/LA）があるが使わない前提。CPU ノード 124 台中 95 台が埋まっている（SINGLE は待ちが出るかも）。Node・PyTorch はこれから。",
+          "at": "2026-10-06T06:22:24.384Z"
+        },
+        {
+          "by": "director",
+          "text": "2026-10-06 HAKUSAN に Node v24.21.0 を入れた（~/opt/node、~/.bashrc で PATH）。PyTorch 2.14.1+cpu を pip で入れている途中。numpy は OS の 1.26.4。研究のジョブで SINGLE が QOSGrpJobsLimit になっているので、AI のジョブは -p DEF -n 64 を基本にする。",
+          "at": "2026-10-06T06:28:11.946Z"
+        },
+        {
+          "by": "director",
+          "text": "2026-10-06 準備完了: torch 2.14.1+cpu（ログインノードのスレッド 8）。",
+          "at": "2026-10-06T06:28:44.404Z"
+        }
+      ]
+    },
+    {
+      "id": "t877",
+      "project": "catan",
+      "title": "学習 AI の設計メモ（catan docs/ai-design.md）の問いに答える（範囲・HAKUSAN の仕様・予算）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t878",
+      "project": "catan",
+      "title": "学習 AI 段階1: エンジン準備（ai/actions.js で合法手の列挙、盗賊で奪う札の乱数の種）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t879",
+      "project": "deck-builder",
+      "title": "持続の効果を関数でなくデータにする（複製・取り消し・通信の引き継ぎで効果が消える・元の人に効くのを根本で直す）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-06",
+      "doneAt": null,
+      "no": 18
+    },
+    {
+      "id": "t880",
+      "project": "catan",
+      "title": "学習 AI 段階2: 特徴量とネットの JS 版（順伝播・重みの形式）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t881",
+      "project": "deck-builder",
+      "title": "HAKUSAN で AI の計測ジョブ（job_ai_bench.sh）を流し、結果を貼る",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-06",
+      "doneAt": null,
+      "no": 13
+    },
+    {
+      "id": "t882",
+      "project": "catan",
+      "title": "test.mjs「探検家と海賊: buildShip…霧のマスが開ける」が 40 回に 3 回ほど落ちる（乱数しだい。AI の作業の前から）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-06",
+      "doneAt": null,
+      "no": 6
+    },
+    {
+      "id": "t883",
+      "project": "catan",
+      "title": "学習 AI 段階3: PyTorch の学習コード・JS との一致テスト・HAKUSAN 用ジョブ",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t884",
+      "project": "catan",
+      "title": "HAKUSAN で catan の計測ジョブ（jobs/job_ai_bench.sh）を流し、結果を貼る",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-06",
+      "doneAt": null,
+      "no": 14
     }
   ],
   "ideas": []
