@@ -25,7 +25,7 @@ HAKUSAN（hakusan1）で Claude を起動したら、まずこの節を読む。
 
 ## deck-builder（ドミニオン風）
 
-- 段階: 段階 0 済み（push 済み、origin/main = f68f4e8）。HAKUSAN の計測ジョブの結果待ち（t881）。
+- 段階: 段階 0 済み。計測 784722 済み（10/6）: 学習は 8 スレッドが 64 の 5 倍速い → 4bef51b で既定 8（TORCH_THREADS）。見込み（64 コア）は EXPERT_GAMES 20000 が 34 分、1 世代（self 8 割・ai 1 割）が 7〜8 分。self の 3% が打ち切り。本番 base1 の投入待ち。
 - 設計: apps/deck-builder/docs/ai-design.md（§10 ファイルと記録の形、§11 損失・実測・HAKUSAN のコマンド）。価値ネットで買う・獲得するだけ判断し、ほかは さいきょう CPU に任せる。約 16 万パラメータ、model.bin は float16 で 328KB。
 - 決めたこと: AI は 2 人のときだけ、強さは 1 つ、合格は さいきょう に全拡張ランダム 400 局で 60%。
 - 待っているもの: 計測ジョブの流し直し。784139 は自己対局で「問いが終わらない」の例外で落ちた（64 中 3 プロセス）ので、f68f4e8 で打ち切り扱いにした。`cd ~/deck-builder && git pull && sbatch jobs/job_ai_bench.sh`。結果は `sed -n '/==== 結果/,$p' ~/deck-builder/logs/aibench-*.out`、失敗なら `tail -40`。
@@ -34,7 +34,7 @@ HAKUSAN（hakusan1）で Claude を起動したら、まずこの節を読む。
 
 ## catan（カタン風）
 
-- 段階: 段階 1〜3 済み（d137bae、push 済み）。HAKUSAN の計測ジョブ 784698（catanbench）待ち（t884）。
+- 段階: 段階 1〜3 済み。計測 784698 済み（10/6）: 1 世代 8000 局で 6〜7 分、125 世代で 13〜14 時間（12 時間で止まるので同じコマンドで出し直す）。gen 1 で vs つよい 3.1%・vs 乱数 96.9%。データは世代ごとに消える（--keep-data なし）ので容量は心配ない。260b72b で学習を 8 スレッドに（deck-builder の計測から。catan では未計測）。本番 run1 の投入待ち。
 - 学習: Node で自己対局 → PyTorch で PPO（世代 0 は つよい CPU の模倣、`--init zero` でゼロから）。1 世代 8000 局、300 ターンで打ち切り。世代ごとに gen-NNNN.bin と log.jsonl を残し、同じコマンドで続きから。JS と PyTorch の一致は `python3 ai/py/parity.py`（差 1e-7 ほど）。
 - 手順: apps/catan/README_hakusan.md。hakusan1 で `git clone https://github.com/t-of/catan.git ~/catan`（以後は `git pull`。tar で送る `npm run pack:hakusan` も残っている） → `bash jobs/setup.sh`（確かめるだけ）→ `sbatch jobs/job_ai_bench.sh`（5 分ほど）→ `logs/catanbench-*.out` の「==== 結果」から下を貼ってもらう。
 - 次: 計測の結果で TORCH_THREADS と局数を直し、本番 `sbatch -t 12:00:00 jobs/job_ai.sh run1 125`（模倣から）と `... zero1 125 --init zero`（ゼロから）。100 万局で 64 コア 11〜16 時間の見込み。
