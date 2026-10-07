@@ -25,7 +25,7 @@ HAKUSAN（hakusan1）で Claude を起動したら、まずこの節を読む。
 
 ## deck-builder（ドミニオン風）
 
-- **いま（10/7 13:30）**: p-first（はじめてのゲーム特化）は 15 世代すべて不採用で best が gen 0 のまま＝積み上がっていなかった（log.tsv で確認）。docs/ai-specialize.md の §3-0（手順の穴を塞ぐ、a115dc1）と §3-1（買い方表の進化、bca15de、train/evolve.mjs・ai/table.js・jobs/job_evolve.sh）を実装済み。流すのは p-first2 と e1（t925、sbatch はオーナー）。full1 は gen 36/40（vs さいきょう 0.544、best 28）。
+- **いま（10/7 13:30）**: p-first（はじめてのゲーム特化）は 15 世代すべて不採用で best が gen 0 のまま＝積み上がっていなかった（log.tsv で確認）。docs/ai-specialize.md の §3-0（手順の穴を塞ぐ、a115dc1）と §3-1（買い方表の進化、bca15de、train/evolve.mjs・ai/table.js・jobs/job_evolve.sh）を実装済み。p-first2（788589）と e1（788590）を投入済み。full1 は gen 36/40（vs さいきょう 0.544、best 28）。
 - **いま（10/7 3:30）**: base1 は 30 世代で終わり、最良 gen 28（基本だけで vs さいきょう 0.66〜0.69）。2000 局の測り直し（~/aijobs/db_eval.sh）: gen 13 は基本 0.650・**全拡張 0.307**。合格（全拡張 60%）には段階 2 が要る → full1（786365、全拡張、40 世代）を投入済み。p-first（786364、「はじめてのゲーム」特化、gen 28 から 15 世代、vs_ref 列あり）も投入済み。どちらも研究優先で待ち。
 
 - 段階: 段階 0 済み。計測 784722 済み（10/6）: 学習は 8 スレッドが 64 の 5 倍速い → 4bef51b で既定 8（TORCH_THREADS）。見込み（64 コア）は EXPERT_GAMES 20000 が 34 分、1 世代（self 8 割・ai 1 割）が 7〜8 分。self の 3% が打ち切り。本番 base1（785029）が 10/6 21:12 から実行中。1 世代 約 8.5 分、gen 1 で vs さいきょう 0.635（基本だけ）。
@@ -52,7 +52,7 @@ HAKUSAN（hakusan1）で Claude を起動したら、まずこの節を読む。
 
 ## carcassonne（カルカソンヌ風）
 
-- **いま（10/7 13:30）**: 複数 Worker で並列に読む形を公開（ec2d100・edf88f1）。強さの測定 `cd ~/carcassonne && git pull && sbatch -p DEF -n 64 --nice=10000 jobs/job_ensemble.sh ens4 8`（512 局、runs/arena-ens4/summary.txt）は未投入（t921）。
+- **いま（10/7 13:30）**: 複数 Worker で並列に読む形を公開（ec2d100・edf88f1）。強さの測定 `cd ~/carcassonne && git pull && sbatch -p DEF -n 64 --nice=10000 jobs/job_ensemble.sh ens4 8`（512 局、runs/arena-ens4/summary.txt）は 788591 で投入済み（HAKUSAN の ~/carcassonne は tar のままなので、git clone した **~/carcassonne-git** で流した）。
 - **作り直し中（10/7〜）**: 学習をやめ、探索 CPU を改良する方向。調べもの・対局データ・打ち比べは apps/carcassonne/docs/ai-research.md。探索を 2.25 倍速くして公開済み（419b467・69cb64f）。
 - **（古い）10/7 3:30: 保留**。run2（残差の形、26e8ea2）も 11 世代すべて見送り（33〜40%）。sanity（786578、400 局 iters 12）: 重み 0 50%、作りたて 51%、学習済み 33%、×0.25 49%、×0 46%。網が手書きを上回れていない。やり直すなら特徴量か、探索の葉の局面で学習する形から。道具は ai/sanity.mjs・jobs/job_sanity.sh。
 
