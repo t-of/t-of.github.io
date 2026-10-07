@@ -175,7 +175,8 @@ keys.filter((k) => k.startsWith(PREFIX) && k !== CACHE).map((k) => caches.delete
 - **必須** 自分のファイルを取るときは、ブラウザの HTTP キャッシュを通さない（install の `addAll` は `new Request(u, { cache: 'reload' })`、
   fetch は `{ cache: 'no-cache' }`）。通すと、公開直後の 10 分ほど（Pages のキャッシュ時間）新しい index.html と古い main.js が混ざり、
   なくなった要素を探して止まる（2026-09-30 DROPTURN でタイトルから進めなくなった）。
-- **推奨** 更新してもキャッシュに残る「どうも古いまま」のときの最終手段として `VERSION` を上げる。
+- **必須** 画面のどこか（ふつうはフッター）に小さくバージョンを出す（`<span class="ver">v12</span>`）。更新が届いたかを画面で確かめるため。
+  sw.js があれば `VERSION` と同じ文字にし、公開するたびに両方を 1 つ上げる（audit が食い違いを落とす。表示がないのは今は警告）。
 - ひな形: [`template/sw.js`](template/sw.js)
 
 ## 5. スマホ表示

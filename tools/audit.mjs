@@ -83,7 +83,7 @@ const local = (dir, href) => href && path.join(dir, href.replace(/^\.\//, '').re
 function auditFiles(app) {
   const dir = path.join(WORKSPACE, app.id);
   const results = [];
-  const add = (id, ok, detail = '', rule = '') => results.push({ id, ok, detail, rule });
+  const add = (id, ok, detail = '', rule = '', warn = false) => results.push(warn ? { id, ok: true, warn: !ok, detail: ok ? '' : detail, rule } : { id, ok, detail, rule });
 
   if (!exists(dir)) { add('repo', false, `${dir} がない（git clone が必要）`); return results; }
   const cloudflare = app.host === 'cloudflare';
@@ -143,6 +143,11 @@ function auditFiles(app) {
     add('他アプリのキャッシュを消さない', !deletes || /startsWith\(|\.test\(k|\.test\(key/.test(sw), '古いキャッシュの削除が自分の接頭辞に限られていない', '§4');
     add('HTTP キャッシュを通さない', /cache:\s*['"]no-cache['"]/.test(sw) && /cache:\s*['"]reload['"]/.test(sw), 'fetch に no-cache、install に reload がない', '§4');
   }
+  // §4 画面のバージョン表示（<span class="ver">）。sw.js があれば VERSION と同じにする
+  const shown = html.match(/class=["']ver["'][^>]*>([^<]+)</)?.[1].trim();
+  const swVer = sw?.match(/const VERSION = ['"]([^'"]+)['"]/)?.[1];
+  add('バージョン表示', !!shown, 'index.html に <span class="ver">v1</span> がない', '§4', true);
+  if (shown && swVer) add('バージョン表示 = sw.js の VERSION', shown === swVer, `画面 ${shown} / sw.js ${swVer}`, '§4');
 
   // §5 スマホ表示
   add('safe-area', /env\(safe-area-inset-/.test(code), '', '§5');
