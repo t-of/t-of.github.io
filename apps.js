@@ -29,8 +29,8 @@ window.TOFO_APPS = [
   {
     id: 'chess-3d',
     name: 'chess-3d',
-    title: '試作 立体チェス',
-    desc: 'three.js で描いた立体の盤で 2 人で指すチェスの試作。駒が跳ねて動き、取られた駒は盤の外へ飛ぶ。',
+    title: '試作 チェス入門（立体の盤）',
+    desc: '駒の動きからメイト、定跡、実戦の局面までを 37 のレッスンで順番に覚えるチェス入門の試作。立体の盤で 2 人で指すこともできる。',
     category: 'game',
     tags: ['試作', 'ボードゲーム'],
     icon: '/chess-3d/icons/icon-192.png',
