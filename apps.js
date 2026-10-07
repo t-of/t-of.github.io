@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'wall-race',
+    name: 'wall-race',
+    title: '試作 壁置き競走（2 人対戦）',
+    desc: '9×13 の盤で、コマを 1 マス動かすか壁を 1 枚立てるかを交互に選び、先に一番上へ着いた方が勝ち。1 台で 2 人で遊ぶ試作。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/wall-race/icons/icon-192.png',
+    color: '#1f2a44',
+  },
+  {
     id: 'chess-3d',
     name: 'chess-3d',
     title: '試作 チェス入門（立体の盤）',
