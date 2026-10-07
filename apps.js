@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'chess-3d',
+    name: 'chess-3d',
+    title: '試作 立体チェス',
+    desc: 'three.js で描いた立体の盤で 2 人で指すチェスの試作。駒が跳ねて動き、取られた駒は盤の外へ飛ぶ。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/chess-3d/icons/icon-192.png',
+    color: '#2b2118',
+  },
+  {
     id: 'national-economy',
     name: 'national-economy',
     title: '試作 ナショナルエコノミー風',
