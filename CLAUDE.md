@@ -41,8 +41,9 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 | リリース | `release` | RELEASE.md の手順で公開し、ポータルに載せ、反映を確かめる |
 | note 運用 | `writer` | note「AIのつかいどころ」の記事の下書き（`~/GitHub/tof/note/`、決まりは GUIDE.md）。投稿はオーナーが手で行う |
 | SNS 運用 | `sns` | X（@tof_label）の投稿の下書きと予定（`docs/private/sns/`、決まりは GUIDE.md）。投稿はオーナーが手で行う |
+| YouTube 運用 | `video` | ずんだもん＆四国めたんの解説動画を、台本から書き出し・サムネイル・概要欄まで作る（`~/GitHub/tof/videos/`、決まりは GUIDE.md）。投稿はオーナーが手で行う |
 
-- モデル: planner だけ Opus（effort medium）。researcher・designer・engineer・writer・sns は Sonnet（medium）、qa は Sonnet（low）、release は Haiku（各ファイルの `model:`・`effort:`）。指定のないエージェント（Explore など）は Sonnet（`.claude/settings.json` の env）。
+- モデル: planner だけ Opus（effort medium）。researcher・designer・engineer・writer・sns・video は Sonnet（medium）、qa は Sonnet（low）、release は Haiku（各ファイルの `model:`・`effort:`）。指定のないエージェント（Explore など）は Sonnet（`.claude/settings.json` の env）。
   engineer を `model: "opus"` で呼ぶのは、Sonnet で 2 回直しきれなかったときだけ。新しいアプリでも、まず Sonnet で作る。
 - 並行で動かすのは 3 人まで。いっせいに利用の上限に当たると、再開するとき全員が会話を一から読み直し、費用が倍になる。
 - engineer・designer には 1 回に 1 つの機能（拡張 1 つ、画面 1 つ）を頼む。大きい仕事は分け、1 つ終わるごとに新しいエージェントで次を頼む（SendMessage で続けない）。文脈が 30 万トークンを超えた呼び出しが、費用の 3 分の 1 を占めていた（2026-10 の集計）。
@@ -79,8 +80,8 @@ https://t-of.github.io/ に公開して、このリポジトリのポータル�
 }
 ```
 
-- `stage`: `idea` → `planning` → `design` → `build` → `qa` → `release` → `live`（公開済み。公開したら projects から消してよい）。アプリでないもの（note 運用部・SNS 運用部など）は `other`（段階の列に出さず、作っているアプリの数にも入れない）
-- `owner`: `researcher` / `planner` / `designer` / `engineer` / `qa` / `release` / `writer` / `sns` / `owner`（オーナーが決める・操作するもの）
+- `stage`: `idea` → `planning` → `design` → `build` → `qa` → `release` → `live`（公開済み。公開したら projects から消してよい）。アプリでないもの（note 運用部・SNS 運用部・YouTube 運用部など）は `other`（段階の列に出さず、作っているアプリの数にも入れない）
+- `owner`: `researcher` / `planner` / `designer` / `engineer` / `qa` / `release` / `writer` / `sns` / `video` / `owner`（オーナーが決める・操作するもの）
 - `status`: `todo`（未着手）/ `doing`（進行中）/ `waiting`（待ち。オーナーの返事など）/ `done`（完了。`doneAt` に日付）/ `skip`（しなくていい。やらないと決めたもの。`doneAt` に決めた日付）
 - `id` は `t` + 連番。今ある一番大きい番号の次にする。
 - `no` はチャットで呼ぶための小さい番号（スタジオに `#3` と出る）。終わっていないタスクだけが持ち、終わると外れて、空いた番号を次のタスクが使う。board.mjs とスタジオが書くたびに自動で振るので手で付けない。オーナーが「3 番」と言ったら `no: 3` のタスク。board.mjs の `set` は `#3` でも指せる。

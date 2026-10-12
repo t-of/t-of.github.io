@@ -13,6 +13,7 @@ export const ROLES = {
   release: { person: '藤井', name: 'リリース', color: '#e2582e', icon: '↑' },
   writer: { person: '岡本', name: 'note', color: '#41c9b4', icon: '✍' },
   sns: { person: '村田', name: 'SNS', color: '#9fcf4a', icon: '#' },
+  video: { person: '小松', name: 'YouTube', color: '#ff5f6d', icon: '▶' },
   secretary: { person: '吉沢', name: '秘書', color: '#a8e05a', icon: '✉' },
   owner: { person: '加瀬', name: 'オーナー', color: '#eceef3', icon: '★' },
 };
@@ -26,8 +27,9 @@ export const PEOPLE = {
   release: ['藤井', '青木', '西村', '福田', '太田', '三浦'],
   writer: ['岡本', '松田', '中川', '中野', '原田', '小川'],
   sns: ['村田', '新井', '菅原', '武田', '上田', '杉山'],
+  video: ['小松', '大野', '千葉', '竹内', '野口', '久保'],
 };
-const ROOM_ORDER = ['director', 'researcher', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer', 'sns'];
+const ROOM_ORDER = ['director', 'researcher', 'planner', 'designer', 'engineer', 'qa', 'release', 'writer', 'sns', 'video'];
 const hash = (s) => { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h; };
 export const leader = (role) => ROLES[role]?.person || ROLES[role]?.name || role;
 // id → 名前。同じ id には常に同じ名前を返す（フロアの札も #feed・成績・タスクの詳細も、この 1 つの名簿を見るので自然に揃う）
@@ -136,7 +138,7 @@ function buildLayout(caps) {
   let W, H, corridor, entrance;
   if (!narrow) {
     const top = ['director', 'researcher', 'planner', 'designer', 'engineer', 'owner'];
-    const bottom = ['qa', 'release', 'writer', 'sns', 'break'];
+    const bottom = ['qa', 'release', 'writer', 'sns', 'video', 'break'];
     W = M * 2 + RW * (top.length - 1) + OW;
     // 各列の最後の部屋（オーナー・休憩）が残りの幅を使う
     const wOf = (row, i) => (i < row.length - 1 ? RW : W - M * 2 - RW * i), xOf = (i) => M + i * RW;
@@ -149,7 +151,7 @@ function buildLayout(caps) {
     const cy = corridor.y + CW / 2;
     entrance = { out: { x: 2, y: cy }, edge: { x: M + 6, y: cy }, end: { x: M + 30, y: cy } };
   } else {
-    const rows = [['director', 'owner'], ['researcher', 'planner'], ['designer', 'engineer'], ['qa', 'release'], ['writer', 'sns'], ['break']];
+    const rows = [['director', 'owner'], ['researcher', 'planner'], ['designer', 'engineer'], ['qa', 'release'], ['writer', 'sns'], ['video', 'break']];
     W = M * 2 + RW * 2 + CW;
     let y = M;
     for (const [l, r] of rows) {
