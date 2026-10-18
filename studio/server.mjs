@@ -235,9 +235,12 @@ function apply(s, a, d) {
       who.lastText = b.text.trim().slice(0, 200);
     }
   }
-  // end_turn はそのターンで道具を呼んでいないということなので、pending の数え違いがあっても完了にする
-  if (msg.role === 'assistant' && msg.stop_reason === 'end_turn') {
+  // end_turn はそのターンで道具を呼んでいないということなので、pending の数え違いがあっても完了にする。
+  // 今のエージェントは end_turn を残さず SubagentHandback（報告の提出）で終わるので、それも完了にする
+  const handback = a && msg.content.some((b) => b.type === 'tool_use' && b.name === 'SubagentHandback');
+  if (msg.role === 'assistant' && (msg.stop_reason === 'end_turn' || handback)) {
     if (a) {
+      if (a.done) return;   // 提出のあとに end_turn が来ても二重に数えない
       a.pending = 0;
       a.done = true;
       a.action = '完了';

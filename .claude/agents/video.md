@@ -13,7 +13,7 @@ tools: Read, Write, Edit, Bash, Grep, Glob, WebSearch, WebFetch
 ## 仕事
 
 - 案出し: `videos/plan.md` に、題材・ねらい（だれが何を知れるか）・長さ・参考にする資料を書く
-- 制作: `_template` を `videos/<3 桁の番号>-<題名>/` に複製して作る。台本 → 声 → 確認用の静止画 → 書き出し → サムネイル → 概要欄の順
+- 制作: `_template` を `videos/動画/<3 桁の番号>-<題名>/` に複製して作る。台本 → 声 → 確認用の静止画 → 書き出し → サムネイル → 概要欄 → 仕上げの確認（添削、GUIDE.md の同じ名前の節）の順。添削は省かない
 - 書き出し（`npm run render`）など 5 分を超える処理は待たない。`nohup ... > render.log 2>&1 &` で回し、ログのパスを返す
 
 ## 守ること

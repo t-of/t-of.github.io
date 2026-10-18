@@ -1,6 +1,6 @@
 {
   "about": "T.OF... のタスクとプロジェクト。スタジオ（npm run studio）の画面から編集できる。エージェントも直接書き換えてよい（書き方は CLAUDE.md）。",
-  "updatedAt": "2026-10-06T09:17:17.525Z",
+  "updatedAt": "2026-10-18T05:38:57.453Z",
   "projects": [
     {
       "id": "note",
@@ -15,6 +15,13 @@
       "stage": "other",
       "created": "2026-09-26",
       "note": "X（@tof_label）の投稿の下書きと予定。担当は sns（Sonnet）、投稿はオーナーが手で行う。決まりと下書きは docs/private/sns/。今は週 1 本（アプリの直しを優先。紹介するのは直しが済んだものだけ）"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube 運用部",
+      "stage": "other",
+      "created": "2026-10-12",
+      "note": "ずんだもん＆四国めたんの解説動画。担当は video（Sonnet）、投稿はオーナーが手で行う。フォルダは ~/GitHub/tof/videos/（決まりは GUIDE.md、雛形は _template）。チャンネルはまだなく、いずれ収益化をめざす"
     },
     {
       "id": "research",
@@ -36,6 +43,13 @@
       "stage": "other",
       "created": "2026-10-06",
       "note": "長方形を相似な長方形で敷き詰める問題（正方形分割の一般化）。~/GitHub/tof/research/similar-rect-tiling/。文献調査は notes/related-work.md"
+    },
+    {
+      "id": "research-disk-packing",
+      "name": "サブ研究: 円盤の詰め込み",
+      "stage": "other",
+      "created": "2026-10-14",
+      "note": "面積 π〜10π などの円盤を最小の円・正方形・長方形…に詰める。~/GitHub/tof/research/disk-packing/。結果の表は README.md"
     },
     {
       "id": "last-three",
@@ -457,9 +471,44 @@
     {
       "id": "sphere-catan",
       "name": "sphere-catan",
+      "stage": "build",
+      "created": "2026-10-06",
+      "note": "試作"
+    },
+    {
+      "id": "national-economy",
+      "name": "national-economy",
       "stage": "qa",
       "created": "2026-10-06",
       "note": "試作"
+    },
+    {
+      "id": "chess-3d",
+      "name": "chess-3d",
+      "stage": "qa",
+      "created": "2026-10-07",
+      "note": "試作"
+    },
+    {
+      "id": "wall-race",
+      "name": "wall-race",
+      "stage": "qa",
+      "created": "2026-10-08",
+      "note": "試作"
+    },
+    {
+      "id": "research-square-packing",
+      "name": "研究: 正方形の詰め込み",
+      "stage": "other",
+      "created": "2026-10-14",
+      "note": "面積 1…n の正方形を収める最小の正方形（~/GitHub/tof/research/square-packing）"
+    },
+    {
+      "id": "research-polygon-packing",
+      "name": "研究: 正多角形の詰め込み",
+      "stage": "other",
+      "created": "2026-10-14",
+      "note": "一辺 1 の正 3〜N 角形を収める最小の正方形"
     }
   ],
   "tasks": [
@@ -9658,32 +9707,29 @@
     {
       "id": "t861",
       "project": "research",
-      "title": "面積 38・42・46 の 2 箱共通展開図に Conway 判定（SAT 列挙を HAKUSAN で）。次: 面積 38 の列挙ジョブ(qsat)が終わったら job_qian_post.sh で復元し 4,468/4,469 を確認→42・46 へ。手順は ~/dev/展開図の研究/スパコンHAKUSAN/README_hakusan.md 末尾、結果は分析/分析_共通展開図の特徴.md §20",
-      "owner": "owner",
-      "status": "waiting",
+      "title": "面積 38〜58 の 2 箱共通展開図に Conway 判定（Qian らの SAT 列挙を HAKUSAN DEF で）。38 の列挙は完了（5,854 解・4,509 形で論文と一致、差は simple 判定だけ）。復元・判定と 42・46・54・58 を投入済み（785971〜785989）。結果は 分析/分析_共通展開図の特徴.md §20",
+      "owner": "experimenter",
+      "status": "done",
       "created": "2026-10-06",
-      "doneAt": null,
-      "no": 8
+      "doneAt": "2026-10-13"
     },
     {
       "id": "t862",
       "project": "research",
-      "title": "simple-phase で 4 箱を探す。70〜82 は 0 個。HAKUSAN で 94（783624）・102（783625）・110（783626）・118（783627）を実行中。結果は 箱の共通展開図/stacked/results_simple_phase.md",
+      "title": "simple-phase で 4 箱を探す。70〜102 は 0 個。110（783626、SINGLE）待ち、118 は 384 分割で DEF×6 本（787545〜787550）に分けて投げ直し（2026-10-07）。結果は 箱の共通展開図/stacked/results_simple_phase.md",
       "owner": "experimenter",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-06",
-      "doneAt": null,
-      "no": 9
+      "doneAt": "2026-10-13"
     },
     {
       "id": "t863",
       "project": "research",
-      "title": "面積 106 より小さい 3 箱の共通展開図を探す。stacked・simple-phase とも 62〜90 は 0 個。simple-phase の 94（783954）・102（783955）を HAKUSAN で実行中",
+      "title": "面積 106 より小さい 3 箱の共通展開図を探す。stacked・simple-phase とも 3 箱のある面積 62〜102 で 0 個（simple-phase 102 は 2.0×10^11 ノードで完走、2026-10-07）。結果は 箱の共通展開図/stacked/results_simple_phase.md",
       "owner": "experimenter",
-      "status": "doing",
+      "status": "done",
       "created": "2026-10-06",
-      "doneAt": null,
-      "no": 10
+      "doneAt": "2026-10-06"
     },
     {
       "id": "t864",
@@ -9727,20 +9773,18 @@
       "project": "carcassonne",
       "title": "最強 CPU 段階3: 画面に強さの選択と Worker（学習したモデルを読む）を入れる",
       "owner": "engineer",
-      "status": "todo",
+      "status": "done",
       "created": "2026-10-06",
-      "doneAt": null,
-      "no": 15
+      "doneAt": "2026-10-07"
     },
     {
       "id": "t869",
       "project": "carcassonne",
       "title": "最強 CPU 段階2: 学習する AI（局面の特徴・小さな NN・自己対局の学習を nohup で一晩）",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-10-06",
-      "doneAt": null,
-      "no": 16,
+      "doneAt": "2026-10-07",
       "note": "HAKUSAN 用ジョブ一式コミット済み（apps/carcassonne/README_hakusan.md）。オーナーが probe → 本番を投入。結果の log を貼ってもらう"
     },
     {
@@ -9872,10 +9916,9 @@
       "project": "deck-builder",
       "title": "HAKUSAN で AI の計測ジョブ（job_ai_bench.sh）を流し、結果を貼る",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-10-06",
-      "doneAt": null,
-      "no": 13
+      "doneAt": "2026-10-06"
     },
     {
       "id": "t882",
@@ -9901,10 +9944,9 @@
       "project": "catan",
       "title": "HAKUSAN で catan の計測ジョブ（jobs/job_ai_bench.sh）を流し、結果を貼る",
       "owner": "owner",
-      "status": "waiting",
+      "status": "done",
       "created": "2026-10-06",
-      "doneAt": null,
-      "no": 14
+      "doneAt": "2026-10-06"
     },
     {
       "id": "t885",
@@ -9914,6 +9956,1718 @@
       "status": "done",
       "created": "2026-10-06",
       "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t886",
+      "project": "sphere-catan",
+      "title": "球面盤に合わせてルールを詰める（仕様書）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t887",
+      "project": "sphere-catan",
+      "title": "球体カタンのルールの決めどころ（仕様書 §決めてほしいこと）を選ぶ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06",
+      "choice": "全部 A（おすすめ）"
+    },
+    {
+      "id": "t888",
+      "project": "sphere-catan",
+      "title": "段階1-前半: ルール（市場・数字・駒の上限・最長交易路・盗賊）とテスト",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t889",
+      "project": "sphere-catan",
+      "title": "段階1-後半: 画面（タイトル・幕・置ける場所へ回す・結果・保存・効果音）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-06",
+      "doneAt": null,
+      "no": 19
+    },
+    {
+      "id": "t890",
+      "project": "sphere-catan",
+      "title": "画面のデザインを整える（手札・得点・建設ボタン・盤の見た目）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t891",
+      "project": "sphere-catan",
+      "title": "画面（得点・手札・ボタン）を通常の catan のデザインに合わせる",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t892",
+      "project": "sphere-catan",
+      "title": "盤（タイル・駒・数字チップ）を通常の catan（2D）の見た目に合わせる",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t893",
+      "project": "sphere-catan",
+      "title": "五角形の港 2 組（4 枚）を土地にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t894",
+      "project": "deck-builder",
+      "title": "HAKUSAN で本番 段階1（基本）を流す: git pull → sbatch -p DEF -n 64 jobs/job_ai.sh base1 0 30 base（約 5 時間の見込み）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t895",
+      "project": "catan",
+      "title": "HAKUSAN で本番を流す: git pull → sbatch -t 12:00:00 jobs/job_ai.sh run1 125（12 時間で止まったら同じコマンドで続き）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t896",
+      "project": "sphere-catan",
+      "title": "ホーム画面・タイトルへ戻るボタン・CPU（CPU 同士の対戦も）を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t897",
+      "project": "sphere-catan",
+      "title": "局面を整数の配列（局面図・337 個）にする encode・decode",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t898",
+      "project": "national-economy",
+      "title": "national-economy の試作（遊べる芯）を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t899",
+      "project": "national-economy",
+      "title": "ルールを詰める（仕様書）: ※の値を確かめ、足りない建物・画面の流れ・決めてほしいこと",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t900",
+      "project": "national-economy",
+      "title": "決めて1: ルールの寄せ方（仕様書 §11）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "仕組みも建物も原作寄せ（公開前に名前・値を少し変える）★",
+        "B": "仕組みだけ原作寄せ、建物は今の独自案を直す",
+        "C": "今のまま、賃金などの値だけ直す"
+      },
+      "choice": "A",
+      "comment": "全て原作通り（チャットで）"
+    },
+    {
+      "id": "t901",
+      "project": "national-economy",
+      "title": "決めて2: 原作で分からなかった点（仕様書 §11）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "職場 1 か所 1 人・大工は人数−1・消費財は尽きない★",
+        "B": "家計を使う職場は 3〜4 人なら何人でも",
+        "C": "大工は人数ぶん（2015 版）"
+      },
+      "choice": "A",
+      "comment": "調べて確定: 1 職場 1 人・大工は 1/1/2/3・家計に足りないと使えない・消費財 24 枚で戻る"
+    },
+    {
+      "id": "t902",
+      "project": "national-economy",
+      "title": "決めて3: 賃金が払えず建物を売るとき",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06",
+      "choices": [
+        "A",
+        "B"
+      ],
+      "choiceLabels": {
+        "A": "自分で選ぶ（おすすめを最初から選んでおく）★",
+        "B": "今のまま自動"
+      },
+      "choice": "A",
+      "comment": "自分で選ぶ（チャットで）"
+    },
+    {
+      "id": "t903",
+      "project": "national-economy",
+      "title": "決めて4: CPU の強さ",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "choiceLabels": {
+        "A": "ふつう・つよいの 2 段★",
+        "B": "ふつうだけ",
+        "C": "3 段"
+      },
+      "choice": "C",
+      "comment": "3段階（チャットで）"
+    },
+    {
+      "id": "t904",
+      "project": "national-economy",
+      "title": "段階1: ルールを原作どおりに直す（engine.js）と test.mjs",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t905",
+      "project": "national-economy",
+      "title": "CPU（ふつう）を直す: 建物が平均 1 つ・売りすぎ。CPU 同士 1000 局で数字を見る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t906",
+      "project": "national-economy",
+      "title": "段階2: タイトル・設定（人数・CPU の強さ 3 段）・保存（仕様書 §8）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-06",
+      "doneAt": null,
+      "no": 17
+    },
+    {
+      "id": "t907",
+      "project": "national-economy",
+      "title": "カードのデザイン案（B 工業ポスターに決定）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t908",
+      "project": "national-economy",
+      "title": "カードを B（工業ポスター）の見た目にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t909",
+      "project": "national-economy",
+      "title": "公共の職場・建てた建物のカードも工業ポスター風にする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t910",
+      "project": "national-economy",
+      "title": "ラウンド・お金・未払い賃金・勝利点・労働者の見た目を作る",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t911",
+      "project": "national-economy",
+      "title": "公共の職場のカードを手札と同じ大きさにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t912",
+      "project": "national-economy",
+      "title": "PC で画面いっぱいに使い、ページをスクロールさせない",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-06"
+    },
+    {
+      "id": "t913",
+      "project": "research",
+      "title": "1 枚で何種類の等面四面体に折れるか（HAKUSAN）。全ポリオミノは面積 18 で最大 15 種、面積 20 は最大 13 種（786602 完了、増えない）。1×1×n の 2 段の帯は面積に比例して増える（118 で 76 種）、長方形なしは 3 段の帯で 9 種。fold-viewer に 9 本公開。結果は 分析/分析_共通展開図の特徴.md §21",
+      "owner": "experimenter",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t914",
+      "project": "research",
+      "title": "共通展開図の特徴を多面的に分析（§22）。面積 22・30・38・42・46 で集計済み（ターン列が最も効き、市松の白黒は差なし。46 はランダムとの比較だけ）。面積 34 の特徴を HAKUSAN に投入（815311〜815314、待ち）。結果は 分析/分析_共通展開図の特徴.md §22",
+      "owner": "experimenter",
+      "status": "doing",
+      "created": "2026-10-06",
+      "doneAt": null,
+      "no": 10
+    },
+    {
+      "id": "t915",
+      "project": "carcassonne",
+      "title": "AI 作り直し: 既存の Carcassonne AI・戦略の調べもの（論文・公開ボット・上級者の定石）",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t916",
+      "project": "carcassonne",
+      "title": "AI 作り直し: 対局データを集めて分析する道具（得点の内訳・ミープルの使い方・評価のずれ）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-06",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t917",
+      "project": "carcassonne",
+      "title": "AI 作り直し: 探索の変種を HAKUSAN で打ち比べて最強の形を探す（docs/ai-research.md）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t918",
+      "project": "catan",
+      "title": "AI 段階 5: 席の種類「AI（実験中）」を画面に入れる（keep3 gen 125、vs つよい 3 人 42%）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t919",
+      "project": "carcassonne",
+      "title": "つよい CPU を複数の Worker で並列に読み、読む量を増やす（ai-research.md 案 6）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t920",
+      "project": "deck-builder",
+      "title": "特化 AI の作り直し: おすすめ王国ごとの定石・デッキの特徴を調べ、学習に足す別の攻め方を出す（p-first は vs 汎用 45〜49% で失敗）",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t921",
+      "project": "carcassonne",
+      "title": "HAKUSAN で ensemble:4 対 1 本の 512 局を流す（jobs/job_ensemble.sh。ssh の sbatch が権限で止まった）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t922",
+      "project": "catan",
+      "title": "AI（実験中）の席をブラウザで触って確かめる（Worker・最後まで進むか・360 幅・オフライン）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t923",
+      "project": "deck-builder",
+      "title": "特化 AI: 微調整の手順の穴を塞ぐ（p-first は 15 世代すべて不採用で best が gen 0 のまま。ACCEPT・測る局数・元のモデルに寄せる項）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t924",
+      "project": "deck-builder",
+      "title": "特化 AI: 買い方表を進化で作る道具（first から。ai-specialize.md §3-1）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t925",
+      "project": "deck-builder",
+      "title": "HAKUSAN で特化の 2 本を流す（p-first2 の微調整やり直し・e1 の買い方表の進化。ssh の sbatch が権限で止まる）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t926",
+      "project": "national-economy",
+      "title": "カードを 1 枚ずつ別のイラストに：見本 6 枚の方向性を見て決める（Design キャンバス）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t927",
+      "project": "national-economy",
+      "title": "カードを新しいデザインにする（色の帯・中央の名前・種類アイコン・絵の枠・中央の効果文）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t928",
+      "project": "national-economy",
+      "title": "カードの絵: 農業・工業・商業の建物と公共の店・万博（15 枚）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t929",
+      "project": "national-economy",
+      "title": "カードの絵: 施設と公共の採石場・学校・大工など（14 枚）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t930",
+      "project": "national-economy",
+      "title": "カードを暗くするのは自分の番で選べないときだけにする（v17）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t931",
+      "project": "national-economy",
+      "title": "自分の番は自分の建物を手札の上・隣に同じ大きさで並べる（v18）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t932",
+      "project": "national-economy",
+      "title": "勝利点を隠し、終わりに数え上げて見せる（v19）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t933",
+      "project": "national-economy",
+      "title": "後継の「メセナ」「グローリー」を遊べるようにする: ルールを調べて仕様書に足す",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t934",
+      "project": "national-economy",
+      "title": "決めて: メセナ・グローリー（仕様書 §11 の 6〜10）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07",
+      "choice": "B",
+      "comment": "6 は推定値で作りあとで直す（調べは別に続ける）。7〜10 はおすすめ"
+    },
+    {
+      "id": "t935",
+      "project": "national-economy",
+      "title": "E1 作品を選ぶ土台（タイトルの切り替え・設定と戦績に作品）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t936",
+      "project": "national-economy",
+      "title": "メセナ 12 種・グローリー 5 種の分からない値を探す",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t937",
+      "project": "national-economy",
+      "title": "E2 共通の仕組み（勝利点トークン・費用が変わる建物・2 つ建て・複数の種類）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t938",
+      "project": "research",
+      "title": "等面四面体の展開図の先行研究を調べ、§21（何種類の等面四面体に折れるか）の新規性を判断する。結果は 先行研究/調査_等面四面体_2026-10-07.md",
+      "owner": "surveyor",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t939",
+      "project": "research",
+      "title": "立方体の展開図 11 個を自由な貼り合わせで折って 12 面体（三角形 12 枚）ができるか。DDLO のラテン十字で検証。次の段は一般のポリオミノで探索。結果は 十二面体/results.md",
+      "owner": "experimenter",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t940",
+      "project": "national-economy",
+      "title": "E3 メセナのカード 27 種とルール",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t941",
+      "project": "national-economy",
+      "title": "決めて: 家計の職場（露店〜万博）を 3〜4 人なら何人でも使えるようにするか（カードの印刷どおり）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07",
+      "choice": "A",
+      "comment": "カード通りで"
+    },
+    {
+      "id": "t942",
+      "project": "national-economy",
+      "title": "G1 グローリーの仕組み（機械人形・2 人同時の職場・遺跡・2 択の効果）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t943",
+      "project": "national-economy",
+      "title": "E5 メセナのカードの絵（1/3: 9 枚）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t944",
+      "project": "national-economy",
+      "title": "E5 メセナのカードの絵（2/3: 9 枚）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t945",
+      "project": "national-economy",
+      "title": "E5 メセナのカードの絵（3/3: 9 枚）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t946",
+      "project": "national-economy",
+      "title": "G2 グローリーのカード 26 種",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t947",
+      "project": "national-economy",
+      "title": "G3 グローリーの CPU を整える（未払い 14〜21% を減らす）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t948",
+      "project": "national-economy",
+      "title": "G4 グローリーのカードの絵（1/3: 9 枚）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t949",
+      "project": "national-economy",
+      "title": "G4 グローリーのカードの絵（2/3: 9 枚）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t950",
+      "project": "national-economy",
+      "title": "G4 グローリーのカードの絵（3/3: 9 枚）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t951",
+      "project": "national-economy",
+      "title": "無印の開拓民・二胡市建設の絵（2 枚）",
+      "owner": "designer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t952",
+      "project": "national-economy",
+      "title": "メセナ・グローリーを 1 局ずつ遊んで、変な手・表示崩れがないか見る（v25）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07",
+      "comment": "遊べた"
+    },
+    {
+      "id": "t953",
+      "project": "national-economy",
+      "title": "E4 メセナの CPU を整える（オーナーが遊んだあと）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t954",
+      "project": "research",
+      "title": "面 12 の凸多面体（三角形 12 枚、全頂点の曲率 π/2）に自由な貼り合わせで折れるポリオミノを探す。立方体の展開図 11 個は立方体にしかならない（済）。結果は 十二面体/results.md",
+      "owner": "experimenter",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t955",
+      "project": "research",
+      "title": "fold-viewer に 1×1×2 と 12 面体（面積 10）の共通展開図 dodeca_a10 を追加。コミット済み、push はオーナー待ち",
+      "owner": "experimenter",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t956",
+      "project": "national-economy",
+      "title": "家計の職場（露店〜万博）を 3〜4 人なら何人でも使えるようにする",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t957",
+      "project": "research",
+      "title": "12 面体のやり残し（格子点の補題の証明、藤田 2019 の表との照合、ラテン十字 21/23 種の原因、アプリに LPZ の出典）。一覧は 十二面体/README.md の「やり残し」",
+      "owner": "director",
+      "status": "todo",
+      "created": "2026-10-07",
+      "doneAt": null,
+      "no": 13
+    },
+    {
+      "id": "t958",
+      "project": "chess-3d",
+      "title": "立体チェスの最小版を作る（three.js・駒のアニメーション）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t959",
+      "project": "chess-3d",
+      "title": "チェスを 1 から学ぶ教材の仕様を作る（レッスンの順番と各回の中身）",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t960",
+      "project": "chess-3d",
+      "title": "教材 段1: 枠と第1章（レッスン1〜7）を実装する",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t961",
+      "project": "chess-3d",
+      "title": "教材 段2: レッスン8〜16（取る・チェック・特別な手・引き分け・駒の価値）を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t962",
+      "project": "chess-3d",
+      "title": "教材 段3: レッスン17〜24（基本のメイト・序盤・戦術・卒業テスト）と卒業表示",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t963",
+      "project": "chess-3d",
+      "title": "チェス入門を触って確かめ、名前・アイコンを決める",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-07",
+      "doneAt": null,
+      "no": 14
+    },
+    {
+      "id": "t964",
+      "project": "chess-3d",
+      "title": "教材に定跡の章と実戦の局面の章を足す仕様を書く",
+      "owner": "planner",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t965",
+      "project": "chess-3d",
+      "title": "教材 段4: 黒番の仕組みと第8章 定跡（仕様 §13）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t966",
+      "project": "chess-3d",
+      "title": "教材 段5: 第9章 実戦の局面と line の照合テスト（仕様 §13）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t967",
+      "project": "wall-race",
+      "title": "試作の最小版を作る（9×13 の壁置き競走）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t968",
+      "project": "wall-race",
+      "title": "CPU と対戦・CPU 同士の対戦を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t969",
+      "project": "wall-race",
+      "title": "CPU を先読みの探索で強くする（v3）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t970",
+      "project": "wall-race",
+      "title": "壁の枚数制限をなくし、壁を置いた人の色にする（v4）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t971",
+      "project": "wall-race",
+      "title": "CPU の速さを選べるようにする（v5）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t972",
+      "project": "wall-race",
+      "title": "学習 AI 段階 1: 価値ネットと自己対局の学習の仕組み（ローカル）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-07",
+      "doneAt": null,
+      "no": 15,
+      "thread": [
+        {
+          "by": "director",
+          "text": "夜の学習: 盤面を読む網（v1〜v4）は伸びず。手書き2（壁1枚で延ばせる歩数を足した評価）が今のCPUに節点そろえて72%。いまスカラー6個の小さな網（v5）を学習中で手書き2に54%。詳しくは DECISIONS.md。",
+          "at": "2026-10-07T21:09:25.759Z"
+        },
+        {
+          "by": "director",
+          "text": "v5 はオーナーの指示で 25 世代で止めた（10/8 朝）。gen 18 が手書き2に 56% で1度だけ採用、その後は横ばい〜低下。",
+          "at": "2026-10-07T23:55:04.445Z"
+        }
+      ]
+    },
+    {
+      "id": "t973",
+      "project": "wall-race",
+      "title": "CPU の読みを速くする（v6）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-07",
+      "doneAt": "2026-10-07"
+    },
+    {
+      "id": "t974",
+      "project": "research",
+      "title": "共通展開図の格子点ごとの特徴（§23）を HAKUSAN で集計",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-08",
+      "doneAt": "2026-10-08"
+    },
+    {
+      "id": "t975",
+      "project": "research",
+      "title": "§23 面積 38 の箱の角の位置：片方だけの標本を増やして確かめる（HAKUSAN）",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-08",
+      "doneAt": "2026-10-08"
+    },
+    {
+      "id": "t976",
+      "project": "research",
+      "title": "半整数の箱（辺 1/2 の倍数）に折れるポリオミノがあるか：面積 8〜16 全部と面積 22 の共通展開図（HAKUSAN 794328）",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-08",
+      "doneAt": "2026-10-09"
+    },
+    {
+      "id": "t977",
+      "project": "research",
+      "title": "面積 64 の 4 箱（1×2×10・2×2×7・2×4×4・√2 箱）を局所探索で探す：まず面積 22・30 で方法を確かめる",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-08",
+      "doneAt": "2026-10-08"
+    },
+    {
+      "id": "t978",
+      "project": "research",
+      "title": "面積 64 の局所探索 mb_ls を HAKUSAN で：4 箱（23 時間）と 3 箱 3 組（6 時間）",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-08",
+      "doneAt": "2026-10-13"
+    },
+    {
+      "id": "t979",
+      "project": "research",
+      "title": "mb_ls の改良（細かい評価・複数マスの付け替え）：面積 30 の 3 箱で旧版と比べる",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-09",
+      "doneAt": "2026-10-13"
+    },
+    {
+      "id": "t980",
+      "project": "youtube",
+      "title": "YouTube のチャンネルを作る（ずんだもんの論文ゼミ【ゆる論文解説】・@zunda_paper、素材は videos/channel/）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-13"
+    },
+    {
+      "id": "t981",
+      "project": "youtube",
+      "title": "最初の動画の題材を決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t982",
+      "project": "youtube",
+      "title": "ナイト交換パズルの論文の解説動画を作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t983",
+      "project": "youtube",
+      "title": "ナイト交換の導入ショート動画を作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t984",
+      "project": "youtube",
+      "title": "ナイト交換の動画に坂本アヒルさんの立ち絵を入れる",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t985",
+      "project": "youtube",
+      "title": "サムネイルに立ち絵、動画の終わりを登録・いいねの画面に",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t986",
+      "project": "youtube",
+      "title": "チャンネル開設用のアイコン・バナー・説明文を作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t987",
+      "project": "youtube",
+      "title": "論文ネタの候補を 20 本探す（videos/ideas.md）",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t988",
+      "project": "youtube",
+      "title": "002 テトリスは近似すら難しい（2002年の論文）の解説動画を作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t989",
+      "project": "youtube",
+      "title": "002 テトリスのショート動画を作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t990",
+      "project": "youtube",
+      "title": "002 本編の図の直し（容器からのはみ出し・重なり・改行位置・回転の矢印）",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12",
+      "thread": [
+        {
+          "by": "director",
+          "text": "帰宅まで中断（2026-10-12 19:30ごろ）。scenes.tsx・lib.tsx・Main.tsx は直しかけ。再開したら新しい video 担当に、差分を見て続き（静止画で全場面を確認→render_parts.sh で書き出し→ショートも確認）を頼む。",
+          "at": "2026-10-12T10:28:46.589Z"
+        }
+      ]
+    },
+    {
+      "id": "t991",
+      "project": "youtube",
+      "title": "003 ゴキブリのミルク（イグノーベル化学賞 2026）の解説動画を作る（オーナーの確認・投稿待ち）",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-12",
+      "doneAt": null,
+      "no": 24
+    },
+    {
+      "id": "t992",
+      "project": "youtube",
+      "title": "003 本編の添削（図形のずれ・文字・中身・流れ）と直し",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t993",
+      "project": "youtube",
+      "title": "004 任天堂ゲーム（マリオ・ゼルダ・ポケモン）は計算上「難しい」の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t994",
+      "project": "youtube",
+      "title": "004 任天堂の本編・ショートを見て投稿（videos/動画/004-nintendo/投稿用/）",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-12",
+      "doneAt": null,
+      "no": 23
+    },
+    {
+      "id": "t995",
+      "project": "youtube",
+      "title": "005 マリオには「解けない面」が作れる（決定不能）の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t996",
+      "project": "youtube",
+      "title": "雛形を最新の作り（縦のショート・立ち絵・字幕の改行の直し）にそろえ、ショートを冒頭重視にする",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t997",
+      "project": "youtube",
+      "title": "004 本編「NP困難とは」の図の切れを直す",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t998",
+      "project": "youtube",
+      "title": "S01 ショート単発: P・NP・NP困難をわかりやすく（約1分）",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t999",
+      "project": "youtube",
+      "title": "005 マリオの解けない面の本編・ショートを見て投稿（videos/動画/005-mario-undecidable/投稿用/）",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-12",
+      "doneAt": null,
+      "no": 25
+    },
+    {
+      "id": "t1000",
+      "project": "youtube",
+      "title": "006 キャンディクラッシュも NP 困難の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12",
+      "thread": [
+        {
+          "by": "director",
+          "text": "オーナーの指示で 005 までで止めた（2026-10-12）。006 の作りかけは videos/動画/006-candy-crush/ に残っている。再開の合図を待つ。",
+          "at": "2026-10-12T13:26:28.783Z"
+        }
+      ]
+    },
+    {
+      "id": "t1001",
+      "project": "youtube",
+      "title": "S01 ショートの冒頭を「100万ドル」から始める",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1002",
+      "project": "youtube",
+      "title": "004・005 の終わりの画面を、めたんのお礼＋ずんだもんの登録のお願いに直す",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1003",
+      "project": "youtube",
+      "title": "006 キャンディクラッシュの本編・ショートを見て投稿（videos/動画/006-candy-crush/投稿用/）",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-12",
+      "doneAt": null,
+      "no": 27
+    },
+    {
+      "id": "t1004",
+      "project": "youtube",
+      "title": "006 の直し（削った説明を戻す・枠からのはみ出し・読み：みっつ／いって／3段の間）",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1005",
+      "project": "youtube",
+      "title": "007 数独は「別の解を探す」ことまで難しい の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1006",
+      "project": "youtube",
+      "title": "008 マインスイーパーは NP 完全 の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1007",
+      "project": "youtube",
+      "title": "t01 話題の論文「AIはなぜウソをつくのか」の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1008",
+      "project": "youtube",
+      "title": "009 ぷよぷよの最大連鎖は NP 困難 の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1009",
+      "project": "youtube",
+      "title": "t02 話題の論文（カチョ・エ・ペペのダマ、2025 イグ・ノーベル物理学賞）の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1010",
+      "project": "youtube",
+      "title": "010 ハナビは手札が見えていても NP 困難 の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1011",
+      "project": "youtube",
+      "title": "011 レミングスは PSPACE 完全 の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1012",
+      "project": "youtube",
+      "title": "012 パックマンは NP 困難 の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1013",
+      "project": "youtube",
+      "title": "011 レミングスの直し（場面 04 の字幕がカードに重なる・05 の浮いた文字）",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1014",
+      "project": "youtube",
+      "title": "013 ルービックキューブの最短手は NP 完全 の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1015",
+      "project": "youtube",
+      "title": "007〜011・t01・t02 の mp4 を長い字幕の瞬間で点検（字幕とカードの重なり）",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1016",
+      "project": "youtube",
+      "title": "t02 の直し（場面 08 のカードが 4 行の字幕に食い込む・03 のぎりぎり）",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1017",
+      "project": "youtube",
+      "title": "014 ポータルの部屋を解くのは PSPACE 完全 の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1018",
+      "project": "youtube",
+      "title": "015 2048（と Threes!）は難しい の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1019",
+      "project": "youtube",
+      "title": "016 折り紙「平らにたためるか」は NP 困難 の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1020",
+      "project": "youtube",
+      "title": "017 マジック・ザ・ギャザリングはチューリング完全 の本編＋ショートを作る",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-13"
+    },
+    {
+      "id": "t1021",
+      "project": "youtube",
+      "title": "012〜015 の mp4 を長い字幕・図の文字で点検",
+      "owner": "qa",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1022",
+      "project": "youtube",
+      "title": "012・013 の直し（ステッカー・対応表が字幕に重なる）",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-13"
+    },
+    {
+      "id": "t1023",
+      "project": "youtube",
+      "title": "014・015・016 の直し（カードの食い込み・円の線の文字・ぎりぎり・小さい字）",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-13"
+    },
+    {
+      "id": "t1024",
+      "project": "youtube",
+      "title": "007〜016・t01・t02 の読みを全セリフ点検して直す（数独→カズドク・行→クダリ など）",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-13",
+      "thread": [
+        {
+          "by": "director",
+          "text": "OS アップデートで一時停止（2026-10-13 14:10）。続きは videos/再開メモ_20261013.md の末尾。",
+          "at": "2026-10-13T05:07:07.616Z"
+        }
+      ]
+    },
+    {
+      "id": "t1025",
+      "project": "youtube",
+      "title": "ショートの終わりの画面を切る（済 003〜009、残り 010〜016・s01・t01・t02）。再開は videos/再開メモ_20261013.md",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-12",
+      "doneAt": "2026-10-12"
+    },
+    {
+      "id": "t1026",
+      "project": "research",
+      "title": "1×1×n 多重折りの最大：櫛形の補題 B を証明（多重折り/証明_1x1xn.md）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-13",
+      "doneAt": "2026-10-13"
+    },
+    {
+      "id": "t1027",
+      "project": "research",
+      "title": "1×1×n 多重折り：補題 A は「帯があれば櫛形」まで証明済み。残りは A*（3 通り以上なら帯がある）。証明_1x1xn.md",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-10-13",
+      "doneAt": null,
+      "no": 31
+    },
+    {
+      "id": "t1028",
+      "project": "research",
+      "title": "面積 64：種を HAKUSAN で 1,081〜3,215 個作り、2 箱の族を収穫して 3・4 箱目を判定（3 組、812160〜812165）→ 3 組とも 0 個（AB は 4,000 万で打ち切り）。結果は 箱の共通展開図/results.md「収穫器 harvest」",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-13",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t1029",
+      "project": "research",
+      "title": "開いた箱 3 種以上の共通展開図：26 は 3 種なし。38・41・44（MINBOX=3）を HAKUSAN に投入（812152〜812154）。結果は 開いた箱/results_common.md",
+      "owner": "researcher",
+      "status": "doing",
+      "created": "2026-10-13",
+      "doneAt": null,
+      "no": 16
+    },
+    {
+      "id": "t1030",
+      "project": "research",
+      "title": "研究計画書のときに修論の組み方を選ぶ（案の一覧は アイデア/修論の案_2026-10-13.md）",
+      "owner": "owner",
+      "status": "todo",
+      "created": "2026-10-13",
+      "doneAt": null,
+      "no": 21
+    },
+    {
+      "id": "t1031",
+      "project": "youtube",
+      "title": "007〜017・t01・t02 の本編・ショートを見て投稿（010 は前編・後編。各 videos/動画/<動画>/投稿用/）",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-13",
+      "doneAt": null,
+      "no": 8
+    },
+    {
+      "id": "t1032",
+      "project": "research",
+      "title": "ナイトツアー: 面積22の共通展開図2,263種で共通ナイトツアーを全部調べる",
+      "owner": "experimenter",
+      "status": "done",
+      "created": "2026-10-14",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t1033",
+      "project": "research",
+      "title": "開いた箱の斜め折り・半整数の箱を調べる（5〜11 は 0、12・13 実行中）",
+      "owner": "owner",
+      "status": "skip",
+      "created": "2026-10-14",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t1034",
+      "project": "research",
+      "title": "ナイトツアー: 面積34の共通展開図(1×1×8と1×2×5)で共通ナイトツアーを全部調べる",
+      "owner": "experimenter",
+      "status": "done",
+      "created": "2026-10-14",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t1035",
+      "project": "research-square-packing",
+      "title": "n=1〜10 の最小の一辺を厳密に求める（軸に平行）",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-14",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t1036",
+      "project": "research-polygon-packing",
+      "title": "N=3〜12 の最小の正方形を数値探索（上界）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-14",
+      "doneAt": null,
+      "no": 20
+    },
+    {
+      "id": "t1037",
+      "project": "research",
+      "title": "分割展開図: 展開図を 2 つの展開図に分ける研究の先行研究を調べる",
+      "owner": "researcher",
+      "status": "done",
+      "created": "2026-10-14",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t1038",
+      "project": "research",
+      "title": "分割展開図: 面積 16・22・24 で A の展開図を B・C の展開図に分けるものを全部数える",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-14",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t1039",
+      "project": "research",
+      "title": "分割展開図: 3 分割を面積 18・22 で数える（片側だけ 2 段の版も）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-14",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t1040",
+      "project": "research",
+      "title": "分割展開図: 2 段の分割（面積 32, 2×2×3）を貼り合わせで探す見積もりと実装",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-14",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t1041",
+      "project": "research",
+      "title": "分割展開図: 面積 30 の共通展開図 1,070 個を 1×1×1 + 1×1×2 + 1×1×3 に 3 分割できるか",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-14",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t1042",
+      "project": "research",
+      "title": "分割展開図: 3 分割の動画（A が開く → 3 つに分かれる → 3 つの箱に折れる）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-14",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t1043",
+      "project": "research",
+      "title": "分割展開図: 動画に共通展開図の場面を足す（1×3×3 → 開く → 1×1×7 → 開く → 3 分割）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-14",
+      "doneAt": "2026-10-14"
+    },
+    {
+      "id": "t1044",
+      "project": "youtube",
+      "title": "006 の「3万京」を「3垓」に直して書き出し直す",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-15",
+      "doneAt": "2026-10-15"
+    },
+    {
+      "id": "t1045",
+      "project": "youtube",
+      "title": "メンガーのスポンジのナイトツアー（オーナーの研究）の動画: 台本（投稿しない・オーナー用）",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-15",
+      "doneAt": "2026-10-15"
+    },
+    {
+      "id": "t1046",
+      "project": "youtube",
+      "title": "メンガーのナイトツアーの動画: 演出と書き出し・添削（投稿しない・オーナー用）",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-15",
+      "doneAt": "2026-10-15"
+    },
+    {
+      "id": "t1047",
+      "project": "research",
+      "title": "分割展開図: n 個のすべて違う箱に分ける（n=4 面積46・n=5 面積64…の例探し）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-15",
+      "doneAt": "2026-10-15"
+    },
+    {
+      "id": "t1048",
+      "project": "research",
+      "title": "分割展開図: n=7（すべて違う箱）を HAKUSAN で探すか決める",
+      "owner": "owner",
+      "status": "done",
+      "created": "2026-10-15",
+      "doneAt": "2026-10-16"
+    },
+    {
+      "id": "t1049",
+      "project": "youtube",
+      "title": "メンガーの動画の直し: てんとう虫の読み、4:37 の展開図を立体から開く動きに",
+      "owner": "video",
+      "status": "done",
+      "created": "2026-10-15",
+      "doneAt": "2026-10-15"
+    },
+    {
+      "id": "t1050",
+      "project": "research",
+      "title": "分割展開図: n=7 の HAKUSAN ジョブ（828795 1×1×31・828796 3×4×6）の結果を集める",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-16",
+      "doneAt": "2026-10-17"
+    },
+    {
+      "id": "t1051",
+      "project": "research",
+      "title": "共通展開図: 四・六・八・十二・二十面体（正でなくてよい）に同時に折れる形を探す",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-16",
+      "doneAt": null,
+      "no": 22,
+      "thread": [
+        {
+          "by": "director",
+          "text": "2026-10-16: 正二十面体の辺展開図（三角形 20 枚）1 枚で 4・6・8・12・20 面すべてに折れる例を発見（多面数/ dce0b89）。個数の確定（約 90 分）は未着手。",
+          "at": "2026-10-16T02:42:53.397Z"
+        },
+        {
+          "by": "director",
+          "text": "fold-viewer に 2 つ公開（multi_poly_a10・multi_ico_5solids、ef39293）。",
+          "at": "2026-10-16T02:57:07.150Z"
+        },
+        {
+          "by": "director",
+          "text": "記録 11 種類（4,5,6,8,9,10,11,12,14,16,20、a4ba302）。全 8,293 形を HAKUSAN job 829144 に投入（~/hakusan_poly、約 3.3 時間見込み）。",
+          "at": "2026-10-16T03:27:05.197Z"
+        },
+        {
+          "by": "director",
+          "text": "記録探しの残り 8,293 形を手元で nohup 実行中（多面数/work/rec_local.jsonl、約 19 時間）。HAKUSAN 829144 も待機のまま。",
+          "at": "2026-10-16T03:44:11.542Z"
+        },
+        {
+          "by": "director",
+          "text": "HAKUSAN 829445 完了: 貼り合わせ ≥20 の全形で最多 11 種類（15 形）。13・15・17〜19 面は出ない。残り 12〜19 の 12,936 形を手元で実行中（約 20 時間）。",
+          "at": "2026-10-17T05:46:40.674Z"
+        },
+        {
+          "by": "director",
+          "text": "逆向き探索（de23132）: 面積 20 の格子デルタ面 134 個。7・13・15・17〜19 面は面積 20 の格子立体に存在しない。正二十面体の展開図は D=2 全部で最多 11（16 形）で確定、計算は約 600 倍速。次は面積 22・24（13・17・18 面がある）。",
+          "at": "2026-10-17T06:47:47.541Z"
+        },
+        {
+          "by": "director",
+          "text": "面積 22 で 13 種類（fold-viewer 公開）。面積 24 は PC を閉じるため停止（rev22_chain.sh s14 の途中）。再開はオーナーの合図で。",
+          "at": "2026-10-17T13:30:56.459Z"
+        },
+        {
+          "by": "director",
+          "text": "面積 24（一般の格子デルタ面）: 最多 13 種類 {4..14,16,17}（2 形）、記録 13 に並ぶ。面積 22 の 13 種類は 18 入り。",
+          "at": "2026-10-18T05:38:57.447Z"
+        }
+      ]
+    },
+    {
+      "id": "t1052",
+      "project": "research",
+      "title": "多面数: ねじれ双四角錐 J17（デルタ 16 面体）の展開図で、正四面体＋何種類の面数に折れるか探す",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-16",
+      "doneAt": null,
+      "no": 26,
+      "thread": [
+        {
+          "by": "director",
+          "text": "J17: 正四面体に折れる形 87（Araki ら 2016 と一致）。87 形を全部復元し、最多 10 種類 {4,5,6,7,8,10,11,12,14,16}（正四面体と J17 自身を含む）。c4957b7。",
+          "at": "2026-10-16T03:44:11.398Z"
+        }
+      ]
+    },
+    {
+      "id": "t1053",
+      "project": "research",
+      "title": "多面数: ジョンソンの立体の辺展開図で面数の種類を探す（デルタ J12・J13・J51・J84 → 正方形入り J1 など）",
+      "owner": "engineer",
+      "status": "todo",
+      "created": "2026-10-16",
+      "doneAt": null,
+      "no": 28
+    },
+    {
+      "id": "t1054",
+      "project": "research",
+      "title": "fold-viewer に分割展開図（n=4・5・6、すべて違う箱）を足す",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-16",
+      "doneAt": "2026-10-16"
+    },
+    {
+      "id": "t1055",
+      "project": "research",
+      "title": "fold-viewer 分割ページ: 長い方を横に、その場で折る（大移動なし）",
+      "owner": "engineer",
+      "status": "done",
+      "created": "2026-10-16",
+      "doneAt": "2026-10-16"
+    },
+    {
+      "id": "t1056",
+      "project": "research",
+      "title": "再折り: 正多面体を再折りの列でつなぐ手数を縮める（まず立方体・正八面体・正二十面体の共通の等面四面体）",
+      "owner": "engineer",
+      "status": "doing",
+      "created": "2026-10-16",
+      "doneAt": null,
+      "no": 29
+    },
+    {
+      "id": "t1057",
+      "project": "research",
+      "title": "分割展開図: n=8（すべて違う箱）は保留。最小は面積 132 = A 2×3×12、部品は n=7 の 7 つ + 2×2×2",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-16",
+      "doneAt": null,
+      "no": 30
+    },
+    {
+      "id": "t1058",
+      "project": "research",
+      "title": "分割展開図: 両方とも共通の 62=22+40 を一覧なしで直接探す — オーナーの指示で保留（再開の合図待ち）",
+      "owner": "owner",
+      "status": "waiting",
+      "created": "2026-10-16",
+      "doneAt": null,
+      "no": 32
     }
   ],
   "ideas": []
