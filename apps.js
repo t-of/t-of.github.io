@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'merge-chess',
+    name: 'merge-chess',
+    title: '試作 マスがつながるチェス（2 人対戦）',
+    desc: '中央のマスがところどころ長方形につながった盤で遊ぶチェス。つながったマスに入った駒は、その中のどのマスからでも動ける。地形は対局ごとに変わる。1 台で 2 人で遊ぶ試作。',
+    category: 'game',
+    tags: ['試作', 'ボードゲーム'],
+    icon: '/merge-chess/icons/icon-192.png',
+    color: '#1b1f2a',
+  },
+  {
     id: 'wall-race',
     name: 'wall-race',
     title: '試作 壁置き競走（2 人対戦）',
