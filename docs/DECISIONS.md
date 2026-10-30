@@ -369,3 +369,4 @@ Playwright で `channel: 'chrome'` を付けると、headless でも普段の Go
 - RULES §13 の例外（2026-10-30、オーナーの判断）: 完全版の案内（購入・復元のある画面）に、ごほうび広告のボタン「広告を見て 1 回遊ぶ」を並べたままにする。§13 は「購入・復元の画面に広告を出さない」だが、広告そのものはこの画面に出ず、押した人だけ別の全画面で見る。ボタンの下にプライバシーポリシーへのリンクを置いた。
 - App Store Connect の「App のプライバシー」で「トラッキングに使うか」は「いいえ」（2026-10-30、オーナーの判断）。AdMob の manifest はデバイス ID を tracking としているが、ATT を求めないので IDFA は渡らず、広告も `npa: true`。食い違いを審査で聞かれたらこの理由を返す。「はい」にするなら ATT が必須になる。答えの一覧は docs/private/launch/abilitile-privacy-draft.md §4。
 - 販売元は個人名（本名のローマ字）で出す（2026-10-30、オーナーの判断）。「T.OF...」で出すには法人と D-U-N-S 番号が要るため。売上が伸びたら法人を作り、Apple に個人から組織への切り替えを頼む（アプリは引き継げる）。アプリ名・著作権の欄・サポートのページは T.OF... にする。
+- 名前は ABILITILE のまま、アプリの ID は `io.github.tof.abilitile`（完全版の商品 ID は `io.github.tof.abilitile.full`）で確定（2026-10-30、オーナーの判断。商標と App Store の同名の手での確認はしない）。プライバシーポリシーに iOS 版の節を入れて公開した（下書きは docs/private/launch/abilitile-privacy-draft.md）。
