@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'talk-english',
+    name: 'talk-english',
+    title: '試作 中学英文法・英単語1000・会話フレーズ',
+    desc: '中学英文法を会話で使える順に、NGSL 頻出 1000 語を 50 語ずつ、場面別の会話フレーズと熟語・句動詞をカードで。英文は読み上げつき。',
+    category: 'tool',
+    tags: ['試作', '英語', '学習'],
+    icon: '/talk-english/icons/icon-192.png',
+    color: '#f7f5f0',
+  },
+  {
     id: 'merge-shogi',
     name: 'merge-shogi',
     title: '試作 マスがつながる将棋（2 人対戦）',

@@ -31,6 +31,7 @@ const EXCEPTIONS = {
   'Half-Cut': ['webapp-kit'],
   'gem-trade': ['sound'],
   'word-trie': ['sound'],
+  'talk-english': ['sound'],
   'coloro': ['sound'],
   'kyopro-steps': ['sound'],
   'wish-board': ['sound'],
