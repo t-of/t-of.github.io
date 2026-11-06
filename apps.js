@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'four-digits',
+    name: 'four-digits',
+    title: '試作 4つの数字で1〜100を作る数字パズル',
+    desc: '0000〜9999 の 4 つの数字を順番どおりに使い、四則・累乗・√・階乗などで 1〜100 を作る。使う記号が少ないほど星が増える。',
+    category: 'game',
+    tags: ['試作', 'パズル', '数字'],
+    icon: '/four-digits/icons/icon-192.png',
+    color: '#0d1017',
+  },
+  {
     id: 'talk-english',
     name: 'talk-english',
     title: '試作 中学英文法・英単語1000・会話フレーズ',
