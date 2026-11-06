@@ -27,6 +27,17 @@
 
 window.TOFO_APPS = [
   {
+    id: 'paytick',
+    name: 'PAYTICK',
+    title: '時給を1秒ごとに数える秒給メーター',
+    desc: '時給と働く時間を入れてスタートすると、いま稼いだ金額が1秒ごとに増えていく。秒給・分給・ゴールの金額もすぐ分かる。',
+    category: 'tool',
+    tags: ['お金', 'タイマー'],
+    icon: '/paytick/icons/icon-192.png',
+    color: '#000000',
+    approved: true,
+  },
+  {
     id: 'four-digits',
     name: 'OCCAM',
     title: '試作 4つの数字で1〜100を作る数字パズル',
