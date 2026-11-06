@@ -32,7 +32,6 @@ const EXCEPTIONS = {
   'gem-trade': ['sound'],
   'word-trie': ['sound'],
   'talk-english': ['sound'],
-  'four-digits': ['sound'],
   'coloro': ['sound'],
   'kyopro-steps': ['sound'],
   'wish-board': ['sound'],
