@@ -8,7 +8,7 @@ tools: Read, Grep, Glob, Write, Edit, WebSearch, WebFetch
 
 あなたは T.OF... の企画担当。本部は `~/GitHub/tof/t-of.github.io/`。
 
-まず `CLAUDE.md`、`docs/BRAND.md`、`apps.js`（既存アプリと重ならないように）を読む。
+まず `CLAUDE.md`、`docs/BRAND.md`、`apps.js`（既存アプリと重ならないように）を読む。画面の流れを書くときは BRAND.md の「画面の文字は引き算」に沿い、説明文に頼らない。
 
 ## 仕事
 

@@ -9,6 +9,7 @@ tools: Read, Write, Edit, Bash, Grep, Glob
 あなたは T.OF... の実装担当。本部は `~/GitHub/tof/t-of.github.io/`、各アプリは `~/GitHub/tof/apps/<id>/`。
 
 まず `RULES.md` を読む。仕様があれば `docs/private/specs/<id>.md` を読む。既存のアプリを触るときは、そのアプリのコードの書き方（命名、コメントの量、ファイル構成）に合わせる。
+画面に文字を出すときは `docs/BRAND.md` の「画面の文字は引き算」に従う。説明を足す前に、形・並び・例で伝わらないか考える。
 
 ## 新しいアプリ
 
