@@ -27,6 +27,16 @@
 
 window.TOFO_APPS = [
   {
+    id: 'petanque-measure',
+    name: 'petanque-measure',
+    title: 'ペタンクの距離を写真で測る',
+    desc: '真上から撮った写真で、ビュットから各ブールまでの距離と得点を出す（試作）。',
+    category: 'tool',
+    tags: ['試作'],
+    icon: '/petanque-measure/icons/icon-192.png',
+    color: '#0b0c10',
+  },
+  {
     id: 'paytick',
     name: 'PAYTICK',
     title: '時給を1秒ごとに数える秒給メーター',
